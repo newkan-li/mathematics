@@ -26,6 +26,23 @@
     Object.keys(all).forEach(function (id) { if (all[id].due <= now) out.push(id); });
     return out;
   }
+  function srsForget(id) { var all = srsAll(); delete all[id]; jset("srs", all); }
+  function srsLabel(id) {
+    var q = /^([a-z]+\d+)_s(\d+)_q(\d+)$/.exec(id);
+    if (q) {
+      var cq = (window.MANIFEST || []).filter(function (x) { return x.id === q[1]; })[0];
+      return {
+        text: (cq ? cq.title : q[1]) + " · 第 " + (parseInt(q[2], 10) + 1) + " 节 · 第 " + (parseInt(q[3], 10) + 1) + " 题",
+        href: "lesson.html?id=" + q[1] + "_s" + q[2]
+      };
+    }
+    var m = /^([a-z]+\d+)_s(\d+)$/.exec(id);
+    if (m) {
+      var ch = (window.MANIFEST || []).filter(function (x) { return x.id === m[1]; })[0];
+      return { text: (ch ? ch.title : m[1]) + " · 第 " + (parseInt(m[2], 10) + 1) + " 节", href: m[1] + ".html" };
+    }
+    return { text: id, href: null };
+  }
 
   /* ---------- 章节标记 ---------- */
   function marks() { return jget("marks", {}); }
@@ -40,7 +57,10 @@
         if (m[o[0]]) b.className = "on";
         b.onclick = function () {
           var all = marks(); var cur = all[key] || {}; cur[o[0]] = !cur[o[0]];
-          all[key] = cur; jset("marks", all); renderMarks();
+          all[key] = cur; jset("marks", all);
+          if (o[0] === "read") { if (cur.read) srsRate(key, 2); else srsForget(key); }
+          if (o[0] === "conf" && cur.conf) srsRate(key, 0);
+          renderMarks();
         };
         host.appendChild(b);
       });
@@ -132,14 +152,85 @@
   /* ---------- 错题本 / 复习 ---------- */
   function renderWrong() {
     var host = document.getElementById("whost"); if (!host) return;
-    host.innerHTML = '<p class="empty">做题后做错的题会自动出现在这里。</p>';
+    var q = jget("q660", {}), Q = window.Q660 || { sections: [] }, mk = marks();
+    var pages = [];
+    Object.keys(q).forEach(function (p) {
+      if (!q[p].no) return;
+      var pg = parseInt(p, 10), sec = "";
+      (Q.sections || []).forEach(function (S) { if (pg >= S.a && pg <= S.b) sec = S.name; });
+      pages.push({ pg: pg, text: "660 题 · " + (sec ? sec + " · " : "") + "第 " + pg + " 页" });
+    });
+    pages.sort(function (a, b) { return a.pg - b.pg; });
+    var secs = [];
+    Object.keys(mk).forEach(function (key) { if (mk[key].conf) secs.push({ key: key, lab: srsLabel(key) }); });
+    var qz = jget("quiz", {}), quiz = [];
+    Object.keys(qz).forEach(function (key) { if (qz[key].wrong) quiz.push(key); });
+    if (!pages.length && !secs.length && !quiz.length) {
+      host.innerHTML = '<p class="empty">还没有错题。在「660 题」中标记「✗ 做错」，或在章节里标记「❓ 不懂」，就会自动收集到这里。</p>';
+      return;
+    }
+    host.innerHTML = "";
+    if (pages.length) {
+      host.appendChild(el("h2", null, "660 题做错页（" + pages.length + "）"));
+      pages.forEach(function (o) {
+        var it = el("div", "fitem");
+        it.innerHTML = '<div class="fh">' + esc(o.text) + '</div><div><a href="q660.html#p=' + o.pg + '">打开原页 →</a></div>';
+        var bar = el("div", "mark"), b = document.createElement("button");
+        b.textContent = "✓ 已掌握，移除";
+        b.onclick = function () { var m = jget("q660", {}); if (m[o.pg]) m[o.pg].no = false; jset("q660", m); renderWrong(); };
+        bar.appendChild(b); it.appendChild(bar); host.appendChild(it);
+      });
+    }
+    if (secs.length) {
+      host.appendChild(el("h2", null, "章节不懂（" + secs.length + "）"));
+      secs.forEach(function (o) {
+        var it = el("div", "fitem");
+        it.innerHTML = '<div class="fh">' + esc(o.lab.text) + '</div>' +
+          (o.lab.href ? '<div><a href="' + o.lab.href + '">打开讲义 →</a></div>' : "");
+        var bar = el("div", "mark"), b = document.createElement("button");
+        b.textContent = "✓ 已弄懂，移除";
+        b.onclick = function () { var all = marks(); if (all[o.key]) all[o.key].conf = false; jset("marks", all); renderWrong(); };
+        bar.appendChild(b); it.appendChild(bar); host.appendChild(it);
+      });
+    }
+    if (quiz.length) {
+      host.appendChild(el("h2", null, "精讲测验错题（" + quiz.length + "）"));
+      quiz.forEach(function (key) {
+        var lab = srsLabel(key), it = el("div", "fitem");
+        it.innerHTML = '<div class="fh">' + esc(lab.text) + '</div>' +
+          (lab.href ? '<div><a href="' + lab.href + '">回到精讲 →</a></div>' : "");
+        var bar = el("div", "mark"), b = document.createElement("button");
+        b.textContent = "✓ 已弄懂，移除";
+        b.onclick = function () {
+          var all = jget("quiz", {}); if (all[key]) all[key].wrong = false;
+          jset("quiz", all); srsForget(key); renderWrong();
+        };
+        bar.appendChild(b); it.appendChild(bar); host.appendChild(it);
+      });
+    }
   }
   function renderReview() {
     var host = document.getElementById("reviewhost"); if (!host) return;
     var due = srsDue();
-    var el = document.getElementById("duecount"); if (el) el.textContent = due.length;
-    host.innerHTML = due.length ? '<p class="chip">待复习 ' + due.length + ' 项</p>' :
-      '<p class="empty">今天没有待复习的内容。去学习并标记「已读」后会自动安排复习。</p>';
+    var cnt = document.getElementById("duecount"); if (cnt) cnt.textContent = due.length;
+    if (!due.length) {
+      host.innerHTML = '<p class="empty">今天没有待复习的内容。去学习并标记「已读」后会自动安排复习。</p>';
+      return;
+    }
+    host.innerHTML = "";
+    due.forEach(function (id) {
+      var lab = srsLabel(id), it = el("div", "fitem");
+      it.innerHTML = '<div class="fh">' + esc(lab.text) + '</div>' +
+        (lab.href ? '<div><a href="' + lab.href + '">打开讲义 →</a></div>' : "");
+      var bar = el("div", "mark");
+      [["不会", 0], ["模糊", 1], ["会", 2]].forEach(function (o) {
+        var b = document.createElement("button");
+        b.textContent = o[0];
+        b.onclick = function () { srsRate(id, o[1]); renderReview(); };
+        bar.appendChild(b);
+      });
+      it.appendChild(bar); host.appendChild(it);
+    });
   }
 
 
@@ -151,6 +242,11 @@
     var info = document.getElementById("q660info");
     var marks = jget("q660", {});
     var sec = 0, page = Q.sections[0] ? Q.sections[0].a : 9;
+    var hm = /p=(\d+)/.exec(location.hash || "");
+    if (hm) {
+      var p0 = parseInt(hm[1], 10);
+      Q.sections.forEach(function (S, i) { if (p0 >= S.a && p0 <= S.b) { sec = i; page = p0; } });
+    }
     function clampSec() { var S = Q.sections[sec]; if (page < S.a) page = S.a; if (page > S.b) page = S.b; }
     function drawTabs() {
       tabs.innerHTML = "";
@@ -163,6 +259,7 @@
     }
     function draw() {
       clampSec();
+      try { history.replaceState(null, "", "#p=" + page); } catch (e) { }
       drawTabs();
       var S = Q.sections[sec];
       host.innerHTML = '<figure><img src="' + Q.img + '/p-' + String(page).padStart(3, "0") + '.jpg" alt="p' + page + '"><figcaption>' + S.name + ' · 第 ' + page + ' 页</figcaption></figure>';
@@ -191,6 +288,8 @@
     if (jump) jump.onkeydown = function (e) { if (e.key === "Enter" && go) go.click(); };
     draw();
   }
+
+  window.MathApp = { srsRate: srsRate, srsForget: srsForget, srsDue: srsDue, srsLabel: srsLabel, jget: jget, jset: jset, esc: esc, el: el, marks: marks };
 
   window.addEventListener("DOMContentLoaded", function () {
     var page = document.body.dataset.page;
