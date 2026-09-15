@@ -5,6 +5,20 @@
   function inline(s) {
     return s.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
   }
+  function parseChoice(p) {
+    var m = p.a && /^\(([A-D])\)$/.exec(String(p.a).trim());
+    if (!m || !p.q) return null;
+    var q = p.q, idx = [], i;
+    for (i = 0; i < 4; i++) idx.push(q.indexOf("(" + "ABCD"[i] + ")"));
+    for (i = 0; i < 4; i++) if (idx[i] < 0) return null;
+    for (i = 1; i < 4; i++) if (idx[i] < idx[i - 1]) return null;
+    var stem = q.slice(0, idx[0]).trim(), opts = [];
+    for (i = 0; i < 4; i++) {
+      var end = i < 3 ? idx[i + 1] : q.length;
+      opts.push(q.slice(idx[i] + 3, end).replace(/^[、:：\s]+/, "").replace(/[\s　]+$/, ""));
+    }
+    return { stem: stem, options: opts, answer: m[1].charCodeAt(0) - 65 };
+  }
   function renderMarkdown(md) {
     var lines = String(md).replace(/\r/g, "").split("\n");
     var html = [], para = [], list = null, listType = "ul", listStart = 1, quote = [], math = null, ex = null;
@@ -120,16 +134,25 @@
     }
     if (L.problems) {
       html += '<h3 class="lh">练习题精选（含详细解答）</h3>';
-      html += '<p class="sub">共 ' + L.problems.length + " 题，点开每题「详细解答」查看过程。</p>";
+      html += '<p class="sub">选择题直接点选项判分；解答/证明题点「显示答案与解答」后自评对错，均计入统计。</p>';
+      html += '<div class="navrow"><span class="chip" data-probstat></span><button class="navbtn" data-probreset>重做本节练习</button></div>';
       L.problems.forEach(function (p) {
+        var c = parseChoice(p);
         html += '<div class="prob" id="' + L.id + "-p" + p.n + '">' +
-          '<div class="prob-q"><span class="pn">' + p.n + ".</span> " + A.esc(p.q) + "</div>" +
-          (p.sol || p.a
-            ? '<details class="sol"><summary>详细解答</summary><div class="ansbox">' +
-              (p.a ? '<p class="prob-a">答案：' + A.esc(p.a) + "</p>" : "") +
-              (p.sol ? renderMarkdown(p.sol) : "") + "</div></details>"
-            : "") +
-          "</div>";
+          '<div class="prob-q"><span class="pn">' + p.n + ".</span> " + A.esc(c ? c.stem : p.q) + "</div>";
+        if (c) {
+          html += '<div class="qopts">';
+          c.options.forEach(function (o, j) {
+            html += '<button class="qopt" data-opt="' + j + '">' + A.esc(o) + "</button>";
+          });
+          html += "</div>";
+        } else {
+          html += '<div class="navrow"><button class="navbtn" data-show>显示答案与解答</button></div>';
+        }
+        html += '<div data-sol hidden><div class="ansbox">' +
+          (p.a ? '<p class="prob-a">答案：' + A.esc(p.a) + "</p>" : "") +
+          (p.sol ? renderMarkdown(p.sol) : "") + "</div></div>";
+        html += "</div>";
       });
     }
     if (L.img && L.pages) {
@@ -192,6 +215,70 @@
     draw();
   }
 
+  function initProblems(root, L) {
+    if (!L.problems || !root) return;
+    var store = A.jget("prob", {});
+    function keyOf(n) { return L.id + ":" + n; }
+    function stats() {
+      var ans = 0, ok = 0;
+      L.problems.forEach(function (p) { var st = store[keyOf(p.n)]; if (st) { ans++; if (st.ok) ok++; } });
+      var el = root.querySelector("[data-probstat]");
+      if (el) el.textContent = "已答 " + ans + "/" + L.problems.length + " · 正确 " + ok;
+    }
+    L.problems.forEach(function (p) {
+      var box = root.querySelector("#" + L.id + "-p" + p.n);
+      if (!box) return;
+      var key = keyOf(p.n), st = store[key];
+      var solBox = box.querySelector("[data-sol]");
+      function reveal() { if (solBox) { solBox.hidden = false; typeset([solBox]); } }
+      var c = parseChoice(p);
+      if (c) {
+        var btns = box.querySelectorAll("[data-opt]");
+        function paint() {
+          Array.prototype.forEach.call(btns, function (b) {
+            var j = parseInt(b.getAttribute("data-opt"), 10);
+            b.classList.add("locked");
+            if (j === c.answer) b.classList.add("right");
+            if (st && st.pick === j && j !== c.answer) b.classList.add("wrong");
+          });
+        }
+        Array.prototype.forEach.call(btns, function (b) {
+          b.onclick = function () {
+            if (store[key]) return;
+            var j = parseInt(b.getAttribute("data-opt"), 10);
+            store[key] = { pick: j, ok: (j === c.answer) };
+            A.jset("prob", store); st = store[key];
+            paint(); reveal(); stats();
+          };
+        });
+        if (st) { paint(); reveal(); }
+      } else {
+        var showBtn = box.querySelector("[data-show]");
+        var wrap = A.el("div", "navrow");
+        var okB = document.createElement("button"); okB.className = "navbtn"; okB.textContent = "✓ 我做对了";
+        var noB = document.createElement("button"); noB.className = "navbtn"; noB.textContent = "✗ 我做错了";
+        function paintGrade() {
+          if (!st) return;
+          okB.disabled = noB.disabled = true;
+          okB.style.borderColor = st.ok ? "var(--ok)" : "var(--line)";
+          noB.style.borderColor = !st.ok ? "var(--no)" : "var(--line)";
+        }
+        okB.onclick = function () { if (store[key]) return; store[key] = { ok: true }; A.jset("prob", store); st = store[key]; reveal(); paintGrade(); stats(); };
+        noB.onclick = function () { if (store[key]) return; store[key] = { ok: false }; A.jset("prob", store); st = store[key]; reveal(); paintGrade(); stats(); };
+        wrap.appendChild(okB); wrap.appendChild(noB); box.appendChild(wrap);
+        if (showBtn) showBtn.onclick = function () { reveal(); showBtn.disabled = true; showBtn.textContent = "已显示答案与解答"; };
+        if (st) { reveal(); paintGrade(); }
+      }
+    });
+    var reset = root.querySelector("[data-probreset]");
+    if (reset) reset.onclick = function () {
+      L.problems.forEach(function (p) { delete store[keyOf(p.n)]; });
+      A.jset("prob", store);
+      location.reload();
+    };
+    stats();
+  }
+
   /* ---------- 章节整页模式（gs01.html 等） ---------- */
   var chapterHost = document.getElementById("chapter");
   if (chapterHost) {
@@ -215,6 +302,7 @@
       makeQuiz(L, chapterHost.querySelector('[data-quiz="' + k + '"]'),
         chapterHost.querySelector('[data-score="' + k + '"]'),
         chapterHost.querySelector('[data-reset="' + k + '"]'));
+      initProblems(chapterHost, L);
     });
 
     var nav = document.getElementById("lnav");
@@ -273,4 +361,5 @@
   host.innerHTML = lessonHtml(L);
   typeset([host]);
   makeQuiz(L, document.getElementById("quiz"), document.getElementById("quizscore"), document.getElementById("quizreset"));
+  initProblems(host, L);
 })();

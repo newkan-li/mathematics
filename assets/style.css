@@ -93,6 +93,9 @@ body[data-page="chapter"] .wrap{max-width:1200px}
 .prob-a{font-size:13px;color:var(--ok);margin:2px 0 4px}
 .prob details.sol summary{cursor:pointer;color:var(--acc);font-size:13px;font-weight:600}
 .prob .ansbox{margin-top:6px}
+[data-sol][hidden]{display:none}
+.prob .qopts{margin:6px 0}
+.prob .qopt{font-size:13.5px;padding:6px 11px}
 .qitem{border:1px solid var(--line);border-radius:10px;padding:10px 14px;margin:12px 0;background:var(--card)}
 .qq{margin-bottom:8px;font-weight:600}
 .qopts{display:flex;flex-direction:column;gap:6px}
