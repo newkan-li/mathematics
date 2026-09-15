@@ -139,7 +139,17 @@ $$\int f(\varphi(x))\varphi'(x)dx=\int f(\varphi(x))d\varphi(x)=F(\varphi(x))+C.
 
 【解1】由 $F(x)f(x)=\dfrac12[F^2(x)]'=\dfrac{xe^x}{2(1+x)^2}$ 得 $F^2(x)=\displaystyle\int\dfrac{xe^x}{(1+x)^2}dx=\int\dfrac{(x+1)-1}{(1+x)^2}e^xdx=\int\dfrac{e^x}{1+x}dx-\int\dfrac{e^x}{(1+x)^2}dx=\dfrac{e^x}{1+x}+C$。由 $F(0)=1$ 得 $C=0$，故 $F(x)=\sqrt{\dfrac{e^x}{1+x}}$，$f(x)=F'(x)=\dfrac{xe^x}{2(1+x)^2}\sqrt{\dfrac{1+x}{e^x}}$。
 
-【解2】$F^2(x)=\displaystyle\int\dfrac{xe^x}{(1+x)^2}dx=-\int(xe^x)d\dfrac{1}{1+x}=-\dfrac{xe^x}{1+x}+\int e^xdx=\dfrac{e^x}{1+x}+C$。` }
+【解2】$F^2(x)=\displaystyle\int\dfrac{xe^x}{(1+x)^2}dx=-\int(xe^x)d\dfrac{1}{1+x}=-\dfrac{xe^x}{1+x}+\int e^xdx=\dfrac{e^x}{1+x}+C$。
+
+【例4】设 $f'(e^x)=\sin x$，求 $f(x)$。
+
+【解1】令 $e^x=t$，则 $f'(t)=\sin\ln t$，$f(t)=\displaystyle\int\sin\ln t\,dt=t\sin\ln t-\int t\cos\ln t\cdot\dfrac1t dt=t\sin\ln t-t\cos\ln t-\int\sin\ln t\,dt$，故 $f(t)=\dfrac t2[\sin\ln t-\cos\ln t]+C$，即 $f(x)=\dfrac x2[\sin\ln x-\cos\ln x]+C$。
+
+【解2】$f'(e^x)=\sin x$ 两端对 $e^x$ 积分得 $f(e^x)=\displaystyle\int\sin x\,de^x=e^x\sin x-e^x\cos x-\int\sin x\,de^x$，则 $f(e^x)=\dfrac{e^x}{2}[\sin x-\cos x]+C$，故 $f(x)=\dfrac x2[\sin\ln x-\cos\ln x]+C$。
+
+【例5】求不定积分 $\displaystyle\int e^{-|x|}dx$。
+
+【解】$\displaystyle\int e^{-|x|}dx=\begin{cases}-e^{-x}+C_1,&x\geqslant0\\e^x+C_2,&x<0\end{cases}$。$e^{-|x|}$ 连续，原函数必连续，由 $F(0^+)=F(0^-)$ 得 $-1+C_1=1+C_2$，令 $C_1=C$，则 $C_2=-2+C$，故 $\displaystyle\int e^{-|x|}dx=\begin{cases}-e^{-x}+C,&x\geqslant0\\e^x-2+C,&x<0\end{cases}$。` }
     ],
     quiz: [
       { q: R`若 $f(x)$ 在区间 $I$ 上连续，则 $f(x)$ 在 $I$ 上`, options: [R`必有原函数`, R`没有原函数`, R`原函数一定不连续`, R`原函数唯一`], answer: 0, explain: R`连续函数必有原函数（变上限积分）。` },
