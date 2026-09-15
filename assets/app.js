@@ -4,6 +4,7 @@
   function jget(n, d) { try { return JSON.parse(localStorage.getItem(k(n))) || d; } catch (e) { return d; } }
   function jset(n, v) { try { localStorage.setItem(k(n), JSON.stringify(v)); } catch (e) { } }
   function esc(s) { return String(s == null ? "" : s).replace(/[&<>"]/g, function (m) { return ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[m]; }); }
+  function el(tag, cls, html) { var e = document.createElement(tag); if (cls) e.className = cls; if (html != null) e.innerHTML = html; return e; }
 
   /* ---------- SRS ---------- */
   function srsAll() { return jget("srs", {}); }
@@ -141,6 +142,56 @@
       '<p class="empty">今天没有待复习的内容。去学习并标记「已读」后会自动安排复习。</p>';
   }
 
+
+  /* ---------- 660 题 ---------- */
+  function renderQ660() {
+    var host = document.getElementById("q660view"); if (!host) return;
+    var Q = window.Q660 || { sections: [] };
+    var tabs = document.getElementById("q660tabs");
+    var info = document.getElementById("q660info");
+    var marks = jget("q660", {});
+    var sec = 0, page = Q.sections[0] ? Q.sections[0].a : 9;
+    function clampSec() { var S = Q.sections[sec]; if (page < S.a) page = S.a; if (page > S.b) page = S.b; }
+    function drawTabs() {
+      tabs.innerHTML = "";
+      Q.sections.forEach(function (S, i) {
+        var b = el("button", "navbtn", S.name);
+        if (i === sec) b.style.borderColor = "var(--acc)";
+        b.onclick = function () { sec = i; page = S.a; clampSec(); draw(); };
+        tabs.appendChild(b);
+      });
+    }
+    function draw() {
+      clampSec();
+      drawTabs();
+      var S = Q.sections[sec];
+      host.innerHTML = '<figure><img src="' + Q.img + '/p-' + String(page).padStart(3, "0") + '.jpg" alt="p' + page + '"><figcaption>' + S.name + ' · 第 ' + page + ' 页</figcaption></figure>';
+      var mk = document.getElementById("q660mark");
+      var st = marks[page] || {};
+      mk.innerHTML = "";
+      [["ok", "✓ 做对", "on"], ["no", "✗ 做错", "conf"]].forEach(function (o) {
+        var b = document.createElement("button");
+        b.textContent = o[1];
+        if (st[o[0]]) b.className = "on";
+        b.onclick = function () {
+          var m = jget("q660", {}); var c = m[page] || {}; c[o[0]] = !c[o[0]];
+          m[page] = c; jset("q660", m); marks = m; draw();
+        };
+        mk.appendChild(b);
+      });
+      var nOk = 0, nNo = 0;
+      Object.keys(marks).forEach(function (k) { if (marks[k].ok) nOk++; if (marks[k].no) nNo++; });
+      if (info) info.textContent = "已做对 " + nOk + " 页 · 做错 " + nNo + " 页";
+    }
+    var prev = document.getElementById("q660prev"), next = document.getElementById("q660next"),
+      jump = document.getElementById("q660jump"), go = document.getElementById("q660go");
+    if (prev) prev.onclick = function () { page--; draw(); };
+    if (next) next.onclick = function () { page++; draw(); };
+    if (go) go.onclick = function () { var v = parseInt(jump.value, 10); if (v) { page = v; draw(); } };
+    if (jump) jump.onkeydown = function (e) { if (e.key === "Enter" && go) go.click(); };
+    draw();
+  }
+
   window.addEventListener("DOMContentLoaded", function () {
     var page = document.body.dataset.page;
     if (page === "index") renderDash();
@@ -150,5 +201,6 @@
     else if (page === "flashcards") renderFlashcards();
     else if (page === "wrong") renderWrong();
     else if (page === "review") renderReview();
+    else if (page === "q660") renderQ660();
   });
 })();
