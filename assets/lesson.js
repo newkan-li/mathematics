@@ -7,13 +7,42 @@
   }
   function renderMarkdown(md) {
     var lines = String(md).replace(/\r/g, "").split("\n");
-    var html = [], para = [], list = null, listType = "ul", quote = [], math = null;
-    function fp() { if (para.length) { html.push("<p>" + inline(A.esc(para.join(" "))) + "</p>"); para = []; } }
+    var html = [], para = [], list = null, listType = "ul", listStart = 1, quote = [], math = null, ex = null;
+    function ih(text) { return inline(A.esc(text)); }
+    function closeEx() {
+      if (!ex) return;
+      if (ex.a) html.push("</div>");
+      if (ex.q) html.push("</div>");
+      html.push("</div>"); ex = null;
+    }
+    function fp() {
+      if (!para.length) return;
+      var text = para.join(" "); para = [];
+      if (/^【例/.test(text)) {
+        closeEx();
+        html.push('<div class="ex"><div class="ex-q">' + ih(text));
+        ex = { q: true, a: false };
+        return;
+      }
+      if (/^【解|^【证|^【分析/.test(text)) {
+        if (!ex) { html.push('<div class="ex">'); ex = { q: false, a: false }; }
+        if (ex.q) { html.push("</div>"); ex.q = false; }
+        if (ex.a) html.push('<hr class="exhr">');
+        else { html.push('<div class="ex-a">'); ex.a = true; }
+        html.push('<p class="solp">' + ih(text) + "</p>");
+        return;
+      }
+      html.push("<p>" + ih(text) + "</p>");
+    }
     function fl() {
-      if (list) { html.push("<" + listType + ">" + list.map(function (x) { return "<li>" + inline(A.esc(x)) + "</li>"; }).join("") + "</" + listType + ">"); list = null; }
+      if (!list) return;
+      var open = "<" + listType + (listType === "ol" ? ' start="' + listStart + '"' : "") + ">";
+      html.push(open + list.map(function (x) { return "<li>" + ih(x) + "</li>"; }).join("") + "</" + listType + ">");
+      list = null;
     }
     function fq() {
-      if (quote.length) { html.push('<div class="notes">' + quote.map(function (x) { return inline(A.esc(x)); }).join("<br>") + "</div>"); quote = []; }
+      if (!quote.length) return;
+      html.push('<div class="notes">' + quote.map(ih).join("<br>") + "</div>"); quote = [];
     }
     function fa() { fp(); fl(); fq(); }
     for (var i = 0; i < lines.length; i++) {
@@ -41,25 +70,31 @@
       }
       var h = /^(#{1,4})\s+(.*)$/.exec(t);
       if (h) {
-        fa();
+        fa(); closeEx();
         var lv = h[1].length, tag = lv <= 2 ? "h3" : (lv === 3 ? "h4" : "h5");
         var cls = lv <= 2 ? "lh" : (lv === 3 ? "lh2" : "lh3");
-        html.push("<" + tag + ' class="' + cls + '">' + inline(A.esc(h[2])) + "</" + tag + ">");
+        html.push("<" + tag + ' class="' + cls + '">' + ih(h[2]) + "</" + tag + ">");
         continue;
       }
       if (/^【注】/.test(t)) { fa(); quote.push(t); continue; }
       if (/^>\s?/.test(t)) { fp(); fl(); quote.push(t.replace(/^>\s?/, "")); continue; }
-      var li = /^(\d+\)|[0-9]+\.|[-•])\s+(.*)$/.exec(t);
-      if (li) {
+      var ol = /^(\d+)[.)]\s+(.*)$/.exec(t);
+      if (ol) {
         fp(); fq();
-        var ty = /^[-•]$/.test(li[1]) ? "ul" : "ol";
-        if (!list) { list = []; listType = ty; }
-        list.push(li[2]);
+        if (!list) { list = []; listType = "ol"; listStart = parseInt(ol[1], 10); }
+        list.push(ol[2]);
+        continue;
+      }
+      var ul = /^[-•]\s+(.*)$/.exec(t);
+      if (ul) {
+        fp(); fq();
+        if (!list) { list = []; listType = "ul"; }
+        list.push(ul[1]);
         continue;
       }
       fl(); fq(); para.push(t);
     }
-    fa();
+    fa(); closeEx();
     if (math !== null) html.push('<div class="fml">$$' + A.esc(math.join("\n")) + "$$</div>");
     return html.join("\n");
   }
