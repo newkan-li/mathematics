@@ -11,6 +11,22 @@
   var meta = document.getElementById("lmeta");
   if (meta) meta.innerHTML = A.esc(L.book) + " ｜ 讲义第 " + L.pages[0] + "–" + L.pages[1] + " 页 ｜ <a href=\"index.html\">← 返回首页</a>";
 
+  var nav = document.getElementById("lnav");
+  if (nav) {
+    var prefix = L.id.split("_s")[0];
+    var ids = Object.keys(window.LESSONS).filter(function (k) { return k.indexOf(prefix + "_s") === 0; });
+    ids.sort(function (a, b) { return (a.split("_s")[1] | 0) - (b.split("_s")[1] | 0); });
+    nav.innerHTML = "";
+    ids.forEach(function (k) {
+      var a = document.createElement("a");
+      a.className = "navbtn";
+      a.href = "lesson.html?id=" + k;
+      a.textContent = window.LESSONS[k].title;
+      if (k === L.id) a.style.borderColor = "var(--acc)";
+      nav.appendChild(a);
+    });
+  }
+
   function typeset(nodes) { if (window.MathJax && MathJax.typesetPromise) MathJax.typesetPromise(nodes); }
 
   var html = "";

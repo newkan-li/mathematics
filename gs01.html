@@ -32,6 +32,7 @@ window.MathJax = { tex: {inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['
 <div class="mark" data-ch="gs01" data-sec="0"></div>
 </section>
 <section class="sec"><h2>第二节 极限</h2>
+<div class="navrow"><a class="navbtn" href="lesson.html?id=gs01_s1">📘 进入图文精讲 + 自测（不依赖原书图片）</a></div>
 <div class="points"><div class="pt-h">📌 本页要点</div><ul><li>极限存在充要条件：左右极限存在且相等</li><li>无穷小与极限关系：lim f=A ⇔ f=A+α，α为无穷小</li><li>等价无穷小替换仅适用于乘除，加减慎用</li><li>夹逼准则与单调有界准则求极限</li></ul></div>
 <div class="fbox"><div class="pt-h">📐 核心公式</div><div class="fml">$$\lim_{x\to0}\frac{\sin x}{x}=1$$</div><div class="fml">$$\lim_{x\to0}(1+x)^{\frac1x}=e$$</div><div class="fml">$$\lim_{x\to0}\frac{1-\cos x}{x^2}=\frac12$$</div><div class="fml">$$\lim_{x\to0}\frac{\ln(1+x)}{x}=1$$</div><div class="fml">$$\lim_{x\to0}\frac{e^x-1}{x}=1$$</div></div>
 <div class="ex"><div class="ex-q">例：求极限 \lim_{x\to0}\frac{\tan x-\sin x}{x^3}</div><details class="sol"><summary>解答</summary><div class="ansbox">原式=\lim_{x\to0}\frac{\sin x(1-\cos x)}{x^3\cos x}=\lim_{x\to0}\frac{\sin x}{x}\cdot\frac{1-\cos x}{x^2}\cdot\frac1{\cos x}=1\cdot\frac12\cdot1=\frac12。</div></details></div>
@@ -67,6 +68,7 @@ window.MathJax = { tex: {inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['
 <div class="mark" data-ch="gs01" data-sec="1"></div>
 </section>
 <section class="sec"><h2>第三节 连续</h2>
+<div class="navrow"><a class="navbtn" href="lesson.html?id=gs01_s2">📘 进入图文精讲 + 自测（不依赖原书图片）</a></div>
 <div class="points"><div class="pt-h">📌 本页要点</div><ul><li>连续定义：极限值等于函数值，三要素缺一不可</li><li>间断点分两类：第一类左右极限存在，第二类至少一侧不存在</li><li>闭区间连续函数必有界、最值、介值、零点定理</li><li>分段函数连续性需分界点单独讨论左右极限</li></ul></div>
 <div class="fbox"><div class="pt-h">📐 核心公式</div><div class="fml">$$\lim_{x\to x_0}f(x)=f(x_0)$$</div><div class="fml">$$\lim_{x\to x_0^-}f(x)=\lim_{x\to x_0^+}f(x)=f(x_0)$$</div><div class="fml">$$f(x)\in C[a,b]\Rightarrow \exists \xi\in[a,b], f(\xi)=\mu, \mu\in[m,M]$$</div><div class="fml">$$f(a)f(b)<0\Rightarrow \exists \xi\in(a,b), f(\xi)=0$$</div></div>
 <div class="ex"><div class="ex-q">例：设 $f(x)=\begin{cases}\dfrac{e^x-1}{x},&x\ne0\\a,&x=0\end{cases}$ 在 $x=0$ 处连续，求 $a$。</div><details class="sol"><summary>解答</summary><div class="ansbox">连续性要求 $\lim_{x\to0}f(x)=f(0)=a$。计算 $\lim_{x\to0}\dfrac{e^x-1}{x}=1$，故 $a=1$。</div></details></div>
