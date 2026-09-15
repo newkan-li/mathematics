@@ -96,6 +96,13 @@ body[data-page="chapter"] .wrap{max-width:1200px}
 [data-sol][hidden]{display:none}
 .prob .qopts{margin:6px 0}
 .prob .qopt{font-size:13.5px;padding:6px 11px}
+.wq{margin:6px 0;font-size:14px}
+.wopts{margin:6px 0 4px;display:flex;flex-direction:column;gap:4px}
+.wopt{border:1px solid var(--line);border-radius:8px;padding:5px 10px;font-size:13.5px;background:var(--bg)}
+.wopt.wok{border-color:var(--ok);background:rgba(31,157,85,.12);color:var(--ok)}
+.wopt.wbad{border-color:var(--no);background:rgba(214,69,69,.12);color:var(--no)}
+.wa{color:var(--ok);font-size:13.5px;margin:4px 0}
+.wexp{color:var(--sub);font-size:13px;margin:4px 0}
 .qitem{border:1px solid var(--line);border-radius:10px;padding:10px 14px;margin:12px 0;background:var(--card)}
 .qq{margin-bottom:8px;font-weight:600}
 .qopts{display:flex;flex-direction:column;gap:6px}

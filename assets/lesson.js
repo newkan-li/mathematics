@@ -203,6 +203,7 @@
       var q = L.quiz[i], key = keyOf(i), all = A.jget("quiz", {});
       var st = all[key] || {}; if (st.pick != null) return;
       st.pick = j; st.ok = (j === q.answer); st.wrong = !st.ok;
+      st.q = q.q; st.options = q.options; st.answer = q.answer; st.explain = q.explain;
       all[key] = st; A.jset("quiz", all); store = all;
       if (st.ok) A.srsRate(key, 2); else A.srsRate(key, 0);
       draw();
@@ -246,7 +247,7 @@
           b.onclick = function () {
             if (store[key]) return;
             var j = parseInt(b.getAttribute("data-opt"), 10);
-            store[key] = { pick: j, ok: (j === c.answer) };
+            store[key] = { pick: j, ok: (j === c.answer), q: c.stem, options: c.options, answer: c.answer };
             A.jset("prob", store); st = store[key];
             paint(); reveal(); stats();
           };
@@ -263,8 +264,8 @@
           okB.style.borderColor = st.ok ? "var(--ok)" : "var(--line)";
           noB.style.borderColor = !st.ok ? "var(--no)" : "var(--line)";
         }
-        okB.onclick = function () { if (store[key]) return; store[key] = { ok: true }; A.jset("prob", store); st = store[key]; reveal(); paintGrade(); stats(); };
-        noB.onclick = function () { if (store[key]) return; store[key] = { ok: false }; A.jset("prob", store); st = store[key]; reveal(); paintGrade(); stats(); };
+        okB.onclick = function () { if (store[key]) return; store[key] = { ok: true, q: p.q, a: p.a, sol: p.sol }; A.jset("prob", store); st = store[key]; reveal(); paintGrade(); stats(); };
+        noB.onclick = function () { if (store[key]) return; store[key] = { ok: false, q: p.q, a: p.a, sol: p.sol }; A.jset("prob", store); st = store[key]; reveal(); paintGrade(); stats(); };
         wrap.appendChild(okB); wrap.appendChild(noB); box.appendChild(wrap);
         if (showBtn) showBtn.onclick = function () { reveal(); showBtn.disabled = true; showBtn.textContent = "已显示答案与解答"; };
         if (st) { reveal(); paintGrade(); }

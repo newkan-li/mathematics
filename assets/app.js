@@ -33,7 +33,7 @@
       var cq = (window.MANIFEST || []).filter(function (x) { return x.id === q[1]; })[0];
       return {
         text: (cq ? cq.title : q[1]) + " · 第 " + (parseInt(q[2], 10) + 1) + " 节 · 第 " + (parseInt(q[3], 10) + 1) + " 题",
-        href: "lesson.html?id=" + q[1] + "_s" + q[2]
+        href: q[1] + ".html#" + q[1] + "_s" + q[2]
       };
     }
     var m = /^([a-z]+\d+)_s(\d+)$/.exec(id);
@@ -51,6 +51,39 @@
       text: (ch ? ch.title : m[1]) + " · 第 " + (parseInt(m[2], 10) + 1) + " 节 · 练习第 " + m[3] + " 题",
       href: m[1] + ".html#" + m[1] + "_s" + m[2] + "-p" + m[3]
     };
+  }
+  function lookupRec(key) {
+    var q = /^([a-z]+\d+)_s(\d+)_q(\d+)$/.exec(key);
+    if (q) {
+      var Lq = (window.LESSONS || {})[q[1] + "_s" + q[2]];
+      var item = Lq && Lq.quiz && Lq.quiz[parseInt(q[3], 10)];
+      if (item) return { q: item.q, options: item.options, answer: item.answer, explain: item.explain };
+    }
+    var p = /^([a-z]+\d+)_s(\d+):(\d+)$/.exec(key);
+    if (p) {
+      var Lp = (window.LESSONS || {})[p[1] + "_s" + p[2]];
+      var pr = Lp && Lp.problems && Lp.problems.filter(function (x) { return x.n === parseInt(p[3], 10); })[0];
+      if (pr) return { q: pr.q, a: pr.a, sol: pr.sol };
+    }
+    return null;
+  }
+  function wrongBody(rec, key) {
+    var info = (rec && rec.q) ? rec : lookupRec(key);
+    if (!info || !info.q) return "";
+    var h = '<div class="wq">' + esc(info.q) + "</div>";
+    if (info.options) {
+      h += '<div class="wopts">' + info.options.map(function (o, i) {
+        var cls = (i === info.answer) ? "wok" : ((rec && rec.pick === i) ? "wbad" : "");
+        return '<div class="wopt ' + cls + '">' + String.fromCharCode(65 + i) + ". " + esc(o) + "</div>";
+      }).join("") + "</div>";
+    } else if (info.a) {
+      h += '<div class="wa">答案：' + esc(info.a) + "</div>";
+    } else if (typeof info.answer === "number") {
+      h += '<div class="wa">正确答案：' + String.fromCharCode(65 + info.answer) + "</div>";
+    }
+    if (info.explain) h += '<div class="wexp">' + esc(info.explain) + "</div>";
+    if (info.sol) h += '<details class="sol"><summary>详细解答</summary><div class="ansbox">' + esc(info.sol) + "</div></details>";
+    return h;
   }
 
   /* ---------- 章节标记 ---------- */
@@ -208,7 +241,7 @@
       host.appendChild(el("h2", null, "精讲测验错题（" + quiz.length + "）"));
       quiz.forEach(function (key) {
         var lab = srsLabel(key), it = el("div", "fitem");
-        it.innerHTML = '<div class="fh">' + esc(lab.text) + '</div>' +
+        it.innerHTML = '<div class="fh">' + esc(lab.text) + '</div>' + wrongBody(qz[key], key) +
           (lab.href ? '<div><a href="' + lab.href + '">回到精讲 →</a></div>' : "");
         var bar = el("div", "mark"), b = document.createElement("button");
         b.textContent = "✓ 已弄懂，移除";
@@ -223,7 +256,7 @@
       host.appendChild(el("h2", null, "练习题错题（" + probs.length + "）"));
       probs.forEach(function (key) {
         var lab = probLabel(key), it = el("div", "fitem");
-        it.innerHTML = '<div class="fh">' + esc(lab.text) + '</div>' +
+        it.innerHTML = '<div class="fh">' + esc(lab.text) + '</div>' + wrongBody(pr[key], key) +
           (lab.href ? '<div><a href="' + lab.href + '">回到练习题 →</a></div>' : "");
         var bar = el("div", "mark"), b = document.createElement("button");
         b.textContent = "✓ 已弄懂，移除";
@@ -231,6 +264,7 @@
         bar.appendChild(b); it.appendChild(bar); host.appendChild(it);
       });
     }
+    if (window.MathJax && MathJax.typesetPromise) MathJax.typesetPromise([host]);
   }
   function renderReview() {
     var host = document.getElementById("reviewhost"); if (!host) return;
