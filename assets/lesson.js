@@ -1,5 +1,69 @@
 (function () {
   var A = window.MathApp || {};
+
+  /* ---------- 轻量 Markdown 渲染（保留 $..$ / $$..$$ 数学，正文做 HTML 转义） ---------- */
+  function inline(s) {
+    return s.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
+  }
+  function renderMarkdown(md) {
+    var lines = String(md).replace(/\r/g, "").split("\n");
+    var html = [], para = [], list = null, listType = "ul", quote = [], math = null;
+    function fp() { if (para.length) { html.push("<p>" + inline(A.esc(para.join(" "))) + "</p>"); para = []; } }
+    function fl() {
+      if (list) { html.push("<" + listType + ">" + list.map(function (x) { return "<li>" + inline(A.esc(x)) + "</li>"; }).join("") + "</" + listType + ">"); list = null; }
+    }
+    function fq() {
+      if (quote.length) { html.push('<div class="notes">' + quote.map(function (x) { return inline(A.esc(x)); }).join("<br>") + "</div>"); quote = []; }
+    }
+    function fa() { fp(); fl(); fq(); }
+    for (var i = 0; i < lines.length; i++) {
+      var t = lines[i].trim();
+      if (math !== null) {
+        var ci = t.indexOf("$$");
+        if (ci >= 0) {
+          math.push(t.slice(0, ci));
+          html.push('<div class="fml">$$' + A.esc(math.join("\n")) + "$$</div>");
+          math = null;
+          var rest = t.slice(ci + 2).trim();
+          if (rest) para.push(rest);
+        } else math.push(t);
+        continue;
+      }
+      if (t === "" || /^-{3,}$/.test(t) || /^[·•*]\s*\d+\s*[·•*]?$/.test(t)) { fa(); continue; }
+      if (/^\$\$/.test(t)) {
+        fa();
+        var r0 = t.slice(2), c0 = r0.indexOf("$$");
+        if (c0 >= 0) {
+          html.push('<div class="fml">$$' + A.esc(r0.slice(0, c0)) + "$$</div>");
+          var after = r0.slice(c0 + 2).trim(); if (after) para.push(after);
+        } else math = [r0];
+        continue;
+      }
+      var h = /^(#{1,4})\s+(.*)$/.exec(t);
+      if (h) {
+        fa();
+        var lv = h[1].length, tag = lv <= 2 ? "h3" : (lv === 3 ? "h4" : "h5");
+        var cls = lv <= 2 ? "lh" : (lv === 3 ? "lh2" : "lh3");
+        html.push("<" + tag + ' class="' + cls + '">' + inline(A.esc(h[2])) + "</" + tag + ">");
+        continue;
+      }
+      if (/^【注】/.test(t)) { fa(); quote.push(t); continue; }
+      if (/^>\s?/.test(t)) { fp(); fl(); quote.push(t.replace(/^>\s?/, "")); continue; }
+      var li = /^(\d+\)|[0-9]+\.|[-•])\s+(.*)$/.exec(t);
+      if (li) {
+        fp(); fq();
+        var ty = /^[-•]$/.test(li[1]) ? "ul" : "ol";
+        if (!list) { list = []; listType = ty; }
+        list.push(li[2]);
+        continue;
+      }
+      fl(); fq(); para.push(t);
+    }
+    fa();
+    if (math !== null) html.push('<div class="fml">$$' + A.esc(math.join("\n")) + "$$</div>");
+    return html.join("\n");
+  }
+
   var host = document.getElementById("lesson");
   if (!host) return;
   var id = (/[?&]id=([^&]+)/.exec(location.search) || [])[1] || "gs01_s0";
@@ -30,21 +94,27 @@
   function typeset(nodes) { if (window.MathJax && MathJax.typesetPromise) MathJax.typesetPromise(nodes); }
 
   var html = "";
-  L.blocks.forEach(function (b) {
-    if (b.t === "h") html += '<h3 class="lh">' + A.esc(b.x) + '</h3>';
-    else if (b.t === "h2") html += '<h4 class="lh2">' + A.esc(b.x) + '</h4>';
-    else if (b.t === "p") html += '<p>' + A.esc(b.x) + '</p>';
-    else if (b.t === "note") html += '<div class="notes">' + A.esc(b.x) + '</div>';
-    else if (b.t === "fml") html += '<div class="fml">' + A.esc(b.x) + '</div>';
-    else if (b.t === "ex") html += '<div class="ex"><div class="ex-q">' + A.esc(b.q) + '</div>' +
-      '<details class="sol"><summary>解答</summary><div class="ansbox">' + A.esc(b.sol) + '</div></details></div>';
-  });
+  if (L.content) {
+    L.content.forEach(function (pg) {
+      html += '<div class="pg" id="pg' + pg.p + '">' + renderMarkdown(pg.md) + "</div>";
+    });
+  } else if (L.blocks) {
+    L.blocks.forEach(function (b) {
+      if (b.t === "h") html += '<h3 class="lh">' + A.esc(b.x) + "</h3>";
+      else if (b.t === "h2") html += '<h4 class="lh2">' + A.esc(b.x) + "</h4>";
+      else if (b.t === "p") html += "<p>" + A.esc(b.x) + "</p>";
+      else if (b.t === "note") html += '<div class="notes">' + A.esc(b.x) + "</div>";
+      else if (b.t === "fml") html += '<div class="fml">' + A.esc(b.x) + "</div>";
+      else if (b.t === "ex") html += '<div class="ex"><div class="ex-q">' + A.esc(b.q) + '</div>' +
+        '<details class="sol"><summary>解答</summary><div class="ansbox">' + A.esc(b.sol) + "</div></details></div>";
+    });
+  }
   html += '<details class="pages"><summary>📖 对照讲义原页（可选）</summary><div class="imglist">';
   for (var p = L.pages[0]; p <= L.pages[1]; p++) {
-    html += '<figure><img loading="lazy" src="' + L.img + '/p-' + String(p).padStart(3, "0") +
-      '.jpg" alt="p' + p + '"><figcaption>第 ' + p + ' 页</figcaption></figure>';
+    html += '<figure><img loading="lazy" src="' + L.img + "/p-" + String(p).padStart(3, "0") +
+      '.jpg" alt="p' + p + '"><figcaption>第 ' + p + " 页</figcaption></figure>";
   }
-  html += '</div></details>';
+  html += "</div></details>";
   host.innerHTML = html;
   typeset([host]);
 
@@ -59,7 +129,7 @@
     L.quiz.forEach(function (q, i) {
       var key = keyOf(i), st = store[key] || {};
       var d = A.el("div", "qitem"); d.id = "q" + i;
-      d.innerHTML = '<div class="qq">' + (i + 1) + ". " + A.esc(q.q) + '</div>';
+      d.innerHTML = '<div class="qq">' + (i + 1) + ". " + A.esc(q.q) + "</div>";
       var opts = A.el("div", "qopts");
       q.options.forEach(function (o, j) {
         var b = document.createElement("button");

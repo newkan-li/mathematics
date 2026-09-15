@@ -58,6 +58,10 @@ details.pages summary{cursor:pointer;color:var(--acc);font-weight:600;font-size:
 #lesson p{margin:8px 0}
 #lesson .lh{margin:18px 0 6px;font-size:17px;color:var(--acc);padding-bottom:6px;border-bottom:1px solid var(--line)}
 #lesson .lh2{margin:14px 0 4px;font-size:15px;color:var(--fg)}
+#lesson .lh3{margin:10px 0 4px;font-size:14.5px;color:var(--fg);font-weight:600}
+#lesson ol,#lesson ul{margin:8px 0;padding-left:24px}
+#lesson li{margin:3px 0}
+#lesson .notes{margin:8px 0}
 .qitem{border:1px solid var(--line);border-radius:10px;padding:10px 14px;margin:12px 0;background:var(--card)}
 .qq{margin-bottom:8px;font-weight:600}
 .qopts{display:flex;flex-direction:column;gap:6px}
