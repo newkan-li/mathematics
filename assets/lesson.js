@@ -132,6 +132,14 @@
           "</div>";
       });
     }
+    if (L.img && L.pages) {
+      html += '<details class="pages"><summary>📖 对照原书原页（可选，正文不依赖）</summary><div class="imglist">';
+      for (var pp = L.pages[0]; pp <= L.pages[1]; pp++) {
+        html += '<figure><img loading="lazy" src="' + L.img + "/p-" + String(pp).padStart(3, "0") +
+          '.jpg" alt="p' + pp + '"><figcaption>第 ' + pp + " 页</figcaption></figure>";
+      }
+      html += "</div></details>";
+    }
     return html;
   }
 
