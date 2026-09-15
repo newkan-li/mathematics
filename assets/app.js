@@ -43,6 +43,15 @@
     }
     return { text: id, href: null };
   }
+  function probLabel(key) {
+    var m = /^([a-z]+\d+)_s(\d+):(\d+)$/.exec(key);
+    if (!m) return { text: key, href: null };
+    var ch = (window.MANIFEST || []).filter(function (x) { return x.id === m[1]; })[0];
+    return {
+      text: (ch ? ch.title : m[1]) + " · 第 " + (parseInt(m[2], 10) + 1) + " 节 · 练习第 " + m[3] + " 题",
+      href: m[1] + ".html#" + m[1] + "_s" + m[2] + "-p" + m[3]
+    };
+  }
 
   /* ---------- 章节标记 ---------- */
   function marks() { return jget("marks", {}); }
@@ -165,8 +174,10 @@
     Object.keys(mk).forEach(function (key) { if (mk[key].conf) secs.push({ key: key, lab: srsLabel(key) }); });
     var qz = jget("quiz", {}), quiz = [];
     Object.keys(qz).forEach(function (key) { if (qz[key].wrong) quiz.push(key); });
-    if (!pages.length && !secs.length && !quiz.length) {
-      host.innerHTML = '<p class="empty">还没有错题。在「660 题」中标记「✗ 做错」，或在章节里标记「❓ 不懂」，就会自动收集到这里。</p>';
+    var pr = jget("prob", {}), probs = [];
+    Object.keys(pr).forEach(function (key) { if (pr[key] && pr[key].ok === false && !pr[key].done) probs.push(key); });
+    if (!pages.length && !secs.length && !quiz.length && !probs.length) {
+      host.innerHTML = '<p class="empty">还没有错题。做错「660 题」「本节自测」或「练习题」后，会自动收集到这里。</p>';
       return;
     }
     host.innerHTML = "";
@@ -205,6 +216,18 @@
           var all = jget("quiz", {}); if (all[key]) all[key].wrong = false;
           jset("quiz", all); srsForget(key); renderWrong();
         };
+        bar.appendChild(b); it.appendChild(bar); host.appendChild(it);
+      });
+    }
+    if (probs.length) {
+      host.appendChild(el("h2", null, "练习题错题（" + probs.length + "）"));
+      probs.forEach(function (key) {
+        var lab = probLabel(key), it = el("div", "fitem");
+        it.innerHTML = '<div class="fh">' + esc(lab.text) + '</div>' +
+          (lab.href ? '<div><a href="' + lab.href + '">回到练习题 →</a></div>' : "");
+        var bar = el("div", "mark"), b = document.createElement("button");
+        b.textContent = "✓ 已弄懂，移除";
+        b.onclick = function () { var all = jget("prob", {}); if (all[key]) all[key].done = true; jset("prob", all); renderWrong(); };
         bar.appendChild(b); it.appendChild(bar); host.appendChild(it);
       });
     }
