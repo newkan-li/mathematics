@@ -57,7 +57,7 @@ window.LESSONS = window.LESSONS || {};
 (4) 零点定理：若 $f(x)$ 在 $[a,b]$ 连续，且 $f(a)\cdot f(b) < 0$，则必 $\exists\, \xi \in (a,b)$，使 $f(\xi) = 0$。
 
 ### 二、常考题型的方法与技巧
-**题型一　讨论连续性及间断点类型**
+### 题型一　讨论连续性及间断点类型
 
 【例1】 设函数 $f(x) = \frac{x}{a + e^{bx}}$ 在 $(-\infty, + \infty)$ 内连续，且 $\lim_{x\to - \infty} f(x) = 0$，则常数 $a, b$ 应满足
 

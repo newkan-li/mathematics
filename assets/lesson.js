@@ -190,15 +190,6 @@
     var cid = document.body.dataset.chapter || "gs01";
     var ids = Object.keys(window.LESSONS || {}).filter(function (k) { return k.indexOf(cid + "_s") === 0; });
     ids.sort(function (a, b) { return (a.split("_s")[1] | 0) - (b.split("_s")[1] | 0); });
-    var nav = document.getElementById("lnav");
-    if (nav) {
-      nav.innerHTML = "";
-      ids.forEach(function (k) {
-        var a = document.createElement("a");
-        a.className = "navbtn"; a.href = "#" + k; a.textContent = window.LESSONS[k].title;
-        nav.appendChild(a);
-      });
-    }
     var html = "";
     ids.forEach(function (k) {
       var L = window.LESSONS[k];
@@ -217,6 +208,30 @@
         chapterHost.querySelector('[data-score="' + k + '"]'),
         chapterHost.querySelector('[data-reset="' + k + '"]'));
     });
+
+    var nav = document.getElementById("lnav");
+    if (nav) {
+      var toc = '<div class="toc"><div class="toc-h">📑 本章目录</div>';
+      ids.forEach(function (k) {
+        var L = window.LESSONS[k];
+        toc += '<div class="toc-sec"><a class="toc-l1" href="#' + k + '">' + A.esc(L.title) +
+          ' <span class="toc-pg">p' + L.pages[0] + "–" + L.pages[1] + "</span></a>";
+        var sec = chapterHost.querySelector("#" + k);
+        var body = sec ? sec.querySelector(".lessonbody") : null;
+        var hs = body ? body.querySelectorAll("h3.lh, h4.lh2, h5.lh3") : [];
+        if (hs.length) {
+          toc += '<div class="toc-l2s">';
+          Array.prototype.forEach.call(hs, function (h, i) {
+            var hid = k + "-h" + i; h.id = hid;
+            toc += '<a class="toc-l2" href="#' + hid + '">' + A.esc(h.textContent) + "</a>";
+          });
+          toc += "</div>";
+        }
+        toc += "</div>";
+      });
+      toc += "</div>";
+      nav.innerHTML = toc;
+    }
     typeset([chapterHost]);
     return;
   }
