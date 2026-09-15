@@ -72,6 +72,13 @@ details.pages summary{cursor:pointer;color:var(--acc);font-weight:600;font-size:
 .ex-a .solp{margin:6px 0}
 .ex-a p{margin:6px 0}
 .exhr{border:0;border-top:1px dotted var(--line);margin:8px 0}
+#lesson .sub,#chapter .sub{color:var(--sub);font-size:12.5px;margin:2px 0 10px}
+.prob{border:1px solid var(--line);border-radius:8px;padding:8px 12px;margin:10px 0;background:var(--card)}
+.prob-q{margin-bottom:4px}
+.prob-q .pn{font-weight:700;color:var(--acc);margin-right:2px}
+.prob-a{font-size:13px;color:var(--ok);margin:2px 0 4px}
+.prob details.sol summary{cursor:pointer;color:var(--acc);font-size:13px;font-weight:600}
+.prob .ansbox{margin-top:6px}
 .qitem{border:1px solid var(--line);border-radius:10px;padding:10px 14px;margin:12px 0;background:var(--card)}
 .qq{margin-bottom:8px;font-weight:600}
 .qopts{display:flex;flex-direction:column;gap:6px}

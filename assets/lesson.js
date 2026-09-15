@@ -118,6 +118,17 @@
           '<details class="sol"><summary>解答</summary><div class="ansbox">' + A.esc(b.sol) + "</div></details></div>";
       });
     }
+    if (L.problems) {
+      html += '<h3 class="lh">练习题精选（含详细解答）</h3>';
+      html += '<p class="sub">共 ' + L.problems.length + " 题，点开每题「详细解答」查看过程。</p>";
+      L.problems.forEach(function (p) {
+        html += '<div class="prob" id="' + L.id + "-p" + p.n + '">' +
+          '<div class="prob-q"><span class="pn">' + p.n + ".</span> " + A.esc(p.q) + "</div>" +
+          '<div class="prob-a">答案：' + A.esc(p.a) + "</div>" +
+          (p.sol ? '<details class="sol"><summary>详细解答</summary><div class="ansbox">' + renderMarkdown(p.sol) + "</div></details>" : "") +
+          "</div>";
+      });
+    }
     return html;
   }
 
