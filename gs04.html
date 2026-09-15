@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#1f5c8b">
+<title>第四章 常微分方程 · 考研数学</title>
+<link rel="stylesheet" href="assets/style.css?v=20260915a">
+<script src="assets/theme.js?v=20260915a"></script>
+<script>
+window.MathJax = { tex: {inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']]}, svg:{fontCache:'global'} };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+</head>
+<body data-page="chapter">
+<div class="wrap">
+<header class="top"><h1>第四章 常微分方程</h1>
+<p>武忠祥《高等数学辅导讲义》 ｜ 讲义第 128–141 页 ｜ <a href="index.html">← 返回首页</a></p></header>
+<section class="sec"><h2>一、考试内容要点精讲</h2>
+<div class="points"><div class="pt-h">📌 本页要点</div><ul><li>掌握一阶方程：可分离、齐次、一阶线性、伯努利</li><li>会解可降阶的二阶方程：y''=f(x), y''=f(x,y'), y''=f(y,y')</li><li>熟记二阶常系数齐次/非齐次通解结构及待定系数法</li><li>理解线性微分方程解的结构与叠加原理</li></ul></div>
+<div class="fbox"><div class="pt-h">📐 核心公式</div><div class="fml">$$一阶线性方程：y'+P(x)y=Q(x)，通解 y=e^{-\int Pdx}\left(\int Qe^{\int Pdx}dx+C\right)$$</div><div class="fml">$$二阶常系数齐次：y''+py'+qy=0，特征方程 r^2+pr+q=0$$</div><div class="fml">$$非齐次特解形式：f(x)=P_m(x)e^{\alpha x} 时，y^*=x^kQ_m(x)e^{\alpha x}$$</div><div class="fml">$$可降阶：y''=f(x,y') 令 p=y'；y''=f(y,y') 令 p=y', y''=p\frac{dp}{dy}$$</div></div>
+<div class="ex"><div class="ex-q">例：求微分方程 y''-3y'+2y=2e^x 的通解。</div><details class="sol"><summary>解答</summary><div class="ansbox">齐次方程 y''-3y'+2y=0 的特征方程为 r^2-3r+2=0，解得 r_1=1, r_2=2，故齐次通解为 y_h=C_1e^x+C_2e^{2x}。\ 设非齐次特解 y^*=Axe^x（因 e^x 对应单根，故乘 x），则 y^{*'}=Ae^x(x+1)，y^{*''}=Ae^x(x+2)。代入原方程：Ae^x(x+2)-3Ae^x(x+1)+2Axe^x=2e^x，化简得 -Ae^x=2e^x，故 A=-2。因此 y^*=-2xe^x。\ 原方程通解为 y=C_1e^x+C_2e^{2x}-2xe^x。</div></details></div>
+<details class="pages" open><summary>📖 讲义原页（点开阅读）</summary><div class="imglist">
+<figure><img loading="lazy" src="assets/img/gaoshu/p-128.jpg" alt="p128"><figcaption>第 128 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-129.jpg" alt="p129"><figcaption>第 129 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-130.jpg" alt="p130"><figcaption>第 130 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-131.jpg" alt="p131"><figcaption>第 131 页</figcaption></figure>
+</div></details>
+<div class="mark" data-ch="gs04" data-sec="0"></div>
+</section>
+<section class="sec"><h2>二、常考题型的方法与技巧</h2>
+<div class="points"><div class="pt-h">📌 本页要点</div><ul><li>一阶方程：可分离、齐次、线性、伯努利，先识别再套法。</li><li>可降阶：y''=f(x)、缺y、缺x三类，换元降为一阶。</li><li>二阶常系数：特征根三种情形，非齐次待定特解。</li><li>解的结构：齐次通解+非齐次特解，叠加原理常用。</li></ul></div>
+<div class="fbox"><div class="pt-h">📐 核心公式</div><div class="fml">$$一阶线性：y'+P(x)y=Q(x)，通解 y=e^{-\int Pdx}\left(\int Q e^{\int Pdx}dx+C\right)$$</div><div class="fml">$$齐次方程：\frac{dy}{dx}=f\left(\frac{y}{x}\right)，令 u=\frac{y}{x}$$</div><div class="fml">$$二阶常系数齐次：y''+py'+qy=0，特征方程 r^2+pr+q=0$$</div><div class="fml">$$非齐次特解：f(x)=P_m(x)e^{\alpha x}，设 y^*=x^k Q_m(x)e^{\alpha x}$$</div><div class="fml">$$缺y型：y''=f(x,y')，令 p=y'；缺x型：y''=f(y,y')，令 p=y'$$</div></div>
+<div class="ex"><div class="ex-q">例：求微分方程 y''-3y'+2y=2e^x 的通解。</div><details class="sol"><summary>解答</summary><div class="ansbox">齐次方程 y''-3y'+2y=0 的特征方程为 r^2-3r+2=0，解得 r_1=1,\ r_2=2，故齐次通解为 Y=C_1e^x+C_2e^{2x}。\ 因右端 f(x)=2e^x，\alpha=1 是单特征根，故设特解 y^*=Axe^x。\ 代入原方程：y^{*'}=Ae^x(x+1)，\ y^{*''}=Ae^x(x+2)，\ 得 Ae^x[(x+2)-3(x+1)+2x]=2e^x，即 -Ae^x=2e^x，故 A=-2。\ 所以 y^*=-2xe^x，原方程通解为 y=C_1e^x+C_2e^{2x}-2xe^x。</div></details></div>
+<details class="pages" open><summary>📖 讲义原页（点开阅读）</summary><div class="imglist">
+<figure><img loading="lazy" src="assets/img/gaoshu/p-132.jpg" alt="p132"><figcaption>第 132 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-133.jpg" alt="p133"><figcaption>第 133 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-134.jpg" alt="p134"><figcaption>第 134 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-135.jpg" alt="p135"><figcaption>第 135 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-136.jpg" alt="p136"><figcaption>第 136 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-137.jpg" alt="p137"><figcaption>第 137 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-138.jpg" alt="p138"><figcaption>第 138 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-139.jpg" alt="p139"><figcaption>第 139 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-140.jpg" alt="p140"><figcaption>第 140 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-141.jpg" alt="p141"><figcaption>第 141 页</figcaption></figure>
+</div></details>
+<div class="mark" data-ch="gs04" data-sec="1"></div>
+</section>
+<footer>考研数学（二）自学网站 · 讲义原页 + 精讲 · 仅供个人学习使用</footer>
+</div>
+<script src="data/manifest.js?v=20260915a"></script>
+<script src="data/gs04.js?v=20260915a"></script>
+<script src="assets/app.js?v=20260915a"></script>
+</body>
+</html>

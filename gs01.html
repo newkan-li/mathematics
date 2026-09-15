@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#1f5c8b">
+<title>第一章 函数 极限 连续 · 考研数学</title>
+<link rel="stylesheet" href="assets/style.css?v=20260915a">
+<script src="assets/theme.js?v=20260915a"></script>
+<script>
+window.MathJax = { tex: {inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']]}, svg:{fontCache:'global'} };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+</head>
+<body data-page="chapter">
+<div class="wrap">
+<header class="top"><h1>第一章 函数 极限 连续</h1>
+<p>武忠祥《高等数学辅导讲义》 ｜ 讲义第 8–48 页 ｜ <a href="index.html">← 返回首页</a></p></header>
+<section class="sec"><h2>第一节 函数</h2>
+<div class="points"><div class="pt-h">📌 本页要点</div><ul><li>函数定义：非空实数集到实数集的映射，三要素为定义域、对应法则、值域</li><li>复合函数：内层值域与外层定义域有交集才有意义，定义域取交集</li><li>反函数：一一对应才存在，图像关于y=x对称，定义域值域互换</li><li>分段函数与初等函数：考研重点考查分段点、定义域及表达式</li></ul></div>
+<div class="fbox"><div class="pt-h">📐 核心公式</div><div class="fml">$$复合函数定义：\((f\circ g)(x)=f(g(x))\)，定义域为\(\{x\mid x\in D_g,\ g(x)\in D_f\}\)$$</div><div class="fml">$$反函数关系：\(y=f(x)\Leftrightarrow x=f^{-1}(y)\)，且\(f^{-1}(f(x))=x\)$$</div><div class="fml">$$奇偶性：\(f(-x)=f(x)\)为偶函数，\(f(-x)=-f(x)\)为奇函数$$</div><div class="fml">$$周期性：若\(f(x+T)=f(x)\)，则\(T\)为周期，最小正周期记为\(T_0\)$$</div></div>
+<div class="ex"><div class="ex-q">例：设\(f(x)=\begin{cases}x^2,&x\le 1,\\2x-1,&x>1,\end{cases}\)，\(g(x)=x+1\)，求\(f(g(x))\)及\(g(f(x))\)的表达式。</div><details class="sol"><summary>解答</summary><div class="ansbox">先求\(f(g(x))=f(x+1)\)。由\(g(x)=x+1\)，需判断\(x+1\le 1\)还是\(x+1>1\)，即\(x\le 0\)或\(x>0\)。因此\[f(g(x))=\begin{cases}(x+1)^2,&x\le 0,\\2(x+1)-1=2x+1,&x>0.\end{cases}\]再求\(g(f(x))=f(x)+1\)。由\(f(x)\)分段：当\(x\le 1\)时，\(f(x)=x^2\)，故\(g(f(x))=x^2+1\)；当\(x>1\)时，\(f(x)=2x-1\)，故\(g(f(x))=2x-1+1=2x\)。所以\[g(f(x))=\begin{cases}x^2+1,&x\le 1,\\2x,&x>1.\end{cases}\]</div></details></div>
+<details class="pages" open><summary>📖 讲义原页（点开阅读）</summary><div class="imglist">
+<figure><img loading="lazy" src="assets/img/gaoshu/p-008.jpg" alt="p8"><figcaption>第 8 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-009.jpg" alt="p9"><figcaption>第 9 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-010.jpg" alt="p10"><figcaption>第 10 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-011.jpg" alt="p11"><figcaption>第 11 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-012.jpg" alt="p12"><figcaption>第 12 页</figcaption></figure>
+</div></details>
+<div class="mark" data-ch="gs01" data-sec="0"></div>
+</section>
+<section class="sec"><h2>第二节 极限</h2>
+<div class="points"><div class="pt-h">📌 本页要点</div><ul><li>极限存在充要条件：左右极限存在且相等</li><li>无穷小与极限关系：lim f=A ⇔ f=A+α，α为无穷小</li><li>等价无穷小替换仅适用于乘除，加减慎用</li><li>夹逼准则与单调有界准则求极限</li></ul></div>
+<div class="fbox"><div class="pt-h">📐 核心公式</div><div class="fml">$$\lim_{x\to0}\frac{\sin x}{x}=1$$</div><div class="fml">$$\lim_{x\to0}(1+x)^{\frac1x}=e$$</div><div class="fml">$$\lim_{x\to0}\frac{1-\cos x}{x^2}=\frac12$$</div><div class="fml">$$\lim_{x\to0}\frac{\ln(1+x)}{x}=1$$</div><div class="fml">$$\lim_{x\to0}\frac{e^x-1}{x}=1$$</div></div>
+<div class="ex"><div class="ex-q">例：求极限 \lim_{x\to0}\frac{\tan x-\sin x}{x^3}</div><details class="sol"><summary>解答</summary><div class="ansbox">原式=\lim_{x\to0}\frac{\sin x(1-\cos x)}{x^3\cos x}=\lim_{x\to0}\frac{\sin x}{x}\cdot\frac{1-\cos x}{x^2}\cdot\frac1{\cos x}=1\cdot\frac12\cdot1=\frac12。</div></details></div>
+<details class="pages" open><summary>📖 讲义原页（点开阅读）</summary><div class="imglist">
+<figure><img loading="lazy" src="assets/img/gaoshu/p-013.jpg" alt="p13"><figcaption>第 13 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-014.jpg" alt="p14"><figcaption>第 14 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-015.jpg" alt="p15"><figcaption>第 15 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-016.jpg" alt="p16"><figcaption>第 16 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-017.jpg" alt="p17"><figcaption>第 17 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-018.jpg" alt="p18"><figcaption>第 18 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-019.jpg" alt="p19"><figcaption>第 19 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-020.jpg" alt="p20"><figcaption>第 20 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-021.jpg" alt="p21"><figcaption>第 21 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-022.jpg" alt="p22"><figcaption>第 22 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-023.jpg" alt="p23"><figcaption>第 23 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-024.jpg" alt="p24"><figcaption>第 24 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-025.jpg" alt="p25"><figcaption>第 25 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-026.jpg" alt="p26"><figcaption>第 26 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-027.jpg" alt="p27"><figcaption>第 27 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-028.jpg" alt="p28"><figcaption>第 28 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-029.jpg" alt="p29"><figcaption>第 29 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-030.jpg" alt="p30"><figcaption>第 30 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-031.jpg" alt="p31"><figcaption>第 31 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-032.jpg" alt="p32"><figcaption>第 32 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-033.jpg" alt="p33"><figcaption>第 33 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-034.jpg" alt="p34"><figcaption>第 34 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-035.jpg" alt="p35"><figcaption>第 35 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-036.jpg" alt="p36"><figcaption>第 36 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-037.jpg" alt="p37"><figcaption>第 37 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-038.jpg" alt="p38"><figcaption>第 38 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-039.jpg" alt="p39"><figcaption>第 39 页</figcaption></figure>
+</div></details>
+<div class="mark" data-ch="gs01" data-sec="1"></div>
+</section>
+<section class="sec"><h2>第三节 连续</h2>
+<div class="points"><div class="pt-h">📌 本页要点</div><ul><li>连续定义：极限值等于函数值，三要素缺一不可</li><li>间断点分两类：第一类左右极限存在，第二类至少一侧不存在</li><li>闭区间连续函数必有界、最值、介值、零点定理</li><li>分段函数连续性需分界点单独讨论左右极限</li></ul></div>
+<div class="fbox"><div class="pt-h">📐 核心公式</div><div class="fml">$$\lim_{x\to x_0}f(x)=f(x_0)$$</div><div class="fml">$$\lim_{x\to x_0^-}f(x)=\lim_{x\to x_0^+}f(x)=f(x_0)$$</div><div class="fml">$$f(x)\in C[a,b]\Rightarrow \exists \xi\in[a,b], f(\xi)=\mu, \mu\in[m,M]$$</div><div class="fml">$$f(a)f(b)<0\Rightarrow \exists \xi\in(a,b), f(\xi)=0$$</div></div>
+<div class="ex"><div class="ex-q">例：设 $f(x)=\begin{cases}\dfrac{e^x-1}{x},&x\ne0\\a,&x=0\end{cases}$ 在 $x=0$ 处连续，求 $a$。</div><details class="sol"><summary>解答</summary><div class="ansbox">连续性要求 $\lim_{x\to0}f(x)=f(0)=a$。计算 $\lim_{x\to0}\dfrac{e^x-1}{x}=1$，故 $a=1$。</div></details></div>
+<details class="pages" open><summary>📖 讲义原页（点开阅读）</summary><div class="imglist">
+<figure><img loading="lazy" src="assets/img/gaoshu/p-040.jpg" alt="p40"><figcaption>第 40 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-041.jpg" alt="p41"><figcaption>第 41 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-042.jpg" alt="p42"><figcaption>第 42 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-043.jpg" alt="p43"><figcaption>第 43 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-044.jpg" alt="p44"><figcaption>第 44 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-045.jpg" alt="p45"><figcaption>第 45 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-046.jpg" alt="p46"><figcaption>第 46 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-047.jpg" alt="p47"><figcaption>第 47 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-048.jpg" alt="p48"><figcaption>第 48 页</figcaption></figure>
+</div></details>
+<div class="mark" data-ch="gs01" data-sec="2"></div>
+</section>
+<footer>考研数学（二）自学网站 · 讲义原页 + 精讲 · 仅供个人学习使用</footer>
+</div>
+<script src="data/manifest.js?v=20260915a"></script>
+<script src="data/gs01.js?v=20260915a"></script>
+<script src="assets/app.js?v=20260915a"></script>
+</body>
+</html>

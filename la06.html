@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#1f5c8b">
+<title>第六章 二次型 · 考研数学</title>
+<link rel="stylesheet" href="assets/style.css?v=20260915a">
+<script src="assets/theme.js?v=20260915a"></script>
+<script>
+window.MathJax = { tex: {inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']]}, svg:{fontCache:'global'} };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+</head>
+<body data-page="chapter">
+<div class="wrap">
+<header class="top"><h1>第六章 二次型</h1>
+<p>《线性代数辅导讲义》 ｜ 讲义第 158–168 页 ｜ <a href="index.html">← 返回首页</a></p></header>
+<section class="sec"><h2>知识结构网络图 · 基本内容与重要结论</h2>
+<div class="points"><div class="pt-h">📌 本页要点</div><ul><li>二次型标准形与规范形：合同变换不改变正负惯性指数</li><li>正定二次型判定：顺序主子式全正或特征值全正</li><li>正交变换化标准形：特征值即系数，特征向量正交单位化</li><li>惯性定理：正负惯性指数唯一，规范形由秩与符号差决定</li></ul></div>
+<div class="fbox"><div class="pt-h">📐 核心公式</div><div class="fml">$$f(x_1,\dots,x_n)=\sum_{i=1}^n\sum_{j=1}^n a_{ij}x_ix_j=\mathbf{x}^T A\mathbf{x},\quad A^T=A$$</div><div class="fml">$$A\sim B\iff \exists C\text{可逆}, B=C^TAC$$</div><div class="fml">$$f=\lambda_1y_1^2+\cdots+\lambda_ny_n^2,\quad Q^TAQ=\Lambda,\ Q^TQ=E$$</div><div class="fml">$$f\text{正定}\iff A\text{各阶顺序主子式}>0\iff \lambda_i>0$$</div><div class="fml">$$惯性定理：f\text{规范形为 }y_1^2+\cdots+y_p^2-y_{p+1}^2-\cdots-y_r^2$$</div></div>
+<div class="ex"><div class="ex-q">例：设二次型 $f(x_1,x_2,x_3)=x_1^2+x_2^2+x_3^2+2ax_1x_2+2bx_1x_3+2cx_2x_3$，问 $a,b,c$ 满足什么条件时 $f$ 正定？</div><details class="sol"><summary>解答</summary><div class="ansbox">二次型矩阵 $A=\begin{pmatrix}1&a&b\\a&1&c\\b&c&1\end{pmatrix}$。正定需各阶顺序主子式全正：$D_1=1>0$；$D_2=1-a^2>0\Rightarrow |a|<1$；$D_3=\det A=1+2abc-a^2-b^2-c^2>0$。故条件为 $|a|<1$ 且 $1+2abc-a^2-b^2-c^2>0$。</div></details></div>
+<details class="pages" open><summary>📖 讲义原页（点开阅读）</summary><div class="imglist">
+<figure><img loading="lazy" src="assets/img/xiandai/p-158.jpg" alt="p158"><figcaption>第 158 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/xiandai/p-159.jpg" alt="p159"><figcaption>第 159 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/xiandai/p-160.jpg" alt="p160"><figcaption>第 160 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/xiandai/p-161.jpg" alt="p161"><figcaption>第 161 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/xiandai/p-162.jpg" alt="p162"><figcaption>第 162 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/xiandai/p-163.jpg" alt="p163"><figcaption>第 163 页</figcaption></figure>
+</div></details>
+<div class="mark" data-ch="la06" data-sec="0"></div>
+</section>
+<section class="sec"><h2>典型例题分析选讲</h2>
+<div class="points"><div class="pt-h">📌 本页要点</div><ul><li>二次型标准形与规范形由惯性指数唯一确定</li><li>正交变换化标准形：特征值即系数，特征向量正交单位化</li><li>配方法化标准形注意可逆线性变换，不改变惯性指数</li><li>正定判定：顺序主子式全正或特征值全正</li></ul></div>
+<div class="fbox"><div class="pt-h">📐 核心公式</div><div class="fml">$$f(x)=x^TAx,\quad A^T=A$$</div><div class="fml">$$f=\lambda_1 y_1^2+\lambda_2 y_2^2+\cdots+\lambda_n y_n^2$$</div><div class="fml">$$Q^TAQ=\Lambda,\quad Q^TQ=E$$</div><div class="fml">$$f\text{正定}\Leftrightarrow \forall x\neq0,\ x^TAx>0\Leftrightarrow \lambda_i>0$$</div><div class="fml">$$A\text{正定}\Leftrightarrow D_k>0,\ k=1,2,\cdots,n$$</div></div>
+<div class="ex"><div class="ex-q">例：设二次型 $f(x_1,x_2,x_3)=x_1^2+2x_2^2+3x_3^2+2x_1x_2+2x_1x_3$，求正交变换 $x=Qy$ 将其化为标准形，并写出所用正交矩阵 $Q$。</div><details class="sol"><summary>解答</summary><div class="ansbox">二次型矩阵为
+$$A=\begin{pmatrix}1&1&1\\1&2&0\\1&0&3\end{pmatrix}.$$
+求特征值：
+$$|\lambda E-A|=\begin{vmatrix}\lambda-1&-1&-1\\-1&\lambda-2&0\\-1&0&\lambda-3\end{vmatrix}
+=(\lambda-1)(\lambda-2)(\lambda-3)-2(\lambda-2)-(\lambda-3).$$
+化简得
+$$|\lambda E-A|=\lambda^3-6\lambda^2+9\lambda-4=(\lambda-1)^2(\lambda-4).$$
+故特征值为 $\lambda_1=\lambda_2=1,\ \lambda_3=4$。
+
+对 $\lambda=1$，解 $(E-A)x=0$：
+$$E-A=\begin{pmatrix}0&-1&-1\\-1&-1&0\\-1&0&-2\end{pmatrix}
+\sim\begin{pmatrix}1&0&2\\0&1&1\\0&0&0\end{pmatrix},$$
+得基础解系 $\alpha_1=(-2,-1,1)^T$。
+对 $\lambda=4$，解 $(4E-A)x=0$：
+$$4E-A=\begin{pmatrix}3&-1&-1\\-1&2&0\\-1&0&1\end{pmatrix}
+\sim\begin{pmatrix}1&0&-1\\0&1&-\frac12\\0&0&0\end{pmatrix},$$
+得基础解系 $\alpha_2=(2,1,2)^T$。
+
+将 $\alpha_1,\alpha_2$ 正交化：
+取 $\beta_1=\alpha_1=(-2,-1,1)^T$，
+$$\beta_2=\alpha_2-\frac{(\alpha_2,\beta_1)}{(\beta_1,\beta_1)}\beta_1
+=(2,1,2)^T-\frac{-3}{6}(-2,-1,1)^T
+=(1,\frac12,\frac52)^T.$$
+单位化得
+$$q_1=\frac{1}{\sqrt6}(-2,-1,1)^T,\quad
+q_2=\frac{1}{\sqrt{30}}(2,1,5)^T,\quad
+q_3=\frac{1}{\sqrt5}(1,-2,0)^T.$$
+其中 $q_3$ 与 $q_1,q_2$ 均正交。令
+$$Q=(q_1,q_2,q_3)=\begin{pmatrix}
+-\frac{2}{\sqrt6}&\frac{2}{\sqrt{30}}&\frac{1}{\sqrt5}\\
+-\frac{1}{\sqrt6}&\frac{1}{\sqrt{30}}&-\frac{2}{\sqrt5}\\
+\frac{1}{\sqrt6}&\frac{5}{\sqrt{30}}&0
+\end{pmatrix},$$
+则 $Q^TAQ=\operatorname{diag}(1,1,4)$，正交变换 $x=Qy$ 将二次型化为标准形
+$$f=y_1^2+y_2^2+4y_3^2.$$</div></details></div>
+<details class="pages" open><summary>📖 讲义原页（点开阅读）</summary><div class="imglist">
+<figure><img loading="lazy" src="assets/img/xiandai/p-164.jpg" alt="p164"><figcaption>第 164 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/xiandai/p-165.jpg" alt="p165"><figcaption>第 165 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/xiandai/p-166.jpg" alt="p166"><figcaption>第 166 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/xiandai/p-167.jpg" alt="p167"><figcaption>第 167 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/xiandai/p-168.jpg" alt="p168"><figcaption>第 168 页</figcaption></figure>
+</div></details>
+<div class="mark" data-ch="la06" data-sec="1"></div>
+</section>
+<footer>考研数学（二）自学网站 · 讲义原页 + 精讲 · 仅供个人学习使用</footer>
+</div>
+<script src="data/manifest.js?v=20260915a"></script>
+<script src="data/la06.js?v=20260915a"></script>
+<script src="assets/app.js?v=20260915a"></script>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#1f5c8b">
+<title>第三章 一元函数积分学 · 考研数学</title>
+<link rel="stylesheet" href="assets/style.css?v=20260915a">
+<script src="assets/theme.js?v=20260915a"></script>
+<script>
+window.MathJax = { tex: {inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']]}, svg:{fontCache:'global'} };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+</head>
+<body data-page="chapter">
+<div class="wrap">
+<header class="top"><h1>第三章 一元函数积分学</h1>
+<p>武忠祥《高等数学辅导讲义》 ｜ 讲义第 87–127 页 ｜ <a href="index.html">← 返回首页</a></p></header>
+<section class="sec"><h2>第一节 不定积分</h2>
+<div class="points"><div class="pt-h">📌 本页要点</div><ul><li>原函数与不定积分是互逆运算，注意积分常数C</li><li>基本积分表必须熟记，尤其幂、指、三角、反三角</li><li>第一换元法（凑微分）是考研核心计算手段</li><li>分部积分法适用于乘积型，按“反对幂指三”选u</li></ul></div>
+<div class="fbox"><div class="pt-h">📐 核心公式</div><div class="fml">$$\int x^\mu dx=\frac{x^{\mu+1}}{\mu+1}+C\ (\mu\neq -1)$$</div><div class="fml">$$\int \frac{dx}{x}=\ln|x|+C$$</div><div class="fml">$$\int e^x dx=e^x+C,\quad \int a^x dx=\frac{a^x}{\ln a}+C$$</div><div class="fml">$$\int \sin x dx=-\cos x+C,\quad \int \cos x dx=\sin x+C$$</div><div class="fml">$$\int u dv=uv-\int v du$$</div></div>
+<div class="ex"><div class="ex-q">例：求不定积分 \int x e^{x^2} dx</div><details class="sol"><summary>解答</summary><div class="ansbox">令 u=x^2，则 du=2x dx，故 x dx=\frac12 du。原式=\frac12\int e^u du=\frac12 e^u+C=\frac12 e^{x^2}+C。</div></details></div>
+<details class="pages" open><summary>📖 讲义原页（点开阅读）</summary><div class="imglist">
+<figure><img loading="lazy" src="assets/img/gaoshu/p-087.jpg" alt="p87"><figcaption>第 87 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-088.jpg" alt="p88"><figcaption>第 88 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-089.jpg" alt="p89"><figcaption>第 89 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-090.jpg" alt="p90"><figcaption>第 90 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-091.jpg" alt="p91"><figcaption>第 91 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-092.jpg" alt="p92"><figcaption>第 92 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-093.jpg" alt="p93"><figcaption>第 93 页</figcaption></figure>
+</div></details>
+<div class="mark" data-ch="gs03" data-sec="0"></div>
+</section>
+<section class="sec"><h2>第二节 定积分</h2>
+<div class="points"><div class="pt-h">📌 本页要点</div><ul><li>定积分是积分和的极限，几何意义为曲边梯形面积代数和</li><li>变限积分求导是核心考点，注意上下限为函数时链式法则</li><li>牛顿-莱布尼茨公式沟通定积分与原函数，使用前提是被积函数连续</li><li>定积分计算常用换元法、分部积分法，换元必换限</li></ul></div>
+<div class="fbox"><div class="pt-h">📐 核心公式</div><div class="fml">$$\int_a^b f(x)\,dx=\lim_{\lambda\to0}\sum_{i=1}^n f(\xi_i)\Delta x_i$$</div><div class="fml">$$\int_a^b f(x)\,dx=F(b)-F(a),\quad F'(x)=f(x)$$</div><div class="fml">$$\frac{d}{dx}\int_{\varphi(x)}^{\psi(x)} f(t)\,dt=f(\psi(x))\psi'(x)-f(\varphi(x))\varphi'(x)$$</div><div class="fml">$$\int_a^b f(x)\,dx=\int_a^b f(a+b-x)\,dx$$</div><div class="fml">$$\int_{-a}^a f(x)\,dx=\begin{cases}0,&f\text{为奇函数}\\2\int_0^a f(x)\,dx,&f\text{为偶函数}\end{cases}$$</div></div>
+<div class="ex"><div class="ex-q">例：设 \(F(x)=\int_0^x \frac{\sin t}{1+t^2}\,dt\)，求 \(F'(x)\)，并计算 \(\int_0^{\pi} \frac{\sin x}{1+x^2}\,dx\) 是否可直接用 \(F(\pi)-F(0)\) 表示？</div><details class="sol"><summary>解答</summary><div class="ansbox">由变限积分求导公式，\(F'(x)=\frac{\sin x}{1+x^2}\)。因为被积函数 \(\frac{\sin t}{1+t^2}\) 在 \([0,\pi]\) 上连续，所以 \(F(x)\) 是它的一个原函数，故 \(\int_0^{\pi} \frac{\sin x}{1+x^2}\,dx=F(\pi)-F(0)\)。但该积分不能进一步用初等函数表示，考研中通常只要求写出这种原函数形式或利用对称性、估值等处理。</div></details></div>
+<details class="pages" open><summary>📖 讲义原页（点开阅读）</summary><div class="imglist">
+<figure><img loading="lazy" src="assets/img/gaoshu/p-094.jpg" alt="p94"><figcaption>第 94 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-095.jpg" alt="p95"><figcaption>第 95 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-096.jpg" alt="p96"><figcaption>第 96 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-097.jpg" alt="p97"><figcaption>第 97 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-098.jpg" alt="p98"><figcaption>第 98 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-099.jpg" alt="p99"><figcaption>第 99 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-100.jpg" alt="p100"><figcaption>第 100 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-101.jpg" alt="p101"><figcaption>第 101 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-102.jpg" alt="p102"><figcaption>第 102 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-103.jpg" alt="p103"><figcaption>第 103 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-104.jpg" alt="p104"><figcaption>第 104 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-105.jpg" alt="p105"><figcaption>第 105 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-106.jpg" alt="p106"><figcaption>第 106 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-107.jpg" alt="p107"><figcaption>第 107 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-108.jpg" alt="p108"><figcaption>第 108 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-109.jpg" alt="p109"><figcaption>第 109 页</figcaption></figure>
+</div></details>
+<div class="mark" data-ch="gs03" data-sec="1"></div>
+</section>
+<section class="sec"><h2>第三节 反常积分</h2>
+<div class="points"><div class="pt-h">📌 本页要点</div><ul><li>反常积分分无穷限与无界函数两类，本质为变限积分取极限。</li><li>无穷限积分收敛当且仅当极限存在有限；否则发散。</li><li>无界函数积分需先找瑕点，再拆成极限定义判断敛散。</li><li>比较判别法、p积分是考研判断敛散的核心工具。</li></ul></div>
+<div class="fbox"><div class="pt-h">📐 核心公式</div><div class="fml">$$\int_a^{+\infty} f(x)\,dx=\lim_{b\to+\infty}\int_a^b f(x)\,dx$$</div><div class="fml">$$\int_a^b f(x)\,dx=\lim_{t\to b^-}\int_a^t f(x)\,dx\quad(b\text{为瑕点})$$</div><div class="fml">$$\int_1^{+\infty}\frac{1}{x^p}\,dx\text{收敛}\iff p>1$$</div><div class="fml">$$\int_0^1\frac{1}{x^p}\,dx\text{收敛}\iff p<1$$</div><div class="fml">$$0\le f(x)\le g(x)\Rightarrow \int g\text{收敛}\Rightarrow\int f\text{收敛}$$</div></div>
+<div class="ex"><div class="ex-q">例：计算反常积分 \(\int_1^{+\infty}\frac{1}{x(x+1)}\,dx\)。</div><details class="sol"><summary>解答</summary><div class="ansbox">先部分分式：\(\frac{1}{x(x+1)}=\frac1x-\frac1{x+1}\)。于是 \(\int_1^b\frac{1}{x(x+1)}dx=\int_1^b\left(\frac1x-\frac1{x+1}\right)dx=\left[\ln\frac{x}{x+1}\right]_1^b=\ln\frac{b}{b+1}-\ln\frac12\)。取极限：\(\lim_{b\to+\infty}\left(\ln\frac{b}{b+1}+\ln2\right)=\ln1+\ln2=\ln2\)。故原积分收敛，值为 \(\ln2\)。</div></details></div>
+<details class="pages" open><summary>📖 讲义原页（点开阅读）</summary><div class="imglist">
+<figure><img loading="lazy" src="assets/img/gaoshu/p-110.jpg" alt="p110"><figcaption>第 110 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-111.jpg" alt="p111"><figcaption>第 111 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-112.jpg" alt="p112"><figcaption>第 112 页</figcaption></figure>
+</div></details>
+<div class="mark" data-ch="gs03" data-sec="2"></div>
+</section>
+<section class="sec"><h2>第四节 定积分应用</h2>
+<div class="points"><div class="pt-h">📌 本页要点</div><ul><li>定积分可求平面图形面积、旋转体体积、弧长与物理量。</li><li>面积用上下曲线差或左右曲线差，注意积分方向与分段。</li><li>旋转体体积优先用圆盘/垫片法，绕y轴可用柱壳法。</li><li>物理应用抓微元法：功、压力、引力、质心。</li></ul></div>
+<div class="fbox"><div class="pt-h">📐 核心公式</div><div class="fml">$$S=\int_a^b [f(x)-g(x)]\,dx,\quad f(x)\ge g(x)$$</div><div class="fml">$$V_x=\pi\int_a^b [f(x)]^2\,dx$$</div><div class="fml">$$V_y=2\pi\int_a^b x f(x)\,dx\quad(0\le a<b)$$</div><div class="fml">$$s=\int_a^b \sqrt{1+[f'(x)]^2}\,dx$$</div><div class="fml">$$W=\int_a^b F(x)\,dx$$</div></div>
+<div class="ex"><div class="ex-q">例：求由曲线 \(y=x^2\) 与直线 \(y=x\) 围成的平面图形绕 \(x\) 轴旋转所得旋转体的体积 \(V_x\)。</div><details class="sol"><summary>解答</summary><div class="ansbox">先求交点：\(x^2=x\Rightarrow x=0,1\)。在 \([0,1]\) 上 \(x\ge x^2\)，故旋转体体积用垫片法：\[V_x=\pi\int_0^1\left[x^2-(x^2)^2\right]\,dx=\pi\int_0^1(x^2-x^4)\,dx.\] 计算得 \[V_x=\pi\left[\frac{x^3}{3}-\frac{x^5}{5}\right]_0^1=\pi\left(\frac13-\frac15\right)=\frac{2\pi}{15}.\] 因此 \(V_x=\frac{2\pi}{15}\)。</div></details></div>
+<details class="pages" open><summary>📖 讲义原页（点开阅读）</summary><div class="imglist">
+<figure><img loading="lazy" src="assets/img/gaoshu/p-113.jpg" alt="p113"><figcaption>第 113 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-114.jpg" alt="p114"><figcaption>第 114 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-115.jpg" alt="p115"><figcaption>第 115 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-116.jpg" alt="p116"><figcaption>第 116 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-117.jpg" alt="p117"><figcaption>第 117 页</figcaption></figure>
+</div></details>
+<div class="mark" data-ch="gs03" data-sec="3"></div>
+</section>
+<section class="sec"><h2>第五节 导数在经济学中的应用（数一、二不要求）</h2>
+<div class="points"><div class="pt-h">📌 本页要点</div><ul><li>数一、二不要求本节，了解即可，不必深究。</li><li>边际函数：函数导数，表示瞬时变化率。</li><li>弹性：相对变化率之比，反映敏感程度。</li><li>经济学应用常考边际、弹性与最值。</li></ul></div>
+<div class="fbox"><div class="pt-h">📐 核心公式</div><div class="fml">$$边际成本：MC=C'(Q)$$</div><div class="fml">$$边际收益：MR=R'(Q)$$</div><div class="fml">$$边际利润：ML=L'(Q)=R'(Q)-C'(Q)$$</div><div class="fml">$$需求弹性：E_p=-\frac{p}{Q}Q'(p)$$</div><div class="fml">$$利润最大：MR=MC$$</div></div>
+<div class="ex"><div class="ex-q">例：设某商品的需求函数为 $Q=100-2p$，求 $p=20$ 时的需求弹性 $E_p$。</div><details class="sol"><summary>解答</summary><div class="ansbox">由 $Q=100-2p$，得 $Q'(p)=-2$。\n需求弹性 $E_p=-\frac{p}{Q}Q'(p)=-\frac{p}{100-2p}\cdot(-2)=\frac{2p}{100-2p}$。\n当 $p=20$ 时，$Q=100-40=60$，故 $E_p=\frac{40}{60}=\frac{2}{3}$。</div></details></div>
+<details class="pages" open><summary>📖 讲义原页（点开阅读）</summary><div class="imglist">
+<figure><img loading="lazy" src="assets/img/gaoshu/p-118.jpg" alt="p118"><figcaption>第 118 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-119.jpg" alt="p119"><figcaption>第 119 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-120.jpg" alt="p120"><figcaption>第 120 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-121.jpg" alt="p121"><figcaption>第 121 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-122.jpg" alt="p122"><figcaption>第 122 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-123.jpg" alt="p123"><figcaption>第 123 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-124.jpg" alt="p124"><figcaption>第 124 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-125.jpg" alt="p125"><figcaption>第 125 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-126.jpg" alt="p126"><figcaption>第 126 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-127.jpg" alt="p127"><figcaption>第 127 页</figcaption></figure>
+</div></details>
+<div class="mark" data-ch="gs03" data-sec="4"></div>
+</section>
+<footer>考研数学（二）自学网站 · 讲义原页 + 精讲 · 仅供个人学习使用</footer>
+</div>
+<script src="data/manifest.js?v=20260915a"></script>
+<script src="data/gs03.js?v=20260915a"></script>
+<script src="assets/app.js?v=20260915a"></script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#1f5c8b">
+<title>第六章 二重积分 · 考研数学</title>
+<link rel="stylesheet" href="assets/style.css?v=20260915a">
+<script src="assets/theme.js?v=20260915a"></script>
+<script>
+window.MathJax = { tex: {inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']]}, svg:{fontCache:'global'} };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+</head>
+<body data-page="chapter">
+<div class="wrap">
+<header class="top"><h1>第六章 二重积分</h1>
+<p>武忠祥《高等数学辅导讲义》 ｜ 讲义第 174–191 页 ｜ <a href="index.html">← 返回首页</a></p></header>
+<section class="sec"><h2>一、考试内容要点精讲</h2>
+<div class="points"><div class="pt-h">📌 本页要点</div><ul><li>二重积分定义：和式极限，几何意义为曲顶柱体体积</li><li>直角坐标化二次积分：X型与Y型，注意积分次序选择</li><li>极坐标变换：x=rcosθ, y=rsinθ, dσ=rdrdθ</li><li>对称性简化：奇偶对称、轮换对称，先看区域再定积分</li></ul></div>
+<div class="fbox"><div class="pt-h">📐 核心公式</div><div class="fml">$$\iint_D f(x,y)\,d\sigma=\lim_{\lambda\to0}\sum_{i=1}^n f(\xi_i,\eta_i)\Delta\sigma_i$$</div><div class="fml">$$\iint_D f(x,y)\,dxdy=\int_a^b dx\int_{y_1(x)}^{y_2(x)} f(x,y)\,dy$$</div><div class="fml">$$\iint_D f(x,y)\,dxdy=\int_\alpha^\beta d\theta\int_{r_1(\theta)}^{r_2(\theta)} f(r\cos\theta,r\sin\theta)r\,dr$$</div><div class="fml">$$\iint_D f(x,y)\,d\sigma=\iint_D f(x,y)\,dxdy$$</div></div>
+<div class="ex"><div class="ex-q">例：计算二重积分 \iint_D (x+y)\,dxdy，其中 D 由 y=x,\ y=0,\ x=1 围成。</div><details class="sol"><summary>解答</summary><div class="ansbox">区域 D 为 X 型：0\le x\le1,\ 0\le y\le x。\ 原式=\int_0^1 dx\int_0^x (x+y)\,dy=\int_0^1 \left[xy+\frac{y^2}{2}\right]_0^x dx=\int_0^1 \left(x^2+\frac{x^2}{2}\right)dx=\frac32\int_0^1 x^2dx=\frac32\cdot\frac13=\frac12。</div></details></div>
+<details class="pages" open><summary>📖 讲义原页（点开阅读）</summary><div class="imglist">
+<figure><img loading="lazy" src="assets/img/gaoshu/p-174.jpg" alt="p174"><figcaption>第 174 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-175.jpg" alt="p175"><figcaption>第 175 页</figcaption></figure>
+</div></details>
+<div class="mark" data-ch="gs06" data-sec="0"></div>
+</section>
+<section class="sec"><h2>二、常考题型的方法与技巧</h2>
+<div class="points"><div class="pt-h">📌 本页要点</div><ul><li>直角坐标化累次积分，先画区域定限</li><li>极坐标适用于圆域、含x²+y²的积分</li><li>交换积分次序需重新画区域定限</li><li>利用对称性简化计算，注意奇偶性</li></ul></div>
+<div class="fbox"><div class="pt-h">📐 核心公式</div><div class="fml">$$\iint_D f(x,y)\,d\sigma=\int_a^b dx\int_{y_1(x)}^{y_2(x)} f(x,y)\,dy$$</div><div class="fml">$$\iint_D f(x,y)\,d\sigma=\int_\alpha^\beta d\theta\int_{r_1(\theta)}^{r_2(\theta)} f(r\cos\theta,r\sin\theta)r\,dr$$</div><div class="fml">$$\iint_D f(x,y)\,d\sigma=\int_c^d dy\int_{x_1(y)}^{x_2(y)} f(x,y)\,dx$$</div><div class="fml">$$\iint_D d\sigma = \text{区域 }D\text{ 的面积}$$</div></div>
+<div class="ex"><div class="ex-q">例：计算二重积分 \iint_D (x^2+y^2)\,d\sigma，其中 D 是由圆 x^2+y^2=2x 所围成的区域。</div><details class="sol"><summary>解答</summary><div class="ansbox">区域 D: x^2+y^2\le 2x，即 (x-1)^2+y^2\le 1，为圆心 (1,0)、半径 1 的圆。\newline 用极坐标：x=r\cos\theta, y=r\sin\theta，则 x^2+y^2=r^2，边界 r^2=2r\cos\theta，即 r=2\cos\theta。\newline 区域：-\frac{\pi}{2}\le \theta\le \frac{\pi}{2}, 0\le r\le 2\cos\theta。\newline 原式=\int_{-\pi/2}^{\pi/2} d\theta \int_0^{2\cos\theta} r^2\cdot r\,dr = \int_{-\pi/2}^{\pi/2} \frac{(2\cos\theta)^4}{4}\,d\theta = 4\int_{-\pi/2}^{\pi/2} \cos^4\theta\,d\theta。\newline 由偶函数对称性：=8\int_0^{\pi/2} \cos^4\theta\,d\theta。\newline 利用公式 \int_0^{\pi/2} \cos^4\theta\,d\theta=\frac{3}{4}\cdot\frac{1}{2}\cdot\frac{\pi}{2}=\frac{3\pi}{16}。\newline 所以原式=8\cdot\frac{3\pi}{16}=\frac{3\pi}{2}。</div></details></div>
+<details class="pages" open><summary>📖 讲义原页（点开阅读）</summary><div class="imglist">
+<figure><img loading="lazy" src="assets/img/gaoshu/p-176.jpg" alt="p176"><figcaption>第 176 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-177.jpg" alt="p177"><figcaption>第 177 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-178.jpg" alt="p178"><figcaption>第 178 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-179.jpg" alt="p179"><figcaption>第 179 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-180.jpg" alt="p180"><figcaption>第 180 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-181.jpg" alt="p181"><figcaption>第 181 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-182.jpg" alt="p182"><figcaption>第 182 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-183.jpg" alt="p183"><figcaption>第 183 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-184.jpg" alt="p184"><figcaption>第 184 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-185.jpg" alt="p185"><figcaption>第 185 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-186.jpg" alt="p186"><figcaption>第 186 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-187.jpg" alt="p187"><figcaption>第 187 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-188.jpg" alt="p188"><figcaption>第 188 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-189.jpg" alt="p189"><figcaption>第 189 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-190.jpg" alt="p190"><figcaption>第 190 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-191.jpg" alt="p191"><figcaption>第 191 页</figcaption></figure>
+</div></details>
+<div class="mark" data-ch="gs06" data-sec="1"></div>
+</section>
+<footer>考研数学（二）自学网站 · 讲义原页 + 精讲 · 仅供个人学习使用</footer>
+</div>
+<script src="data/manifest.js?v=20260915a"></script>
+<script src="data/gs06.js?v=20260915a"></script>
+<script src="assets/app.js?v=20260915a"></script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#1f5c8b">
+<title>第三章 n 维向量 · 考研数学</title>
+<link rel="stylesheet" href="assets/style.css?v=20260915a">
+<script src="assets/theme.js?v=20260915a"></script>
+<script>
+window.MathJax = { tex: {inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']]}, svg:{fontCache:'global'} };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+</head>
+<body data-page="chapter">
+<div class="wrap">
+<header class="top"><h1>第三章 n 维向量</h1>
+<p>《线性代数辅导讲义》 ｜ 讲义第 69–92 页 ｜ <a href="index.html">← 返回首页</a></p></header>
+<section class="sec"><h2>知识结构网络图 · 基本内容与重要结论</h2>
+<div class="points"><div class="pt-h">📌 本页要点</div><ul><li>n维向量核心：线性组合、线性相关与线性无关的判定</li><li>向量组秩与矩阵秩等价，是解方程组与判定的关键</li><li>线性表出与方程组解、向量组等价可相互转化</li><li>考研重点：含参向量组相关性讨论与极大无关组</li></ul></div>
+<div class="fbox"><div class="pt-h">📐 核心公式</div><div class="fml">$$\alpha_1,\cdots,\alpha_s\text{线性相关}\Leftrightarrow \exists k_i\text{不全为0},\sum_{i=1}^s k_i\alpha_i=0$$</div><div class="fml">$$\alpha_1,\cdots,\alpha_s\text{线性无关}\Leftrightarrow \sum_{i=1}^s k_i\alpha_i=0\Rightarrow k_i=0$$</div><div class="fml">$$r(\alpha_1,\cdots,\alpha_s)=r(A),\ A=(\alpha_1,\cdots,\alpha_s)$$</div><div class="fml">$$\beta\text{可由}\alpha_1,\cdots,\alpha_s\text{线性表出}\Leftrightarrow r(A)=r(A,\beta)$$</div><div class="fml">$$\text{若}\alpha_1,\cdots,\alpha_s\text{线性无关，则其任意部分组线性无关}$$</div></div>
+<div class="ex"><div class="ex-q">例：设向量组 $\alpha_1=(1,1,1)^T,\ \alpha_2=(1,2,3)^T,\ \alpha_3=(1,3,a)^T$。问 $a$ 取何值时，$\alpha_1,\alpha_2,\alpha_3$ 线性相关？并求此时的一个极大无关组。</div><details class="sol"><summary>解答</summary><div class="ansbox">令 $A=(\alpha_1,\alpha_2,\alpha_3)$，则
+$$|A|=\begin{vmatrix}1&1&1\\1&2&3\\1&3&a\end{vmatrix}
+=\begin{vmatrix}1&1&1\\0&1&2\\0&2&a-1\end{vmatrix}
+=a-5.$$
+所以当 $a=5$ 时，$|A|=0$，向量组线性相关。
+当 $a=5$ 时，
+$$A=\begin{pmatrix}1&1&1\\1&2&3\\1&3&5\end{pmatrix}
+\to\begin{pmatrix}1&1&1\\0&1&2\\0&0&0\end{pmatrix}.$$
+因此 $r(\alpha_1,\alpha_2,\alpha_3)=2$，且 $\alpha_1,\alpha_2$ 线性无关，故一个极大无关组为 $\alpha_1,\alpha_2$。</div></details></div>
+<details class="pages" open><summary>📖 讲义原页（点开阅读）</summary><div class="imglist">
+<figure><img loading="lazy" src="assets/img/xiandai/p-069.jpg" alt="p69"><figcaption>第 69 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/xiandai/p-070.jpg" alt="p70"><figcaption>第 70 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/xiandai/p-071.jpg" alt="p71"><figcaption>第 71 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/xiandai/p-072.jpg" alt="p72"><figcaption>第 72 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/xiandai/p-073.jpg" alt="p73"><figcaption>第 73 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/xiandai/p-074.jpg" alt="p74"><figcaption>第 74 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/xiandai/p-075.jpg" alt="p75"><figcaption>第 75 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/xiandai/p-076.jpg" alt="p76"><figcaption>第 76 页</figcaption></figure>
+</div></details>
+<div class="mark" data-ch="la03" data-sec="0"></div>
+</section>
+<section class="sec"><h2>典型例题分析选讲</h2>
+<div class="points"><div class="pt-h">📌 本页要点</div><ul><li>向量组线性相关性与秩的判定是核心考点</li><li>掌握线性表示与方程组解的关系</li><li>会求向量组的秩与最大无关组</li><li>理解向量空间基与维数的概念</li></ul></div>
+<div class="fbox"><div class="pt-h">📐 核心公式</div><div class="fml">$$\alpha_1,\alpha_2,\cdots,\alpha_s \text{ 线性相关} \Leftrightarrow \exists k_i \text{ 不全为0}, \sum_{i=1}^s k_i\alpha_i=0$$</div><div class="fml">$$\text{向量组 } A \text{ 可由 } B \text{ 线性表示} \Leftrightarrow r(B)=r(B,A)$$</div><div class="fml">$$r(\alpha_1,\alpha_2,\cdots,\alpha_s) = \text{矩阵 } (\alpha_1,\alpha_2,\cdots,\alpha_s) \text{ 的秩}$$</div><div class="fml">$$\text{若 } \alpha_1,\cdots,\alpha_r \text{ 线性无关，且 } \alpha_{r+1} \text{ 可由其表示，则 } r(\alpha_1,\cdots,\alpha_{r+1})=r$$</div></div>
+<div class="ex"><div class="ex-q">例：设向量组 $\alpha_1=(1,2,3)^T,\ \alpha_2=(2,3,4)^T,\ \alpha_3=(3,4,5)^T$，求该向量组的秩和一个最大无关组。</div><details class="sol"><summary>解答</summary><div class="ansbox">构造矩阵 $A=(\alpha_1,\alpha_2,\alpha_3)=\begin{pmatrix}1&2&3\\2&3&4\\3&4&5\end{pmatrix}$。\ 对 $A$ 作初等行变换：\ $\begin{pmatrix}1&2&3\\2&3&4\\3&4&5\end{pmatrix}\xrightarrow{\substack{r_2-2r_1\\r_3-3r_1}}\begin{pmatrix}1&2&3\\0&-1&-2\\0&-2&-4\end{pmatrix}\xrightarrow{r_3-2r_2}\begin{pmatrix}1&2&3\\0&-1&-2\\0&0&0\end{pmatrix}$。\ 非零行数为2，故 $r(\alpha_1,\alpha_2,\alpha_3)=2$。\ 取非零行首元所在列对应的原向量 $\alpha_1,\alpha_2$，它们线性无关，构成一个最大无关组。</div></details></div>
+<details class="pages" open><summary>📖 讲义原页（点开阅读）</summary><div class="imglist">
+<figure><img loading="lazy" src="assets/img/xiandai/p-078.jpg" alt="p78"><figcaption>第 78 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/xiandai/p-079.jpg" alt="p79"><figcaption>第 79 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/xiandai/p-080.jpg" alt="p80"><figcaption>第 80 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/xiandai/p-081.jpg" alt="p81"><figcaption>第 81 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/xiandai/p-082.jpg" alt="p82"><figcaption>第 82 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/xiandai/p-083.jpg" alt="p83"><figcaption>第 83 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/xiandai/p-084.jpg" alt="p84"><figcaption>第 84 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/xiandai/p-085.jpg" alt="p85"><figcaption>第 85 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/xiandai/p-086.jpg" alt="p86"><figcaption>第 86 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/xiandai/p-087.jpg" alt="p87"><figcaption>第 87 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/xiandai/p-088.jpg" alt="p88"><figcaption>第 88 页</figcaption></figure>
+</div></details>
+<div class="mark" data-ch="la03" data-sec="1"></div>
+</section>
+<section class="sec"><h2>练习题精选</h2>
+<div class="points"><div class="pt-h">📌 本页要点</div><ul><li>向量组线性相关⇔齐次方程组有非零解</li><li>向量组秩=极大无关组所含向量个数</li><li>矩阵秩=行秩=列秩，初等变换不改变秩</li><li>线性表示⇔增广矩阵秩等于系数矩阵秩</li></ul></div>
+<div class="fbox"><div class="pt-h">📐 核心公式</div><div class="fml">$$\alpha_1,\alpha_2,\cdots,\alpha_s\text{线性相关}\Leftrightarrow r(\alpha_1,\alpha_2,\cdots,\alpha_s)<s$$</div><div class="fml">$$r(AB)\leq\min\{r(A),r(B)\}$$</div><div class="fml">$$r(A+B)\leq r(A)+r(B)$$</div><div class="fml">$$\beta\text{可由}\alpha_1,\cdots,\alpha_s\text{线性表示}\Leftrightarrow r(\alpha_1,\cdots,\alpha_s)=r(\alpha_1,\cdots,\alpha_s,\beta)$$</div></div>
+<div class="ex"><div class="ex-q">例：设向量组 $\alpha_1=(1,2,3)^T,\ \alpha_2=(2,3,4)^T,\ \alpha_3=(3,4,5)^T$，判断其线性相关性，并求其秩与一个极大无关组。</div><details class="sol"><summary>解答</summary><div class="ansbox">令 $A=(\alpha_1,\alpha_2,\alpha_3)$，对 $A$ 作初等行变换：\[ A=\begin{pmatrix}1&2&3\\2&3&4\\3&4&5\end{pmatrix}\xrightarrow{\substack{r_2-2r_1\\ r_3-3r_1}}\begin{pmatrix}1&2&3\\0&-1&-2\\0&-2&-4\end{pmatrix}\xrightarrow{r_3-2r_2}\begin{pmatrix}1&2&3\\0&-1&-2\\0&0&0\end{pmatrix}.\] 可见 $r(A)=2<3$，故 $\alpha_1,\alpha_2,\alpha_3$ 线性相关。秩为 $2$，一个极大无关组为 $\alpha_1,\alpha_2$（也可取 $\alpha_1,\alpha_3$ 或 $\alpha_2,\alpha_3$）。</div></details></div>
+<details class="pages" open><summary>📖 讲义原页（点开阅读）</summary><div class="imglist">
+<figure><img loading="lazy" src="assets/img/xiandai/p-089.jpg" alt="p89"><figcaption>第 89 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/xiandai/p-090.jpg" alt="p90"><figcaption>第 90 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/xiandai/p-091.jpg" alt="p91"><figcaption>第 91 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/xiandai/p-092.jpg" alt="p92"><figcaption>第 92 页</figcaption></figure>
+</div></details>
+<div class="mark" data-ch="la03" data-sec="2"></div>
+</section>
+<footer>考研数学（二）自学网站 · 讲义原页 + 精讲 · 仅供个人学习使用</footer>
+</div>
+<script src="data/manifest.js?v=20260915a"></script>
+<script src="data/la03.js?v=20260915a"></script>
+<script src="assets/app.js?v=20260915a"></script>
+</body>
+</html>

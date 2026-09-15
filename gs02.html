@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#1f5c8b">
+<title>第二章 一元函数微分学 · 考研数学</title>
+<link rel="stylesheet" href="assets/style.css?v=20260915a">
+<script src="assets/theme.js?v=20260915a"></script>
+<script>
+window.MathJax = { tex: {inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']]}, svg:{fontCache:'global'} };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+</head>
+<body data-page="chapter">
+<div class="wrap">
+<header class="top"><h1>第二章 一元函数微分学</h1>
+<p>武忠祥《高等数学辅导讲义》 ｜ 讲义第 49–86 页 ｜ <a href="index.html">← 返回首页</a></p></header>
+<section class="sec"><h2>第一节 导数与微分</h2>
+<div class="points"><div class="pt-h">📌 本页要点</div><ul><li>导数定义：极限形式与左右导数，可导必连续</li><li>微分定义：dy=f'(x)dx，可微与可导等价</li><li>求导法则：四则、复合、反函数、隐函数、参数方程</li><li>高阶导数：常用公式与莱布尼茨公式</li></ul></div>
+<div class="fbox"><div class="pt-h">📐 核心公式</div><div class="fml">$$f'(x_0)=\lim_{\Delta x\to 0}\frac{f(x_0+\Delta x)-f(x_0)}{\Delta x}$$</div><div class="fml">$$f'(x_0)=\lim_{x\to x_0}\frac{f(x)-f(x_0)}{x-x_0}$$</div><div class="fml">$$dy=f'(x)dx$$</div><div class="fml">$$\frac{dy}{dx}=\frac{dy/dt}{dx/dt}$$</div><div class="fml">$$(uv)^{(n)}=\sum_{k=0}^n \binom{n}{k}u^{(n-k)}v^{(k)}$$</div></div>
+<div class="ex"><div class="ex-q">例：设 \(f(x)=\begin{cases}x^2\sin\frac{1}{x},&x\ne 0\\0,&x=0\end{cases}\)，求 \(f'(0)\)。</div><details class="sol"><summary>解答</summary><div class="ansbox">由导数定义：\(f'(0)=\lim_{x\to 0}\frac{f(x)-f(0)}{x-0}=\lim_{x\to 0}\frac{x^2\sin\frac{1}{x}}{x}=\lim_{x\to 0}x\sin\frac{1}{x}=0\)。故 \(f'(0)=0\)。</div></details></div>
+<details class="pages" open><summary>📖 讲义原页（点开阅读）</summary><div class="imglist">
+<figure><img loading="lazy" src="assets/img/gaoshu/p-049.jpg" alt="p49"><figcaption>第 49 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-050.jpg" alt="p50"><figcaption>第 50 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-051.jpg" alt="p51"><figcaption>第 51 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-052.jpg" alt="p52"><figcaption>第 52 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-053.jpg" alt="p53"><figcaption>第 53 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-054.jpg" alt="p54"><figcaption>第 54 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-055.jpg" alt="p55"><figcaption>第 55 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-056.jpg" alt="p56"><figcaption>第 56 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-057.jpg" alt="p57"><figcaption>第 57 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-058.jpg" alt="p58"><figcaption>第 58 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-059.jpg" alt="p59"><figcaption>第 59 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-060.jpg" alt="p60"><figcaption>第 60 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-061.jpg" alt="p61"><figcaption>第 61 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-062.jpg" alt="p62"><figcaption>第 62 页</figcaption></figure>
+</div></details>
+<div class="mark" data-ch="gs02" data-sec="0"></div>
+</section>
+<section class="sec"><h2>第二节 导数应用</h2>
+<div class="points"><div class="pt-h">📌 本页要点</div><ul><li>单调性：f'(x)&gt;0增，&lt;0减，列表判极值</li><li>极值：一阶变号或二阶f''(x0)≠0判定</li><li>凹凸：f''&gt;0凹，&lt;0凸，拐点需f''变号</li><li>渐近线：水平、垂直、斜渐近线求法</li></ul></div>
+<div class="fbox"><div class="pt-h">📐 核心公式</div><div class="fml">$$\text{极值必要条件：}f'(x_0)=0\text{或不存在}$$</div><div class="fml">$$\text{二阶判定：}f'(x_0)=0,\ f''(x_0)>0\Rightarrow\text{极小值}$$</div><div class="fml">$$\text{拐点判定：}f''(x_0)=0\text{且两侧}f''\text{变号}$$</div><div class="fml">$$\text{斜渐近线：}k=\lim_{x\to\infty}\frac{f(x)}{x},\ b=\lim_{x\to\infty}[f(x)-kx]$$</div></div>
+<div class="ex"><div class="ex-q">例：设函数 \(f(x)=x^3-3x^2+2\)，求其单调区间、极值、凹凸区间与拐点。</div><details class="sol"><summary>解答</summary><div class="ansbox">定义域为 \(\mathbb{R}\)。\(f'(x)=3x^2-6x=3x(x-2)\)，令 \(f'(x)=0\) 得 \(x=0,2\)。列表：\((-\infty,0)\) 上 \(f'(x)>0\)，\((0,2)\) 上 \(f'(x)<0\)，\((2,+\infty)\) 上 \(f'(x)>0\)。故增区间为 \((-\infty,0),(2,+\infty)\)，减区间为 \((0,2)\)。极大值 \(f(0)=2\)，极小值 \(f(2)=-2\)。\(f''(x)=6x-6=6(x-1)\)，令 \(f''(x)=0\) 得 \(x=1\)。\((-\infty,1)\) 上 \(f''(x)<0\)，凸；\((1,+\infty)\) 上 \(f''(x)>0\)，凹。拐点为 \((1,0)\)。</div></details></div>
+<details class="pages" open><summary>📖 讲义原页（点开阅读）</summary><div class="imglist">
+<figure><img loading="lazy" src="assets/img/gaoshu/p-063.jpg" alt="p63"><figcaption>第 63 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-064.jpg" alt="p64"><figcaption>第 64 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-065.jpg" alt="p65"><figcaption>第 65 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-066.jpg" alt="p66"><figcaption>第 66 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-067.jpg" alt="p67"><figcaption>第 67 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-068.jpg" alt="p68"><figcaption>第 68 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-069.jpg" alt="p69"><figcaption>第 69 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-070.jpg" alt="p70"><figcaption>第 70 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-071.jpg" alt="p71"><figcaption>第 71 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-072.jpg" alt="p72"><figcaption>第 72 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-073.jpg" alt="p73"><figcaption>第 73 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-074.jpg" alt="p74"><figcaption>第 74 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-075.jpg" alt="p75"><figcaption>第 75 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-076.jpg" alt="p76"><figcaption>第 76 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-077.jpg" alt="p77"><figcaption>第 77 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-078.jpg" alt="p78"><figcaption>第 78 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-079.jpg" alt="p79"><figcaption>第 79 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-080.jpg" alt="p80"><figcaption>第 80 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-081.jpg" alt="p81"><figcaption>第 81 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-082.jpg" alt="p82"><figcaption>第 82 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-083.jpg" alt="p83"><figcaption>第 83 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-084.jpg" alt="p84"><figcaption>第 84 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-085.jpg" alt="p85"><figcaption>第 85 页</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/gaoshu/p-086.jpg" alt="p86"><figcaption>第 86 页</figcaption></figure>
+</div></details>
+<div class="mark" data-ch="gs02" data-sec="1"></div>
+</section>
+<footer>考研数学（二）自学网站 · 讲义原页 + 精讲 · 仅供个人学习使用</footer>
+</div>
+<script src="data/manifest.js?v=20260915a"></script>
+<script src="data/gs02.js?v=20260915a"></script>
+<script src="assets/app.js?v=20260915a"></script>
+</body>
+</html>
