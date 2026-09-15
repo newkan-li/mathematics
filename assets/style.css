@@ -54,3 +54,16 @@ details.pages summary{cursor:pointer;color:var(--acc);font-weight:600;font-size:
 .dash-grid b{font-size:19px;color:var(--acc)}
 .empty{color:var(--sub);text-align:center;padding:20px}
 .chip{display:inline-block;border:1px solid var(--line);border-radius:14px;padding:3px 10px;font-size:12px;margin:2px 4px 2px 0;background:var(--card)}
+#lesson{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:6px 18px 14px}
+#lesson p{margin:8px 0}
+#lesson .lh{margin:18px 0 6px;font-size:17px;color:var(--acc);padding-bottom:6px;border-bottom:1px solid var(--line)}
+#lesson .lh2{margin:14px 0 4px;font-size:15px;color:var(--fg)}
+.qitem{border:1px solid var(--line);border-radius:10px;padding:10px 14px;margin:12px 0;background:var(--card)}
+.qq{margin-bottom:8px;font-weight:600}
+.qopts{display:flex;flex-direction:column;gap:6px}
+.qopt{text-align:left;border:1px solid var(--line);background:var(--bg);color:var(--fg);border-radius:8px;padding:7px 12px;font-size:14px;cursor:pointer;line-height:1.7}
+.qopt:hover{border-color:var(--acc)}
+.qopt.locked{cursor:default}
+.qopt.right{border-color:var(--ok);background:rgba(31,157,85,.12);color:var(--ok)}
+.qopt.wrong{border-color:var(--no);background:rgba(214,69,69,.12);color:var(--no)}
+.qexp{margin-top:8px;font-size:13.5px;color:var(--sub);border-top:1px dashed var(--line);padding-top:8px}

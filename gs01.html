@@ -6,8 +6,8 @@
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" content="#1f5c8b">
 <title>第一章 函数 极限 连续 · 考研数学</title>
-<link rel="stylesheet" href="assets/style.css?v=20260915b">
-<script src="assets/theme.js?v=20260915b"></script>
+<link rel="stylesheet" href="assets/style.css?v=20260915c">
+<script src="assets/theme.js?v=20260915c"></script>
 <script>
 window.MathJax = { tex: {inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']]}, svg:{fontCache:'global'} };
 </script>
@@ -18,6 +18,7 @@ window.MathJax = { tex: {inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['
 <header class="top"><h1>第一章 函数 极限 连续</h1>
 <p>武忠祥《高等数学辅导讲义》 ｜ 讲义第 8–48 页 ｜ <a href="index.html">← 返回首页</a></p></header>
 <section class="sec"><h2>第一节 函数</h2>
+<div class="navrow"><a class="navbtn" href="lesson.html?id=gs01_s0">📘 进入图文精讲 + 自测（不依赖原书图片）</a></div>
 <div class="points"><div class="pt-h">📌 本页要点</div><ul><li>函数定义：非空实数集到实数集的映射，三要素为定义域、对应法则、值域</li><li>复合函数：内层值域与外层定义域有交集才有意义，定义域取交集</li><li>反函数：一一对应才存在，图像关于y=x对称，定义域值域互换</li><li>分段函数与初等函数：考研重点考查分段点、定义域及表达式</li></ul></div>
 <div class="fbox"><div class="pt-h">📐 核心公式</div><div class="fml">$$复合函数定义：\((f\circ g)(x)=f(g(x))\)，定义域为\(\{x\mid x\in D_g,\ g(x)\in D_f\}\)$$</div><div class="fml">$$反函数关系：\(y=f(x)\Leftrightarrow x=f^{-1}(y)\)，且\(f^{-1}(f(x))=x\)$$</div><div class="fml">$$奇偶性：\(f(-x)=f(x)\)为偶函数，\(f(-x)=-f(x)\)为奇函数$$</div><div class="fml">$$周期性：若\(f(x+T)=f(x)\)，则\(T\)为周期，最小正周期记为\(T_0\)$$</div></div>
 <div class="ex"><div class="ex-q">例：设\(f(x)=\begin{cases}x^2,&x\le 1,\\2x-1,&x>1,\end{cases}\)，\(g(x)=x+1\)，求\(f(g(x))\)及\(g(f(x))\)的表达式。</div><details class="sol"><summary>解答</summary><div class="ansbox">先求\(f(g(x))=f(x+1)\)。由\(g(x)=x+1\)，需判断\(x+1\le 1\)还是\(x+1>1\)，即\(x\le 0\)或\(x>0\)。因此\[f(g(x))=\begin{cases}(x+1)^2,&x\le 0,\\2(x+1)-1=2x+1,&x>0.\end{cases}\]再求\(g(f(x))=f(x)+1\)。由\(f(x)\)分段：当\(x\le 1\)时，\(f(x)=x^2\)，故\(g(f(x))=x^2+1\)；当\(x>1\)时，\(f(x)=2x-1\)，故\(g(f(x))=2x-1+1=2x\)。所以\[g(f(x))=\begin{cases}x^2+1,&x\le 1,\\2x,&x>1.\end{cases}\]</div></details></div>
@@ -84,8 +85,6 @@ window.MathJax = { tex: {inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['
 </section>
 <footer>考研数学（二）自学网站 · 讲义原页 + 精讲 · 仅供个人学习使用</footer>
 </div>
-<script src="data/manifest.js?v=20260915b"></script>
-<script src="data/gs01.js?v=20260915b"></script>
-<script src="assets/app.js?v=20260915b"></script>
+<script src="assets/app.js?v=20260915c"></script>
 </body>
 </html>
