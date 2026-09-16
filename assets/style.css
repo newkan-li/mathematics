@@ -58,13 +58,14 @@ details.pages summary{cursor:pointer;color:var(--acc);font-weight:600;font-size:
 .empty{color:var(--sub);text-align:center;padding:20px}
 .chip{display:inline-block;border:1px solid var(--line);border-radius:14px;padding:3px 10px;font-size:12px;margin:2px 4px 2px 0;background:var(--card)}
 #lesson{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:6px 18px 14px}
-#lesson p{margin:8px 0}
-#lesson .lh{margin:18px 0 6px;font-size:17px;color:var(--acc);padding-bottom:6px;border-bottom:1px solid var(--line)}
-#lesson .lh2{margin:14px 0 4px;font-size:15px;color:var(--fg)}
-#lesson .lh3{margin:10px 0 4px;font-size:14.5px;color:var(--fg);font-weight:600}
-#lesson ol,#lesson ul{margin:8px 0;padding-left:24px}
-#lesson li{margin:3px 0}
-#lesson .notes{margin:8px 0}
+#lesson p,#chapter p{margin:8px 0}
+#lesson .lh,#chapter .lh{margin:18px 0 6px;font-size:17px;color:var(--acc);padding-bottom:6px;border-bottom:1px solid var(--line)}
+#lesson .lh2,#chapter .lh2{margin:14px 0 4px;font-size:15px;color:var(--fg)}
+#lesson .lh3,#chapter .lh3{margin:10px 0 4px;font-size:14.5px;color:var(--fg);font-weight:600}
+#lesson ol,#lesson ul,#chapter ol,#chapter ul{margin:8px 0;padding-left:24px}
+#lesson li,#chapter li{margin:3px 0}
+#lesson .notes,#chapter .notes{margin:8px 0}
+#chapter .lh3.tixing{margin:18px 0 6px;font-size:15px;color:var(--acc);font-weight:700;border-left:4px solid var(--acc);padding:2px 0 2px 10px;background:color-mix(in srgb,var(--acc) 8%,transparent);border-radius:0 6px 6px 0}
 body[data-page="chapter"] .wrap{max-width:1200px}
 .chapter-layout{display:grid;grid-template-columns:290px minmax(0,1fr);gap:20px;align-items:start;margin-top:6px}
 .chapter-main{min-width:0}

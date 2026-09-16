@@ -20,8 +20,8 @@ $$\lim_{\substack{\Delta x\to0\\\Delta y\to0}}\frac{[f(\Delta x,\Delta y)-f(0,0)
 又由 $f'_y(x,y)$ 在点 $(x_0,y_0)$ 处连续可知 $\lim\limits_{\substack{\Delta x\to0\\\Delta y\to0}}f'_y(x_0+\Delta x,y_0+\theta\Delta y)=f'_y(x_0,y_0),$ 即有 $f'_y(x_0+\Delta x,y_0+\theta\Delta y)=f'_y(x_0,y_0)+\alpha_1,$ 从而有 $\Delta z=f'_y(x_0,y_0)\Delta y+\alpha_1\Delta y+f'_x(x_0,y_0)\Delta x+\alpha_2\Delta x.$ 又
 $$\left|\frac{\alpha_1\Delta y+\alpha_2\Delta x}{\sqrt{(\Delta x)^2+(\Delta y)^2}}\right|\leqslant\frac{|\alpha_1||\Delta y|+|\alpha_2||\Delta x|}{\sqrt{(\Delta x)^2+(\Delta y)^2}}\leqslant|\alpha_1|+|\alpha_2|\to0.$$
 即 $\alpha_1\Delta y+\alpha_2\Delta x=o(\rho)$，故 $f(x,y)$ 在点 $(x_0,y_0)$ 处可微。
-### 第二节 偏导数与全微分的计算
-#### 一、考试内容要点精讲
+## 第二节 偏导数与全微分的计算
+### 一、考试内容要点精讲
 **1. 复合函数求导法**
 设 $u=u(x,y),v=v(x,y)$ 可导，$z=f(u,v)$ 在相应点有连续一阶偏导数，则
 $$\frac{\partial z}{\partial x}=\frac{\partial f}{\partial u}\frac{\partial u}{\partial x}+\frac{\partial f}{\partial v}\frac{\partial v}{\partial x},$$` },
@@ -36,8 +36,8 @@ $$\frac{\partial z}{\partial x}=\frac{\partial f}{\partial u}\frac{\partial u}{\
 设 $u=u(x,y),v=v(x,y)$ 由 $\begin{cases}F(x,y,u,v)=0,\\G(x,y,u,v)=0\end{cases}$ 所确定
 方法：(1) 等式两边求导 $\begin{cases}F'_x+F'_u\frac{\partial u}{\partial x}+F'_v\frac{\partial v}{\partial x}=0,\\G'_x+G'_u\frac{\partial u}{\partial x}+G'_v\frac{\partial v}{\partial x}=0.\end{cases}$
 (2) 利用微分形式不变性 $\begin{cases}F'_xdx+F'_ydy+F'_udu+F'_vdv=0,\\G'_xdx+G'_ydy+G'_udu+G'_vdv=0.\end{cases}$
-#### 二、常考题型的方法与技巧
-###### 题型一 求一点处的偏导数与全微分
+### 二、常考题型的方法与技巧
+#### 题型一 求一点处的偏导数与全微分
 【例1】设 $f(x,y)=\begin{cases}\frac{\sqrt{|x|}}{x^2+y^2}\sin(x^2+y^2),&(x,y)\neq(0,0).\\0,&(x,y)=(0,0).\end{cases}$ 求 $f'_x(0,0)$ 和 $f'_y(0,0)$。
 【解】由于 $\lim\limits_{\Delta x\to0}\frac{f(\Delta x,0)-f(0,0)}{\Delta x}=\lim\limits_{\Delta x\to0}\frac{\frac{\sqrt{|\Delta x|}}{(\Delta x)^2}\sin(\Delta x)^2}{\Delta x}=\lim\limits_{\Delta x\to0}\frac{\sqrt{|\Delta x|}}{\Delta x}=\infty,$ 则 $f'_x(0,0)$ 不存在。而 $f'_y(0,0)=\lim\limits_{\Delta y\to0}\frac{f(0,\Delta y)-f(0,0)}{\Delta y}=\lim\limits_{\Delta y\to0}\frac{0-0}{\Delta y}=0.$
 【注】求分段函数在分界点处的偏导数一般都是用定义。` },
@@ -49,7 +49,7 @@ $$\frac{\partial z}{\partial x}=\frac{\partial f}{\partial u}\frac{\partial u}{\
 【注】求具体点处高阶偏导数也可用先代后求的方法。
 【例4】设 $f(x,y,z)=\sqrt{\frac{x}{y}}$，则 $df(1,1,1)=$______。
 【解】$f'_x(1,1,1)=\left.\frac{d}{dx}f(x,1,1)\right|_{x=1}=\left.\frac{d}{dx}(x)\right|_{x=1}=1,$ $f'_y(1,1,1)=\left.\frac{d}{dy}f(1,y,1)\right|_{y=1}=\left.\frac{d}{dy}\left(\frac{1}{y}\right)\right|_{y=1}=\left.-\frac{1}{y^2}\right|_{y=1}=-1,$ $f'_z(1,1,1)=\left.\frac{d}{dz}f(1,1,z)\right.=\left.\frac{d}{dz}(1)\right|_{z=1}=0,$ 故 $df(1,1,1)=dx-dy.$
-###### 题型二 求已给出具体表达式函数的偏导数与全微分
+#### 题型二 求已给出具体表达式函数的偏导数与全微分
 【例1】设 $z=(x^2+y^2)e^{-\arctan\frac{y}{x}}$，求 $\frac{\partial z}{\partial x},\frac{\partial z}{\partial y}$ 及 $dz$。
 【解】$\frac{\partial z}{\partial x}=(2x+y)e^{-\arctan\frac{y}{x}},\frac{\partial z}{\partial y}=(2y-x)e^{-\arctan\frac{y}{x}},$ $dz=(2x+y)e^{-\arctan\frac{y}{x}}dx+(2y-x)e^{-\arctan\frac{y}{x}}dy.$
 【例2】设 $z=(1+x^2+y^2)^{xy}$，求 $\frac{\partial z}{\partial x}$ 及 $\frac{\partial z}{\partial y}$。
@@ -78,7 +78,7 @@ $$\frac{\partial z}{\partial x}=\frac{\partial z}{\partial u}\frac{\partial u}{\
 方法1 偏积分 由上式可知 $\frac{\partial u}{\partial x}=y,\frac{\partial u}{\partial y}=x-1+y^2$。等式 $\frac{\partial u}{\partial x}=y$ 两端对 $x$ 偏积分得 $u=\int ydx=xy+\varphi(y),$ 该式两端对 $y$ 求偏导得 $\frac{\partial u}{\partial y}=x+\varphi'(y),$ 又 $\frac{\partial u}{\partial y}=x-1+y^2,$ 则 $\varphi'(y)=-1+y^2$，从而 $\varphi(y)=\int(-1+y^2)dy=-y+\frac{1}{3}y^3+C,$` },
       { p: 153, md: R`$$u(x,y)=xy-y+\frac{1}{3}y^3+C.$$
 方法2 凑微分 $du(x,y)=ydx+[(x-1)+y^2]dy=(ydx+xdy)+(y^2-1)dy=d(xy)+d\left(\frac{1}{3}y^3-y\right)=d\left(xy+\frac{1}{3}y^3-y\right),$ 则 $u(x,y)=xy-y+\frac{1}{3}y^3+C.$
-###### 题型三 含有抽象函数的复合函数偏导数与全微分
+#### 题型三 含有抽象函数的复合函数偏导数与全微分
 【例1】设函数 $f(u,v)$ 由关系式 $f[xg(y),y]=x+g(y)$ 所确定，其中函数 $g(y)$ 可微，且 $g(y)\neq0$，则 $\frac{\partial^2f}{\partial u\partial v}=$______。
 【解】令 $xg(y)=u,y=v$，则 $x=\frac{u}{g(y)}=\frac{u}{g(v)}$。于是 $f(u,v)=\frac{u}{g(v)}+g(v)\Rightarrow\frac{\partial f}{\partial u}=\frac{1}{g(v)},\frac{\partial^2f}{\partial u\partial v}=-\frac{g'(v)}{[g(v)]^2}.$
 【例2】设函数 $u(x,y)=\varphi(x+y)+\varphi(x-y)+\int_{x-y}^{x+y}\psi(t)dt$，其中 $\varphi$ 具有二阶导数，$\psi$ 具有一阶导数，则必有
@@ -118,7 +118,7 @@ $\frac{\partial^2u}{\partial\xi\partial\eta}=\frac{-b}{a-b}\frac{\partial^2u}{\p
 【例10】若对任意 $t>0$ 有 $f(tx,ty)=t^nf(x,y)$，则称函数 $f(x,y)$ 是 $n$ 次齐次函数，试证：若 $f(x,y)$ 可微，则 $f(x,y)$ 是 $n$ 次齐次函数 $\Leftrightarrow x\frac{\partial f}{\partial x}+y\frac{\partial f}{\partial y}=nf(x,y).$
 【证】必要性 由于 $f(x,y)$ 为 $n$ 次齐次函数，则对任意 $t>0$，有 $f(tx,ty)=t^nf(x,y)$，该式两端对 $t$ 求导得 $xf_1'(tx,ty)+yf_2'(tx,ty)=nt^{n-1}f(x,y).$ 令 $t=1$ 得 $xf_1'(x,y)+yf_2'(x,y)=nf(x,y).$ 即 $x\frac{\partial f}{\partial x}+y\frac{\partial f}{\partial y}=nf(x,y).$
 充分性 令 $F(t)=f(tx,ty)(t>0)$，则 $\frac{dF}{dt}=xf_1'(tx,ty)+yf_2'(tx,ty)$，两边乘以 $t$ 得 $t\frac{dF}{dt}=txf_1'(tx,ty)+tyf_2'(tx,ty)=nf(tx,ty)=nF(t).$ 于是 $\frac{dF}{F}=\frac{n}{t}dt$，解得 $F(t)=Ct^n$。令 $t=1$ 得 $F(1)=C$，而由 $F(t)=f(tx,ty)$ 知 $F(1)=f(x,y)$，则 $C=f(x,y)$。于是 $F(t)=t^nf(x,y)$，即 $f(tx,ty)=t^nf(x,y).$` },
-      { p: 157, md: R`###### 题型四 隐函数的偏导数与全微分
+      { p: 157, md: R`#### 题型四 隐函数的偏导数与全微分
 【例1】设 $z=z(x,y)$ 是由方程 $z+e^z=xy$ 所确定，求 $\frac{\partial z}{\partial x}$ 和 $\frac{\partial z}{\partial y}$。
 【解1】由 $z+e^z=xy$ 知，$z+e^z-xy=0$。由隐函数求导公式可得 $\frac{\partial z}{\partial x}=-\frac{F_x'}{F_z'}=-\frac{-y}{1+e^z}=\frac{y}{1+e^z}$，$\frac{\partial z}{\partial y}=-\frac{F_y'}{F_z'}=-\frac{-x}{1+e^z}=\frac{x}{1+e^z}.$
 【解2】等式 $z+e^z=xy$ 两端分别对 $x,y$ 求偏导得 $(1+e^z)\frac{\partial z}{\partial x}=y$，$(1+e^z)\frac{\partial z}{\partial y}=x.$ 由以上两式解得 $\frac{\partial z}{\partial x}=\frac{y}{1+e^z}$，$\frac{\partial z}{\partial y}=\frac{x}{1+e^z}.$

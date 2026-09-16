@@ -9,10 +9,10 @@ window.LESSONS = window.LESSONS || {};
     pages: [49, 62],
     img: "assets/img/gaoshu",
     content: [
-      { p: 49, md: R`### 第二章 一元函数微分学
-#### 第一节 导数与微分
-##### 一、考试内容要点精讲
-###### （一）导数概念
+      { p: 49, md: R`# 第二章 一元函数微分学
+## 第一节 导数与微分
+### 一、考试内容要点精讲
+#### （一）导数概念
 **定义 1（导数）** 设函数 $y=f(x)$ 在 $x_0$ 的某邻域内有定义，如果极限
 $$\lim_{\Delta x\to0}\frac{\Delta y}{\Delta x}=\lim_{\Delta x\to0}\frac{f(x_0+\Delta x)-f(x_0)}{\Delta x}$$
 存在，则称 $f(x)$ 在点 $x_0$ 处可导，并称此极限值为 $f(x)$ 在点 $x_0$ 处的导数，记为 $f'(x_0)$，或 $y'|_{x=x_0}$，或 $\left.\frac{dy}{dx}\right|_{x=x_0}$。如果上述极限不存在，则称 $f(x)$ 在点 $x_0$ 处不可导。
@@ -25,21 +25,21 @@ $$\lim_{\Delta x\to0^-}\frac{\Delta y}{\Delta x}=\lim_{\Delta x\to0^-}\frac{f(x_
 $$\lim_{\Delta x\to0^+}\frac{\Delta y}{\Delta x}=\lim_{\Delta x\to0^+}\frac{f(x_0+\Delta x)-f(x_0)}{\Delta x}=\lim_{x\to x_0^+}\frac{f(x)-f(x_0)}{x-x_0}$$
 存在时，则称该极限值为 $f(x)$ 在点 $x_0$ 处的右导数，记为 $f'_+(x_0)$。
 定理 $\quad$ 可导 $\Leftrightarrow$ 左右导数都存在且相等。
-###### （二）微分概念
+#### （二）微分概念
 定义 若 $\Delta y=f(x_0+\Delta x)-f(x_0)=A\Delta x+o(\Delta x)$，其中 $A$ 为不依赖于 $\Delta x$ 的常数，则称函数 $f(x)$ 在点 $x_0$ 处可微，称 $A\Delta x$ 为函数 $f(x)$ 在点 $x_0$ 处相应于自变量增量 $\Delta x$ 的微分，记为 $dy=A\Delta x$。
 定理 函数 $y=f(x)$ 在点 $x_0$ 处可微的充分必要条件是 $f(x)$ 在点 $x_0$ 处可导，且有
 $$dy=f'(x_0)\Delta x=f'(x_0)dx.$$` },
-      { p: 50, md: R`###### （三）导数与微分的几何意义
+      { p: 50, md: R`#### （三）导数与微分的几何意义
 1）导数 $f'(x_0)$ 在几何上表示曲线 $y=f(x)$ 在点 $(x_0,f(x_0))$ 处切线的斜率。
 2）微分 $dy=f'(x_0)dx$ 在几何上表示曲线 $y=f(x)$ 的切线上的增量。
 $\Delta y=f(x_0+\Delta x)-f(x_0)$ 在几何上表示曲线 $y=f(x)$ 上的增量。$\Delta y\approx dy$
 （图：曲线 $y=f(x)$ 上 $x_0$ 与 $x_0+\Delta x$ 处对应的纵坐标增量 $\Delta y$、切线上增量 $dy$ 以及 $\Delta x$）
-###### （四）连续、可导、可微之间的关系
+#### （四）连续、可导、可微之间的关系
 （关系图：连续 $\longleftrightarrow$ 可导；连续 $\to$ 可微；可导 $\to$ 可微；可微 $\to$ 连续；可微 $\to$ 可导）
 【注】1）连续 $\not\Rightarrow$ 可导，连续 $\not\Rightarrow$ 可微，经典反例为 $f(x)=|x|$；
 2）$f(x)$ 可导 $\Rightarrow f(x)$ 连续，$f(x)$ 可导 $\not\Rightarrow f'(x)$ 连续，$f(x)$ 可导 $\not\Rightarrow\lim_{x\to x_0}f'(x)$ 存在。
 例如 $f(x)=\begin{cases}x^2\sin\frac{1}{x},&x\neq0,\\0,&x=0\end{cases}$ 处处可导，但 $\lim_{x\to0}f'(x)$ 不存在，从而 $f'(x)$ 在 $x=0$ 处也不连续。
-###### （五）求导公式
+#### （五）求导公式
 1）$(C)'=0$； 2）$(x^a)'=ax^{a-1}$；
 3）$(a^x)'=a^x\ln a$； 4）$(e^x)'=e^x$；
 5）$(\log_a x)'=\frac{1}{x\ln a}$； 6）$(\ln|x|)'=\frac{1}{x}$；
@@ -48,7 +48,7 @@ $\Delta y=f(x_0+\Delta x)-f(x_0)$ 在几何上表示曲线 $y=f(x)$ 上的增量
 11）$(\sec x)'=\sec x\tan x$； 12）$(\csc x)'=-\csc x\cot x$；
 13）$(\arcsin x)'=\frac{1}{\sqrt{1-x^2}}$； 14）$(\arccos x)'=-\frac{1}{\sqrt{1-x^2}}$；
 15）$(\arctan x)'=\frac{1}{1+x^2}$； 16）$(\operatorname{arccot}x)'=-\frac{1}{1+x^2}$。
-###### （六）求导法则
+#### （六）求导法则
 **（1）有理运算法则**
 设 $u=u(x),v=v(x)$ 在 $x$ 处可导，则
 1）$(u\pm v)'=u'\pm v'$； 2）$(uv)'=u'v+uv'$；
@@ -74,13 +74,13 @@ $$\frac{d^2y}{dx^2}=\frac{d}{dt}\left(\frac{\psi'(t)}{\varphi'(t)}\right)\cdot\f
 2）常用公式
 ①$(\sin x)^{(n)}=\sin\left(x+n\cdot\frac{\pi}{2}\right)$； ②$(\cos x)^{(n)}=\cos\left(x+n\cdot\frac{\pi}{2}\right)$；
 ③$(u\pm v)^{(n)}=u^{(n)}\pm v^{(n)}$； ④$(uv)^{(n)}=\sum_{k=0}^{n}C_n^ku^{(k)}v^{(n-k)}$。
-##### 二、常考题型的方法与技巧
-###### 题型一 导数与微分的概念
+### 二、常考题型的方法与技巧
+#### 题型一 导数与微分的概念
 这里的重点是导数的概念，其题型主要有三种：
 1）利用导数定义求极限；` },
       { p: 52, md: R`2）利用导数定义求导数；
 3）利用导数定义判断函数的可导性。
-###### （一）利用导数定义求极限
+#### （一）利用导数定义求极限
 【例1】设 $f(-1)=1,f'(-1)=2$，则 $\lim\limits_{x\to-1}\frac{f(2-3x)-1}{x-1}=$______。
 【解1】$\lim\limits_{x\to-1}\frac{f(2-3x)-1}{x-1}=\lim\limits_{x\to-1}\frac{f[-1+3(1-x)]-f(-1)}{3(1-x)}\cdot\frac{3(1-x)}{x-1}=f'(-1)\cdot(-3)=-6.$
 【解2】取 $f(x)=2x+3$，显然满足 $f(-1)=1,f'(-1)=2$，代入得 $\lim\limits_{x\to-1}\frac{f(2-3x)-1}{x-1}=\lim\limits_{x\to-1}\frac{2(2-3x)+3-1}{x-1}=\lim\limits_{x\to-1}\frac{6(1-x)}{x-1}=-6.$
@@ -99,7 +99,7 @@ $\lim\limits_{x\to0}\frac{x^2f(x)-2f(x^3)}{x^3}=\lim\limits_{x\to0}\frac{f(x)}{x
 【解1】由曲线 $y=f(x)$ 与 $y=x^2-x$ 在点 $(1,0)$ 处有公共切线可知，$f(1)=0,f'(1)=(2x-1)|_{x=1}=1.$` },
       { p: 53, md: R`$\lim\limits_{n\to\infty}nf\left(\frac{n}{n+2}\right)=\lim\limits_{n\to\infty}\frac{-2n}{n+2}\cdot\frac{f\left(1+\frac{-2}{n+2}\right)-f(1)}{\frac{-2}{n+2}}=-2f'(1)=-2.$
 【解2】由【解1】知 $f(1)=0,f'(1)=1$，取 $f(x)=x-1$ 显然满足题设条件，代入 $\lim\limits_{n\to\infty}nf\left(\frac{n}{n+2}\right)=\lim\limits_{n\to\infty}n\left(\frac{n}{n+2}-1\right)=\lim\limits_{n\to\infty}\frac{-2n}{n+2}=-2.$
-###### （二）利用导数定义求导数
+#### （二）利用导数定义求导数
 【例1】设函数 $f(x)=(e^x-1)(e^{2x}-2)\cdots(e^{nx}-n)$，其中 $n$ 为正整数，则 $f'(0)=$
 （A）$(-1)^{n-1}(n-1)!$。 （B）$(-1)^n(n-1)!$。 （C）$(-1)^{n-1}n!$。 （D）$(-1)^nn!$。
 【解1】显然 $f(0)=0$，则由导数定义得
@@ -108,7 +108,7 @@ $f'(0)=\lim\limits_{x\to0}\frac{f(x)}{x}=\lim\limits_{x\to0}\frac{(e^x-1)(e^{2x}
 【例2】设 $f(x)=\begin{cases}(1+x^2)^{\frac{1}{\sin x}},&x\neq0,\\1,&x=0\end{cases}$，则 $f'(0)=$______。
 【解】$f'(0)=\lim\limits_{x\to0}\frac{f(x)-f(0)}{x}=\lim\limits_{x\to0}\frac{(1+x^2)^{\frac{1}{\sin x}}-1}{x}=\lim\limits_{x\to0}\frac{e^{\frac{\ln(1+x^2)}{\sin x}}-1}{x}=\lim\limits_{x\to0}\frac{\ln(1+x^2)}{x\sin x}=\lim\limits_{x\to0}\frac{x^2}{x^2}=1.$
 【注】分段函数在分界点处的导数一般都要用定义求。
-###### （三）利用导数定义判定可导性
+#### （三）利用导数定义判定可导性
 【例1】设函数 $f(x)$ 在 $x=0$ 处连续，下列命题错误的是
 （A）若 $\lim\limits_{x\to0}\frac{f(x)}{x}$ 存在，则 $f(0)=0$。 （B）若 $\lim\limits_{x\to0}\frac{f(x)+f(-x)}{x}$ 存在，则 $f(0)=0$。
 （C）若 $\lim\limits_{x\to0}\frac{f(x)}{x}$ 存在，则 $f'(0)$ 存在。 （D）若 $\lim\limits_{x\to0}\frac{f(x)-f(-x)}{x}$ 存在，则 $f'(0)$ 存在。
@@ -180,7 +180,7 @@ $$f'_-(1)=0,\quad f'_+(1)=\lim_{x\to1^+}\frac{x^3-1}{x-1}=3,$$
 $$\lim_{x\to0}g'(x)=\lim_{x\to0}\frac{xf'(x)-f(x)}{x^2}=\lim_{x\to0}\frac{x(f'(x)-f'(0))+xf'(0)-f(x)}{x^2}$$` },
       { p: 57, md: R`$$=\lim_{x\to0}\frac{f'(x)-f'(0)}{x}-\lim_{x\to0}\frac{f(x)-xf'(0)}{x^2}=f''(0)-\frac{f''(0)}{2}=\frac{f''(0)}{2}=g'(0).$$
 则 $g'(x)$ 在 $x=0$ 处连续，故 $g(x)$ 在 $(-\infty,+\infty)$ 上有连续的一阶导数。
-###### 题型二 导数的几何意义
+#### 题型二 导数的几何意义
 【例1】曲线 $\tan\left(x+y+\frac{\pi}{4}\right)=e^y$ 在点 $(0,0)$ 处的切线方程为______。
 【解】等式 $\tan\left(x+y+\frac{\pi}{4}\right)=e^y$ 两端对 $x$ 求导得 $\sec^2\left(x+y+\frac{\pi}{4}\right)(1+y')=e^yy'$，将 $x=0,y=0$ 代入上式得 $y'(0)=-2$，则该曲线在点 $(0,0)$ 处的切线方程为 $y=-2x$。
 【例2】曲线 $\begin{cases}x=\arctan t,\\y=\ln\sqrt{1+t^2}\end{cases}$ 上对应于 $t=1$ 的点处的法线方程为______。
@@ -193,7 +193,7 @@ $$\lim_{x\to0}g'(x)=\lim_{x\to0}\frac{xf'(x)-f(x)}{x^2}=\lim_{x\to0}\frac{x(f'(x
 【解】由曲线 $y=x^2$ 与曲线 $y=a\ln x(a\neq0)$ 相切可知，$\begin{cases}x^2=a\ln x,\\2x=\frac{a}{x}.\end{cases}$ 由上式解得 $a$` },
       { p: 58, md: R`$=2e$，故应选（C）。
 【注】若两曲线相切，则在切点处函数值相等且导数值相等。
-###### 题型三 导数与微分的计算
+#### 题型三 导数与微分的计算
 **（一）复合函数求导法**
 【例1】设 $f(x)=\ln(x+\sqrt{1+x^2})$，则 $f''(0)=$______。
 【解】应填 0。因为 $f(x)$ 为奇函数，$f'(x)$ 为偶函数，$f''(x)$ 为奇函数，则 $f''(0)=0$。

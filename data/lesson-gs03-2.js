@@ -25,9 +25,9 @@ $\lim\limits_{x\to0^+}F(x)=\lim\limits_{x\to0^+}(-e^{-x}+C_1)=-1+C_1,$
 $\lim\limits_{x\to0^-}F(x)=\lim\limits_{x\to0^-}(e^x+C_2)=1+C_2,$
 故有 $-1+C_1=1+C_2$，令 $C_1=C$，则 $C_2=-2+C$。因此
 $\int e^{-|x|}dx=\begin{cases}-e^{-x}+C,&x\geq0,\\e^x-2+C,&x<0.\end{cases}$
-### 第二节 定积分
-#### 一、考试内容要点精讲
-##### （一）定积分的概念
+## 第二节 定积分
+### 一、考试内容要点精讲
+#### （一）定积分的概念
 设函数 $f(x)$ 在区间 $[a,b]$ 上有定义，在区间 $[a,b]$ 内任意插入 $n-1$ 个分点 $a=x_0<x_1<x_2<\cdots<x_{n-1}<x_n=b.$
 将区间 $[a,b]$ 分成 $n$ 个小区间 $[x_{i-1},x_i],i=1,2,\cdots,n$，记 $\Delta x_i=x_i-x_{i-1}$ 表示第 $i$ 个小区间的长度。
 在 $[x_{i-1},x_i]$ 上任取一点 $\xi_i$，作和式 $\sum_{i=1}^nf(\xi_i)\Delta x_i$，记
@@ -40,17 +40,17 @@ $$\int_a^bf(x)dx=\int_a^bf(t)dt.$$
 (2) 若 $f(x)$ 在区间 $[0,1]$ 上连续，则积分 $\int_0^1f(x)dx$ 存在。将 $[0,1]$ 区间 $n$ 等分，此时 $\Delta x_i=\frac{1}{n}$，取 $\xi_i=\frac{i}{n}$，由定积分的定义得
 $$\int_0^1f(x)dx=\lim_{\lambda\to0}\sum_{i=1}^nf(\xi_i)\Delta x_i=\lim_{n\to\infty}\frac{1}{n}\sum_{i=1}^nf\left(\frac{i}{n}\right).$$
 等式右端的极限可通过等式左端的积分来计算。
-##### （二）定积分的几何意义
+#### （二）定积分的几何意义
 1）设 $\int_a^bf(x)dx$ 存在，若在 $[a,b]$ 上 $f(x)\geq0$，则 $\int_a^bf(x)dx$ 的值等于以曲线 $y=f(x),x=a,x=b$ 及 $x$ 轴所围成的曲边梯形的面积。
 2）若在 $[a,b]$ 上 $f(x)\leq0$，则 $\int_a^bf(x)dx$ 的值等于以曲线 $y=f(x),x=a,x=b$ 及 $x$ 轴所围成的曲边梯形面积的负值。
 3）若在 $[a,b]$ 上 $f(x)$ 的值有正也有负，则 $\int_a^bf(x)dx$ 在几何上表示 $y=f(x),x=a,x=b$ 及 $x$ 轴所围成的 $x$ 轴上方图形的面积减去下方图形的面积所得之差。
-##### （三）可积性
+#### （三）可积性
 1. 必要条件：若 $\int_a^bf(x)dx$ 存在，则 $f(x)$ 在 $[a,b]$ 上有界；
 2. 充分条件：
 ① 若 $f(x)$ 在 $[a,b]$ 上连续，则 $\int_a^bf(x)dx$ 必定存在。
 ② 若 $f(x)$ 在 $[a,b]$ 上有界，且只有有限个间断点，则 $\int_a^bf(x)dx$ 必定存在。
 ③ 若 $f(x)$ 在 $[a,b]$ 上只有有限个第一类间断点，则 $\int_a^bf(x)dx$ 必定存在。
-##### （四）定积分的计算
+#### （四）定积分的计算
 定积分的计算常用方法有以下五种：
 1）牛顿—莱布尼兹公式
 如果函数 $F(x)$ 是连续函数 $f(x)$ 在区间 $[a,b]$ 上的一个原函数，则
@@ -71,7 +71,7 @@ $$\int_a^{a+T}f(x)dx=\int_0^Tf(x)dx.$$
 5）利用公式
 (1) $\int_0^{\frac{\pi}{2}}\sin^nx\,dx=\int_0^{\frac{\pi}{2}}\cos^nx\,dx=\begin{cases}\dfrac{n-1}{n}\dfrac{n-3}{n-2}\cdots\dfrac{1}{2}\dfrac{\pi}{2},&n\text{ 为偶数},\\\dfrac{n-1}{n}\dfrac{n-3}{n-2}\cdots\dfrac{2}{3},&n\text{ 为大于1的奇数}.\end{cases}$
 (2) $\int_0^\pi xf(\sin x)dx=\dfrac{\pi}{2}\int_0^\pi f(\sin x)dx$（其中 $f(x)$ 连续）。
-##### （五）变上限积分：$\int_a^xf(t)dt$
+#### （五）变上限积分：$\int_a^xf(t)dt$
 定理 若 $f(x)$ 在 $[a,b]$ 上连续，则 $\int_a^xf(t)dt$ 在 $[a,b]$ 上可导且
 $$\left(\int_a^xf(t)dt\right)'=f(x).$$
 变上限求导的三个类型：
@@ -88,7 +88,7 @@ $\frac{d}{dx}\int_0^x(t-x)f(t)dt=xf(x)-xf(x)-\int_0^xf(t)dt=-\int_0^xf(t)dt.$
 $\frac{d}{dx}\int_0^x\sin(x-t)^2dt=\frac{d}{dx}\int_0^x\sin u^2du=\sin x^2.$
 4) $\int_1^2f(x+t)dt\xlongequal{x+t=u}\int_{x+1}^{x+2}f(u)du,$
 $\frac{d}{dx}\int_1^2f(x+t)dt=f(x+2)-f(x+1).$
-##### （六）定积分的性质
+#### （六）定积分的性质
 1）不等式：① 若 $f(x)\leq g(x),x\in[a,b]$，则 $\int_a^bf(x)dx\leq\int_a^bg(x)dx.$
 ② 若 $f(x)$ 在 $[a,b]$ 上连续，则 $m(b-a)\leq\int_a^bf(x)dx\leq M(b-a)$，其中 $m,M$ 分别为 $f(x)$ 在 $[a,b]$ 上的最小值与最大值。
 ③ $\left|\int_a^bf(x)dx\right|\leq\int_a^b|f(x)|dx.$
@@ -99,8 +99,8 @@ $$\int_a^bf(x)g(x)dx=f(\xi)\int_a^bg(x)dx,\quad a\leq\xi\leq b.$$
 【例2】设 $f(x)$ 在 $[a,b]$ 上连续，在 $(a,b)$ 内可导，且 $\frac{1}{b-a}\int_a^bf(x)dx=f(b)$。求证：在 $(a,b)$ 内至少存在一点 $c$，使 $f'(c)=0.$
 【证】由积分中值定理得 $\int_a^bf(x)dx=f(\xi)(b-a),a<\xi<b.$
 代入 $\frac{1}{b-a}\int_a^bf(x)dx=f(b)$ 得，$f(\xi)=f(b)$，由罗尔定理得至少存在一点 $c\in(\xi,b)\subset(a,b)$ 使 $f'(c)=0.$
-#### 二、常考题型的方法与技巧
-##### 题型一 定积分的概念、性质及几何意义
+### 二、常考题型的方法与技巧
+#### 题型一 定积分的概念、性质及几何意义
 【例1】求 $\lim\limits_{n\to\infty}\left[\left(1+\frac{1^2}{n^2}\right)\cdot\left(1+\frac{2^2}{n^2}\right)\cdots\left(1+\frac{n^2}{n^2}\right)\right]^{\frac{1}{n}}.$
 【解】令 $y_n=\left[\left(1+\frac{1^2}{n^2}\right)\left(1+\frac{2^2}{n^2}\right)\cdots\left(1+\frac{n^2}{n^2}\right)\right]^{\frac{1}{n}}$，则` },
       { p: 98, md: R`$$\ln y_n=\frac{1}{n}\left[\ln\left(1+\frac{1^2}{n^2}\right)+\ln\left(1+\frac{2^2}{n^2}\right)+\cdots+\ln\left(1+\frac{n^2}{n^2}\right)\right]$$
@@ -123,7 +123,7 @@ $=\lim\limits_{x\to+\infty}2\xi\sin\left(\frac{3}{\xi}\right)f(\xi)\qquad(x<\xi<
 $$F(-2)=F(2)=\frac{\pi}{2},(\text{几何意义})$$
 $$F(-3)=F(3)=\frac{\pi}{2}-\frac{\pi}{8}=\frac{3}{8}\pi,(\text{几何意义})$$
 故(C)正确。
-##### 题型二 定积分计算
+#### 题型二 定积分计算
 【例1】$I=\int_{-1}^1\frac{2x^2+\sin x}{1+\sqrt{1-x^2}}dx$。
 【解】$I=4\int_0^1\frac{x^2}{1+\sqrt{1-x^2}}dx=4\int_0^1[1-\sqrt{1-x^2}]dx=4-4\int_0^1\sqrt{1-x^2}dx=4-\pi.$
 【注】由定积分的几何意义知 $\int_0^a\sqrt{a^2-x^2}dx=\frac{\pi}{4}a^2;\int_0^a\sqrt{2ax-x^2}dx=\frac{\pi}{4}a^2;\int_0^{2a}\sqrt{2ax-x^2}dx=\frac{\pi}{2}a^2(a>0).$
@@ -166,7 +166,7 @@ $$=\int_0^1(1-x)\arcsin(x-1)^2dx=\frac{1}{2}\int_0^1\arcsin u\,du\qquad(令(x-1)
 【解】等式 $f(x)=\frac{x}{1+\cos^2x}-\int_{-\pi}^\pi f(x)\sin x\,dx$ 两端同乘 $\sin x$ 并从 $-\pi$ 到 $\pi$ 积分得
 $$\int_{-\pi}^\pi f(x)\sin x\,dx=\int_{-\pi}^\pi\frac{x\sin x}{1+\cos^2x}dx=2\int_0^\pi\frac{x\sin x}{1+\cos^2x}dx=\pi\int_0^\pi\frac{\sin x}{1+\cos^2x}dx=-\pi\arctan\cos x\bigg|_0^\pi=\frac{\pi^2}{2}.$$
 则 $f(x)=\frac{x}{1+\cos^2x}-\frac{\pi^2}{2}.$
-##### 题型三 变上限积分函数及其应用
+#### 题型三 变上限积分函数及其应用
 与变上限积分有关的题目主要考查变上限积分函数的连续性、可导性及奇偶性，其中变上限求导是重点。其常用的结论有
 1. 连续性：若 $f(x)$ 在 $[a,b]$ 可积，则 $\int_a^xf(t)dt$ 在 $[a,b]$ 上连续。
 2. 可导性：有关 $F(x)=\int_a^xf(t)dt$ 的可导性的结论
@@ -256,7 +256,7 @@ $$F''(x)=f(x)+f(x)=2f(x)>0,$$
 3）$F(x)$ 在 $[-a,a]$ 上最小值为 $F(0)=\int_{-a}^a|t|f(t)dt=2\int_0^atf(t)dt,$
 从而有 $2\int_0^atf(t)dt=f(a)-a^2-1,$
 上式两端对 $a$ 求导得，$2af(a)=f'(a)-2a$，解此一阶线性微分方程得 $f(a)=Ce^{a^2}-1$。又 $f(0)=1$，则 $C=2$，从而 $f(t)=2e^{t^2}-1.$
-##### 题型四 积分不等式
+#### 题型四 积分不等式
 证明积分不等式常用的方法：1）变量代换；2）积分中值定理；3）变上限积分；4）柯西积分不等式 $\left(\int_a^bf(x)g(x)dx\right)^2\leqslant\int_a^bf^2(x)dx\int_a^bg^2(x)dx.$
 【例1】设 $I_1=\int_0^{\frac{\pi}{4}}\frac{\tan x}{x}dx,I_2=\int_0^{\frac{\pi}{4}}\frac{x}{\tan x}dx$，则
 (A) $I_1>I_2>1$。 (B) $1>I_1>I_2$。` },

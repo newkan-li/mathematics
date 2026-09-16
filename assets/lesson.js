@@ -104,11 +104,12 @@
         } else math = [r0];
         continue;
       }
-      var h = /^(#{1,4})\s+(.*)$/.exec(t);
+      var h = /^(#{1,6})\s+(.*)$/.exec(t);
       if (h) {
         fa(); closeEx();
         var lv = h[1].length, tag = lv <= 2 ? "h3" : (lv === 3 ? "h4" : "h5");
         var cls = lv <= 2 ? "lh" : (lv === 3 ? "lh2" : "lh3");
+        if (/^题型/.test(h[2])) cls += " tixing";
         html.push("<" + tag + ' class="' + cls + '">' + ih(h[2]) + "</" + tag + ">");
         continue;
       }

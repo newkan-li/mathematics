@@ -9,9 +9,9 @@ window.LESSONS = window.LESSONS || {};
     pages: [13, 39],
     img: "assets/img/gaoshu",
     content: [
-      { p: 13, md: R`### 第二节 极限
-#### 一、考试内容要点精讲
-##### (一) 极限的概念
+      { p: 13, md: R`## 第二节 极限
+### 一、考试内容要点精讲
+#### (一) 极限的概念
 **1. 数列极限**
 $\lim\limits_{n\to\infty}x_n=a$：$\forall\varepsilon>0$，$\exists N(\varepsilon)>0$，当 $n>N$ 时，有 $|x_n-a|<\varepsilon$。
 【注】(1) $\lim\limits_{n\to\infty}x_n=a$ 的几何意义是：对于 $a$ 点的任何 $\varepsilon$ 邻域即开区间 $(a-\varepsilon,a+\varepsilon)$，一定存在 $N$，当 $n>N$ 即第 $N$ 项以后的点 $x_n$ 都落在开区间 $(a-\varepsilon,a+\varepsilon)$ 内，而只有有限个（最多只有 $N$ 个）在这区间之外。
@@ -40,7 +40,7 @@ $\lim\limits_{x\to-\infty}e^x=0$，$\lim\limits_{x\to+\infty}e^x=+\infty$，则 
 $\lim\limits_{x\to0^-}\arctan\frac{1}{x}=-\frac{\pi}{2}$，$\lim\limits_{x\to0^+}\arctan\frac{1}{x}=\frac{\pi}{2}$，则 $\lim\limits_{x\to0}\arctan\frac{1}{x}$ 不存在；
 $\lim\limits_{x\to-\infty}\arctan x=-\frac{\pi}{2}$，$\lim\limits_{x\to+\infty}\arctan x=\frac{\pi}{2}$，则 $\lim\limits_{x\to\infty}\arctan x$ 不存在。
 【注】$\arctan\infty\neq\frac{\pi}{2}$，$\arctan(+\infty)=\frac{\pi}{2}$，$\arctan(-\infty)=-\frac{\pi}{2}$。
-##### (二) 极限的性质
+#### (二) 极限的性质
 1. 局部有界性：若极限 $\lim\limits_{x\to x_0}f(x)$ 存在，则 $f(x)$ 在点 $x_0$ 某去心邻域内有界；
 2. 保号性：设 $\lim\limits_{x\to x_0}f(x)=A$，则
 (1) 若 $A>0$（或 $A<0$）$\Rightarrow\exists\delta>0$，当 $x\in\mathring{U}(x_0,\delta)$ 时，$f(x)>0$（或 $f(x)<0$）。
@@ -51,13 +51,13 @@ $\lim\limits_{x\to-\infty}\arctan x=-\frac{\pi}{2}$，$\lim\limits_{x\to+\infty}
 3. 极限值与无穷小之间的关系：
 $\lim f(x)=A\Leftrightarrow f(x)=A+\alpha(x)$，其中 $\lim\alpha(x)=0$。
 【注】数列极限有对应的以上三条性质。
-##### (三) 极限存在准则
+#### (三) 极限存在准则
 1. 夹逼准则
 若存在 $N$，当 $n>N$ 时，$x_n\leqslant y_n\leqslant z_n$，且 $\lim\limits_{n\to\infty}x_n=\lim\limits_{n\to\infty}z_n=a$，则 $\lim\limits_{n\to\infty}y_n=a$。
 2. 单调有界准则
 单调有界数列必有极限。即单调增、有上界的数列必有极限，单调减、有下界的数列必有极限。` },
       { p: 15, md: R`【注】函数极限有对应的以上两条准则。
-##### (四) 无穷小
+#### (四) 无穷小
 1. 无穷小的概念
 若 $f(x)$ 当 $x\to x_0$（或 $x\to\infty$）时的极限为零，则称 $f(x)$ 为 $x\to x_0$（或 $x\to\infty$）时的无穷小。
 2. 无穷小的比较 设 $\lim\alpha(x)=0,\lim\beta(x)=0$。
@@ -70,7 +70,7 @@ $\lim f(x)=A\Leftrightarrow f(x)=A+\alpha(x)$，其中 $\lim\alpha(x)=0$。
 (2) 有限个无穷小的积仍是无穷小；
 (3) 无穷小量与有界量的积仍是无穷小。
 【注】以上前两条中的“有限”二字不可少。
-##### (五) 无穷大
+#### (五) 无穷大
 1. 无穷大的概念
 若 $\lim\limits_{x\to x_0}f(x)=\infty$（或 $\lim\limits_{x\to\infty}f(x)=\infty$），则称 $f(x)$ 为 $x\to x_0$（或 $x\to\infty$）时的无穷大。
 2. 常用的一些无穷大的比较
@@ -83,8 +83,8 @@ $\lim f(x)=A\Leftrightarrow f(x)=A+\alpha(x)$，其中 $\lim\alpha(x)=0$。
 例：数列 $x_n=\begin{cases}n,n\text{为奇数}\\0,n\text{为偶数}\end{cases}$ 是无界变量，但不是无穷大。
 4. 无穷大与无穷小的关系
 在自变量的同一变化过程中，若 $f(x)$ 是无穷大，则 $\frac{1}{f(x)}$ 是无穷小；若 $f(x)$ 是无穷小，且 $f(x)\neq0$，则 $\frac{1}{f(x)}$ 是无穷大。` },
-      { p: 16, md: R`#### 二、常考题型的方法与技巧
-##### 题型一 极限的概念、性质及存在准则
+      { p: 16, md: R`### 二、常考题型的方法与技巧
+#### 题型一 极限的概念、性质及存在准则
 【例1】设 $\lim\limits_{n\to\infty}a_n=a$，且 $a\neq0$，则当 $n$ 充分大时有
 (A) $|a_n|>\frac{|a|}{2}$。 (B) $|a_n|<\frac{|a|}{2}$。 (C) $a_n>a-\frac{1}{n}$。 (D) $a_n<a+\frac{1}{n}$。
 【解1】直接法
@@ -138,7 +138,7 @@ $a_{n+1}-a_n=\frac{1}{n+1}-\ln(1+\frac{1}{n})<0$，
 $=\ln2+\ln\frac{3}{2}+\cdots+\ln\frac{n+1}{n}-\ln n=\ln\left(2\cdot\frac{3}{2}\cdot\frac{4}{3}\cdot\cdots\cdot\frac{n+1}{n}\right)-\ln n$
 $=\ln(1+n)-\ln n>0$，
 所以数列 $\{a_n\}$ 单调下降且有下界，故 $\{a_n\}$ 收敛。
-##### 题型二 求极限
+#### 题型二 求极限
 **一、求极限的常用方法**
 **方法1 利用有理运算法则求极限**
 若 $\lim f(x)=A,\lim g(x)=B$，则
@@ -232,7 +232,7 @@ $\frac{x_{n+1}}{x_n}=\frac{1}{2}\left[1+\frac{1}{x_n^2}\right]\leqslant\frac{1}{
 则数列 $\{x_n\}$ 单调减且有下界，故极限 $\lim\limits_{n\to\infty}x_n$ 存在。设 $\lim\limits_{n\to\infty}x_n=a$，由极限保号性知 $a\geqslant1$。
 对等式 $x_{n+1}=\frac{1}{2}\left(x_n+\frac{1}{x_n}\right)$ 两端取极限，得 $a=\frac{1}{2}\left(a+\frac{1}{a}\right)$，又 $a\geqslant1$，由此解得 $a=1$。
 **二、求极限常见题型**
-##### （一）函数的极限
+#### （一）函数的极限
 求函数的极限，常见的是 7 种不定式。即 $\frac{0}{0},\frac{\infty}{\infty},\infty-\infty,0\cdot\infty,1^\infty,\infty^0,0^0$。这里考查的重` },
       { p: 23, md: R`点是“$\frac{0}{0}$”型和“$1^\infty$”型。
 **1. “$\frac{0}{0}$”型极限**
@@ -356,7 +356,7 @@ $\lim\limits_{x\to0^+}x^{(x^x-1)}=\lim\limits_{x\to0^+}e^{(x^x-1)\ln x}$，
 $\lim\limits_{x\to0^+}(x^x-1)\ln x=\lim\limits_{x\to0^+}(e^{x\ln x}-1)\ln x=\lim\limits_{x\to0^+}x\ln^2x$ $[(e^{x\ln x}-1)\sim x\ln x]$
 $=\lim\limits_{x\to0^+}\frac{\ln^2x}{\frac{1}{x}}=\lim\limits_{x\to0^+}\frac{2\ln x\cdot\frac{1}{x}}{-\frac{1}{x^2}}=2\lim\limits_{x\to0^+}\frac{\ln x}{-\frac{1}{x}}=2\lim\limits_{x\to0^+}\frac{\frac{1}{x}}{\frac{1}{x^2}}=0$，
 则 $\lim\limits_{x\to0^+}x^{(x^x-1)}=e^0=1$。` },
-      { p: 30, md: R`##### （二）数列的极限
+      { p: 30, md: R`#### （二）数列的极限
 求数列极限，常见的是三种类型，即 $n$ 项和的数列极限、$n$ 项乘积的数列极限和用递推关系 $x_{n+1}=f(x_n)$ 定义的数列极限。
 **1. $n$ 项和的数列极限**
 常用方法：
@@ -454,7 +454,7 @@ $|x_n-3|=\left|\sqrt{6+x_{n-1}}-3\right|=\frac{|x_{n-1}-3|}{\sqrt{6+x_{n-1}}+3}<
 【解】令 $\lim\limits_{n\to\infty}x_n=a$，则 $\lim\limits_{n\to\infty}x_{n+1}=\lim\limits_{n\to\infty}\left(2+\frac{1}{x_n}\right)$，即 $a=2+\frac{1}{a}$，解得 $a=1\pm\sqrt{2}$。
 由题设知 $x_n\geqslant2$，故由极限的保号性知，$a\geqslant2$，从而 $a=1+\sqrt{2}$。以下证明 $\lim\limits_{n\to\infty}x_n=1+\sqrt{2}$。` },
       { p: 35, md: R`$|x_n-a|=\left|\left(2+\frac{1}{x_{n-1}}\right)-\left(2+\frac{1}{a}\right)\right|=\left|\frac{x_{n-1}-a}{ax_{n-1}}\right|\leqslant\frac{|x_{n-1}-a|}{2a}\leqslant\frac{|x_{n-1}-a|}{2}\leqslant\frac{|x_{n-2}-a|}{2^2}\leqslant\cdots\leqslant\frac{|x_1-a|}{2^{n-1}}\to0\quad(n\to\infty)$。
-##### 题型三 确定极限式中的参数
+#### 题型三 确定极限式中的参数
 【例1】若 $\lim\limits_{x\to0}\frac{\int_0^x\frac{t^2}{\sqrt{a^2+t^2}}dt}{bx-\sin x}=1$，求 $a,b$，其中 $a,b$ 为正数。
 【解1】$1=\lim\limits_{x\to0}\frac{\int_0^x\frac{t^2}{\sqrt{a^2+t^2}}dt}{bx-\sin x}=\lim\limits_{x\to0}\frac{\frac{x^2}{\sqrt{a^2+x^2}}}{b-\cos x}$（洛必达法则）
 $=\frac{1}{a}\lim\limits_{x\to0}\frac{x^2}{1-\cos x}$（$b=1$，否则上式右端为 0，左端为 1，矛盾）
@@ -487,7 +487,7 @@ $\lim\limits_{x\to+\infty}[(x^n+7x^4+1)^m-x]=\lim\limits_{x\to+\infty}[(x^n+7x^4
 【解】$\lambda=\lim\limits_{n\to\infty}\frac{n^{2018}}{n^\alpha-(n-1)^\alpha}=\lim\limits_{n\to\infty}\frac{n^{2018}}{n^\alpha\left[1-\left(1-\frac{1}{n}\right)^\alpha\right]}=\lim\limits_{n\to\infty}\frac{n^{2018}}{n^\alpha\cdot\frac{\alpha}{n}}$ $\left(\left[1-\left(1-\frac{1}{n}\right)^\alpha\right]\sim\frac{\alpha}{n}\right)$
 $=\frac{1}{\alpha}\lim\limits_{n\to\infty}\frac{n^{2018}}{n^{\alpha-1}}$，
 则 $\alpha=2019,\lambda=\frac{1}{2019}$。
-##### 题型四 无穷小量阶的比较
+#### 题型四 无穷小量阶的比较
 由无穷小量阶的定义可知，比较两个无穷小阶的问题就是求 $\frac{0}{0}$ 型极限，所以常用的方法就是求 $\frac{0}{0}$ 型极限的常用三种方法。
 1) 洛必达法则（求导定阶）
 若当 $x\to0$ 时 $f(x)$ 是无穷小量，且 $f'(x)$ 是 $x$ 的 $k(k\geqslant0)$ 阶无穷小，则 $f(x)$ 是 $x\to0$` },

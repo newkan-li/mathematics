@@ -9,14 +9,14 @@ window.LESSONS = window.LESSONS || {};
     pages: [40, 48],
     img: "assets/img/gaoshu",
     content: [
-      { p: 40, md: R`### 第三节 连续
-#### 一、考试内容要点精讲
-##### (一) 连续的概念
+      { p: 40, md: R`## 第三节 连续
+### 一、考试内容要点精讲
+#### (一) 连续的概念
 若 $\lim\limits_{x\to x_0}f(x)=f(x_0)$（或 $\lim\limits_{\Delta x\to0}\Delta y=0$），则称 $f(x)$ 在 $x_0$ 处连续。
 左右连续概念：若 $\lim\limits_{x\to x_0^-}f(x)=f(x_0)$，则称 $f(x)$ 在 $x_0$ 处左连续。
 若 $\lim\limits_{x\to x_0^+}f(x)=f(x_0)$，则称 $f(x)$ 在 $x_0$ 处右连续。
 定理 $\quad f(x)$ 连续 $\Leftrightarrow f(x)$ 左连续且右连续
-##### (二) 间断点及其类型
+#### (二) 间断点及其类型
 **1. 间断点的概念**
 若 $f(x)$ 在 $x_0$ 某去心邻域有定义，但在 $x_0$ 处不连续，则称点 $x=x_0$ 为函数 $f(x)$ 的间断点。
 **2. 间断点的分类**
@@ -27,7 +27,7 @@ window.LESSONS = window.LESSONS || {};
 2) 第二类间断点：左、右极限中至少有一个不存在的间断点
 无穷间断点：左、右极限中至少有一个为无穷，如 $x=0$ 为 $f(x)=\frac{1}{x}$ 的无穷间断点；
 振荡间断点：如 $x=0$ 为 $f(x)=\sin\frac{1}{x}$ 的振荡间断点。
-##### (三) 连续函数的性质
+#### (三) 连续函数的性质
 1) 连续函数的和、差、积、商（分母不为零）及复合仍连续；
 2) 基本初等函数在其定义域内连续；初等函数在其定义区间内连续；` },
       { p: 41, md: R`3) 闭区间上连续函数的性质
@@ -36,8 +36,8 @@ window.LESSONS = window.LESSONS || {};
 (3) 介值性：若 $f(x)$ 在 $[a,b]$ 上连续，且 $f(a)\neq f(b)$，则对 $f(a)$ 与 $f(b)$ 之间任一数 $C$，至少存在一个 $\xi\in(a,b)$，使得 $f(\xi)=C$。
 推论：若 $f(x)$ 在 $[a,b]$ 上连续，则 $f(x)$ 在 $[a,b]$ 可取到介于最小值 $m$ 与最大值 $M$ 之间的任何值。
 (4) 零点定理：若 $f(x)$ 在 $[a,b]$ 连续，且 $f(a)\cdot f(b)<0$，则必 $\exists\xi\in(a,b)$，使 $f(\xi)=0$。
-#### 二、常考题型的方法与技巧
-##### 题型一 讨论连续性及间断点类型
+### 二、常考题型的方法与技巧
+#### 题型一 讨论连续性及间断点类型
 【例1】设函数 $f(x)=\frac{x}{a+e^{bx}}$ 在 $(-\infty,+\infty)$ 内连续，且 $\lim\limits_{x\to-\infty}f(x)=0$，则常数 $a,b$ 应满足
 (A) $a<0,b<0$。 (B) $a>0,b>0$。 (C) $a\leq0,b>0$。 (D) $a\geq0,b<0$。
 【解】由 $f(x)=\frac{x}{a+e^{bx}}$ 在 $(-\infty,+\infty)$ 连续知，$a+e^{bx}\neq0$。又由 $\lim\limits_{x\to-\infty}f(x)=0$ 知，$\lim\limits_{x\to-\infty}e^{bx}=+\infty$，则 $b<0$。再由 $a+e^{bx}\neq0$ 知，$a\geq0$，故应选 (D)。
@@ -75,7 +75,7 @@ $\lim\limits_{x\to1^-}f(x)=\sin1$，$\lim\limits_{x\to1^+}f(x)=-\sin1$，
       { p: 43, md: R`则 $f(x)=\lim\limits_{t\to x}\left(\frac{\sin t}{\sin x}\right)^{\frac{x}{\sin t-\sin x}}=e^{\frac{x}{\sin x}}$。显然 $x=0$，$x=k\pi\ (k=\pm1,\pm2\cdots)$ 为 $f(x)$ 所有的间断点。由于 $\lim\limits_{x\to0}f(x)=\lim\limits_{x\to0}e^{\frac{x}{\sin x}}=e$，则 $x=0$ 为可去间断点。而 $x=k\pi\ (k=\pm1,\pm2,\cdots)$ 时，$f(x)$ 的左、右极限总有一个是无穷，则都为第二类间断点。
 【例6】求 $f(x)=\lim\limits_{n\to\infty}\frac{x^{n+2}-x^{-n}}{x^n+x^{-n}}$ 的间断点并指出其类型。
 【解】由 $f(x)=\lim\limits_{n\to\infty}\frac{x^{n+2}-x^{-n}}{x^n+x^{-n}}$，可知 $f(0)$ 无意义。当 $x\neq0$ 时，$f(x)=\lim\limits_{n\to\infty}\frac{x^{2n+2}-1}{x^{2n}+1}=\begin{cases}-1,&0<|x|<1,\\x^2,&|x|>1,\\0,&|x|=1.\end{cases}$ 由于 $\lim\limits_{x\to0}f(x)=-1$，则 $x=0$ 为可去间断点。$f(1^-)=\lim\limits_{x\to1^-}f(x)=\lim\limits_{x\to1^-}(-1)=-1$，$f(1^+)=\lim\limits_{x\to1^+}f(x)=\lim\limits_{x\to1^+}x^2=1$，则 $x=1$ 为跳跃间断点。由于 $f(x)$ 是偶函数，则 $x=-1$ 也是跳跃间断点。
-##### 题型二 介值定理、最值定理及零点定理的证明题
+#### 题型二 介值定理、最值定理及零点定理的证明题
 【例1】设 $f(x)$ 在 $(a,b)$ 内非负连续，且 $x_1,x_2,\cdots x_n\in(a,b)$，证明存在 $\xi\in(a,b)$ 使 $f(\xi)=\sqrt[n]{f(x_1)f(x_2)\cdots f(x_n)}$。
 【证】令 $c=\min\limits_{1\leqslant i\leqslant n}x_i$，$d=\max\limits_{1\leqslant i\leqslant n}x_i$，则 $[c,d]\subset(a,b)$，且 $f(x)$ 在闭区间 $[c,d]$ 上连续。设 $f(x)$ 在 $[c,d]$ 上的最大值为 $M$，最小值为 $m$，则 $m=\sqrt[n]{m^n}\leqslant\sqrt[n]{f(x_1)f(x_2)\cdots f(x_n)}\leqslant\sqrt[n]{M^n}=M$。由介值定理知存在 $\xi\in[c,d]\subset(a,b)$，使 $f(\xi)=\sqrt[n]{f(x_1)f(x_2)\cdots f(x_n)}$。
 【例2】设 $f(x)$ 在 $[0,1]$ 连续，非负且 $f(0)=f(1)=0$。求证：$\exists\xi\in[0,1]$，使 $f(\xi+l)=f(\xi)$，其中 $0<l<1$。

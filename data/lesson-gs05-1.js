@@ -9,10 +9,10 @@ window.LESSONS = window.LESSONS || {};
     pages: [142, 147],
     img: "assets/img/gaoshu",
     content: [
-      { p: 142, md: R`### 第五章 多元函数微分学
-#### 第一节 重极限、连续、偏导数、全微分（概念、理论）
-##### 一、考试内容要点精讲
-###### （一）重极限
+      { p: 142, md: R`# 第五章 多元函数微分学
+## 第一节 重极限、连续、偏导数、全微分（概念、理论）
+### 一、考试内容要点精讲
+#### （一）重极限
 定义 设函数 $f(x,y)$ 在区域 $D$ 上有定义，点 $P_0(x_0,y_0)\in D$ 为 $D$ 的聚点，如果 $\forall\varepsilon>0$，存在 $\delta>0$，当 $P(x,y)\in D$，且 $0<\sqrt{(x-x_0)^2+(y-y_0)^2}<\delta$ 时，都有 $|f(x)-A|<\varepsilon$ 成立，则称常数 $A$ 为函数 $f(x,y)$ 当 $(x,y)\to(x_0,y_0)$ 时的极限，记为
 $$\lim_{(x,y)\to(x_0,y_0)}f(x,y)=A\text{ 或 }\lim_{\substack{x\to x_0\\y\to y_0}}f(x,y)=A\text{ 或 }\lim_{P\to P_0}f(P)=A.$$
 【注】1）这里的极限是要求点 $(x,y)$ 在 $D$ 内以任意方式趋近于点 $(x_0,y_0)$ 时，函数 $f(x,y)$ 都趋近于同一确定的常数 $A$，否则该极限就不存在。
@@ -35,7 +35,7 @@ $$\lim_{\substack{y=kx\\x\to0}}\frac{xy}{x^2+y^2}=\lim_{x\to0}\frac{kx^2}{x^2+k^
 $$\lim_{\substack{x=y^2\\y\to0}}\frac{xy^2}{x^2+y^4}=\lim_{y\to0}\frac{y^4}{y^4+y^4}=\frac{1}{2}.$$
 故极限 $\lim\limits_{\substack{x\to0\\y\to0}}\frac{xy^2}{x^2+y^4}$ 不存在。
 【注】证明重极限不存在常用方法：沿两种不同路径极限不同（通常可取过点 $(x_0,y_0)$ 的直线）。
-###### （二）连续
+#### （二）连续
 1）定义：若 $\lim\limits_{\substack{x\to x_0\\y\to y_0}}f(x,y)=f(x_0,y_0)$，则称 $f(x,y)$ 在点 $(x_0,y_0)$ 处连续。
 2）性质：① 连续函数的和、差、积、商（分母不为零）及复合仍连续；② 基本初等函数在其定义域内连续；初等函数在其定义区域内连续；` },
       { p: 144, md: R`③ 有界闭区域上连续函数的性质
@@ -44,7 +44,7 @@ b. 最值性：若 $f(x,y)$ 在有界闭区域 $D$ 上连续，则 $f(x,y)$ 在 
 c. 介值性：若 $f(x,y)$ 在有界闭区域 $D$ 上连续，则 $f(x,y)$ 在 $D$ 上可取到介于最小值与最大值之间的任何值。
 【例3】判断函数 $f(x,y)=\begin{cases}\dfrac{xy}{\sqrt{x^2+y^2}},&(x,y)\neq(0,0),\\a,&(x,y)=(0,0)\end{cases}$ 的连续性。
 【解】因为 $0\leqslant\left|\dfrac{xy}{\sqrt{x^2+y^2}}\right|\leqslant|y|$，则 $\lim\limits_{\substack{x\to0\\y\to0}}\frac{xy}{\sqrt{x^2+y^2}}=0.$ 若 $a=0$，则 $f(x,y)$ 处处连续；若 $a\neq0$，则 $f(x,y)$ 除点 $(0,0)$ 外处处连续。
-###### （三）偏导数
+#### （三）偏导数
 1. 定义：$f'_x(x_0,y_0)=\lim\limits_{\Delta x\to0}\frac{f(x_0+\Delta x,y_0)-f(x_0,y_0)}{\Delta x}=\left.\frac{d}{dx}f(x,y_0)\right|_{x=x_0}$，
 $$f'_y(x_0,y_0)=\lim_{\Delta y\to0}\frac{f(x_0,y_0+\Delta y)-f(x_0,y_0)}{\Delta y}=\left.\frac{d}{dy}f(x_0,y)\right|_{y=y_0}.$$
 【注】$f'_x(x_0,y_0)$ 就是一元函数 $f(x,y_0)$ 在 $x_0$ 处的导数；$f'_y(x_0,y_0)$ 就是一元函数 $f(x_0,y)$ 在 $y_0$ 处的导数。
@@ -56,17 +56,17 @@ $$f'_y(x_0,y_0)=\lim_{\Delta y\to0}\frac{f(x_0,y_0+\Delta y)-f(x_0,y_0)}{\Delta 
 $$\frac{\partial^2z}{\partial x^2}=f''_{xx}(x,y)=\frac{\partial}{\partial x}\left(\frac{\partial z}{\partial x}\right),\quad\frac{\partial^2z}{\partial x\partial y}=f''_{xy}(x,y)=\frac{\partial}{\partial y}\left(\frac{\partial z}{\partial x}\right),$$
 $$\frac{\partial^2z}{\partial y\partial x}=f''_{yx}(x,y)=\frac{\partial}{\partial x}\left(\frac{\partial z}{\partial y}\right),\quad\frac{\partial^2z}{\partial y^2}=f''_{yy}(x,y)=\frac{\partial}{\partial y}\left(\frac{\partial z}{\partial y}\right).$$
 定理 如果函数 $z=f(x,y)$ 的两个二阶混合偏导数 $f''_{xy}(x,y)$ 及 $f''_{yx}(x,y)$ 在区域 $D$ 内连续，则在区域 $D$ 内恒有 $f''_{xy}(x,y)=f''_{yx}(x,y).$
-###### （四）全微分
+#### （四）全微分
 1. 定义：若 $\Delta z=f(x_0+\Delta x,y_0+\Delta y)-f(x_0,y_0)=A\Delta x+B\Delta y+o(\rho)$，则称函数 $z=$` },
       { p: 145, md: R`$f(x,y)$ 在点 $(x_0,y_0)$ 可微，$A\Delta x+B\Delta y$ 称为函数 $z=f(x,y)$ 在点 $(x_0,y_0)$ 的全微分，记为 $dz=A\Delta x+B\Delta y.$
 2. 可微性判定：① 必要条件：$f'_x(x_0,y_0)$ 与 $f'_y(x_0,y_0)$ 都存在；② 充分条件：$f'_x(x,y)$ 和 $f'_y(x,y)$ 在 $(x_0,y_0)$ 连续；③ 用定义判定：
 a. $f'_x(x_0,y_0)$ 与 $f'_y(x_0,y_0)$ 是否都存在？
 b. $\lim\limits_{\substack{\Delta x\to0\\\Delta y\to0}}\frac{[f(x_0+\Delta x,y_0+\Delta y)-f(x_0,y_0)]-[f'_x(x_0,y_0)\Delta x+f'_y(x_0,y_0)\Delta y]}{\sqrt{(\Delta x)^2+(\Delta y)^2}}$ 是否为零？
 3. 计算：若 $f(x,y)$ 可微，则 $dz=\frac{\partial f}{\partial x}dx+\frac{\partial f}{\partial y}dy.$
-###### （五）连续、可导、可微的关系
+#### （五）连续、可导、可微的关系
 （关系图：一元函数——连续 $\leftrightarrow$ 可导，连续 $\to$ 可微，可导 $\to$ 可微；多元函数——连续 $\leftrightarrow$ 一阶偏导数存在，连续 $\to$ 可微，一阶偏导数存在 $\to$ 可微，一阶偏导数连续 $\to$ 可微，一阶偏导数连续 $\to$ 一阶偏导数存在）
-##### 二、常考题型的方法与技巧
-###### 题型一 讨论连续性、可导性、可微性
+### 二、常考题型的方法与技巧
+#### 题型一 讨论连续性、可导性、可微性
 【例1】设 $f(x,y)=\begin{cases}\dfrac{x^2y}{x^2+y^2},&(x,y)\neq(0,0)\\0,&(x,y)=(0,0)\end{cases}$ 则 $f(x,y)$ 在 $(0,0)$ 点
 （A）不连续。 （B）连续但偏导数不存在。 （C）偏导数存在但不可微。 （D）可微。
 【解】由于 $\lim\limits_{\substack{x\to0\\y\to0}}f(x,y)=\lim\limits_{\substack{x\to0\\y\to0}}\frac{x^2y}{x^2+y^2}=0=f(0,0)$，则 $f(x,y)$ 在 $(0,0)$ 连续，故（A）不正确。

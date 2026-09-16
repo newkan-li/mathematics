@@ -32,10 +32,10 @@ $$V_y=2\pi\iint_Dx\,d\sigma=2\pi\int_a^bdx\int_0^{f(x)}x\,dy=2\pi\int_a^bxf(x)dx
 3）设曲线段 $C$ 由极坐标方程 $\rho=\rho(\theta)(\alpha\leqslant\theta\leqslant\beta)$ 给出，其中 $\rho(\theta)$ 在 $[\alpha,\beta]$ 上有一阶连续导数，则该曲线段的弧长为 $s=\int_\alpha^\beta\sqrt{\rho^2(\theta)+\rho'^2(\theta)}d\theta.$
 **4. 旋转体侧面积（数三不要求）**
 曲线 $y=f(x)(f(x)\geqslant0)$ 和直线 $x=a,x=b(0\leqslant a<b)$ 及 $x$ 轴所围成区域绕 $x$ 轴旋转所得旋转体的侧面积为 $S=2\pi\int_a^bf(x)\sqrt{1+f'^2(x)}dx.$
-##### （二）物理应用（数三不要求）
+#### （二）物理应用（数三不要求）
 物理应用主要有以下三个问题：1. 变力沿直线所作的功；2. 液体的压力；3. 引力。
-#### 二、常考题型的方法与技巧
-##### 题型一 几何应用
+### 二、常考题型的方法与技巧
+#### 题型一 几何应用
 【例1】设 $f(x)=\int_{-1}^x(1-|t|)dt(x\geqslant-1)$，求曲线 $y=f(x)$ 与 $x$ 轴所围图形的面积。
 【解】$f(x)=\begin{cases}\int_{-1}^x(1+t)dt,&-1\leqslant x\leqslant0,\\\int_{-1}^0(1+t)dt+\int_0^x(1-t)dt,&x>0\end{cases}=\begin{cases}\frac{1}{2}(1+x)^2,&-1\leqslant x\leqslant0,\\\frac{1}{2}(1+2x-x^2),&x>0.\end{cases}$
 令 $1+2x-x^2=0$，得 $x_{1,2}=1\pm\sqrt{2}$，从而 $S=\int_{-1}^0\frac{1}{2}(1+x)^2dx+\int_0^{1+\sqrt{2}}\frac{1}{2}(1+2x-x^2)dx=1+\frac{2}{3}\sqrt{2}.$
@@ -62,7 +62,7 @@ $$V=\pi\int_0^1[(2-(1-\sqrt{1-y^2}))^2]dy-\pi\int_0^1(2-y)^2dy=\pi\int_0^1(2-y^2
 (2) 弧长：$L=4\int_0^{\frac{\pi}{2}}\sqrt{x'^2+y'^2}dt=4\int_0^{\frac{\pi}{2}}3a\sin t\cdot\cos t\,dt=6a.$
 (3) 体积：$V_x=2\int_0^a\pi y^2dx=6\pi a^3\int_0^{\frac{\pi}{2}}\sin^7t(1-\sin^2t)dt=\frac{32}{105}\pi a^3.$
 旋转体侧面积：$S=2\int_0^{\frac{\pi}{2}}2\pi y\sqrt{x'^2+y'^2}dt=12\pi a^2\int_0^{\frac{\pi}{2}}\sin^4t\cos t\,dt=\frac{12}{5}\pi a^2.$
-##### 题型二 物理应用
+#### 题型二 物理应用
 【例1】某闸门的形状与大小如下图所示，闸门的上部为矩形 $ABCD$，其中 $DE=EC=1\text{m}$，下部由二次抛物线与线段 $AB$ 所围成。当水面与闸门的上端相平时，欲使闸门矩形部分承受的水压力与闸门下部承受的水压力之比为 $5:4$，闸门矩形部分的高 $h$ 应为多少 $\text{m}$（米）？
 【解】由题设可知抛物线的方程为 $y=x^2$。闸门矩形部分承受的水压力
 $$P_1=2\int_1^{h+1}\rho g(h+1-y)dy=2\rho g\left[(h+1)y-\frac{y^2}{2}\right]\bigg|_1^{h+1}=\rho gh^2,$$

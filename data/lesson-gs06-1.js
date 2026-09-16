@@ -10,23 +10,23 @@ window.LESSONS = window.LESSONS || {};
     img: "assets/img/gaoshu",
     content: [
       { p: 174, md: R`# 第六章 二重积分
-## 一、考试内容要点精讲
-### （一）二重积分的概念
+### 一、考试内容要点精讲
+#### （一）二重积分的概念
 定义 设函数 $z=f(x,y)$ 在有界闭区域 $D$ 上有界，将 $D$ 任意分成 $n$ 个小闭区域
 $$\Delta\sigma_1,\Delta\sigma_2,\cdots,\Delta\sigma_n,$$
 其中 $\Delta\sigma_i$ 表示第 $i$ 个小区域，也表示它的面积。在每个 $\Delta\sigma_i$ 上任取一点 $(\xi_i,\eta_i)$，作乘积 $f(\xi_i,\eta_i)\Delta\sigma_i$，并求和 $\sum\limits_{i=1}^{n}f(\xi_i,\eta_i)\Delta\sigma_i$。记 $\lambda$ 为 $n$ 个小区域 $\Delta\sigma_1,\Delta\sigma_2,\cdots,\Delta\sigma_n$ 中的最大直径，如果
 $\lim\limits_{\lambda\to0}\sum\limits_{i=1}^{n}f(\xi_i,\eta_i)\Delta\sigma_i$ 存在，则称此极限值为函数 $f(x,y)$ 在区域 $D$ 上的二重积分，记为
 $$\iint_Df(x,y)\,\mathrm{d}\sigma=\lim_{\lambda\to0}\sum_{i=1}^{n}f(\xi_i,\eta_i)\Delta\sigma_i.$$
-### （二）二重积分的几何意义
+#### （二）二重积分的几何意义
 二重积分 $\iint_Df(x,y)\,\mathrm{d}\sigma$ 是一个数。当 $f(x,y)\geqslant0$ 时，其值等于以积分域 $D$ 为底，以曲面 $z=f(x,y)$ 为曲顶的曲顶柱体的体积。
-### （三）二重积分的性质
+#### （三）二重积分的性质
 1. 不等式性质
 （1）若在 $D$ 上 $f(x,y)\leqslant g(x,y)$，则 $\iint_Df(x,y)\,\mathrm{d}\sigma\leqslant\iint_Dg(x,y)\,\mathrm{d}\sigma.$
 （2）若 $f(x,y)$ 在 $D$ 上连续，则 $mS\leqslant\iint_Df(x,y)\,\mathrm{d}\sigma\leqslant MS$，其中 $m$ 和 $M$ 分别为 $f(x,y)$ 在 $D$ 上的最小值和最大值，$S$ 为积分域 $D$ 的面积。
 （3）$\left|\iint_Df(x,y)\,\mathrm{d}\sigma\right|\leqslant\iint_D|f(x,y)|\,\mathrm{d}\sigma.$
 2. 积分中值定理
 若 $f(x,y)$ 在 $D$ 上连续，则 $\iint_Df(x,y)\,\mathrm{d}\sigma=f(\xi,\eta)S$，其中 $(\xi,\eta)\in D$，$S$ 为积分域 $D$ 的面积。` },
-      { p: 175, md: R`### （四）二重积分的计算
+      { p: 175, md: R`#### （四）二重积分的计算
 **1. 利用直角坐标计算**
 1）先 $y$ 后 $x$
 若积分域 $D$ 是 $X$ 型区域，即积分域 $D$ 可以用不等式 $y_1(x)\leqslant y\leqslant y_2(x)$，$a\leqslant x\leqslant b$ 来表示（如右图），则
@@ -60,8 +60,8 @@ $$\iint_{x^2+y^2\leqslant1}(3x+4y)\,\mathrm{d}\sigma=\iint_{y^2+x^2\leqslant1}(3
 $$\iint_Df(x,y)\,\mathrm{d}\sigma=\iint_Df(y,x)\,\mathrm{d}\sigma,$$
 即当积分域 $D$ 关于直线 $y=x$ 对称时，将被积函数 $f(x,y)$ 中的 $x$ 和 $y$ 对调，积分值不变。
 （图：直角坐标系中以 $O$ 为原点，一条过原点的直线 $y=x$，以及一个关于该直线对称的椭圆区域，区域带斜线阴影）
-## 二、常考题型的方法与技巧
-题型一 计算二重积分
+### 二、常考题型的方法与技巧
+#### 题型一 计算二重积分
 【例1】计算 $\iint_D[|xy|+\sin(xy^2)]\,\mathrm{d}\sigma$，其中 $D$ 由曲线 $|x|+|y|=1$ 所围成。
 【解】由奇偶性知
 原式 $=\iint_D|xy|\,\mathrm{d}\sigma=4\iint_{D_1}xy\,\mathrm{d}\sigma$（其中 $D_1$ 为 $D$ 在第一象限的部分）
@@ -178,7 +178,7 @@ $\displaystyle\xlongequal{\sqrt2y=t}-\frac{1}{\sqrt2}\int_{-\infty}^{+\infty}e^{
 【解】$\displaystyle\int_0^1\mathrm{d}x\int_x^1f(x)f(y)\,\mathrm{d}y\xlongequal{x\ \text{与}\ y\ \text{对称}}\int_0^1\mathrm{d}y\int_y^1f(y)f(x)\,\mathrm{d}x,$
 $\displaystyle\int_0^1\mathrm{d}x\int_x^1f(x)f(y)\,\mathrm{d}y=\frac{1}{2}\left[\int_0^1\mathrm{d}x\int_x^1f(x)f(y)\,\mathrm{d}y+\int_0^1\mathrm{d}y\int_y^1f(y)f(x)\,\mathrm{d}x\right]$
 $\displaystyle=\frac{1}{2}\iint\limits_{0\leqslant x\leqslant1,\ 0\leqslant y\leqslant1}f(x)f(y)\,\mathrm{d}x\mathrm{d}y=\frac{1}{2}\int_0^1f(x)\,\mathrm{d}x\int_0^1f(y)\,\mathrm{d}y=\frac{A^2}{2}.$
-题型二 累次积分交换次序及计算
+#### 题型二 累次积分交换次序及计算
 【例1】交换下列累次积分次序
 （1）$\displaystyle I=\int_0^1\mathrm{d}y\int_{\sqrt{y}}^{\sqrt{2-y^2}}f(x,y)\,\mathrm{d}x$；
 （2）$\displaystyle I=\int_0^1\mathrm{d}x\int_0^{\sqrt{2x-x^2}}f(x,y)\,\mathrm{d}y+\int_1^2\mathrm{d}x\int_0^{2-x}f(x,y)\,\mathrm{d}y$；
@@ -220,7 +220,7 @@ $\displaystyle\iint\limits_Df(x-y)\,\mathrm{d}x\mathrm{d}y=\int_{-\frac{A}{2}}^{
 $\displaystyle=\int_{-A}^{0}\mathrm{d}u\int_{-\frac{A}{2}}^{u+\frac{A}{2}}f(u)\,\mathrm{d}x+\int_0^{A}\mathrm{d}u\int_{u-\frac{A}{2}}^{\frac{A}{2}}f(u)\,\mathrm{d}x$
 $\displaystyle=\int_{-A}^{0}f(u)(A+u)\,\mathrm{d}u+\int_0^{A}f(u)(A-u)\,\mathrm{d}u$
 $\displaystyle=\int_{-A}^{A}f(u)(A-|u|)\,\mathrm{d}u.$
-题型三 与二重积分有关的综合题
+#### 题型三 与二重积分有关的综合题
 【例1】设 $f(x)$ 为连续函数，$\displaystyle F(t)=\int_1^t\mathrm{d}y\int_y^tf(x)\,\mathrm{d}x$，则 $F'(2)$ 等于
 （A）$2f(2).$ （B）$f(2).$
 （C）$-f(2).$ （D）$0.$
@@ -283,7 +283,7 @@ $\displaystyle=xf'_x(\xi,y)\quad(\text{拉格朗日中值定理})$
 $\displaystyle=x\left[f'_x(\xi,y)-f'_x(\xi,0)\right]\quad(f'_x(x,0)=0)$
 $\displaystyle=xyf''_{xy}(\xi,\eta)\quad(\text{拉格朗日中值定理}),$` },
       { p: 186, md: R`$\displaystyle\left|\iint\limits_Df(x,y)\,\mathrm{d}x\mathrm{d}y\right|\leqslant\iint\limits_D\left|xyf''_{xy}(\xi,\eta)\right|\,\mathrm{d}x\mathrm{d}y\leqslant M\iint\limits_Dxy\,\mathrm{d}x\mathrm{d}y=\frac{M}{4}.$
-题型四 与二重积分有关的积分不等式问题
+#### 题型四 与二重积分有关的积分不等式问题
 【例1】设 $\displaystyle I_1=\iint\limits_D\cos\sqrt{x^2+y^2}\,\mathrm{d}\sigma$，$\displaystyle I_2=\iint\limits_D\cos(x^2+y^2)\,\mathrm{d}\sigma$，$\displaystyle I_3=\iint\limits_D\cos(x^2+y^2)^2\,\mathrm{d}\sigma$，其中 $D=\{(x,y)\mid x^2+y^2\leqslant1\}$，则
 （A）$I_3>I_2>I_1.$ （B）$I_1>I_2>I_3.$
 （D）$I_2>I_1>I_3.$ （D）$I_3>I_1>I_2.$

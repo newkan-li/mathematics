@@ -9,24 +9,24 @@ window.LESSONS = window.LESSONS || {};
     pages: [87, 93],
     img: "assets/img/gaoshu",
     content: [
-      { p: 87, md: R`### 第三章 一元函数积分学
-#### 第一节 不定积分
-##### 一、考试内容要点精讲
-###### （一）两个基本概念
+      { p: 87, md: R`# 第三章 一元函数积分学
+## 第一节 不定积分
+### 一、考试内容要点精讲
+#### （一）两个基本概念
 1）原函数 如果在区间 $I$ 上 $F'(x)=f(x)$ 或 $\mathrm{d}F(x)=f(x)\mathrm{d}x$ 处处成立，则称 $F(x)$ 为 $f(x)$ 在区间 $I$ 上的原函数。
 【注】如果 $F(x)$ 为 $f(x)$ 的一个原函数，那么 $F(x)+C$ 都是 $f(x)$ 的原函数，且是 $f(x)$ 的所有原函数。
 2）不定积分 在区间 $I$ 上，函数 $f(x)$ 带有任意常数的原函数称为 $f(x)$ 在区间 $I$ 上的不定积分，记为 $\int f(x)\mathrm{d}x$。
 如果 $F(x)$ 是 $f(x)$ 在区间 $I$ 上的一个原函数，那么 $F(x)+C$ 就是 $f(x)$ 的不定积分，即
 $$\int f(x)\mathrm{d}x=F(x)+C.$$
-###### （二）原函数的存在性
+#### （二）原函数的存在性
 1）若 $f(x)$ 在区间 $I$ 上连续，则 $f(x)$ 在区间 $I$ 上必有原函数。
 2）若 $f(x)$ 在区间 $I$ 上有第一类间断点，则 $f(x)$ 在区间 $I$ 上没有原函数。
-###### （三）不定积分的性质
+#### （三）不定积分的性质
 (1) $\left(\int f(x)\mathrm{d}x\right)'=f(x)$，$\mathrm{d}\int f(x)\mathrm{d}x=f(x)\mathrm{d}x$；
 (2) $\int f'(x)\mathrm{d}x=f(x)+C$，$\int\mathrm{d}f(x)=f(x)+C$；
 (3) $\int kf(x)\mathrm{d}x=k\int f(x)\mathrm{d}x$（$k$ 为常数）；
 (4) $\int[f(x)\pm g(x)]\mathrm{d}x=\int f(x)\mathrm{d}x\pm\int g(x)\mathrm{d}x$。
-###### （四）基本积分公式
+#### （四）基本积分公式
 1) $\int x^{\alpha}\mathrm{d}x=\frac{1}{\alpha+1}x^{\alpha+1}+C\quad(\alpha\neq-1)$； 2) $\int\frac{1}{x}\mathrm{d}x=\ln|x|+C$；` },
       { p: 88, md: R`3) $\int a^x\mathrm{d}x=\frac{a^x}{\ln a}+C\quad(a>0,a\neq1)$； 4) $\int e^x\mathrm{d}x=e^x+C$；
 5) $\int\sin x\mathrm{d}x=-\cos x+C$； 6) $\int\cos x\mathrm{d}x=\sin x+C$；
@@ -36,7 +36,7 @@ $$\int f(x)\mathrm{d}x=F(x)+C.$$
 13) $\int\frac{\mathrm{d}x}{a^2+x^2}=\frac{1}{a}\arctan\frac{x}{a}+C$； 14) $\int\frac{\mathrm{d}x}{a^2-x^2}=\frac{1}{2a}\ln\left|\frac{a+x}{a-x}\right|+C$；
 15) $\int\frac{\mathrm{d}x}{\sqrt{a^2-x^2}}=\arcsin\frac{x}{a}+C$； 16) $\int\frac{\mathrm{d}x}{\sqrt{x^2+a^2}}=\ln|x+\sqrt{x^2+a^2}|+C$；
 17) $\int\frac{\mathrm{d}x}{\sqrt{x^2-a^2}}=\ln|x+\sqrt{x^2-a^2}|+C$。
-###### （五）三种主要积分法
+#### （五）三种主要积分法
 1）第一类换元法（凑微分法）
 若 $\int f(u)\mathrm{d}u=F(u)+C$，且 $\varphi(x)$ 可导，则
 $$\int f(\varphi(x))\varphi'(x)\mathrm{d}x=\int f(\varphi(x))\mathrm{d}\varphi(x)=F(\varphi(x))+C.$$
@@ -55,7 +55,7 @@ $$\int f(x)\mathrm{d}x=\int f(\varphi(t))\varphi'(t)\mathrm{d}t=F(\varphi^{-1}(x
 形如 $\int p_n(x)\ln x\mathrm{d}x$，$\int p_n(x)\arctan x\mathrm{d}x$，$\int p_n(x)\arcsin x\mathrm{d}x$ 的积分都是先把多项式函数` },
       { p: 89, md: R`凑进微分号，然后分部积分；
 形如 $\int e^{ax}\sin\beta x\mathrm{d}x$，$\int e^{ax}\cos\beta x\mathrm{d}x$ 的积分可连续两次将指数函数凑进微分号分部积分还原，求得原不定积分。
-###### （六）三类常见可积函数积分
+#### （六）三类常见可积函数积分
 1）有理函数积分 $\int R(x)\mathrm{d}x$
 (1) 一般方法（部分分式法）；(2) 特殊方法（加项减项拆项或凑微分降幂）。
 2）三角有理式积分 $\int R(\sin x,\cos x)\mathrm{d}x$
@@ -68,8 +68,8 @@ $$\int R(\sin x,\cos x)\mathrm{d}x=\int R\left(\frac{2t}{1+t^2},\frac{1-t^2}{1+t
 ⅲ) 若 $R(-\sin x,-\cos x)=R(\sin x,\cos x)$，则令 $u=\tan x$，即，凑 $\mathrm{d}\tan x$。
 3）简单无理函数积分 $\int R\left(x,\sqrt[n]{\frac{ax+b}{cx+d}}\right)\mathrm{d}x$
 令 $\sqrt[n]{\frac{ax+b}{cx+d}}=t$，将其化为有理函数积分进行计算。
-##### 二、常考题型的方法与技巧
-###### 题型一 计算不定积分
+### 二、常考题型的方法与技巧
+#### 题型一 计算不定积分
 【例1】$I=\int\frac{\mathrm{d}x}{\sqrt{x(4-x)}}$。
 【解1】$I=\int\frac{\mathrm{d}x}{\sqrt{4x-x^2}}=\int\frac{\mathrm{d}x}{\sqrt{4-(x-2)^2}}=\arcsin\frac{x-2}{2}+C.$
 【解2】$I=\int\frac{2\mathrm{d}(\sqrt{x})}{\sqrt{4-x}}=2\arcsin\frac{\sqrt{x}}{2}+C.$
@@ -126,7 +126,7 @@ $=\frac{1}{3\cos^3x}+\int\frac{\sin x\mathrm{d}x}{\cos^2x}+\int\frac{\mathrm{d}x
       { p: 93, md: R`【解】令 $\sqrt{\frac{x+1}{x-1}}=t$，则
 原式 $=-4\int\frac{t^2}{(t^2+1)(t^2-1)}\mathrm{d}t=-2\int\frac{(t^2+1)+(t^2-1)}{(t^2+1)(t^2-1)}\mathrm{d}t$
 $=\ln\left|\frac{1+t}{1-t}\right|-2\arctan t+C=\ln|x+\sqrt{x^2-1}|-2\arctan\sqrt{\frac{x+1}{x-1}}+C.$
-###### 题型二 不定积分杂例
+#### 题型二 不定积分杂例
 【例1】若 $\int xf(x)\mathrm{d}x=\arcsin x+C$，求 $I=\int\frac{1}{f(x)}\mathrm{d}x$。
 【解】由 $\int xf(x)\mathrm{d}x=\arcsin x+C$ 知 $xf(x)=(\arcsin x+C)'=\frac{1}{\sqrt{1-x^2}},$
 则 $I=\int\frac{1}{f(x)}\mathrm{d}x=\int x\sqrt{1-x^2}\mathrm{d}x=-\frac{1}{3}(1-x^2)^{\frac{3}{2}}+C.$

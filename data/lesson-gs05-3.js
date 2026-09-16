@@ -9,9 +9,9 @@ window.LESSONS = window.LESSONS || {};
     pages: [160, 167],
     img: "assets/img/gaoshu",
     content: [
-      { p: 160, md: R`### 第三节 极值与最值
-#### 一、考试内容要点精讲
-##### （一）无条件极值
+      { p: 160, md: R`## 第三节 极值与最值
+### 一、考试内容要点精讲
+#### （一）无条件极值
 定义 设函数 $z=f(x,y)$ 在点 $P(x_0,y_0)$ 的某邻域内有定义，若对该去心邻域内任意的点 $P(x,y)$ 均有
 $$f(x,y)<f(x_0,y_0)(\text{或 }f(x,y)>f(x_0,y_0)),$$
 则称 $(x_0,y_0)$ 为 $f(x,y)$ 的极大值点（或极小值点）；称 $f(x_0,y_0)$ 为 $f(x,y)$ 的极大值（或极小值）。极大值点和极小值点统称为极值点；极大值和极小值统称为极值。
@@ -29,7 +29,7 @@ $$A=f''_{xx}(x_0,y_0),B=f''_{xy}(x_0,y_0),C=f''_{yy}(x_0,y_0),$$
 （1）求出 $f(x,y)$ 的驻点 $P_1,\cdots,P_k$。
 （2）利用极值的充分条件判定驻点 $P_i$ 是否为极值点。
 【注】二元函数 $z=f(x,y)$ 在偏导数不存在的点也可能取到极值（如 $f(x,y)=\sqrt{x^2+y^2}$），而这种点是否取得极值一般用极值定义判定。
-##### （二）条件极值及拉格朗日乘数法
+#### （二）条件极值及拉格朗日乘数法
 求 $z=f(x,y)$ 在条件 $\varphi(x,y)=0$ 下的条件极值的一般方法为：
 （1）构造拉格朗日函数 $F(x,y,\lambda)=f(x,y)+\lambda\varphi(x,y)$；
 （2）将 $F(x,y,\lambda)$ 分别对 $x,y,\lambda$ 求偏导数，构造方程组
@@ -42,14 +42,14 @@ $$F(x,y,z,\lambda,\mu)=f+\lambda\varphi+\mu\psi,$$
 $$\begin{cases}f'_x(x,y,z)+\lambda\varphi'_x(x,y,z)+\mu\psi'_x(x,y,z)=0,\\f'_y(x,y,z)+\lambda\varphi'_y(x,y,z)+\mu\psi'_y(x,y,z)=0,\\f'_z(x,y,z)+\lambda\varphi'_z(x,y,z)+\mu\psi'_z(x,y,z)=0,\\\varphi(x,y,z)=0,\\\psi(x,y,z)=0.\end{cases}$$
 解出 $x,y,z,\lambda$ 及 $\mu$，则其中 $(x,y,z)$ 就是可能的极值点。
 对于实际问题，如果驻点唯一，且由实际意义知问题存在最大（小）值，则该驻点即为最大（小）值点。如果存在多个驻点，且由实际意义知道问题既存在最大值也存在最小值，只需比较各驻点处的函数值，最大的则为最大值，最小的则为最小值。
-##### （三）最大最小值
+#### （三）最大最小值
 1）求连续函数 $f(x,y)$ 在有界闭域 $D$ 上的最大最小值三部曲。
 （1）求 $f(x,y)$ 在 $D$ 内部可能的极值点；
 （2）求 $f(x,y)$ 在 $D$ 的边界上的最大最小值；
 （3）比较。
 2）应用题
-#### 二、常考题型的方法与技巧
-###### 题型一 求无条件极值
+### 二、常考题型的方法与技巧
+#### 题型一 求无条件极值
 【例1】求函数 $z=x^3+y^3-3x^2-3y^2$ 的极值。
 【解】由 $\begin{cases}\dfrac{\partial z}{\partial x}=3x^2-6x=0,\\\dfrac{\partial z}{\partial y}=3y^2-6y=0,\end{cases}$ 得驻点 $(0,0),(0,2),(2,0),(2,2)$。
 又 $\dfrac{\partial^2z}{\partial x^2}=6x-6,\dfrac{\partial^2z}{\partial x\partial y}=0,\dfrac{\partial^2z}{\partial y^2}=6y-6,$
@@ -134,7 +134,7 @@ $$f(x,y)=xy+(1+\alpha)(x^2+y^2)^2.$$` },
 $$\lim_{\substack{x\to0\\y\to0}}\frac{(x^2+y^2)^2}{xy}=0,$$
 但事实上极限 $\lim\limits_{\substack{x\to0\\y\to0}}\frac{(x^2+y^2)^2}{xy}$ 不存在！这是由于
 $$\lim_{\substack{x\to0\\y=x^4}}\frac{(x^2+y^2)^2}{xy}=\lim_{x\to0}\frac{(x^2+x^8)^2}{x^5}=\lim_{x\to0}\frac{x^4+2x^{10}+x^{16}}{x^5}=\infty.$$
-###### 题型二 求最大最小值
+#### 题型二 求最大最小值
 【例1】求函数 $z=x^2y(4-x-y)$ 在直线 $x+y=6$，$x$ 轴和 $y$ 轴所围成的区域 $D$ 上的最大值和最小值。
 【解】$\dfrac{\partial z}{\partial x}=2xy(4-x-y)-x^2y=xy(8-3x-2y),$
 $\dfrac{\partial z}{\partial y}=x^2(4-x-y)-x^2y=x^2(4-x-2y).$
