@@ -69,7 +69,8 @@ window.LESSONS = window.LESSONS || {};
 
 【注】若 $f(x)$ 在 $[0,1]$ 上连续，则 $\lim\limits_{n\to\infty}\int_0^1x^nf(x)dx=0$。
 
-【例4】连续函数 $y=f(x)$ 在 $[-3,-2],[2,3]$ 上为直径 $1$ 的上、下半圆周，在 $[-2,0],[0,2]$ 上为直径 $2$ 的下、上半圆周，$F(x)=\int_0^xf(t)dt$，则 (A) $F(3)=-\frac34F(-2)$　(B) $F(3)=\frac54F(2)$　(C) $F(-3)=\frac34F(2)$　(D) $F(-3)=-\frac54F(-2)$` },
+【例4】连续函数 $y=f(x)$ 在 $[-3,-2],[2,3]$ 上为直径 $1$ 的上、下半圆周，在 $[-2,0],[0,2]$ 上为直径 $2$ 的下、上半圆周，$F(x)=\int_0^xf(t)dt$，则 (A) $F(3)=-\frac34F(-2)$　(B) $F(3)=\frac54F(2)$　(C) $F(-3)=\frac34F(2)$　(D) $F(-3)=-\frac54F(-2)$
+![例4 $f(x)$ 的图形](assets/img/figs/gaoshu/gs03-p98-1.jpg)` },
       { p: 99, md: R`【解】由图 $f(x)$ 为奇函数，则 $F(x)=\int_0^xf(t)dt$ 为偶函数，故 $F(-2)=F(2)=\dfrac\pi2$（几何意义），$F(-3)=F(3)=\dfrac\pi2-\dfrac\pi8=\dfrac{3\pi}{8}$（几何意义），故 (C) 正确。
 
 ### 题型二　定积分计算
@@ -165,6 +166,8 @@ window.LESSONS = window.LESSONS || {};
 【解3】当 $x\to0$ 时 $\int_0^xf(t)dt\sim f(0)x$，$\int_0^xtf(t)dt\sim\dfrac{f(0)}2x^2$，故原式 $=\lim\limits_{x\to0}\dfrac{f(0)x^2-\frac{f(0)}2x^2}{f(0)x^2}=\dfrac12$。
 
 【例7】设 $F(x)=\int_x^{x+2\pi}e^{\sin t}\sin t\,dt$，则 $F(x)$ (A) 为正常数 (B) 为负常数 (C) 为 $0$ (D) 不是常数
+![$y=\sin x$ 的图形](assets/img/figs/gaoshu/gs03-p105-1.jpg)
+![$y=e^{\sin x}\sin x$ 的图形](assets/img/figs/gaoshu/gs03-p105-2.jpg)
 
 【解】由 $F'(x)=e^{\sin(x+2\pi)}\sin(x+2\pi)-e^{\sin x}\sin x=0$ 知 $F(x)=C$。又 $F(0)=\int_0^{2\pi}e^{\sin t}\sin t\,dt=-\int_0^{2\pi}e^{\sin t}d\cos t=\int_0^{2\pi}e^{\sin t}\cos^2t\,dt>0$，故为正常数。选 (A)。
 

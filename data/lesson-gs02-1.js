@@ -43,11 +43,13 @@ $$\lim_{\Delta x\to0^+}\frac{\Delta y}{\Delta x}=\lim_{x\to x_0^+}\frac{f(x)-f(x
 1) 导数 $f'(x_0)$ 在几何上表示曲线 $y=f(x)$ 在点 $(x_0,f(x_0))$ 处切线的斜率。
 
 2) 微分 $dy=f'(x_0)dx$ 在几何上表示曲线 $y=f(x)$ 的切线上的增量；$\Delta y=f(x_0+\Delta x)-f(x_0)$ 表示曲线上的增量，且 $\Delta y\approx dy$。
+![导数与微分的几何意义](assets/img/figs/gaoshu/gs02-p50-1.jpg)
 
 #### （四）连续、可导、可微之间的关系
 【注】1) 连续 $\nRightarrow$ 可导，连续 $\nRightarrow$ 可微，经典反例为 $f(x)=|x|$；
 
 2) $f(x)$ 可导 $\Rightarrow f(x)$ 连续；$f(x)$ 可导 $\nRightarrow f'(x)$ 连续，$f(x)$ 可导 $\nRightarrow \lim\limits_{x\to x_0}f'(x)$ 存在。
+![连续、可导、可微之间的关系](assets/img/figs/gaoshu/gs02-p50-2.jpg)
 
 例如 $f(x)=\begin{cases}x^2\sin\dfrac1x,&x\neq0\\0,&x=0\end{cases}$ 处处可导，但 $\lim\limits_{x\to0}f'(x)$ 不存在，从而 $f'(x)$ 在 $x=0$ 处也不连续。
 
@@ -162,6 +164,7 @@ $$\lim_{x\to0}\frac{\varphi(x)-\varphi(0)}{x-0}=\lim_{x\to0}\frac{f(x)|\sin x|}{
 【注】$f(x)$ 与 $|f(x)|$ 可导性关系：1. $f(x)$ 可导 $\nRightarrow|f(x)|$ 可导；2. 设 $f(x)$ 连续，则 1) 若 $f(x_0)\neq0$，$f(x)$ 在 $x_0$ 可导 $\Leftrightarrow|f(x)|$ 在 $x_0$ 可导；2) 若 $f(x_0)=0$，$f'(x_0)=0\Leftrightarrow|f(x)|$ 在 $x_0$ 可导。
 
 【例6】设函数 $f(x)=\lim\limits_{n\to\infty}\sqrt[n]{1+|x|^{3n}}$，则 $f(x)$ 在 $(-\infty,+\infty)$ 内 (A) 处处可导　(B) 恰有一个不可导点　(C) 恰有两个不可导点　(D) 至少有三个不可导点
+![例6 $f(x)$ 的图形](assets/img/figs/gaoshu/gs02-p56-1.jpg)
 
 【解】$f(x)=\begin{cases}1,&|x|\leqslant1\\|x^3|,&|x|>1\end{cases}$。$f$ 为偶函数，只需讨论 $x=1$：$f'_-(1)=0$，$f'_+(1)=\lim\limits_{x\to1^+}\dfrac{x^3-1}{x-1}=3$，故 $x=1$ 不可导，$x=-1$ 也不可导。选 (C)。
 

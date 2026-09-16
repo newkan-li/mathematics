@@ -261,7 +261,9 @@ $$\tan x=x+\frac{x^3}{3}+o(x^3).$$
 2. 等价无穷小代换的原则
 
 1) 乘、除关系可以换；若 $\alpha\sim\alpha_1$，$\beta\sim\beta_1$，则 $\lim\dfrac{\alpha}{\beta}=\lim\dfrac{\alpha_1}{\beta}=\lim\dfrac{\alpha}{\beta_1}=\lim\dfrac{\alpha_1}{\beta_1}$。` },
-      { p: 20, md: R`2) 加、减关系在一定条件下可以换；
+      { p: 20, md: R`![七种不定式互化示意](assets/img/figs/gaoshu/gs01-p20-1.jpg)
+
+2) 加、减关系在一定条件下可以换；
 
 (1) 若 $\alpha\sim\alpha_1$，$\beta\sim\beta_1$，且 $\lim\dfrac{\alpha_1}{\beta_1}=A\neq 1$. 则 $\alpha-\beta\sim\alpha_1-\beta_1$。
 
@@ -491,7 +493,9 @@ $$=\frac{1}{2}\lim_{x\to0}\frac{\frac{1}{6}x^3}{x^3}\quad(x-\sin x\sim\frac{1}{6
 【例3】求极限 $\lim\limits_{n\to\infty}\sum_{k=1}^{n}\dfrac{k}{n^{2}}\ln\!\left(1+\dfrac{k}{n}\right)$。
 
 【解】$\lim\limits_{n\to\infty}\sum_{k=1}^{n}\frac{k}{n^{2}}\ln\!\left(1+\frac{k}{n}\right)=\lim\limits_{n\to\infty}\frac{1}{n}\sum_{k=1}^{n}\frac{k}{n}\ln\!\left(1+\frac{k}{n}\right)\qquad\left(\text{提可爱因子}\ \frac{1}{n}\right)=\int_{0}^{1}x\ln(1+x)\,dx=\frac{1}{2}\int_{0}^{1}\ln(1+x)\,dx^{2}=\frac{x^{2}}{2}\ln(1+x)\Big|_{0}^{1}-\frac{1}{2}\int_{0}^{1}\frac{x^{2}}{1+x}\,dx=\frac{1}{4}.$` },
-      { p: 31, md: R`【例4】求极限 $\lim\limits_{n\to\infty}\left(\dfrac{\sin\frac{\pi}{n}}{n+1}+\dfrac{\sin\frac{2\pi}{n}}{n+\frac{1}{2}}+\cdots+\dfrac{\sin\frac{n\pi}{n}}{n+\frac{1}{n}}\right)$。
+      { p: 31, md: R`![曲线 $y=x$ 与 $y=\frac{x^2}{2}$](assets/img/figs/gaoshu/gs01-p31-1.jpg)
+
+【例4】求极限 $\lim\limits_{n\to\infty}\left(\dfrac{\sin\frac{\pi}{n}}{n+1}+\dfrac{\sin\frac{2\pi}{n}}{n+\frac{1}{2}}+\cdots+\dfrac{\sin\frac{n\pi}{n}}{n+\frac{1}{n}}\right)$。
 
 【解】$\frac{1}{n+1}\left(\sin\frac{\pi}{n}+\sin\frac{2\pi}{n}+\cdots+\sin\frac{n\pi}{n}\right)\leqslant\left(\frac{\sin\frac{\pi}{n}}{n+1}+\frac{\sin\frac{2\pi}{n}}{n+\frac{1}{2}}+\cdots+\frac{\sin\frac{n\pi}{n}}{n+\frac{1}{n}}\right)\leqslant\frac{1}{n+\frac{1}{n}}\left(\sin\frac{\pi}{n}+\sin\frac{2\pi}{n}+\cdots+\sin\frac{n}{n}\pi\right)<\frac{1}{n}\left(\sin\frac{\pi}{n}+\sin\frac{2\pi}{n}+\cdots+\sin\frac{n}{n}\pi\right),$ $\lim\limits_{n\to\infty}\frac{1}{n+1}\left(\sin\frac{\pi}{n}+\sin\frac{2\pi}{n}+\cdots+\sin\frac{n\pi}{n}\right)=\lim\limits_{n\to\infty}\frac{n}{n+1}\cdot\frac{1}{n}\left(\sin\frac{\pi}{n}+\sin\frac{2\pi}{n}+\cdots+\sin\frac{n\pi}{n}\right)=\lim\limits_{n\to\infty}\frac{1}{n}\left(\sin\frac{\pi}{n}+\sin\frac{2\pi}{n}+\cdots+\sin\frac{n\pi}{n}\right)=\int_0^1\sin(\pi x)\,\mathrm{d}x=\frac{2}{\pi},$ 则原式 $=\dfrac{2}{\pi}$。
 

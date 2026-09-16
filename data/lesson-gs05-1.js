@@ -60,6 +60,8 @@ window.LESSONS = window.LESSONS || {};
 #### （五）连续、可导、可微的关系
 一元函数：可导 $\Leftrightarrow$ 可微 $\Rightarrow$ 连续；可导 $\Rightarrow$ 连续。
 多元函数：可微 $\Rightarrow$ 连续、可微 $\Rightarrow$ 一阶偏导数存在；一阶偏导数连续 $\Rightarrow$ 可微；连续与偏导数存在之间无必然联系。
+![一元函数中连续、可导、可微的关系](assets/img/figs/gaoshu/gs05-p145-1.jpg)
+![多元函数中连续、偏导数存在、可微的关系](assets/img/figs/gaoshu/gs05-p145-2.jpg)
 
 ### 二、常考题型的方法与技巧
 ### 题型一　讨论连续性、可导性、可微性

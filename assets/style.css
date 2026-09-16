@@ -37,6 +37,9 @@ section.sec h2{font-size:16.5px;margin:2px 0 10px;padding-bottom:8px;border-bott
 details.sol summary{cursor:pointer;color:var(--acc);font-size:13px;font-weight:600}
 .ansbox{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:8px 12px;margin:8px 0 4px;line-height:2;font-size:14px}
 details.pages summary{cursor:pointer;color:var(--acc);font-weight:600;font-size:13.5px}
+.fig{margin:12px 0;text-align:center}
+.fig img{max-width:100%;border:1px solid var(--line);border-radius:8px;background:#fff;padding:4px}
+.fig figcaption{color:var(--sub);font-size:12px;margin-top:4px}
 .imglist{margin-top:10px}
 .imglist figure{margin:0 0 12px}
 .imglist img{width:100%;border:1px solid var(--line);border-radius:8px;background:#fff}

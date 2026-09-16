@@ -16,20 +16,25 @@ window.LESSONS = window.LESSONS || {};
 **1. 平面图形的面积** 计算面积时利用二重积分比一元元素法方便。设平面域 $D$，则 $S=\displaystyle\iint_D1\,d\sigma$。
 
 1) 若 $D$ 由 $y=f(x)$，$y=g(x)\ (f\geqslant g)$，$x=a$，$x=b\ (a<b)$ 围成，则 $S=\displaystyle\int_a^b[f(x)-g(x)]dx$。
+![面积 $S=\int_a^b[f-g]dx$](assets/img/figs/gaoshu/gs03-p113-1.jpg)
 
 2) 若 $D$ 由 $\rho=\rho(\theta)$，$\theta=\alpha$，$\theta=\beta\ (\alpha<\beta)$ 围成，则 $S=\displaystyle\int_\alpha^\beta d\theta\int_0^{\rho(\theta)}\rho\,d\rho=\dfrac12\int_\alpha^\beta\rho^2(\theta)d\theta$。
+![极坐标曲边扇形](assets/img/figs/gaoshu/gs03-p114-1.jpg)
 
 【注】平面域面积直接用 $S=\displaystyle\iint_D1\,d\sigma$ 计算，再选二重积分的方法（直角坐标、极坐标、奇偶性、对称性）。` },
       { p: 114, md: R`**2. 空间体的体积**
 1) 旋转体的体积：平面域 $D$ 绕直线 $L:ax+by+c=0$（不穿过 $D$）旋转，取微元 $d\sigma$ 与点 $(x,y)$，$dV=2\pi r(x,y)d\sigma$，其中 $r(x,y)=\dfrac{|ax+by+c|}{\sqrt{a^2+b^2}}$，则 $V=2\pi\displaystyle\iint_Dr(x,y)d\sigma$。
+![绕直线 $L$ 旋转](assets/img/figs/gaoshu/gs03-p114-2.jpg)
 
 特别地，$D$ 由 $y=f(x)\geqslant0$、$x=a,x=b\ (0\leqslant a<b)$ 及 $x$ 轴围成：
 (1) 绕 $x$ 轴：$V_x=2\pi\displaystyle\iint_Dy\,d\sigma=\pi\int_a^bf^2(x)dx$；
 (2) 绕 $y$ 轴：$V_y=2\pi\displaystyle\iint_Dx\,d\sigma=2\pi\int_a^bxf(x)dx$。
+![绕 $x$ 轴旋转](assets/img/figs/gaoshu/gs03-p114-3.jpg)
 
 【注】平面域绕直线旋转的体积直接用 $V=2\pi\displaystyle\iint_Dr(x,y)d\sigma$ 计算，再选二重积分方法，比一元元素法简单。
 
 2) 已知横截面面积的体积：$V=\displaystyle\int_a^bS(x)dx$。
+![已知横截面面积 $S(x)$](assets/img/figs/gaoshu/gs03-p114-4.jpg)
 
 **3. 曲线弧长（数三不要求）**
 1) 直角坐标 $y=y(x)$：$s=\displaystyle\int_a^b\sqrt{1+y'^2}dx$；
@@ -43,19 +48,23 @@ window.LESSONS = window.LESSONS || {};
 ### 二、常考题型的方法与技巧
 ### 题型一　几何应用
 【例1】设 $f(x)=\displaystyle\int_{-1}^x(1-|t|)dt\ (x\geqslant-1)$，求曲线 $y=f(x)$ 与 $x$ 轴所围图形的面积。
+![例1 图形](assets/img/figs/gaoshu/gs03-p115-1.jpg)
 
 【解】$f(x)=\begin{cases}\displaystyle\int_{-1}^x(1+t)dt,&-1\leqslant x\leqslant0\\\displaystyle\int_{-1}^0(1+t)dt+\int_0^x(1-t)dt,&x>0\end{cases}=\begin{cases}\dfrac12(1+x)^2,&-1\leqslant x\leqslant0\\\dfrac12(1+2x-x^2),&x>0\end{cases}$。令 $1+2x-x^2=0$ 得 $x=1\pm\sqrt2$，故 $S=\displaystyle\int_{-1}^0\dfrac12(1+x)^2dx+\int_0^{1+\sqrt2}\dfrac12(1+2x-x^2)dx=1+\dfrac{2\sqrt2}{3}$。
 
 【例2】设平面图形 $A$ 由 $x^2+y^2\leqslant2x$ 与 $y\geqslant x$ 所确定，求 $A$ 绕 $x=2$ 旋转一周所得旋转体的体积。
+![例2 区域与竖直条带](assets/img/figs/gaoshu/gs03-p116-1.jpg)
 
 【解1】对 $x$ 积分：$dV=2\pi(2-x)(\sqrt{2x-x^2}-x)dx$，` },
       { p: 116, md: R`$V=2\pi\displaystyle\int_0^1(2-x)(\sqrt{2x-x^2}-x)dx=2\pi\left[\int_0^1(1-x)\sqrt{2x-x^2}dx+\int_0^1\sqrt{2x-x^2}dx-\int_0^1(2-x)x\,dx\right]=2\pi\left[\dfrac13(2x-x^2)^{\frac32}\Big|_0^1+\dfrac\pi4-\dfrac23\right]=\dfrac{\pi^2}{2}-\dfrac{2\pi}{3}$（其中 $\int_0^1\sqrt{2x-x^2}dx=\dfrac\pi4$ 为 $\dfrac14$ 单位圆面积）。
 
+![例2 区域与水平条带](assets/img/figs/gaoshu/gs03-p116-2.jpg)
 【解2】对 $y$ 积分：$dV=\pi[(2-(1-\sqrt{1-y^2}))^2-(2-y)^2]dy$，$V=\pi\displaystyle\int_0^1[(1+\sqrt{1-y^2})^2-(2-y)^2]dy=\pi\int_0^1(2-y^2+2\sqrt{1-y^2})dy-\dfrac73\pi=\dfrac53\pi+\dfrac12\pi^2-\dfrac73\pi=\dfrac{\pi^2}{2}-\dfrac{2\pi}{3}$。
 
 【解3】二重积分：$V_{x=2}=2\pi\displaystyle\iint_D(2-x)d\sigma=2\pi\int_0^1dx\int_x^{\sqrt{2x-x^2}}(2-x)dy=2\pi\int_0^1(2-x)(\sqrt{2x-x^2}-x)dx$，以下同解1。
 
 【例3】过点 $(1,0)$ 作曲线 $y=x^2$ 的切线，该切线与曲线及 $x$ 轴围成平面图形 $D$。(1) 求 $D$ 的面积 $A$；(2) 求 $D$ 绕 $x$ 轴旋转体的体积 $V$；(3) 求 $D$ 绕 $y$ 轴旋转体的体积 $V$；(4) 求 $D$ 绕直线 $y=4$ 旋转体的体积 $V$。
+![例3 切线与区域 $D$](assets/img/figs/gaoshu/gs03-p116-3.jpg)
 
 【解】(1) 设切线 $y=k(x-1)$，切点 $(x_0,y_0)$，则 $\begin{cases}x_0^2=k(x_0-1)\\2x_0=k\end{cases}$，解得 $x_0=2,k=4$，切线 $y=4(x-1)$，故 $A=\displaystyle\iint_D1\,d\sigma=\int_0^4dy\int_{\sqrt y}^{\frac y4+1}dx=\dfrac23$。
 (2) $V_x=2\pi\displaystyle\iint_Dy\,d\sigma=2\pi\int_0^4dy\int_{\sqrt y}^{\frac y4+1}y\,dx=\dfrac{16}{15}\pi$。
@@ -63,11 +72,13 @@ window.LESSONS = window.LESSONS || {};
       { p: 117, md: R`(4) $V_{y=4}=2\pi\displaystyle\iint_D(4-y)d\sigma=2\pi\int_0^4dy\int_{\sqrt y}^{\frac y4+1}(4-y)dx=\dfrac{64}{15}\pi$。
 
 【例4】设对数螺线 $\rho=e^\theta\ (0\leqslant\theta\leqslant\pi)$ 及射线 $\theta=0,\theta=\pi$ 围成平面图形 $D$。(1) 求 $D$ 的面积 $A$；(2) 求 $D$ 绕极轴旋转一周所得旋转体的体积 $V$。
+![例4 对数螺线围成的 $D$](assets/img/figs/gaoshu/gs03-p117-1.jpg)
 
 【解】(1) $S=\displaystyle\iint_D1\,d\sigma=\int_0^\pi d\theta\int_0^{e^\theta}\rho\,d\rho=\dfrac14(e^{2\pi}-1)$。
 (2) $V=2\pi\displaystyle\iint_Dy\,d\sigma=2\pi\int_0^\pi d\theta\int_0^{e^\theta}\rho\sin\theta\cdot\rho\,d\rho=\dfrac{2\pi}{3}\int_0^\pi e^{3\theta}\sin\theta\,d\theta=\dfrac{\pi}{15}(e^{3\pi}+1)$。
 
 【例5】设星形线 $\begin{cases}x=a\cos^3t\\y=a\sin^3t\end{cases}$，求：(1) 所围面积；(2) 周长；(3) 绕 $x$ 轴旋转体的体积和侧面积。
+![例5 星形线](assets/img/figs/gaoshu/gs03-p117-2.jpg)
 
 【解】(1) 面积 $A=4\displaystyle\int_0^ay\,dx=4\int_{\frac\pi2}^0a\sin^3t(-3a\sin t\cos^2t)dt=12\int_0^{\frac\pi2}a^2(\sin^4t-\sin^6t)dt=\dfrac{3\pi a^2}{8}$。
 (2) 弧长 $L=4\displaystyle\int_0^{\frac\pi2}\sqrt{x'^2+y'^2}dt=4\int_0^{\frac\pi2}3a\sin t\cos t\,dt=6a$。

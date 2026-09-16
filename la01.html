@@ -6,66 +6,30 @@
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" content="#1f5c8b">
 <title>第一章 行列式 · 考研数学</title>
-<link rel="stylesheet" href="assets/style.css?v=20260915q">
-<script src="assets/theme.js?v=20260915q"></script>
+<link rel="stylesheet" href="assets/style.css?v=20260916a">
+<script src="assets/theme.js?v=20260916a"></script>
 <script>
 window.MathJax = { tex: {inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']]}, svg:{fontCache:'global'} };
 </script>
 <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
 </head>
-<body data-page="chapter">
+<body data-page="chapter" data-chapter="la01">
 <div class="wrap">
 <header class="top"><h1>第一章 行列式</h1>
-<p>《线性代数辅导讲义》 ｜ 讲义第 10–34 页 ｜ <a href="index.html">← 返回首页</a></p></header>
-<section class="sec"><h2>知识结构网络图 · 基本内容与重要结论</h2>
-<div class="points"><div class="pt-h">📌 本页要点</div><ul><li>行列式本质是数，由n阶方阵按规则展开得到。</li><li>考研重点：性质化简、展开定理、特殊行列式与抽象行列式。</li><li>核心方法：化三角形、按行列展开、递推与加边法。</li><li>常见结论：|kA|=k^n|A|，|AB|=|A||B|，|A^T|=|A|。</li></ul></div>
-<div class="fbox"><div class="pt-h">📐 核心公式</div><div class="fml">$$|A^T|=|A|,\quad |kA|=k^n|A|,\quad |AB|=|A||B|$$</div><div class="fml">$$|A^{-1}|=|A|^{-1},\quad |A^*|=|A|^{n-1}$$</div><div class="fml">$$\sum_{j=1}^n a_{ij}A_{kj}=\begin{cases}|A|,&i=k\\0,&i\ne k\end{cases}$$</div><div class="fml">$$\begin{vmatrix}a&b\\c&d\end{vmatrix}=ad-bc$$</div><div class="fml">$$\begin{vmatrix}1&1&1\\a&b&c\\a^2&b^2&c^2\end{vmatrix}=(b-a)(c-a)(c-b)$$</div></div>
-<div class="ex"><div class="ex-q">例：计算行列式 $D=\begin{vmatrix}1&2&3\\4&5&6\\7&8&10\end{vmatrix}$。</div><details class="sol"><summary>解答</summary><div class="ansbox">利用性质化简：$r_2-4r_1,\ r_3-7r_1$，得 $D=\begin{vmatrix}1&2&3\\0&-3&-6\\0&-6&-11\end{vmatrix}$。再 $r_3-2r_2$，得 $D=\begin{vmatrix}1&2&3\\0&-3&-6\\0&0&1\end{vmatrix}$。上三角行列式等于主对角线乘积，故 $D=1\times(-3)\times1=-3$。</div></details></div>
-<details class="pages" open><summary>📖 讲义原页（点开阅读）</summary><div class="imglist">
-<figure><img loading="lazy" src="assets/img/xiandai/p-010.jpg" alt="p10"><figcaption>第 10 页</figcaption></figure>
-<figure><img loading="lazy" src="assets/img/xiandai/p-011.jpg" alt="p11"><figcaption>第 11 页</figcaption></figure>
-<figure><img loading="lazy" src="assets/img/xiandai/p-012.jpg" alt="p12"><figcaption>第 12 页</figcaption></figure>
-<figure><img loading="lazy" src="assets/img/xiandai/p-013.jpg" alt="p13"><figcaption>第 13 页</figcaption></figure>
-<figure><img loading="lazy" src="assets/img/xiandai/p-014.jpg" alt="p14"><figcaption>第 14 页</figcaption></figure>
-<figure><img loading="lazy" src="assets/img/xiandai/p-015.jpg" alt="p15"><figcaption>第 15 页</figcaption></figure>
-<figure><img loading="lazy" src="assets/img/xiandai/p-016.jpg" alt="p16"><figcaption>第 16 页</figcaption></figure>
-<figure><img loading="lazy" src="assets/img/xiandai/p-017.jpg" alt="p17"><figcaption>第 17 页</figcaption></figure>
-</div></details>
-<div class="mark" data-ch="la01" data-sec="0"></div>
-</section>
-<section class="sec"><h2>典型例题分析选讲</h2>
-<div class="points"><div class="pt-h">📌 本页要点</div><ul><li>行列式本质是数，n阶行列式按行展开可降阶计算</li><li>范德蒙德行列式与爪型、三对角是高频特殊结构</li><li>行列式性质：换行变号、倍加不变、提公因子</li><li>抽象行列式常用|AB|=|A||B|与特征值乘积</li></ul></div>
-<div class="fbox"><div class="pt-h">📐 核心公式</div><div class="fml">$$|A^T|=|A|,\quad |kA|=k^n|A|$$</div><div class="fml">$$|AB|=|A||B|,\quad |A^{-1}|=|A|^{-1}$$</div><div class="fml">$$\begin{vmatrix}1&1&\cdots&1\\x_1&x_2&\cdots&x_n\\\vdots&\vdots&&\vdots\\x_1^{n-1}&x_2^{n-1}&\cdots&x_n^{n-1}\end{vmatrix}=\prod_{1\le i<j\le n}(x_j-x_i)$$</div><div class="fml">$$|\lambda I-A|=(\lambda-\lambda_1)\cdots(\lambda-\lambda_n)$$</div></div>
-<div class="ex"><div class="ex-q">例：计算行列式 $D=\begin{vmatrix}1&2&3\\4&5&6\\7&8&10\end{vmatrix}$。</div><details class="sol"><summary>解答</summary><div class="ansbox">按第一行展开：$D=1\cdot\begin{vmatrix}5&6\\8&10\end{vmatrix}-2\cdot\begin{vmatrix}4&6\\7&10\end{vmatrix}+3\cdot\begin{vmatrix}4&5\\7&8\end{vmatrix}$。计算得 $D=(50-48)-2(40-42)+3(32-35)=2+4-9=-3$。</div></details></div>
-<details class="pages" open><summary>📖 讲义原页（点开阅读）</summary><div class="imglist">
-<figure><img loading="lazy" src="assets/img/xiandai/p-019.jpg" alt="p19"><figcaption>第 19 页</figcaption></figure>
-<figure><img loading="lazy" src="assets/img/xiandai/p-020.jpg" alt="p20"><figcaption>第 20 页</figcaption></figure>
-<figure><img loading="lazy" src="assets/img/xiandai/p-021.jpg" alt="p21"><figcaption>第 21 页</figcaption></figure>
-<figure><img loading="lazy" src="assets/img/xiandai/p-022.jpg" alt="p22"><figcaption>第 22 页</figcaption></figure>
-<figure><img loading="lazy" src="assets/img/xiandai/p-023.jpg" alt="p23"><figcaption>第 23 页</figcaption></figure>
-<figure><img loading="lazy" src="assets/img/xiandai/p-024.jpg" alt="p24"><figcaption>第 24 页</figcaption></figure>
-<figure><img loading="lazy" src="assets/img/xiandai/p-025.jpg" alt="p25"><figcaption>第 25 页</figcaption></figure>
-<figure><img loading="lazy" src="assets/img/xiandai/p-026.jpg" alt="p26"><figcaption>第 26 页</figcaption></figure>
-<figure><img loading="lazy" src="assets/img/xiandai/p-027.jpg" alt="p27"><figcaption>第 27 页</figcaption></figure>
-<figure><img loading="lazy" src="assets/img/xiandai/p-028.jpg" alt="p28"><figcaption>第 28 页</figcaption></figure>
-<figure><img loading="lazy" src="assets/img/xiandai/p-029.jpg" alt="p29"><figcaption>第 29 页</figcaption></figure>
-</div></details>
-<div class="mark" data-ch="la01" data-sec="1"></div>
-</section>
-<section class="sec"><h2>练习题精选</h2>
-<div class="points"><div class="pt-h">📌 本页要点</div><ul><li>行列式本质是数，由方阵按规则展开得到</li><li>考研重点：2、3阶计算，n阶递推与范德蒙德</li><li>性质化简：换行变号，倍加不变，提公因子</li><li>展开定理：按行/列展开降阶，注意代数余子式符号</li></ul></div>
-<div class="fbox"><div class="pt-h">📐 核心公式</div><div class="fml">$$\det(AB)=\det A\cdot\det B$$</div><div class="fml">$$\det(kA)=k^n\det A\quad(A为n阶)$$</div><div class="fml">$$\sum_{j=1}^n a_{ij}A_{kj}=\delta_{ik}\det A$$</div><div class="fml">$$\begin{vmatrix}1&1&\cdots&1\\x_1&x_2&\cdots&x_n\\\vdots&\vdots&&\vdots\\x_1^{n-1}&x_2^{n-1}&\cdots&x_n^{n-1}\end{vmatrix}=\prod_{1\le i<j\le n}(x_j-x_i)$$</div><div class="fml">$$\begin{vmatrix}a&b\\c&d\end{vmatrix}=ad-bc$$</div></div>
-<div class="ex"><div class="ex-q">例：计算行列式 $D=\begin{vmatrix}1&2&3\\4&5&6\\7&8&10\end{vmatrix}$。</div><details class="sol"><summary>解答</summary><div class="ansbox">按第一行展开：$D=1\cdot\begin{vmatrix}5&6\\8&10\end{vmatrix}-2\cdot\begin{vmatrix}4&6\\7&10\end{vmatrix}+3\cdot\begin{vmatrix}4&5\\7&8\end{vmatrix}$。计算得：$1(50-48)-2(40-42)+3(32-35)=2+4-9=-3$。</div></details></div>
-<details class="pages" open><summary>📖 讲义原页（点开阅读）</summary><div class="imglist">
-<figure><img loading="lazy" src="assets/img/xiandai/p-031.jpg" alt="p31"><figcaption>第 31 页</figcaption></figure>
-<figure><img loading="lazy" src="assets/img/xiandai/p-032.jpg" alt="p32"><figcaption>第 32 页</figcaption></figure>
-<figure><img loading="lazy" src="assets/img/xiandai/p-033.jpg" alt="p33"><figcaption>第 33 页</figcaption></figure>
-<figure><img loading="lazy" src="assets/img/xiandai/p-034.jpg" alt="p34"><figcaption>第 34 页</figcaption></figure>
-</div></details>
-<div class="mark" data-ch="la01" data-sec="2"></div>
-</section>
-<footer>考研数学（二）自学网站 · 讲义原页 + 精讲 · 仅供个人学习使用</footer>
+<p>《线性代数辅导讲义》 ｜ 讲义第 10–34 页 ｜ 全文图文精讲 + 本节自测 ｜ <a href="index.html">← 返回首页</a></p></header>
+<div class="chapter-layout">
+<aside class="sidebar" id="lnav"></aside>
+<div class="chapter-main">
+<div class="navrow"><a class="navbtn" href="formula.html">📐 公式手册</a><a class="navbtn" href="methods.html">🧭 题型方法库</a><a class="navbtn" href="flashcards.html">🃏 公式闪卡</a><a class="navbtn" href="wrong.html?v=20260916a">📕 错题本</a><a class="navbtn" href="review.html">🔁 今日复习</a></div>
+<div id="chapter"></div>
 </div>
-<script src="assets/app.js?v=20260915q"></script>
+</div>
+<footer>考研数学（二）自学网站 · 全文图文精讲 · 仅供个人学习使用</footer>
+</div>
+<script src="data/manifest.js?v=20260916a"></script>
+<script src="data/lesson-la01-1.js?v=20260916a"></script>
+<script src="data/lesson-la01-prob.js?v=20260916a"></script>
+<script src="assets/app.js?v=20260916a"></script>
+<script src="assets/lesson.js?v=20260916a"></script>
 </body>
 </html>

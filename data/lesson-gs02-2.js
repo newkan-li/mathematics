@@ -140,6 +140,7 @@ $$f(x)=f(x_0)+f'(x_0)(x-x_0)+\dfrac{f''(x_0)}{2!}(x-x_0)^2+\cdots+\dfrac{f^{(n)}
 【注】带参数方程根的问题，第一步分离参数是常用方法。
 
 【例6】设当 $x>0$ 时，方程 $kx+\dfrac{1}{x^2}=1$ 有且仅有一个解，试求 $k$ 的取值范围。
+![例6 分离参数后的图形](assets/img/figs/gaoshu/gs02-p71-1.jpg)
 
 【解1】设 $f(x)=kx+\dfrac{1}{x^2}-1\ (x>0)$，$f'(x)=k-\dfrac{2}{x^3}$。(1) 若 $k\leqslant0$，$f'(x)<0$，$f$ 递减；$\lim\limits_{x\to0^+}f=+\infty$，$k<0$ 时 $\lim\limits_{x\to+\infty}f=-\infty$，$k=0$ 时极限为 $-1$，故 $k\leqslant0$ 时有且仅有一解。(2) 若 $k>0$，令 $f'=0$ 得 $x=\sqrt[3]{\dfrac2k}$，该点为极小值点；$\lim\limits_{x\to0^+}f=\lim\limits_{x\to+\infty}f=+\infty$，故当且仅当 $f\left(\sqrt[3]{\dfrac2k}\right)=0$ 时有且仅有一解，解得 $k=\dfrac{2}{9}\sqrt3$。综上，$k\leqslant0$ 或 $k=\dfrac{2}{9}\sqrt3$。
 

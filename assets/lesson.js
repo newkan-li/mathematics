@@ -73,6 +73,8 @@
         continue;
       }
       if (t === "" || /^-{3,}$/.test(t) || /^[·•*]\s*\d+\s*[·•*]?$/.test(t)) { fa(); continue; }
+      var img = /^!\[(.*)\]\(([^)\s]+)\)\s*$/.exec(t);
+      if (img) { fa(); html.push('<figure class="fig"><img loading="lazy" src="' + img[2] + '" alt="' + A.esc(img[1]) + '">' + (img[1] ? '<figcaption>' + A.esc(img[1]) + '</figcaption>' : '') + '</figure>'); continue; }
       if (/^\$\$/.test(t)) {
         fa();
         var r0 = t.slice(2), c0 = r0.indexOf("$$");

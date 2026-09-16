@@ -79,6 +79,7 @@ window.LESSONS = window.LESSONS || {};
       { p: 167, md: R`【解2】作与 $2x+3y-6=0$ 平行的椭圆切线，由 $y'=-\dfrac{x}{4y}=-\dfrac23$ 得 $8y=3x$，与 $x^2+4y^2=4$ 联立得 $\left(\dfrac85,\dfrac35\right)$、$\left(-\dfrac85,-\dfrac35\right)$，由几何意义知所求点为 $\left(\dfrac85,\dfrac35\right)$。
 
 【例5】已知三角形周长为 $2p$，求使它绕自己的一边旋转时所构成旋转体体积最大的三角形。
+![例5 三角形绕边 $y$ 旋转](assets/img/figs/gaoshu/gs05-p167-1.jpg)
 【解】设三边 $x,y,z$，绕边 $y$ 旋转，高 $h$，$V=\dfrac\pi3h^2y$，$S=\sqrt{p(p-x)(p-y)(p-z)}=\dfrac12yh$，得 $V=\dfrac43\pi p\dfrac{(p-x)(p-y)(p-z)}y\ (x+y+z=2p)$。令 $F=\ln(p-x)+\ln(p-y)+\ln(p-z)-\ln y+\lambda(x+y+z-2p)$，令各偏导为零解得 $x=z=\dfrac{3p}4,y=\dfrac p2,V_{\max}=\dfrac{\pi}{12}p^3$。
 
 【例6】（仅数三）利润 $L(x,y)=-x^2-4y^2+8x+24y-15$。1) 求利润最大的 $x,y$ 及最大利润；2) 原料降至 12000 公斤时求最大利润产量。

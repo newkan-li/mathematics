@@ -19,6 +19,7 @@ window.LESSONS = window.LESSONS || {};
 **1. 复合函数求导法** 设 $u=u(x,y),v=v(x,y)$ 可导，$z=f(u,v)$ 有连续一阶偏导数，则
 $$\frac{\partial z}{\partial x}=\frac{\partial f}{\partial u}\frac{\partial u}{\partial x}+\frac{\partial f}{\partial v}\frac{\partial v}{\partial x},\qquad \frac{\partial z}{\partial y}=\frac{\partial f}{\partial u}\frac{\partial u}{\partial y}+\frac{\partial f}{\partial v}\frac{\partial v}{\partial y}.$$` },
       { p: 149, md: R`**2. 全微分形式不变性** 设 $z=f(u,v),u=u(x,y),v=v(x,y)$ 都有连续一阶偏导数，则 $dz=\dfrac{\partial z}{\partial x}dx+\dfrac{\partial z}{\partial y}dy=\dfrac{\partial z}{\partial u}du+\dfrac{\partial z}{\partial v}dv$。
+![复合函数 $z\to u,v\to x,y$ 的结构图](assets/img/figs/gaoshu/gs05-p149-1.jpg)
 
 **3. 隐函数求导法**
 1) 由一个方程确定：设 $F(x,y,z)$ 有连续一阶偏导数，$F'_z\neq0$，$z=z(x,y)$ 由 $F(x,y,z)=0$ 确定。方法：i) 公式 $\dfrac{\partial z}{\partial x}=-\dfrac{F'_x}{F'_z},\dfrac{\partial z}{\partial y}=-\dfrac{F'_y}{F'_z}$；ii) 等式两边求导；iii) 利用微分形式不变性 $F'_xdx+F'_ydy+F'_zdz=0$。
@@ -75,8 +76,10 @@ $$\frac{\partial z}{\partial x}=\frac{\partial f}{\partial u}\frac{\partial u}{\
 【例6】设 $f(u,v)$ 有二阶连续偏导数，$f_{uu}+f_{vv}=1$，$g(x,y)=f\left[xy,\dfrac12(x^2-y^2)\right]$，求 $g_{xx}+g_{yy}$。
 【解】$g_x=yf_u+xf_v$，$g_{xx}=y(yf_{uu}+xf_{uv})+x(yf_{vu}+xf_{vv})+f_v$；$g_y=xf_u-yf_v$，$g_{yy}=x(xf_{uu}-yf_{uv})-y(xf_{vu}-yf_{vv})-f_v$。故 $g_{xx}+g_{yy}=(x^2+y^2)(f_{uu}+f_{vv})=x^2+y^2$。
 
-【例7】设 $u=f(x,y)$ 有二阶连续偏导数，且 $4u_{xx}+12u_{xy}+5u_{yy}=0$，确定 $a,b$ 使 $\xi=x+ay,\eta=x+by$ 下简化为 $u_{\xi\eta}=0$。` },
-      { p: 155, md: R`【解】$u_x=u_\xi+u_\eta$，$u_{xx}=u_{\xi\xi}+2u_{\xi\eta}+u_{\eta\eta}$，$u_y=au_\xi+bu_\eta$，$u_{yy}=a^2u_{\xi\xi}+2abu_{\xi\eta}+b^2u_{\eta\eta}$，$u_{xy}=au_{\xi\xi}+(a+b)u_{\xi\eta}+bu_{\eta\eta}$。代入得 $(5a^2+12a+4)u_{\xi\xi}+[10ab+12(a+b)+8]u_{\xi\eta}+(5b^2+12b+4)u_{\eta\eta}=0$。由 $5a^2+12a+4=0,5b^2+12b+4=0$ 且 $10ab+12(a+b)+8\neq0$ 得 $a=-2,b=-\dfrac25$ 或 $a=-\dfrac25,b=-2$。
+【例7】设 $u=f(x,y)$ 有二阶连续偏导数，且 $4u_{xx}+12u_{xy}+5u_{yy}=0$，确定 $a,b$ 使 $\xi=x+ay,\eta=x+by$ 下简化为 $u_{\xi\eta}=0$。
+![例7 $u\to\xi,\eta\to x,y$ 的结构图](assets/img/figs/gaoshu/gs05-p154-1.jpg)` },
+      { p: 155, md: R`![$u\to x,y\to\xi,\eta$ 的结构图](assets/img/figs/gaoshu/gs05-p155-1.jpg)
+【解】$u_x=u_\xi+u_\eta$，$u_{xx}=u_{\xi\xi}+2u_{\xi\eta}+u_{\eta\eta}$，$u_y=au_\xi+bu_\eta$，$u_{yy}=a^2u_{\xi\xi}+2abu_{\xi\eta}+b^2u_{\eta\eta}$，$u_{xy}=au_{\xi\xi}+(a+b)u_{\xi\eta}+bu_{\eta\eta}$。代入得 $(5a^2+12a+4)u_{\xi\xi}+[10ab+12(a+b)+8]u_{\xi\eta}+(5b^2+12b+4)u_{\eta\eta}=0$。由 $5a^2+12a+4=0,5b^2+12b+4=0$ 且 $10ab+12(a+b)+8\neq0$ 得 $a=-2,b=-\dfrac25$ 或 $a=-\dfrac25,b=-2$。
 
 【例8】设 $f(u)$ 有二阶连续导数，$z=f(e^x\sin y)$ 满足 $z_{xx}+z_{yy}=ze^{2x}$，求 $f(u)$。
 【解】令 $u=e^x\sin y$，$z_x=f'(u)e^x\sin y$，$z_{xx}=f''(u)e^{2x}\sin^2y+f'(u)e^x\sin y$，$z_y=f'(u)e^x\cos y$，$z_{yy}=f''(u)e^{2x}\cos^2y-f'(u)e^x\sin y$，代入得 $f''(u)=f(u)$，即 $f''-f=0$，故 $f(u)=C_1e^u+C_2e^{-u}$。` },

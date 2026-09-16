@@ -105,6 +105,7 @@ window.LESSONS = window.LESSONS || {};
 
 ### 题型三　应用题
 【例1】设曲线 $y=f(x)$ 为连接 $A(1,0)$ 与 $B(0,1)$ 且位于弦 $AB$ 上方的弧段，$P(x,y)$ 为其上任意点，弦 $BP$ 与曲线围成的面积为 $x^3$，求曲线方程。
+![例1 曲线与弦 $BP$ 围成的区域](assets/img/figs/gaoshu/gs04-p137-1.jpg)
 【解】$x^3=\displaystyle\int_0^xf(t)dt-\dfrac x2[1+f(x)]$，求导得 $f'-\dfrac1xf=-6x-\dfrac1x$（线性），$f=Cx-6x^2+1$。由 $f(1)=0$ 得 $C=5$，$f(x)=5x-6x^2+1$。
 【例2】设对任意 $x>0$，曲线 $y=f(x)$ 上点 $(x,f(x))$ 处切线在 $y$ 轴上的截距等于 $\dfrac1x\displaystyle\int_0^xf(t)dt$，求 $f(x)$。
 【解】切线 $Y-f(x)=f'(x)(X-x)$，令 $X=0$ 得截距 $f(x)-xf'(x)$，故 $f(x)-xf'(x)=\dfrac1x\displaystyle\int_0^xf(t)dt$，即 $xf(x)-x^2f'(x)=\int_0^xf(t)dt$，求导得 $xf''+f'=0$，$f(x)=C_1\ln x+C_2$。` }
