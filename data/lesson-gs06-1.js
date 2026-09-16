@@ -177,6 +177,7 @@ $$=\int_{-A}^0f(u)(A+u)du+\int_0^Af(u)(A-u)du=\int_{-A}^Af(u)(A-|u|)du.$$
 【解】显然 $f(0)=1$，且 $\displaystyle\iint_{x^2+y^2\leqslant4t^2}f\left(\dfrac12\sqrt{x^2+y^2}\right)dxdy=\int_0^{2\pi}d\theta\int_0^{2t}f\left(\dfrac12\rho\right)\rho d\rho=2\pi\int_0^{2t}\rho f\left(\dfrac12\rho\right)d\rho$，则 $f(t)=e^{4\pi t^2}+2\pi\displaystyle\int_0^{2t}\rho f\left(\dfrac12\rho\right)d\rho$，$f'(t)=8\pi te^{4\pi t^2}+8\pi tf(t)$，$f(t)=e^{\int8\pi tdt}\left[\int8\pi te^{4\pi t^2}e^{-\int8\pi tdt}dt+C\right]=(4\pi t^2+C)e^{4\pi t^2}$。由 $f(0)=1$ 得 $C=1$，因此 $f(t)=(4\pi t^2+1)e^{4\pi t^2}$。
 
 【例4】设 $f(x,y)$ 是定义在 $0\leqslant x\leqslant1,0\leqslant y\leqslant1$ 上的连续函数，$f(0,0)=-1$，求极限 $\lim\limits_{x\to0^+}\dfrac{\int_0^{x^2}dt\int_x^{\sqrt t}f(t,u)du}{1-e^{-x^3}}$。
+![例4 积分域](assets/img/figs/gaoshu/gs06-p184-1.jpg)
 【解1】交换积分次序得
 $$\lim_{x\to0^+}\dfrac{\int_0^{x^2}dt\int_x^{\sqrt t}f(t,u)du}{1-e^{-x^3}}=\lim_{x\to0^+}\dfrac{-\int_0^xdu\int_0^{u^2}f(t,u)dt}{x^3}\quad(1-e^{-x^3}\sim x^3)=-\lim_{x\to0^+}\dfrac{\int_0^x\left[\int_0^{u^2}f(t,u)dt\right]du}{x^3}=-\lim_{x\to0^+}\dfrac{\int_0^{x^2}f(t,x)dt}{3x^2}\quad(\text{应用洛必达法则})$$` },
       { p: 185, md: R`$$=-\lim_{x\to0^+}\dfrac{x^2f(\xi,x)}{3x^2}\quad(0<\xi<x^2,\text{这里应用了定积分中值定理})=-\dfrac13f(0,0)=\dfrac13.$$
