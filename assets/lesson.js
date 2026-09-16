@@ -31,7 +31,7 @@
       return ln.replace(/(?<![A-Za-z0-9_$])\s*([（(]\s*[A-D]\s*[）)])/g, "\n$1").split("\n").map(function (x) { return x.trim(); }).filter(function (x) { return x; }).join("\n");
     }).join("\n").split("\n");
     var html = [], para = [], list = null, listType = "ul", listStart = 1, quote = [], math = null, ex = null;
-    function ih(text) { return inline(A.esc(text)); }
+    function ih(text) { return inline(A.esc(text)).replace(/\n/g, "<br>"); }
     function closeEx() {
       if (!ex) return;
       if (ex.a) html.push("</div>");
@@ -40,7 +40,7 @@
     }
     function fp() {
       if (!para.length) return;
-      var text = para.join(" "); para = [];
+      var text = para.join("\n"); para = [];
       if (/^【例/.test(text)) {
         closeEx();
         html.push('<div class="ex"><div class="ex-q">' + ih(text));
