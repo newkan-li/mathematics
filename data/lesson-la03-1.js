@@ -144,7 +144,95 @@ $$\begin{pmatrix}1&5&1&2\\2&-5&-3&-1\\-3&a&6&3\\1&11&3&b\end{pmatrix}\to\begin{p
 (2) 当 $a=12$ 时，方程组有无穷多解 $x_2=t,x_3=1-3t,x_1=1-2t$，即 $\beta=(1-2t)\alpha_1+t\alpha_2+(1-3t)\alpha_3$，$t$ 为任意实数。
 【评注】若已知向量的坐标而要判断能否线性表出，通常转换为非齐次线性方程组是否有解的讨论；如果向量的坐标没有给出，通常用线性相关及秩的理论分析、推理。
 
-【例3.23】（2003,4）设有向量组 (Ⅰ)：$\alpha_1=(1,0,2)^T,\alpha_2=(1,1,3)^T,\alpha_3=(1,-1,a+2)^T$；(Ⅱ)：$\beta_1=(1,2,a+3)^T,\beta_2=(2,1,a+6)^T,\beta_3=(2,1,a+4)^T$。试问：当 $a$ 为何值时，向量组 (Ⅰ) 与 (Ⅱ) 等价？（本题完整解答见讲义后续，属本章综合应用）` }
+【例3.23】（2003,4）设有向量组 (Ⅰ)：$\alpha_1=(1,0,2)^T,\alpha_2=(1,1,3)^T,\alpha_3=(1,-1,a+2)^T$；(Ⅱ)：$\beta_1=(1,2,a+3)^T,\beta_2=(2,1,a+6)^T,\beta_3=(2,1,a+4)^T$。试问：当 $a$ 为何值时，向量组 (Ⅰ) 与 (Ⅱ) 等价？（本题完整解答见讲义后续，属本章综合应用）` },
+      { p: 79, md: R`【例3.23（续）】当 $a$ 为何值时，向量组 (Ⅰ) 与 (Ⅱ) 等价？
+【解】对 $(\alpha_1,\alpha_2,\alpha_3;\beta_1,\beta_2,\beta_3)$ 作初等行变换，有
+$$(\alpha_1,\alpha_2,\alpha_3;\beta_1,\beta_2,\beta_3)=\begin{pmatrix}1&1&1&1&2&2\\0&1&-1&2&1&1\\2&3&a+2&a+3&a+6&a+4\end{pmatrix}\to\begin{pmatrix}1&1&1&1&2&2\\0&1&-1&2&1&1\\0&1&a&a+1&a+2&a\end{pmatrix}\to\begin{pmatrix}1&1&1&1&2&2\\0&1&-1&2&1&1\\0&0&a+1&a-1&a-1&a+1\end{pmatrix}.$$
+由 $x_1\alpha_1+x_2\alpha_2+x_3\alpha_3=\beta_1$ 知，只要 $a\neq-1$ 方程组总有唯一解，即 $\beta_1$ 必可由 (Ⅰ) 线性表出；而 $a=-1$ 时方程组无解。由 $\beta_2,\beta_3$ 对应的方程组知 $a\neq-1$ 时均有解，故 $a\neq-1$ 时 (Ⅱ) 可由 (Ⅰ) 线性表出。反之，由 $|\beta_1,\beta_2,\beta_3|=\begin{vmatrix}1&2&2\\2&1&1\\a+3&a+6&a+4\end{vmatrix}=\begin{vmatrix}1&2&0\\2&1&0\\a+3&a+6&-2\end{vmatrix}=6\neq0$ 知 $\forall a$，(Ⅰ) 总可由 (Ⅱ) 线性表出。因此 $a\neq-1$ 时向量组 (Ⅰ) 与 (Ⅱ) 等价；$a=-1$ 时不等价。
+
+【例3.24】（1992,1）设向量组 $\alpha_1,\alpha_2,\alpha_3$ 线性相关，向量组 $\alpha_2,\alpha_3,\alpha_4$ 线性无关，问：(1) $\alpha_1$ 能否由 $\alpha_2,\alpha_3$ 线性表出？(2) $\alpha_4$ 能否由 $\alpha_1,\alpha_2,\alpha_3$ 线性表出？
+【解】(1) $\alpha_1$ 能由 $\alpha_2,\alpha_3$ 线性表出。
+【证法1】因为 $\alpha_2,\alpha_3,\alpha_4$ 线性无关，那么它的部分组 $\alpha_2,\alpha_3$ 线性无关（定理 3.3）。又因 $\alpha_1,\alpha_2,\alpha_3$ 线性相关，故 $\alpha_1$ 可以由 $\alpha_2,\alpha_3$ 线性表出（定理 3.6）。` },
+      { p: 80, md: R`【证法2】因为 $\alpha_1,\alpha_2,\alpha_3$ 线性相关，故存在不全为零的数 $k_1,k_2,k_3$，使得 $k_1\alpha_1+k_2\alpha_2+k_3\alpha_3=\mathbf0$，其中必有 $k_1\neq0$。否则若 $k_1=0$，则 $k_2,k_3$ 不全为零使 $k_2\alpha_2+k_3\alpha_3=\mathbf0$，即 $\alpha_2,\alpha_3$ 线性相关，进而 $\alpha_2,\alpha_3,\alpha_4$ 线性相关（定理 3.3），与已知矛盾。于是 $\alpha_1=-\dfrac{k_2}{k_1}\alpha_2-\dfrac{k_3}{k_1}\alpha_3$，即 $\alpha_1$ 可由 $\alpha_2,\alpha_3$ 线性表出。
+(2) $\alpha_4$ 不能由 $\alpha_1,\alpha_2,\alpha_3$ 线性表出。
+【证法1】（反证法）若 $\alpha_4$ 能由 $\alpha_1,\alpha_2,\alpha_3$ 线性表出，设 $\alpha_4=k_1\alpha_1+k_2\alpha_2+k_3\alpha_3$。由 (1) 知 $\alpha_1=l_2\alpha_2+l_3\alpha_3$，代入整理得 $\alpha_4=(k_1l_2+k_2)\alpha_2+(k_1l_3+k_3)\alpha_3$，即 $\alpha_4$ 可由 $\alpha_2,\alpha_3$ 线性表出，从而 $\alpha_2,\alpha_3,\alpha_4$ 线性相关（定理 3.5），与已知矛盾。
+【证法2】考察方程组 $x_1\alpha_1+x_2\alpha_2+x_3\alpha_3=\alpha_4$。因为 $\alpha_1,\alpha_2,\alpha_3$ 线性相关，故 $r(A)=r(\alpha_1,\alpha_2,\alpha_3)<3$；又 $\alpha_2,\alpha_3,\alpha_4$ 线性无关，故 $r(\overline A)=r(\alpha_1,\alpha_2,\alpha_3,\alpha_4)\geqslant3$。于是 $r(A)\neq r(\overline A)$，方程组无解，因此 $\alpha_4$ 不能由 $\alpha_1,\alpha_2,\alpha_3$ 线性表出。
+
+【例3.25】设向量 $\beta$ 可以由向量组 $\alpha_1,\alpha_2,\cdots,\alpha_m$ 线性表出，但 $\beta$ 不能由 $\alpha_1,\alpha_2,\cdots,\alpha_{m-1}$ 线性表出。判断：(1) $\alpha_m$ 能否由 $\alpha_1,\cdots,\alpha_{m-1},\beta$ 线性表出？(2) $\alpha_m$ 能否由 $\alpha_1,\cdots,\alpha_{m-1}$ 线性表出？
+【解】(1) $\alpha_m$ 可以由 $\alpha_1,\cdots,\alpha_{m-1},\beta$ 线性表出。因为 $\beta$ 可由 $\alpha_1,\cdots,\alpha_m$ 线性表出，故可设 $\beta=l_1\alpha_1+\cdots+l_{m-1}\alpha_{m-1}+l_m\alpha_m$ (1)，此时必有 $l_m\neq0$（否则与已知矛盾）。那么 $\alpha_m=\dfrac{1}{l_m}(\beta-l_1\alpha_1-\cdots-l_{m-1}\alpha_{m-1})$。
+(2) $\alpha_m$ 不能由 $\alpha_1,\cdots,\alpha_{m-1}$ 线性表出。若不然，设 $\alpha_m=k_1\alpha_1+\cdots+k_{m-1}\alpha_{m-1}$ (2)，` },
+      { p: 81, md: R`将 (2) 代入 (1)，整理得 $\beta=(l_1+l_mk_1)\alpha_1+\cdots+(l_{m-1}+l_mk_{m-1})\alpha_{m-1}$，说明 $\beta$ 可由 $\alpha_1,\cdots,\alpha_{m-1}$ 线性表出，与已知矛盾。故 $\alpha_m$ 不能由 $\alpha_1,\cdots,\alpha_{m-1}$ 线性表出。
+
+【例3.26】（2000,1）设 $n$ 维列向量组 $\alpha_1,\cdots,\alpha_m\ (m<n)$ 线性无关，则 $n$ 维列向量组 $\beta_1,\cdots,\beta_m$ 线性无关的充分必要条件为 (A) 向量组 $\alpha_1,\cdots,\alpha_m$ 可由 $\beta_1,\cdots,\beta_m$ 线性表示 (B) $\beta_1,\cdots,\beta_m$ 可由 $\alpha_1,\cdots,\alpha_m$ 线性表示 (C) 两向量组等价 (D) 矩阵 $A=(\alpha_1,\cdots,\alpha_m)$ 与 $B=(\beta_1,\cdots,\beta_m)$ 等价
+【分析】简记 (Ⅰ):$\alpha_1,\cdots,\alpha_m$，(Ⅱ):$\beta_1,\cdots,\beta_m$。(Ⅱ) 线性无关 $\Leftrightarrow r(\text{Ⅱ})=m$。(A) 若 (Ⅰ) 可由 (Ⅱ) 表出，则 $r(\text{Ⅰ})\leqslant r(\text{Ⅱ})$，又 $m=r(\text{Ⅰ})\leqslant r(\text{Ⅱ})\leqslant m$，得 $r(\text{Ⅱ})=m$，充分性成立；但当 $m<n$ 时不必要，如 $\alpha_1=(1,0,0)^T,\alpha_2=(0,1,0)^T,\beta_1=(1,0,0)^T,\beta_2=(0,0,1)^T$。(B) 若 (Ⅱ) 可由 (Ⅰ) 表出，则 $r(\text{Ⅱ})\leqslant m$，不能确定，且不必要，故既不充分也不必要。(C) 由 (A)(B) 知只是充分条件。(D) $A,B$ 等价 $\Leftrightarrow r(A)=r(B)$。若 $A,B$ 等价，则 $r(B)=r(A)=m$，$\beta_1,\cdots,\beta_m$ 线性无关，充分性成立；` },
+      { p: 82, md: R`反之若两向量组均线性无关，则 $r(\alpha_1,\cdots,\alpha_m)=r(\beta_1,\cdots,\beta_m)=m$，从而 $r(A)=r(B)$，即 $A,B$ 等价，必要性成立。故应选 (D)。
+【评注】两个"等价"概念要区分：向量组个数相同且等价 $\Rightarrow$ 对应矩阵等价；但矩阵等价 $\nRightarrow$ 向量组等价。
+
+#### 向量组的秩
+【例3.27】如果向量组 (Ⅰ):$\alpha_{i_1},\cdots,\alpha_{i_r}$ 与 (Ⅱ):$\alpha_{j_1},\cdots,\alpha_{j_t}$ 都是向量组 $\alpha_1,\cdots,\alpha_s$ 的极大线性无关组，证明 $r=t$。
+【证】因为 $\alpha_{i_1},\cdots,\alpha_{i_r}$ 是极大线性无关组，所以 $\alpha_{i_1},\cdots,\alpha_{i_r},\alpha_{j_k}\ (k=1,\cdots,t)$ 线性相关，于是 $\alpha_{j_k}$ 可由 $\alpha_{i_1},\cdots,\alpha_{i_r}$ 线性表出。从而 (Ⅱ) 可由 (Ⅰ) 线性表出。又 (Ⅱ) 线性无关，所以 $t\leqslant r$（定理 3.7）。同理 $r\leqslant t$，故 $r=t$。
+【评注】极大线性无关组往往不唯一，成员可不一样，但所含向量个数相同，由此引出向量组秩的概念。
+
+【例3.28】已知向量组 $\alpha_1=(1,1,1,3)^T,\alpha_2=(1,3,-5,-1)^T,\alpha_3=(-2,-6,10,a)^T,\alpha_4=(4,1,6,a+10)^T$ 线性相关，则其极大线性无关组是______。
+【分析】$(\alpha_1,\alpha_2,\alpha_3,\alpha_4)=\begin{pmatrix}1&1&-2&4\\1&3&-6&1\\1&-5&10&6\\3&-1&a&a+10\end{pmatrix}\to\begin{pmatrix}1&1&-2&4\\0&2&-4&-3\\0&-6&12&2\\0&-4&a+6&a-2\end{pmatrix}\to\begin{pmatrix}1&1&-2&4\\0&2&-4&-3\\0&0&0&-7\\0&0&a-2&a-8\end{pmatrix}$。那么线性相关 $\Leftrightarrow r(\alpha_1,\alpha_2,\alpha_3,\alpha_4)<4\Leftrightarrow a=2$。此时 $r=3$，极大线性无关组是 $\alpha_1,\alpha_2,\alpha_4$ 或 $\alpha_1,\alpha_3,\alpha_4$。
+
+【例3.29】（2006,$\frac34$）设 4 维向量组 $\alpha_1=(1+a,1,1,1)^T,\alpha_2=(2,2+a,2,2)^T,\alpha_3=(3,3,3+a)^T,\alpha_4=(4,4,4,4+a)^T$，问 $a$ 为何值时 $\alpha_1,\alpha_2,\alpha_3,\alpha_4$ 线性相关？当线性相关时求其一个极大线性无关组，并将其余向量用该极大线性无关组线性表示。` },
+      { p: 83, md: R`【解】记 $A=(\alpha_1,\alpha_2,\alpha_3,\alpha_4)$，则 $|A|=\begin{vmatrix}1+a&2&3&4\\1&2+a&3&4\\1&2&3+a&4\\1&2&3&4+a\end{vmatrix}=(a+10)a^3$，那么当 $a=0$ 或 $a=-10$ 时，$\alpha_1,\alpha_2,\alpha_3,\alpha_4$ 线性相关。
+当 $a=0$ 时，$\alpha_1$ 为极大线性无关组，且 $\alpha_2=2\alpha_1,\alpha_3=3\alpha_1,\alpha_4=4\alpha_1$。
+当 $a=-10$ 时，对 $A$ 作初等行变换，有 $A=\begin{pmatrix}-9&2&3&4\\1&-8&3&4\\1&2&-7&4\\1&2&3&-6\end{pmatrix}\to\begin{pmatrix}-9&2&3&4\\10&-10&0&0\\10&0&-10&0\\10&0&0&-10\end{pmatrix}\to\begin{pmatrix}-9&2&3&4\\1&-1&0&0\\1&0&-1&0\\1&0&0&-1\end{pmatrix}\to\begin{pmatrix}0&0&0&0\\1&-1&0&0\\1&0&-1&0\\1&0&0&-1\end{pmatrix}=(\beta_1,\beta_2,\beta_3,\beta_4)$。由于 $\beta_2,\beta_3,\beta_4$ 是极大线性无关组且 $\beta_1=-\beta_2-\beta_3-\beta_4$，故 $\alpha_2,\alpha_3,\alpha_4$ 为极大线性无关组，且 $\alpha_1=-\alpha_2-\alpha_3-\alpha_4$。
+
+【例3.30】已知向量组 (Ⅰ):$\alpha_1,\cdots,\alpha_s$ 与 (Ⅱ):$\alpha_1,\cdots,\alpha_s,\beta_1,\cdots,\beta_t$ 有相同的秩，证明 $\beta_1,\cdots,\beta_t$ 可以由 $\alpha_1,\cdots,\alpha_s$ 线性表出。
+【证】设 $\alpha_{i_1},\cdots,\alpha_{i_r}$ 是 (Ⅰ) 的极大线性无关组，它也是 (Ⅱ) 中 $r$ 个线性无关的向量。又 $r(\text{Ⅱ})=r(\text{Ⅰ})=r$，从而它也是 (Ⅱ) 的极大线性无关组。因此 $\beta_1,\cdots,\beta_t$ 可由 $\alpha_{i_1},\cdots,\alpha_{i_r}$ 线性表出，也就可由 $\alpha_1,\cdots,\alpha_s$ 线性表出。
+
+【例3.31】设向量组 (Ⅰ) 可由向量组 (Ⅱ) 线性表出，且秩 $r(\text{Ⅰ})=r(\text{Ⅱ})$，证明向量组 (Ⅰ) 与 (Ⅱ) 等价。` },
+      { p: 84, md: R`【证】设 $r(\text{Ⅰ})=r(\text{Ⅱ})=r$，且 $\alpha_1,\cdots,\alpha_r$ 与 $\beta_1,\cdots,\beta_r$ 分别是 (Ⅰ)(Ⅱ) 的极大线性无关组。由 (Ⅰ) 可由 (Ⅱ) 表出，$\alpha_1,\cdots,\alpha_r$ 可由 $\beta_1,\cdots,\beta_r$ 表出，那么 $r(\alpha_1,\cdots,\alpha_r,\beta_1,\cdots,\beta_r)=r(\beta_1,\cdots,\beta_r)=r$。又 $\alpha_1,\cdots,\alpha_r$ 线性无关，于是它是该向量组的极大线性无关组，从而 $\beta_1,\cdots,\beta_r$ 可由 $\alpha_1,\cdots,\alpha_r$ 表出，进而 (Ⅱ) 可由 (Ⅰ) 表出。故 (Ⅰ) 与 (Ⅱ) 等价。
+【评注】若 (Ⅰ)(Ⅱ) 等价，则 $r(\text{Ⅰ})=r(\text{Ⅱ})$；但 $r(\text{Ⅰ})=r(\text{Ⅱ})$ 时不一定等价，如 $\alpha_1=(1,0,0)^T,\alpha_2=(0,1,0)^T$ 与 $\beta_1=(1,0,0)^T,\beta_2=(0,0,1)^T$。
+
+#### 矩阵的秩
+【例3.32】设矩阵 $A=\begin{pmatrix}1&1&1&1\\0&-1&1&b\\2&a&3&4\\3&1&5&7\end{pmatrix}$，求矩阵 $A$ 的秩。
+【解】$A\to\begin{pmatrix}1&1&1&1\\0&-1&1&b\\0&a-2&1&2\\0&-2&2&4\end{pmatrix}\to\begin{pmatrix}1&1&1&1\\0&-1&1&b\\0&0&a-1&ab-2b+2\\0&0&0&4-2b\end{pmatrix}$。当 $a\neq1$ 且 $b\neq2$ 时 $r(A)=4$；当 $a=1$ 且 $b=2$ 时 $r(A)=2$；当 $a\neq1$ 且 $b=2$ 或 $a=1$ 且 $b\neq2$ 时 $r(A)=3$。
+
+【例3.33】设 $A=\begin{pmatrix}2&3&4\\6&t&2\\4&6&3\end{pmatrix},B=\begin{pmatrix}1\\3\\0\end{pmatrix}(2\ \ 3\ \ 4)$，若秩 $r(A+AB)=2$，则 $t=$______。` },
+      { p: 85, md: R`【分析】$r(A+AB)=r[A(E+B)]$，而 $E+B=E+\begin{pmatrix}1\\3\\0\end{pmatrix}(2\ \ 3\ \ 4)=\begin{pmatrix}3&3&4\\6&10&12\\0&0&1\end{pmatrix}$ 可逆，故 $r(A+AB)=r(A)=2$。对 $A$ 作初等变换 $A=\begin{pmatrix}2&3&4\\6&t&2\\4&6&3\end{pmatrix}\to\begin{pmatrix}2&3&4\\0&t-9&-10\\0&0&-5\end{pmatrix}$，那么 $r(A)=2\Leftrightarrow t=9$。
+
+【例3.34】设 $A$ 是 $m\times n$ 矩阵，$B$ 是 $n\times s$ 矩阵，证明秩 $r(AB)\leqslant\min(r(A),r(B))$。
+【证】对 $ABx=0$ (Ⅰ) 与 $Bx=0$ (Ⅱ)：若 $\alpha$ 是 (Ⅱ) 的解，则 $(AB)\alpha=A(B\alpha)=A0=0$，即 (Ⅱ) 解集是 (Ⅰ) 解集的子集。又 (Ⅰ) 解向量秩为 $s-r(AB)$，(Ⅱ) 解向量秩为 $s-r(B)$，故 $s-r(B)\leqslant s-r(AB)$，即 $r(AB)\leqslant r(B)$。另一方面 $r(AB)=r((AB)^T)=r(B^TA^T)\leqslant r(A^T)=r(A)$。命题得证。
+【证法二】记 $AB=C$，对 $A,C$ 按列分块得 $(\alpha_1,\cdots,\alpha_n)\begin{pmatrix}b_{ij}\end{pmatrix}=(\gamma_1,\cdots,\gamma_s)$，说明 $AB$ 的列向量可由 $A$ 的列向量线性表出，故 $r(AB)=r(\gamma_1,\cdots,\gamma_s)\leqslant r(\alpha_1,\cdots,\alpha_n)=r(A)$；` },
+      { p: 86, md: R`类似地按行分块得 $AB$ 的行向量可由 $B$ 的行向量线性表出，故 $r(AB)\leqslant r(B)$。
+
+【例3.35】设 $A$ 是 $m\times n$ 矩阵，$B$ 是 $n\times s$ 矩阵，若 $AB=0$，证明 $r(A)+r(B)\leqslant n$。
+【证】对 $B$ 按列分块 $B=(\beta_1,\beta_2,\cdots,\beta_s)$，则 $AB=(A\beta_1,A\beta_2,\cdots,A\beta_s)=(0,0,\cdots,0)$，于是 $A\beta_j=0$，即 $B$ 的列向量均是 $Ax=0$ 的解。由于 $Ax=0$ 解向量的秩为 $n-r(A)$，所以 $r(\beta_1,\cdots,\beta_s)\leqslant n-r(A)$；又 $r(\beta_1,\cdots,\beta_s)=r(B)$，从而 $r(A)+r(B)\leqslant n$。
+【评注】关于 $AB=0$ 应有两个重要思路：(1) $B$ 的列向量是方程组 $Ax=0$ 的解；(2) 秩 $r(A)+r(B)\leqslant n$。
+
+【例3.36】设 $A$ 是 3 阶实对称矩阵，若 $A^2=0$，证明 $A=0$。
+【证】设 $A=\begin{pmatrix}a_{11}&a_{12}&a_{13}\\a_{12}&a_{22}&a_{23}\\a_{13}&a_{23}&a_{33}\end{pmatrix}$，由 $A^2$ 的对角元得 $a_{11}^2+a_{12}^2+a_{13}^2=0$ 等，即 $a_{11}=a_{12}=a_{13}=0$ 等，故 $A=0$。
+【评注】由 $AB=0\nRightarrow A=0$，由 $A^2=0\nRightarrow A=0$（如 $A=\begin{pmatrix}0&1\\0&0\end{pmatrix}$）；但 $A$ 为实对称矩阵时由 $A^2=0$ 可推 $A=0$。
+
+【例3.37】设 $A$ 是 4 阶矩阵，若 $\alpha_1=(1,9,9,9)^T,\alpha_2=(2,0,0,0)^T,\alpha_3=(2,0,0,1)^T$ 是线性方程组 $Ax=b$ 的三个解，证明 $A^*=0$。` },
+      { p: 87, md: R`【证】因为 $\alpha_1-\alpha_2=(-1,9,9,9)^T,\alpha_1-\alpha_3=(-1,9,9,8)^T$ 是齐次方程组 $Ax=0$ 的两个线性无关的解，所以 $n-r(A)\geqslant2$。又 $n=4$，故 $r(A)\leqslant2$，说明 $A$ 中 3 阶子式全为 $0$，因而伴随矩阵 $A^*=0$。
+
+#### Schmidt 正交化
+【例3.38】如果向量组 $\alpha_1,\alpha_2,\alpha_3$ 线性无关，令 $\beta_1=\alpha_1$，$\beta_2=\alpha_2-\dfrac{(\alpha_2,\beta_1)}{(\beta_1,\beta_1)}\beta_1$，$\beta_3=\alpha_3-\dfrac{(\alpha_3,\beta_1)}{(\beta_1,\beta_1)}\beta_1-\dfrac{(\alpha_3,\beta_2)}{(\beta_2,\beta_2)}\beta_2$，那么 $\beta_1,\beta_2,\beta_3$ 两两正交，称为正交向量组。将其单位化 $\gamma_1=\dfrac{\beta_1}{\|\beta_1\|},\gamma_2=\dfrac{\beta_2}{\|\beta_2\|},\gamma_3=\dfrac{\beta_3}{\|\beta_3\|}$，则 $\alpha_1,\alpha_2,\alpha_3$ 到 $\gamma_1,\gamma_2,\gamma_3$ 这一过程称为 Schmidt 正交化。
+例如 $\alpha_1=(0,1,2)^T,\alpha_2=(1,0,1)^T,\alpha_3=(1,1,0)^T$，则 $\beta_1=\begin{pmatrix}0\\1\\2\end{pmatrix}$，$\beta_2=\begin{pmatrix}1\\0\\1\end{pmatrix}-\dfrac25\begin{pmatrix}0\\1\\2\end{pmatrix}=\dfrac15\begin{pmatrix}5\\-2\\1\end{pmatrix}$，$\beta_3=\begin{pmatrix}1\\1\\0\end{pmatrix}-\dfrac15\begin{pmatrix}0\\1\\2\end{pmatrix}-\dfrac{3}{30}\begin{pmatrix}5\\-2\\1\end{pmatrix}=\dfrac12\begin{pmatrix}1\\2\\-1\end{pmatrix}$。单位化得 $\gamma_1=\dfrac{1}{\sqrt5}\begin{pmatrix}0\\1\\2\end{pmatrix},\gamma_2=\dfrac{1}{\sqrt{30}}\begin{pmatrix}5\\-2\\1\end{pmatrix},\gamma_3=\dfrac{1}{\sqrt6}\begin{pmatrix}1\\2\\-1\end{pmatrix}$。
+
+#### 向量空间$^{*}$
+**定义3.8** 全体 $n$ 维向量连同向量的加法和数乘运算合称为 $n$ 维向量空间。（$^{*}$ 仅数学一要求）` },
+      { p: 88, md: R`**定义3.9** 设 $W$ 是 $n$ 维向量的非空集合，如果满足 (1) $\forall\alpha,\beta\in W$ 必有 $\alpha+\beta\in W$；(2) $\forall\alpha\in W$ 及任一实数 $k$ 必有 $k\alpha\in W$，则称 $W$ 是 $n$ 维向量空间的子空间。
+**定义3.10** 如果向量空间 $V$ 中的 $m$ 个向量 $\alpha_1,\cdots,\alpha_m$ 满足 (1) $\alpha_1,\cdots,\alpha_m$ 线性无关；(2) 对 $V$ 中任意向量 $\beta$，$\beta$ 均可由 $\alpha_1,\cdots,\alpha_m$ 线性表出，则称 $\alpha_1,\cdots,\alpha_m$ 为向量空间 $V$ 的一个基底（基），$m$ 称为维数，记作 $\dim V=m$。向量 $\beta$ 的表示系数称为 $\beta$ 在基底下的坐标。
+**定义3.11** 设 $e_1,\cdots,e_n$ 是向量空间的一组基，如果 $(e_i,e_j)=\begin{cases}1,&i=j\\0,&i\neq j\end{cases}$，则称 $e_1,\cdots,e_n$ 为规范正交基。
+【例3.39】齐次方程组 $Ax=0$ 的解向量的集合 $W$ 是 $n$ 维向量空间的子空间，称为解空间。例如 $A=\begin{pmatrix}1&1&0&-1\\0&1&0&1\end{pmatrix}$，则基础解系 $\eta_1=(0,0,1,0)^T,\eta_2=(2,-1,0,1)^T$ 是解空间的基，维数 $n-r(A)=4-2=2$。$\eta_1,\eta_2$ 已经正交，单位化 $\gamma_1=(0,0,1,0)^T,\gamma_2=\dfrac{1}{\sqrt6}(2,-1,0,1)^T$ 就是规范正交基。
+**定义3.12** 在 $n$ 维向量空间给定两组基 (Ⅰ) $\alpha_1,\cdots,\alpha_n$，(Ⅱ) $\beta_1,\cdots,\beta_n$，若 $\beta_1=c_{11}\alpha_1+c_{21}\alpha_2+\cdots+c_{n1}\alpha_n,\cdots,\beta_n=c_{1n}\alpha_1+\cdots+c_{nn}\alpha_n$，即 $(\beta_1\ \beta_2\ \cdots\ \beta_n)=(\alpha_1\ \alpha_2\ \cdots\ \alpha_n)C$，其中 $C=\begin{pmatrix}c_{11}&c_{12}&\cdots&c_{1n}\\\cdots&\cdots&&\cdots\\c_{n1}&c_{n2}&\cdots&c_{nn}\end{pmatrix}$` },
+      { p: 89, md: R`称为由基 $\alpha_1,\cdots,\alpha_n$ 到基 $\beta_1,\cdots,\beta_n$ 的过渡矩阵。
+【例3.40】（2003,1）从 $R^2$ 的基 $\alpha_1=\begin{pmatrix}1\\0\end{pmatrix},\alpha_2=\begin{pmatrix}1\\-1\end{pmatrix}$ 到基 $\beta_1=\begin{pmatrix}1\\1\end{pmatrix},\beta_2=\begin{pmatrix}1\\2\end{pmatrix}$ 的过渡矩阵为______。
+【分析】$\beta_1=2\alpha_1-\alpha_2,\beta_2=3\alpha_1-2\alpha_2$，故过渡矩阵 $C=\begin{pmatrix}2&3\\-1&-2\end{pmatrix}$。或 $C=(\alpha_1\alpha_2)^{-1}(\beta_1\beta_2)=\begin{pmatrix}1&1\\0&-1\end{pmatrix}^{-1}\begin{pmatrix}1&1\\1&2\end{pmatrix}=\begin{pmatrix}1&1\\0&-1\end{pmatrix}\begin{pmatrix}1&1\\1&2\end{pmatrix}=\begin{pmatrix}2&3\\-1&-2\end{pmatrix}$。
+**定理3.10** 两个基底间的过渡矩阵 $C$ 是可逆矩阵。
+**定理3.11** 若向量 $\gamma$ 在基底 $\alpha_1,\cdots,\alpha_n$ 的坐标为 $x_1,\cdots,x_n$，在基底 $\beta_1,\cdots,\beta_n$ 的坐标为 $y_1,\cdots,y_n$，则坐标变换公式为 $\begin{pmatrix}x_1\\\vdots\\x_n\end{pmatrix}=C\begin{pmatrix}y_1\\\vdots\\y_n\end{pmatrix}$ 或 $x=Cy$。
+**定理3.12** 若 $n$ 维向量 $\alpha_1,\cdots,\alpha_s$ 非零且两两正交，则 $\alpha_1,\cdots,\alpha_s$ 线性无关。
+**定理3.13** 若 $e_1,\cdots,e_n$ 是规范正交基，设 $(\varepsilon_1,\cdots,\varepsilon_n)=(e_1,\cdots,e_n)C$，则 $\varepsilon_1,\cdots,\varepsilon_n$ 是规范正交基的充要条件是 $C$ 为正交矩阵。
+【例3.41】（1987,1）已知三维向量空间的一组基底为 $\alpha_1=(1,1,0),\alpha_2=(1,0,1),\alpha_3=(0,1,1)$，则向量 $u=(2,0,0)$ 在上述基底的坐标是______。
+【分析】若 $x_1\alpha_1+x_2\alpha_2+x_3\alpha_3=u$，按分量写出有 $\begin{cases}x_1+x_2=2\\x_1+x_3=0\\x_2+x_3=0\end{cases}$，解得 $x_1=1,x_2=1,x_3=-1$，即坐标是 $(1,1,-1)$。` },
+      { p: 90, md: R`【例3.42】已知 $\alpha_1=(1,2,1)^T,\alpha_2=(2,3,3)^T,\alpha_3=(3,7,1)^T$ 与 $\beta_1=(2,1,1)^T,\beta_2=(5,2,2)^T,\beta_3=(1,3,4)^T$ 是 $R^3$ 的两组基，那么在这两组基下有相同坐标的向量是______。
+【分析】设 $\gamma=x_1\alpha_1+x_2\alpha_2+x_3\alpha_3=x_1\beta_1+x_2\beta_2+x_3\beta_3$，代入整理得 $\begin{cases}-x_1-3x_2+2x_3=0\\x_1+x_2+4x_3=0\\x_2-3x_3=0\end{cases}$，解出 $x_1=-7t,x_2=3t,x_3=t$。所以 $\gamma=-7t(1,2,1)^T+3t(2,3,3)^T+t(3,7,1)^T=(2t,2t,3t)^T$。` }
     ],
     quiz: [
       { q: R`向量 $\beta$ 可由 $\alpha_1,\cdots,\alpha_s$ 线性表出的充要条件是`, options: [R`$r(\alpha_1,\cdots,\alpha_s)=r(\alpha_1,\cdots,\alpha_s,\beta)$`, R`$r(\alpha_1,\cdots,\alpha_s)=s$`, R`$\beta=0$`, R`$s=1$`], answer: 0, explain: R`对应非齐次方程组有解。` },
