@@ -13,62 +13,23 @@ window.MathJax = { tex: {inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['
 </script>
 <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
 </head>
-<body data-page="chapter">
+<body data-page="chapter" data-chapter="la05">
 <div class="wrap">
 <header class="top"><h1>第五章 特征值与特征向量</h1>
-<p>《线性代数辅导讲义》 ｜ 讲义第 131–157 页 ｜ <a href="index.html">← 返回首页</a></p></header>
-<section class="sec"><h2>知识结构网络图 · 基本内容与重要结论</h2>
-<div class="points"><div class="pt-h">📌 本页要点</div><ul><li>特征值特征向量定义与求法：解特征方程与齐次方程组。</li><li>相似对角化条件：n个线性无关特征向量；实对称矩阵必可正交对角化。</li><li>特征值性质：迹、行列式、幂、多项式与矩阵特征值关系。</li><li>实对称矩阵不同特征值对应特征向量正交，可正交相似对角化。</li></ul></div>
-<div class="fbox"><div class="pt-h">📐 核心公式</div><div class="fml">$$A\alpha=\lambda\alpha,\ \alpha\neq 0$$</div><div class="fml">$$|\lambda E-A|=0$$</div><div class="fml">$$\sum_{i=1}^n \lambda_i=\operatorname{tr}(A),\quad \prod_{i=1}^n \lambda_i=|A|$$</div><div class="fml">$$A\sim \Lambda \iff A\text{有}n\text{个线性无关特征向量}$$</div><div class="fml">$$A\text{实对称}\Rightarrow \exists Q\text{正交},Q^{-1}AQ=Q^{T}AQ=\Lambda$$</div></div>
-<div class="ex"><div class="ex-q">例：设 A=\begin{pmatrix}2&1&1\\1&2&1\\1&1&2\end{pmatrix}，求 A 的特征值与特征向量，并判断 A 能否对角化。</div><details class="sol"><summary>解答</summary><div class="ansbox">计算特征多项式：|\lambda E-A|=\begin{vmatrix}\lambda-2&-1&-1\\-1&\lambda-2&-1\\-1&-1&\lambda-2\end{vmatrix}。利用行和相等，先加后两列到第一列：=\begin{vmatrix}\lambda-4&-1&-1\\\lambda-4&\lambda-2&-1\\\lambda-4&-1&\lambda-2\end{vmatrix}=(\lambda-4)\begin{vmatrix}1&-1&-1\\1&\lambda-2&-1\\1&-1&\lambda-2\end{vmatrix}。化简得=(\lambda-4)(\lambda-1)^2。故特征值为 \lambda_1=4,\lambda_2=\lambda_3=1。对 \lambda=4，解 (4E-A)x=0：\begin{pmatrix}2&-1&-1\\-1&2&-1\\-1&-1&2\end{pmatrix}\to\begin{pmatrix}1&0&-1\\0&1&-1\\0&0&0\end{pmatrix}，得 \alpha_1=(1,1,1)^T。对 \lambda=1，解 (E-A)x=0：\begin{pmatrix}-1&-1&-1\\-1&-1&-1\\-1&-1&-1\end{pmatrix}\to x_1+x_2+x_3=0，得基础解系 \alpha_2=(1,-1,0)^T,\alpha_3=(1,0,-1)^T。因此特征向量为 k_1(1,1,1)^T(k_1\neq0)，k_2(1,-1,0)^T+k_3(1,0,-1)^T(k_2,k_3不全为0)。A 有3个线性无关特征向量，故可对角化。</div></details></div>
-<details class="pages" open><summary>📖 讲义原页（点开阅读）</summary><div class="imglist">
-<figure><img loading="lazy" src="assets/img/xiandai/p-131.jpg" alt="p131"><figcaption>第 131 页</figcaption></figure>
-<figure><img loading="lazy" src="assets/img/xiandai/p-132.jpg" alt="p132"><figcaption>第 132 页</figcaption></figure>
-<figure><img loading="lazy" src="assets/img/xiandai/p-133.jpg" alt="p133"><figcaption>第 133 页</figcaption></figure>
-<figure><img loading="lazy" src="assets/img/xiandai/p-134.jpg" alt="p134"><figcaption>第 134 页</figcaption></figure>
-<figure><img loading="lazy" src="assets/img/xiandai/p-135.jpg" alt="p135"><figcaption>第 135 页</figcaption></figure>
-<figure><img loading="lazy" src="assets/img/xiandai/p-136.jpg" alt="p136"><figcaption>第 136 页</figcaption></figure>
-<figure><img loading="lazy" src="assets/img/xiandai/p-137.jpg" alt="p137"><figcaption>第 137 页</figcaption></figure>
-<figure><img loading="lazy" src="assets/img/xiandai/p-138.jpg" alt="p138"><figcaption>第 138 页</figcaption></figure>
-<figure><img loading="lazy" src="assets/img/xiandai/p-139.jpg" alt="p139"><figcaption>第 139 页</figcaption></figure>
-</div></details>
-<div class="mark" data-ch="la05" data-sec="0"></div>
-</section>
-<section class="sec"><h2>典型例题分析选讲</h2>
-<div class="points"><div class="pt-h">📌 本页要点</div><ul><li>特征值定义：Ax=λx，x≠0，λ为特征值</li><li>特征多项式|λE-A|=0求特征值，注意重根</li><li>相似对角化条件：n个线性无关特征向量</li><li>实对称矩阵必可正交对角化，特征值全实</li></ul></div>
-<div class="fbox"><div class="pt-h">📐 核心公式</div><div class="fml">$$A\alpha=\lambda\alpha,\quad \alpha\neq 0$$</div><div class="fml">$$|\lambda E-A|=0$$</div><div class="fml">$$A\sim \Lambda \iff A=P\Lambda P^{-1}$$</div><div class="fml">$$A=P\Lambda P^{-1},\quad \Lambda=\mathrm{diag}(\lambda_1,\dots,\lambda_n)$$</div><div class="fml">$$A^T=A \Rightarrow A=Q\Lambda Q^T,\ Q^TQ=E$$</div></div>
-<div class="ex"><div class="ex-q">例：设 $A=\begin{pmatrix}2&1&1\\1&2&1\\1&1&2\end{pmatrix}$，求 $A$ 的特征值与特征向量，并判断能否对角化。</div><details class="sol"><summary>解答</summary><div class="ansbox">计算特征多项式：\[ |\lambda E-A|=\begin{vmatrix}\lambda-2&-1&-1\\-1&\lambda-2&-1\\-1&-1&\lambda-2\end{vmatrix}. \] 各行加到第一行，得 \[ \begin{vmatrix}\lambda-4&-1&-1\\\lambda-4&\lambda-2&-1\\\lambda-4&-1&\lambda-2\end{vmatrix} =(\lambda-4)\begin{vmatrix}1&-1&-1\\1&\lambda-2&-1\\1&-1&\lambda-2\end{vmatrix}. \] 第二、三行减第一行：\[ =(\lambda-4)\begin{vmatrix}1&-1&-1\\0&\lambda-1&0\\0&0&\lambda-1\end{vmatrix} =(\lambda-4)(\lambda-1)^2. \] 故特征值为 $\lambda_1=4,\lambda_2=\lambda_3=1$。 对 $\lambda=4$，解 $(4E-A)x=0$：\[ \begin{pmatrix}2&-1&-1\\-1&2&-1\\-1&-1&2\end{pmatrix}\to \begin{pmatrix}1&0&-1\\0&1&-1\\0&0&0\end{pmatrix}, \] 得 $x_1=x_2=x_3$，取 $\alpha_1=(1,1,1)^T$。 对 $\lambda=1$，解 $(E-A)x=0$：\[ \begin{pmatrix}-1&-1&-1\\-1&-1&-1\\-1&-1&-1\end{pmatrix}\to (1,1,1), \] 得 $x_1+x_2+x_3=0$，取 $\alpha_2=(1,-1,0)^T,\alpha_3=(1,0,-1)^T$。 因 $\alpha_1,\alpha_2,\alpha_3$ 线性无关，故 $A$ 可对角化，且 \[ P=(\alpha_1,\alpha_2,\alpha_3),\quad P^{-1}AP=\mathrm{diag}(4,1,1). \]</div></details></div>
-<details class="pages" open><summary>📖 讲义原页（点开阅读）</summary><div class="imglist">
-<figure><img loading="lazy" src="assets/img/xiandai/p-141.jpg" alt="p141"><figcaption>第 141 页</figcaption></figure>
-<figure><img loading="lazy" src="assets/img/xiandai/p-142.jpg" alt="p142"><figcaption>第 142 页</figcaption></figure>
-<figure><img loading="lazy" src="assets/img/xiandai/p-143.jpg" alt="p143"><figcaption>第 143 页</figcaption></figure>
-<figure><img loading="lazy" src="assets/img/xiandai/p-144.jpg" alt="p144"><figcaption>第 144 页</figcaption></figure>
-<figure><img loading="lazy" src="assets/img/xiandai/p-145.jpg" alt="p145"><figcaption>第 145 页</figcaption></figure>
-<figure><img loading="lazy" src="assets/img/xiandai/p-146.jpg" alt="p146"><figcaption>第 146 页</figcaption></figure>
-<figure><img loading="lazy" src="assets/img/xiandai/p-147.jpg" alt="p147"><figcaption>第 147 页</figcaption></figure>
-<figure><img loading="lazy" src="assets/img/xiandai/p-148.jpg" alt="p148"><figcaption>第 148 页</figcaption></figure>
-<figure><img loading="lazy" src="assets/img/xiandai/p-149.jpg" alt="p149"><figcaption>第 149 页</figcaption></figure>
-<figure><img loading="lazy" src="assets/img/xiandai/p-150.jpg" alt="p150"><figcaption>第 150 页</figcaption></figure>
-<figure><img loading="lazy" src="assets/img/xiandai/p-151.jpg" alt="p151"><figcaption>第 151 页</figcaption></figure>
-<figure><img loading="lazy" src="assets/img/xiandai/p-152.jpg" alt="p152"><figcaption>第 152 页</figcaption></figure>
-<figure><img loading="lazy" src="assets/img/xiandai/p-153.jpg" alt="p153"><figcaption>第 153 页</figcaption></figure>
-</div></details>
-<div class="mark" data-ch="la05" data-sec="1"></div>
-</section>
-<section class="sec"><h2>练习题精选</h2>
-<div class="points"><div class="pt-h">📌 本页要点</div><ul><li>特征值定义：Ax=λx，x≠0；特征多项式|λE-A|=0求特征值。</li><li>相似对角化条件：n个线性无关特征向量；实对称矩阵必可正交对角化。</li><li>特征值性质：Σλ=tr(A)，Πλ=|A|；不同特征值对应特征向量线性无关。</li><li>实对称矩阵不同特征值对应特征向量正交，重根需正交化。</li></ul></div>
-<div class="fbox"><div class="pt-h">📐 核心公式</div><div class="fml">$$|\lambda E-A|=0$$</div><div class="fml">$$(\lambda E-A)x=0$$</div><div class="fml">$$A=P\Lambda P^{-1},\quad \Lambda=\operatorname{diag}(\lambda_1,\dots,\lambda_n)$$</div><div class="fml">$$\sum_{i=1}^n \lambda_i=\operatorname{tr}(A),\quad \prod_{i=1}^n \lambda_i=|A|$$</div><div class="fml">$$Q^{-1}AQ=Q^{T}AQ=\Lambda$$</div></div>
-<div class="ex"><div class="ex-q">例：设 $A=\begin{pmatrix}2&1\\1&2\end{pmatrix}$，求 $A$ 的特征值与特征向量，并求正交矩阵 $Q$ 使 $Q^{T}AQ$ 为对角阵。</div><details class="sol"><summary>解答</summary><div class="ansbox">解：$|\lambda E-A|=\begin{vmatrix}\lambda-2&-1\\-1&\lambda-2\end{vmatrix}=(\lambda-2)^2-1=(\lambda-1)(\lambda-3)=0$，故 $\lambda_1=1,\lambda_2=3$。\n对 $\lambda_1=1$，解 $(E-A)x=0$：$\begin{pmatrix}-1&-1\\-1&-1\end{pmatrix}x=0$，得 $x_1+x_2=0$，取 $\alpha_1=(1,-1)^T$。\n对 $\lambda_2=3$，解 $(3E-A)x=0$：$\begin{pmatrix}1&-1\\-1&1\end{pmatrix}x=0$，得 $x_1-x_2=0$，取 $\alpha_2=(1,1)^T$。\n单位化：$q_1=\frac{1}{\sqrt2}(1,-1)^T,\ q_2=\frac{1}{\sqrt2}(1,1)^T$。\n令 $Q=(q_1,q_2)=\frac{1}{\sqrt2}\begin{pmatrix}1&1\\-1&1\end{pmatrix}$，则 $Q^{T}AQ=\operatorname{diag}(1,3)$。</div></details></div>
-<details class="pages" open><summary>📖 讲义原页（点开阅读）</summary><div class="imglist">
-<figure><img loading="lazy" src="assets/img/xiandai/p-154.jpg" alt="p154"><figcaption>第 154 页</figcaption></figure>
-<figure><img loading="lazy" src="assets/img/xiandai/p-155.jpg" alt="p155"><figcaption>第 155 页</figcaption></figure>
-<figure><img loading="lazy" src="assets/img/xiandai/p-156.jpg" alt="p156"><figcaption>第 156 页</figcaption></figure>
-<figure><img loading="lazy" src="assets/img/xiandai/p-157.jpg" alt="p157"><figcaption>第 157 页</figcaption></figure>
-</div></details>
-<div class="mark" data-ch="la05" data-sec="2"></div>
-</section>
-<footer>考研数学（二）自学网站 · 讲义原页 + 精讲 · 仅供个人学习使用</footer>
+<p>《线性代数辅导讲义》 ｜ 讲义第 120–153 页 ｜ 全文图文精讲 + 本节自测 ｜ <a href="index.html">← 返回首页</a></p></header>
+<div class="chapter-layout">
+<aside class="sidebar" id="lnav"></aside>
+<div class="chapter-main">
+<div class="navrow"><a class="navbtn" href="formula.html">📐 公式手册</a><a class="navbtn" href="methods.html">🧭 题型方法库</a><a class="navbtn" href="flashcards.html">🃏 公式闪卡</a><a class="navbtn" href="wrong.html?v=20260916a">📕 错题本</a><a class="navbtn" href="review.html">🔁 今日复习</a></div>
+<div id="chapter"></div>
 </div>
+</div>
+<footer>考研数学（二）自学网站 · 全文图文精讲 · 仅供个人学习使用</footer>
+</div>
+<script src="data/manifest.js?v=20260916a"></script>
+<script src="data/lesson-la05-1.js?v=20260916a"></script>
+<script src="data/lesson-la05-prob.js?v=20260916a"></script>
 <script src="assets/app.js?v=20260916a"></script>
+<script src="assets/lesson.js?v=20260916a"></script>
 </body>
 </html>
