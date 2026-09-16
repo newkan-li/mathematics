@@ -192,9 +192,9 @@ $$F(-x)=-\int_0^{x}(-x+2u)f(-u)\,du=\int_0^{x}(x-2u)f(u)\,du=F(x),$$
 
 即 $F(x)$ 为偶函数。
 
-【证二】$F(x)=\displaystyle\int_0^x(x-2t)f(t)\,dt=x\int_0^x f(t)\,dt-2\int_0^x tf(t)\,dt$。
+【证二】$F(x)=\displaystyle\int_0^x(x-2t)f(t)\,dt=x\int_0^x f(t)\,dt-2\int_0^x tf(t)\,dt$。由于 $f(x)$ 为偶函数，则 $x\displaystyle\int_0^x f(t)\,dt$，$\displaystyle\int_0^x tf(t)\,dt$ 都是偶函数，故 $F(x)$ 为偶函数。
 
-$$F'(x)=\left[x\int_0^x f(t)\,dt-2\int_0^x tf(t)\,dt\right]'=\int_0^x f(t)\,dt+xf(x)-2xf(x)$$
+(2)【证】$F'(x)=\left[x\int_0^x f(t)\,dt-2\int_0^x tf(t)\,dt\right]'=\int_0^x f(t)\,dt+xf(x)-2xf(x)$
 
 $$=\int_0^x f(t)\,dt-xf(x)=x[f(\xi)-f(x)],\ \xi\ \text{在}\ 0\ \text{与}\ x\ \text{之间（积分中值定理）}.$$
 
