@@ -108,6 +108,7 @@
         list.push(ul[1]);
         continue;
       }
+      if (para.length && /^【(例|分析|解|证|评注|说明|答案|证明|解法|证法|注)/.test(t)) fp();
       fl(); fq(); para.push(t);
     }
     fa(); closeEx();
