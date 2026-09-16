@@ -1,6 +1,17 @@
 (function () {
   var A = window.MathApp || {};
 
+  /* ---------- 原书裁图（按章·页） ---------- */
+  var FIG = {
+    gs01: {20: ["assets/img/figs/gaoshu/gs01-p20-1.jpg"], 31: ["assets/img/figs/gaoshu/gs01-p31-1.jpg"]},
+    gs02: {50: ["assets/img/figs/gaoshu/gs02-p50-1.jpg", "assets/img/figs/gaoshu/gs02-p50-2.jpg"], 56: ["assets/img/figs/gaoshu/gs02-p56-1.jpg"], 71: ["assets/img/figs/gaoshu/gs02-p71-1.jpg"]},
+    gs03: {98: ["assets/img/figs/gaoshu/gs03-p98-1.jpg"], 105: ["assets/img/figs/gaoshu/gs03-p105-1.jpg", "assets/img/figs/gaoshu/gs03-p105-2.jpg"], 113: ["assets/img/figs/gaoshu/gs03-p113-1.jpg"], 114: ["assets/img/figs/gaoshu/gs03-p114-1.jpg", "assets/img/figs/gaoshu/gs03-p114-2.jpg", "assets/img/figs/gaoshu/gs03-p114-3.jpg", "assets/img/figs/gaoshu/gs03-p114-4.jpg"], 115: ["assets/img/figs/gaoshu/gs03-p115-1.jpg"], 116: ["assets/img/figs/gaoshu/gs03-p116-1.jpg", "assets/img/figs/gaoshu/gs03-p116-2.jpg", "assets/img/figs/gaoshu/gs03-p116-3.jpg"], 117: ["assets/img/figs/gaoshu/gs03-p117-1.jpg", "assets/img/figs/gaoshu/gs03-p117-2.jpg"]},
+    gs04: {137: ["assets/img/figs/gaoshu/gs04-p137-1.jpg"]},
+    gs05: {145: ["assets/img/figs/gaoshu/gs05-p145-1.jpg", "assets/img/figs/gaoshu/gs05-p145-2.jpg"], 149: ["assets/img/figs/gaoshu/gs05-p149-1.jpg"], 154: ["assets/img/figs/gaoshu/gs05-p154-1.jpg"], 155: ["assets/img/figs/gaoshu/gs05-p155-1.jpg"], 167: ["assets/img/figs/gaoshu/gs05-p167-1.jpg"]},
+    gs06: {175: ["assets/img/figs/gaoshu/gs06-p175-1.jpg", "assets/img/figs/gaoshu/gs06-p175-2.jpg", "assets/img/figs/gaoshu/gs06-p175-3.jpg"], 176: ["assets/img/figs/gaoshu/gs06-p176-1.jpg", "assets/img/figs/gaoshu/gs06-p176-2.jpg"], 177: ["assets/img/figs/gaoshu/gs06-p177-1.jpg", "assets/img/figs/gaoshu/gs06-p177-2.jpg", "assets/img/figs/gaoshu/gs06-p177-3.jpg"], 178: ["assets/img/figs/gaoshu/gs06-p178-1.jpg", "assets/img/figs/gaoshu/gs06-p178-2.jpg"], 179: ["assets/img/figs/gaoshu/gs06-p179-1.jpg"], 180: ["assets/img/figs/gaoshu/gs06-p180-1.jpg", "assets/img/figs/gaoshu/gs06-p180-2.jpg", "assets/img/figs/gaoshu/gs06-p180-3.jpg"], 181: ["assets/img/figs/gaoshu/gs06-p181-1.jpg", "assets/img/figs/gaoshu/gs06-p181-2.jpg", "assets/img/figs/gaoshu/gs06-p181-3.jpg"], 182: ["assets/img/figs/gaoshu/gs06-p182-1.jpg", "assets/img/figs/gaoshu/gs06-p182-2.jpg", "assets/img/figs/gaoshu/gs06-p182-3.jpg", "assets/img/figs/gaoshu/gs06-p182-4.jpg", "assets/img/figs/gaoshu/gs06-p182-5.jpg"], 183: ["assets/img/figs/gaoshu/gs06-p183-1.jpg", "assets/img/figs/gaoshu/gs06-p183-2.jpg"], 184: ["assets/img/figs/gaoshu/gs06-p184-1.jpg"]},
+    la01: {10: ["assets/img/figs/xiandai/la01-p10-1.jpg"]}
+  };
+
   /* ---------- 轻量 Markdown 渲染（保留 $..$ / $$..$$ 数学，正文做 HTML 转义） ---------- */
   function inline(s) {
     return s.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
@@ -130,8 +141,15 @@
   function lessonHtml(L) {
     var html = "";
     if (L.content) {
+      var figs = FIG[L.id.split("_")[0]] || {};
       L.content.forEach(function (pg) {
-        html += '<div class="pg" id="' + L.id + "-p" + pg.p + '">' + renderMarkdown(pg.md) + "</div>";
+        var md = String(pg.md).replace(/（图：[^）]*二维码[^）]*）/g, "").replace(/（图：本页[^）]*二维码[^）]*）/g, "");
+        html += '<div class="pg" id="' + L.id + "-p" + pg.p + '">' + renderMarkdown(md);
+        var fs = figs[String(pg.p)];
+        if (fs) fs.forEach(function (src, i) {
+          html += '<figure class="fig"><img loading="lazy" src="' + src + '" alt="第' + pg.p + '页原图' + (i + 1) + '"><figcaption>第 ' + pg.p + ' 页 · 原书插图' + (fs.length > 1 ? " " + (i + 1) : "") + '</figcaption></figure>';
+        });
+        html += "</div>";
       });
     } else if (L.blocks) {
       L.blocks.forEach(function (b) {
