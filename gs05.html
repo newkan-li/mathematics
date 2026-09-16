@@ -13,72 +13,25 @@ window.MathJax = { tex: {inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['
 </script>
 <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
 </head>
-<body data-page="chapter">
+<body data-page="chapter" data-chapter="gs05">
 <div class="wrap">
 <header class="top"><h1>第五章 多元函数微分学</h1>
-<p>武忠祥《高等数学辅导讲义》 ｜ 讲义第 142–173 页 ｜ <a href="index.html">← 返回首页</a></p></header>
-<section class="sec"><h2>第一节 重极限、连续、偏导数、全微分</h2>
-<div class="points"><div class="pt-h">📌 本页要点</div><ul><li>重极限要求沿任意路径趋近，路径不同极限不同则不存在</li><li>连续：极限值等于函数值；偏导存在不能推出连续</li><li>全微分：可微必连续且偏导存在，偏导连续则可微</li><li>考研重点：判断可微性、求偏导、分段函数在分界点</li></ul></div>
-<div class="fbox"><div class="pt-h">📐 核心公式</div><div class="fml">$$\lim_{(x,y)\to(x_0,y_0)}f(x,y)=A$$</div><div class="fml">$$f_x(x_0,y_0)=\lim_{\Delta x\to0}\frac{f(x_0+\Delta x,y_0)-f(x_0,y_0)}{\Delta x}$$</div><div class="fml">$$\Delta z=A\Delta x+B\Delta y+o(\rho),\ \rho=\sqrt{\Delta x^2+\Delta y^2}$$</div><div class="fml">$$dz=f_x(x,y)dx+f_y(x,y)dy$$</div><div class="fml">$$可微 \Rightarrow 偏导存在；偏导连续 \Rightarrow 可微$$</div></div>
-<div class="ex"><div class="ex-q">例：设 $f(x,y)=\begin{cases}\dfrac{xy}{\sqrt{x^2+y^2}},&(x,y)\ne(0,0)\\0,&(x,y)=(0,0)\end{cases}$，讨论 $f$ 在 $(0,0)$ 处的连续性、偏导数存在性与可微性。</div><details class="sol"><summary>解答</summary><div class="ansbox">连续性：$\left|\dfrac{xy}{\sqrt{x^2+y^2}}\right|\le \dfrac12\sqrt{x^2+y^2}\to0$，故 $\lim_{(x,y)\to(0,0)}f(x,y)=0=f(0,0)$，连续。\n偏导：$f_x(0,0)=\lim_{\Delta x\to0}\dfrac{f(\Delta x,0)-0}{\Delta x}=0$，同理 $f_y(0,0)=0$。\n可微性：考察 $\Delta z-dz=f(\Delta x,\Delta y)-0=\dfrac{\Delta x\Delta y}{\sqrt{\Delta x^2+\Delta y^2}}$。\n令 $\Delta y=\Delta x>0$，则 $\dfrac{\Delta x^2}{\sqrt{2}\Delta x}=\dfrac{\Delta x}{\sqrt2}=o(\rho)$；但令 $\Delta y=k\Delta x$，得 $\dfrac{k\Delta x^2}{\sqrt{1+k^2}|\Delta x|}=\dfrac{k}{\sqrt{1+k^2}}|\Delta x|$，仍为 $o(\rho)$。\n更严格：$\dfrac{|\Delta x\Delta y|}{\sqrt{\Delta x^2+\Delta y^2}}\le \dfrac12\sqrt{\Delta x^2+\Delta y^2}=\dfrac12\rho=o(\rho)$，故可微。</div></details></div>
-<details class="pages" open><summary>📖 讲义原页（点开阅读）</summary><div class="imglist">
-<figure><img loading="lazy" src="assets/img/gaoshu/p-142.jpg" alt="p142"><figcaption>第 142 页</figcaption></figure>
-<figure><img loading="lazy" src="assets/img/gaoshu/p-143.jpg" alt="p143"><figcaption>第 143 页</figcaption></figure>
-<figure><img loading="lazy" src="assets/img/gaoshu/p-144.jpg" alt="p144"><figcaption>第 144 页</figcaption></figure>
-<figure><img loading="lazy" src="assets/img/gaoshu/p-145.jpg" alt="p145"><figcaption>第 145 页</figcaption></figure>
-<figure><img loading="lazy" src="assets/img/gaoshu/p-146.jpg" alt="p146"><figcaption>第 146 页</figcaption></figure>
-<figure><img loading="lazy" src="assets/img/gaoshu/p-147.jpg" alt="p147"><figcaption>第 147 页</figcaption></figure>
-</div></details>
-<div class="mark" data-ch="gs05" data-sec="0"></div>
-</section>
-<section class="sec"><h2>第二节 偏导数与全微分的计算</h2>
-<div class="points"><div class="pt-h">📌 本页要点</div><ul><li>偏导计算：一元化求导，其余变量视为常数</li><li>全微分判定：可微必连续且偏导存在，反之不成立</li><li>复合函数链式法则：画变量关系图，逐层求导</li><li>隐函数求导：公式法或两边直接求偏导</li></ul></div>
-<div class="fbox"><div class="pt-h">📐 核心公式</div><div class="fml">$$dz = \frac{\partial z}{\partial x}dx + \frac{\partial z}{\partial y}dy$$</div><div class="fml">$$\frac{\partial z}{\partial x} = \frac{\partial z}{\partial u}\frac{\partial u}{\partial x} + \frac{\partial z}{\partial v}\frac{\partial v}{\partial x}$$</div><div class="fml">$$\frac{\partial z}{\partial x} = -\frac{F_x}{F_z},\quad \frac{\partial z}{\partial y} = -\frac{F_y}{F_z}$$</div><div class="fml">$$f_{xy}(x_0,y_0) = \lim_{\Delta y \to 0} \frac{f_x(x_0,y_0+\Delta y)-f_x(x_0,y_0)}{\Delta y}$$</div></div>
-<div class="ex"><div class="ex-q">例：设 z = f(x^2-y^2, e^{xy})，其中 f 具有二阶连续偏导数，求 \frac{\partial z}{\partial x} 和 \frac{\partial^2 z}{\partial x \partial y}。</div><details class="sol"><summary>解答</summary><div class="ansbox">令 u=x^2-y^2, v=e^{xy}，则 z=f(u,v)。\frac{\partial z}{\partial x}=f_u' \cdot 2x + f_v' \cdot y e^{xy}。再对 y 求偏导：\frac{\partial^2 z}{\partial x \partial y}= \frac{\partial}{\partial y}(2x f_u' + y e^{xy} f_v') = 2x(f_{uu}'' \cdot (-2y) + f_{uv}'' \cdot x e^{xy}) + e^{xy} f_v' + y e^{xy} f_v' + y e^{xy}(f_{vu}'' \cdot (-2y) + f_{vv}'' \cdot x e^{xy}) = -4xy f_{uu}'' + 2x^2 e^{xy} f_{uv}'' + (1+xy)e^{xy} f_v' - 2y^2 e^{xy} f_{vu}'' + xy e^{2xy} f_{vv}''。由 f 二阶连续，f_{uv}''=f_{vu}''，故 \frac{\partial^2 z}{\partial x \partial y}= -4xy f_{uu}'' + (2x^2-2y^2)e^{xy} f_{uv}'' + xy e^{2xy} f_{vv}'' + (1+xy)e^{xy} f_v'。</div></details></div>
-<details class="pages" open><summary>📖 讲义原页（点开阅读）</summary><div class="imglist">
-<figure><img loading="lazy" src="assets/img/gaoshu/p-148.jpg" alt="p148"><figcaption>第 148 页</figcaption></figure>
-<figure><img loading="lazy" src="assets/img/gaoshu/p-149.jpg" alt="p149"><figcaption>第 149 页</figcaption></figure>
-<figure><img loading="lazy" src="assets/img/gaoshu/p-150.jpg" alt="p150"><figcaption>第 150 页</figcaption></figure>
-<figure><img loading="lazy" src="assets/img/gaoshu/p-151.jpg" alt="p151"><figcaption>第 151 页</figcaption></figure>
-<figure><img loading="lazy" src="assets/img/gaoshu/p-152.jpg" alt="p152"><figcaption>第 152 页</figcaption></figure>
-<figure><img loading="lazy" src="assets/img/gaoshu/p-153.jpg" alt="p153"><figcaption>第 153 页</figcaption></figure>
-<figure><img loading="lazy" src="assets/img/gaoshu/p-154.jpg" alt="p154"><figcaption>第 154 页</figcaption></figure>
-<figure><img loading="lazy" src="assets/img/gaoshu/p-155.jpg" alt="p155"><figcaption>第 155 页</figcaption></figure>
-<figure><img loading="lazy" src="assets/img/gaoshu/p-156.jpg" alt="p156"><figcaption>第 156 页</figcaption></figure>
-<figure><img loading="lazy" src="assets/img/gaoshu/p-157.jpg" alt="p157"><figcaption>第 157 页</figcaption></figure>
-<figure><img loading="lazy" src="assets/img/gaoshu/p-158.jpg" alt="p158"><figcaption>第 158 页</figcaption></figure>
-<figure><img loading="lazy" src="assets/img/gaoshu/p-159.jpg" alt="p159"><figcaption>第 159 页</figcaption></figure>
-</div></details>
-<div class="mark" data-ch="gs05" data-sec="1"></div>
-</section>
-<section class="sec"><h2>第三节 极值与最值</h2>
-<div class="points"><div class="pt-h">📌 本页要点</div><ul><li>极值必要条件：偏导为零或偏导不存在，驻点需进一步判定</li><li>充分条件：二阶偏导判别式AC-B²，正定极小、负定极大、不定非极值</li><li>条件极值用拉格朗日乘数法，构造L=f+λφ，解方程组</li><li>闭区域最值：比较内部驻点、边界极值与不可导点函数值</li></ul></div>
-<div class="fbox"><div class="pt-h">📐 核心公式</div><div class="fml">$$\text{必要条件：}f_x(x_0,y_0)=0,\ f_y(x_0,y_0)=0$$</div><div class="fml">$$\text{判别式：}A=f_{xx},\ B=f_{xy},\ C=f_{yy},\ \Delta=AC-B^2$$</div><div class="fml">$$\Delta>0,A>0\Rightarrow\text{极小}；\Delta>0,A<0\Rightarrow\text{极大}；\Delta<0\Rightarrow\text{非极值}$$</div><div class="fml">$$\text{拉格朗日函数：}L=f(x,y)+\lambda\varphi(x,y)$$</div><div class="fml">$$\text{求解：}\nabla L=0\Rightarrow f_x+\lambda\varphi_x=0,\ f_y+\lambda\varphi_y=0,\ \varphi=0$$</div></div>
-<div class="ex"><div class="ex-q">例：求函数 \(f(x,y)=x^3+y^3-3xy\) 的极值。</div><details class="sol"><summary>解答</summary><div class="ansbox">先求偏导：\(f_x=3x^2-3y,\ f_y=3y^2-3x\)。令 \(f_x=0,f_y=0\)，得 \(y=x^2,\ x=y^2\)，代入得 \(x=x^4\)，即 \(x=0\) 或 \(x=1\)。驻点为 \((0,0),(1,1)\)。
-二阶偏导：\(f_{xx}=6x,\ f_{xy}=-3,\ f_{yy}=6y\)。
-在 \((0,0)\)：\(A=0,B=-3,C=0\)，\(\Delta=AC-B^2=-9<0\)，非极值。
-在 \((1,1)\)：\(A=6,B=-3,C=6\)，\(\Delta=36-9=27>0\)，且 \(A>0\)，故为极小值。
-极小值为 \(f(1,1)=1+1-3=-1\)。</div></details></div>
-<details class="pages" open><summary>📖 讲义原页（点开阅读）</summary><div class="imglist">
-<figure><img loading="lazy" src="assets/img/gaoshu/p-160.jpg" alt="p160"><figcaption>第 160 页</figcaption></figure>
-<figure><img loading="lazy" src="assets/img/gaoshu/p-161.jpg" alt="p161"><figcaption>第 161 页</figcaption></figure>
-<figure><img loading="lazy" src="assets/img/gaoshu/p-162.jpg" alt="p162"><figcaption>第 162 页</figcaption></figure>
-<figure><img loading="lazy" src="assets/img/gaoshu/p-163.jpg" alt="p163"><figcaption>第 163 页</figcaption></figure>
-<figure><img loading="lazy" src="assets/img/gaoshu/p-164.jpg" alt="p164"><figcaption>第 164 页</figcaption></figure>
-<figure><img loading="lazy" src="assets/img/gaoshu/p-165.jpg" alt="p165"><figcaption>第 165 页</figcaption></figure>
-<figure><img loading="lazy" src="assets/img/gaoshu/p-166.jpg" alt="p166"><figcaption>第 166 页</figcaption></figure>
-<figure><img loading="lazy" src="assets/img/gaoshu/p-167.jpg" alt="p167"><figcaption>第 167 页</figcaption></figure>
-<figure><img loading="lazy" src="assets/img/gaoshu/p-168.jpg" alt="p168"><figcaption>第 168 页</figcaption></figure>
-<figure><img loading="lazy" src="assets/img/gaoshu/p-169.jpg" alt="p169"><figcaption>第 169 页</figcaption></figure>
-<figure><img loading="lazy" src="assets/img/gaoshu/p-170.jpg" alt="p170"><figcaption>第 170 页</figcaption></figure>
-<figure><img loading="lazy" src="assets/img/gaoshu/p-171.jpg" alt="p171"><figcaption>第 171 页</figcaption></figure>
-<figure><img loading="lazy" src="assets/img/gaoshu/p-172.jpg" alt="p172"><figcaption>第 172 页</figcaption></figure>
-<figure><img loading="lazy" src="assets/img/gaoshu/p-173.jpg" alt="p173"><figcaption>第 173 页</figcaption></figure>
-</div></details>
-<div class="mark" data-ch="gs05" data-sec="2"></div>
-</section>
-<footer>考研数学（二）自学网站 · 讲义原页 + 精讲 · 仅供个人学习使用</footer>
+<p>武忠祥《高等数学辅导讲义》 ｜ 讲义第 142–173 页 ｜ 全文图文精讲 + 本节自测 ｜ <a href="index.html">← 返回首页</a></p></header>
+<div class="chapter-layout">
+<aside class="sidebar" id="lnav"></aside>
+<div class="chapter-main">
+<div class="navrow"><a class="navbtn" href="formula.html">📐 公式手册</a><a class="navbtn" href="methods.html">🧭 题型方法库</a><a class="navbtn" href="flashcards.html">🃏 公式闪卡</a><a class="navbtn" href="wrong.html?v=20260915q">📕 错题本</a><a class="navbtn" href="review.html">🔁 今日复习</a></div>
+<div id="chapter"></div>
 </div>
+</div>
+<footer>考研数学（二）自学网站 · 全文图文精讲 · 仅供个人学习使用</footer>
+</div>
+<script src="data/manifest.js?v=20260915q"></script>
+<script src="data/lesson-gs05-1.js?v=20260915q"></script>
+<script src="data/lesson-gs05-2.js?v=20260915q"></script>
+<script src="data/lesson-gs05-3.js?v=20260915q"></script>
+<script src="data/lesson-gs05-prob.js?v=20260915q"></script>
 <script src="assets/app.js?v=20260915q"></script>
+<script src="assets/lesson.js?v=20260915q"></script>
 </body>
 </html>
