@@ -2,45 +2,86 @@ window.LESSONS = window.LESSONS || {};
 (function () {
   var R = String.raw;
   window.LESSONS["gs06_s0"].problems = [
-    { n: 1, q: R`(1) 设 $f(x,y)$ 连续，则 $\int_1^2dx\int_x^2f(x,y)dy+\int_1^2dy\int_y^{4-y}f(x,y)dx=$ (A) $\int_1^2dx\int_1^{4-x}f\,dy$ (B) $\int_1^2dx\int_x^{4-x}f\,dy$ (C) $\int_1^2dy\int_1^{4-y}f\,dx$ (D) $\int_1^2dy\int_y^2f\,dx$　(2) 二次积分 $\int_{\pi/2}^{\pi}dx\int_{\sin x}^1f(x,y)dy$ 等于 (A) $\int_0^1dy\int_{\pi+\arcsin y}^{\pi}f\,dx$ (B) $\int_0^1dy\int_{\pi-\arcsin y}^{\pi}f\,dx$ (C) $\int_0^1dy\int_{\pi/2}^{\pi+\arcsin y}f\,dx$ (D) $\int_0^1dy\int_{\pi/2}^{\pi-\arcsin y}f\,dx$`, a: R`(1)(C) (2)(B)`, sol: R`(1) 两积分域合并为 $1\leqslant x,y$、$x+y\leqslant4$ 的三角形，交换次序得 (C)。(2) 画出域 $D:\pi/2\leqslant x\leqslant\pi,\sin x\leqslant y\leqslant1$，交换次序得 (B)。` },
-    { n: 2, q: R`(1) 累次积分 $\int_{\pi/4}^{\pi/2}d\theta\int_0^{2\sin\theta}f(\rho\cos\theta,\rho\sin\theta)\rho\,d\rho$ 等于 (A) $\int_0^2dy\int_0^{\sqrt{2y-y^2}}f\,dx$ (B) $\int_0^1dy\int_y^{\sqrt{2y-y^2}}f\,dx$ (C) $\int_0^1dx\int_x^2f\,dy$ (D) $\int_0^1dx\int_x^{1+\sqrt{1-x^2}}f\,dy$　(2) 累次积分 $\int_0^{\pi/4}d\theta\int_0^{2\cos\theta}f\rho\,d\rho$ 等于 (A) $\int_0^1dy\int_0^{\sqrt{2y-y^2}}f\,dx$ (B) $\int_0^1dy\int_y^{1-\sqrt{1-y^2}}f\,dx$ (C) $\int_0^1dx\int_0^xf\,dy+\int_1^2dx\int_0^{\sqrt{1-x^2}}f\,dy$ (D) $\int_0^{\sqrt2}d\rho\int_0^{\pi/4}f\rho\,d\theta+\int_{\sqrt2}^2d\rho\int_0^{\arccos\frac2\rho}f\rho\,d\theta$`, a: R`(1)(D) (2)(D)`, sol: R`化为直角坐标后重定限。(1) 域为圆 $x^2+y^2=2y$ 与直线 $y=x$ 围成，得 (D)；(2) 域为圆 $x^2+y^2=2x$ 在 $y=x$ 上方部分，得 (D)。` },
-    { n: 3, q: R`设 $f(x,y)$ 连续，则 $\int_0^{\pi/4}d\theta\int_0^1f(\rho\cos\theta,\rho\sin\theta)\rho\,d\rho$ 等于 (A) $\int_0^{\frac{\sqrt2}2}dx\int_x^{\sqrt{1-x^2}}f\,dy$ (B) $\int_0^{\frac{\sqrt2}2}dx\int_0^{\sqrt{1-x^2}}f\,dy$ (C) $\int_0^{\frac{\sqrt2}2}dy\int_y^{\sqrt{1-y^2}}f\,dx$ (D) $\int_0^{\frac{\sqrt2}2}dy\int_0^{\sqrt{1-y^2}}f\,dx$`, a: R`(C)`, sol: R`域为单位圆扇形 $0\leqslant\theta\leqslant\pi/4,0\leqslant\rho\leqslant1$，即 $0\leqslant y\leqslant\frac{\sqrt2}2$，$y\leqslant x\leqslant\sqrt{1-y^2}$，得 (C)。` },
-    { n: 4, q: R`设 $f(x,y)$ 连续，则 $\int_0^1dy\int_{-\sqrt{1-y^2}}^{1-y}f(x,y)dx=$ (A) $\int_0^1dx\int_0^{x-1}f\,dy+\int_{-1}^0dx\int_0^{\sqrt{1-x^2}}f\,dy$ (B) $\int_0^1dx\int_0^{1-x}f\,dy+\int_{-1}^0dx\int_{-\sqrt{1-x^2}}^0f\,dy$ (C) $\int_0^{\frac\pi2}d\theta\int_0^{\frac1{\cos\theta+\sin\theta}}f\,d\rho+\int_{\frac\pi2}^{\pi}d\theta\int_0^1f\,d\rho$ (D) $\int_0^{\frac\pi2}d\theta\int_0^{\frac1{\cos\theta+\sin\theta}}f\rho\,d\rho+\int_{\frac\pi2}^{\pi}d\theta\int_0^1f\rho\,d\rho$`, a: R`(D)`, sol: R`域为左半单位圆与直线 $x+y=1$ 所围，极坐标化（含 $\rho$ 因子）得 (D)。` },
-    { n: 5, q: R`设区域 $D$ 由曲线 $y=\sin x,x=\pm\frac\pi2,y=1$ 围成，则 $\iint_D(xy^5-1)dxdy=$ (A) $\pi$ (B) $2$ (C) $-2$ (D) $-\pi$`, a: R`(D)`, sol: R`$D$ 关于 $y$ 轴对称，$xy^5$ 关于 $x$ 为奇函数，积分为 $0$；故原式 $=-\iint_Dd\sigma=-S$。$S$ 为 $D$ 的面积 $=\pi$，故为 $-\pi$。选 (D)。` },
-    { n: 6, q: R`设 $f(x,y)$ 连续，且 $f(x,y)=xy+\iint_Df(x,y)dxdy$，$D$ 由 $y=0,y=x^2,x=1$ 围成，则 $f(x,y)=$ (A) $xy$ (B) $2xy$ (C) $xy+\frac18$ (D) $xy+1$`, a: R`(C)`, sol: R`令 $\iint_Df=A$，则 $f=xy+A$，$A=\iint_Dxy\,d\sigma+A\cdot S$。$\iint_Dxy\,d\sigma=\int_0^1dx\int_0^{x^2}xy\,dy=\frac18$，$S=\frac13$，故 $A=\frac18+\frac13A$，$A=\frac{3}{16}$，$f=xy+\frac18$。选 (C)。` },
-    { n: 7, q: R`设 $0<a<1$，$D$ 由 $x$ 轴、$y$ 轴、$x+y=a$、$x+y=1$ 围成，$I=\iint_D\sin^2(x+y)d\sigma,J=\iint_D\ln^3(x+y)d\sigma,K=\iint_D(x+y)d\sigma$，则 (A) $I<K<J$ (B) $K<J<I$ (C) $I<J<K$ (D) $J<I<K$`, a: R`(D)`, sol: R`在 $D$ 上 $x+y\in(a,1)\subset(0,1)$，故 $\ln(x+y)<0$ 使 $J<0$；$\sin^2(x+y)\in(0,1)$，$I>0$ 且 $I<x+y$，故 $J<I<K$。选 (D)。` },
-    { n: 8, q: R`设 $I=\iint_{|x|+|y|\leqslant1}(x^2+y^3)d\sigma,J=\iint_{x^2+y^2\leqslant1}(x^4-y^4)d\sigma,K=\iint_{x^2+y^2\leqslant1}(x^3-y^2)d\sigma$，则 (A) $I<J<K$ (B) $I<K<J$ (C) $J<I<K$ (D) $K<J<I$`, a: R`(D)`, sol: R`由奇偶性 $I=2\iint_{|x|+|y|\leqslant1}x^2d\sigma>0$，$J=2\iint x^4d\sigma>0$，$K=-\iint y^2d\sigma<0$，且比较得 $K<J<I$。选 (D)。` },
-    { n: 9, q: R`设 $I_1=\iint_D\frac{x+y}4d\sigma,I_2=\iint_D\sqrt{\frac{x+y}4}d\sigma,I_3=\iint_D\sqrt[3]{\frac{x+y}4}d\sigma$，$D:(x-1)^2+(y-1)^2\leqslant2$，则 (A) $I_1<I_2<I_3$ (B) $I_2<I_3<I_1$ (C) $I_1<I_3<I_2$ (D) $I_3<I_2<I_1$`, a: R`(A)`, sol: R`在 $D$ 上 $0\leqslant\frac{x+y}4\leqslant1$，故 $\sqrt[3]{u}\geqslant\sqrt u\geqslant u$，从而 $I_1<I_2<I_3$。选 (A)。` },
-    { n: 10, q: R`正方形 $\{|x|\leqslant1,|y|\leqslant1\}$ 被对角线分为四个区域 $D_k$，$I_k=\iint_{D_k}y\cos x\,dxdy$，则 $\max I_k=$ (A) $I_1$ (B) $I_2$ (C) $I_3$ (D) $I_4$`, a: R`(A)`, sol: R`$D_1$（上方）上 $y>0,\cos x>0$，被积函数为正，积分最大；$D_3$（下方）为负。选 (A)。` },
-    { n: 11, q: R`设 $D_k$ 是圆域 $x^2+y^2\leqslant1$ 在第 $k$ 象限的部分，$I_k=\iint_{D_k}(y-x)dxdy\ (k=1,2,3,4)$，则 (A) $I_1>0$ (B) $I_2>0$ (C) $I_3>0$ (D) $I_4>0$`, a: R`(B)`, sol: R`第二象限 $x<0<y$，故 $y-x>0$，$I_2>0$。选 (B)。` },
-    { n: 12, q: R`已知 $\lim\limits_{t\to0^+}\frac{\int_0^tdx\int_t^xe^{-y^2}dy}{t^\alpha}=\beta\neq0$，则 (A) $\alpha=1,\beta=\frac12$ (B) $\alpha=2,\beta=\frac12$ (C) $\alpha=2,\beta=-\frac12$ (D) $\alpha=3,\beta=-\frac12$`, a: R`(C)`, sol: R`交换次序，分子 $=-\int_0^t dy\int_0^y e^{-y^2}dx=-\int_0^t ye^{-y^2}dy\sim-\frac{t^2}2$，故 $\alpha=2,\beta=-\frac12$。选 (C)。` },
-    { n: 13, q: R`交换积分次序 $\int_0^4dx\int_{\sqrt{4x-x^2}}^{2\sqrt x}f(x,y)dy=$______`, a: R`$\int_0^2dy\int_{\frac{y^2}4}^{2-\sqrt{4-y^2}}f\,dx+\int_0^2dy\int_{2+\sqrt{4-y^2}}^4f\,dx+\int_2^4dy\int_{\frac{y^2}4}^4f\,dx$`, sol: R`画出域（圆 $x^2+y^2=4x$ 与抛物线 $y^2=4x$ 之间），按 $y$ 重定限得结果。` },
-    { n: 14, q: R`交换积分次序 $\int_0^2dx\int_x^{\sqrt{2x-x^2}}f(x,y)dy=$______`, a: R`$\int_0^1dy\int_{1-\sqrt{1-y^2}}^yf\,dx-\int_0^1dy\int_{1+\sqrt{1-y^2}}^2f\,dx-\int_1^2dy\int_y^2f\,dx$`, sol: R`画出域（圆 $(x-1)^2+y^2=1$ 与直线 $y=x$ 之间），按 $y$ 重定限得结果。` },
-    { n: 15, q: R`积分 $\int_0^1dx\int_{x^2}^1\frac{xy}{\sqrt{1+y^3}}dy=$______`, a: R`$\frac13(\sqrt2-1)$`, sol: R`交换次序 $=\int_0^1dy\int_0^{\sqrt y}\frac{xy}{\sqrt{1+y^3}}dx=\frac12\int_0^1\frac{y^2}{\sqrt{1+y^3}}dy=\frac13(\sqrt2-1)$。` },
-    { n: 16, q: R`积分 $\int_0^1dy\int_{\frac y2}^y\cos x^2dx+\int_1^2dy\int_{\frac y2}^1\cos x^2dx=$______`, a: R`$\frac12\sin1$`, sol: R`合并域后交换次序 $=\int_0^1dx\int_x^{2x}\cos x^2dy=\int_0^1x\cos x^2dx=\frac12\sin1$。` },
-    { n: 17, q: R`$\int_0^1dy\int_y^1\sqrt{x^2-y^2}dx=$______`, a: R`$\frac\pi{12}$`, sol: R`交换次序或令 $x=y\sec t$，计算得 $\frac\pi{12}$。` },
-    { n: 18, q: R`$\iint_{x^2+y^2\leqslant1}[(x+1)^2+2y^2]dxdy=$______`, a: R`$\frac74\pi$`, sol: R`展开后由对称性 $\iint x=0$，原式 $=\iint(x^2+y^2)d\sigma+\iint1\,d\sigma=\frac\pi2+\pi=\frac{3\pi}2$？按答案 $\frac74\pi$，含 $2y^2$ 计算得。` },
-    { n: 19, q: R`设 $D=\{0\leqslant x\leqslant1,0\leqslant y\leqslant1\}$，则 $\iint_D\frac{dxdy}{\sqrt{x^2+y^2}}=$______`, a: R`$2\ln(1+\sqrt2)$`, sol: R`分两半由对称性，极坐标化计算得 $2\ln(1+\sqrt2)$。` },
-    { n: 20, q: R`积分 $I=\int_0^{\frac\pi2}d\theta\int_0^{2\cos\theta}[(\rho\cos\theta-1)^3+\rho\sin\theta]\rho\,d\rho=$______`, a: R`$\frac23$`, sol: R`由对称性 $(\rho\cos\theta-1)^3$ 的贡献为 $0$，$I=\int_0^{\frac\pi2}d\theta\int_0^{2\cos\theta}\rho^2\sin\theta\,d\rho=\frac23$。` },
-    { n: 21, q: R`极限 $\lim\limits_{t\to0^+}\frac1{\sin^2t}\int_0^tdx\int_x^te^{-(x-y)^2}dy=$______`, a: R`$\frac12$`, sol: R`交换次序 $\int_0^t dy\int_0^ye^{-(x-y)^2}dx\sim\frac{t^2}2$，除以 $\sin^2t\sim t^2$，得 $\frac12$。` },
-    { n: 22, q: R`设 $f(t)=\int_0^tdx\int_x^{\sqrt t}\frac{\sin y}ydy$，则 $f(t)$ 在 $[0,\pi]$ 上的最大值为______`, a: R`$f_{\max}(1)=1-\sin1$`, sol: R`交换次序 $f(t)=\int_0^{\sqrt t}\sin y\,dy=1-\cos\sqrt t$，在 $t=1$ 取最大 $1-\sin1$（由 $f'=0$ 判定）。` },
-    { n: 23, q: R`求极限 $\lim\limits_{n\to\infty}\frac1n\left[\int_{\frac1n}^1e^{-y^2}dy+\int_{\frac2n}^1e^{-y^2}dy+\cdots+\int_{\frac{n-1}n}^1e^{-y^2}dy\right]$`, a: R`$\frac12\left(\frac1e-1\right)$`, sol: R`和式 $=\int_0^1dx\int_x^1e^{-y^2}dy$ 的 Riemann 和，极限 $=\int_0^1\int_x^1e^{-y^2}dy\,dx=\frac12\left(\frac1e-1\right)$。` },
-    { n: 24, q: R`求极限 $\lim\limits_{t\to0^+}\frac1{t^6}\int_0^tdx\int_x^t\sin(xy)^2dy$`, a: R`$\frac1{18}$`, sol: R`交换次序后由中值/展开，$\int_0^t\int_x^t(xy)^2dy\,dx\sim\frac{t^6}{18}$，故极限 $\frac1{18}$。` },
-    { n: 25, q: R`计算 $\int_{\frac14}^{\frac12}dy\int_{\frac12}^{\sqrt y}e^{\frac xy}dx+\int_{\frac12}^1dy\int_y^{\sqrt y}e^{\frac xy}dx$`, a: R`$\frac38e-\frac12\sqrt e$`, sol: R`合并域后交换次序计算得结果。` },
-    { n: 26, q: R`计算二重积分 $\iint_D|x^2+y^2-1|d\sigma$，$D=\{0\leqslant x,y\leqslant1\}$`, a: R`$\frac\pi4-\frac13$`, sol: R`按 $x^2+y^2\leqslant1$ 与 $>1$ 分域，用极坐标计算得 $\frac\pi4-\frac13$。` },
-    { n: 27, q: R`计算二重积分 $\iint_D\max\{xy,1\}dxdy$，$D=\{0\leqslant x,y\leqslant2\}$`, a: R`$\frac{19}4+\ln2$`, sol: R`按 $xy\leqslant1$ 与 $>1$ 分域积分得结果。` },
-    { n: 28, q: R`设 $D=\{x^2+y^2\leqslant\sqrt2,x\geqslant0,y\geqslant0\}$，$[1+x^2+y^2]$ 表示不超过 $1+x^2+y^2$ 的最大整数，计算 $\iint_Dxy[1+x^2+y^2]dxdy$`, a: R`$\frac38$`, sol: R`按 $\rho^2$ 所在区间（使取整为 1、2）分域计算得 $\frac38$。` },
-    { n: 29, q: R`计算 $\iint_D(x-y)dxdy$，$D=\{(x-1)^2+(y-1)^2\leqslant2,y\geqslant x\}$`, a: R`$-\frac83$`, sol: R`由对称性 $\iint_D(x-1)d\sigma=0$ 等化简，计算得 $-\frac83$。` },
-    { n: 30, q: R`计算 $I=\iint_D\rho^2\sin\theta\sqrt{1-\rho^2\cos2\theta}\,d\rho d\theta$，$D=\{0\leqslant\rho\leqslant\sec\theta,0\leqslant\theta\leqslant\frac\pi4\}$`, a: R`$\frac13-\frac\pi{16}$`, sol: R`化为直角坐标（域为 $0\leqslant x\leqslant1,0\leqslant y\leqslant x$），计算得 $\frac13-\frac\pi{16}$。` },
-    { n: 31, q: R`计算 $\iint_D\frac{\sqrt{x^2+y^2}}{\sqrt{4a^2-x^2-y^2}}d\sigma$，$D$ 由 $y=-a+\sqrt{a^2-x^2}\ (a>0)$ 与 $y=-x$ 围成`, a: R`$a^2\left(\frac{\pi^2}{16}-\frac12\right)$`, sol: R`极坐标化计算得结果。` },
-    { n: 32, q: R`计算 $\iint_D(x+y)^3dxdy$，$D$ 由 $x=\sqrt{1+y^2}$ 与 $x+\sqrt2y=0$、$x-\sqrt2y=0$ 围成`, a: R`$\frac{14}{15}$`, sol: R`由对称性（$D$ 关于 $x$ 轴对称）$y$ 的奇次项积分为 $0$，计算得 $\frac{14}{15}$。` },
-    { n: 33, q: R`计算 $\iint_D(x+y^2)dxdy$，$D=\{x^2+y^2\leqslant2x+2y\}$`, a: R`$5\pi$`, sol: R`圆心 $(1,1)$、半径 $\sqrt2$，平移后用对称性计算得 $5\pi$。` },
-    { n: 34, q: R`求 $\iint_D(\sqrt{x^2+y^2}+y)d\sigma$，$D$ 由圆 $x^2+y^2=4$ 和 $(x+1)^2+y^2=1$ 围成`, a: R`$\frac{16}9(3\pi-2)$`, sol: R`大圆减小圆，极坐标化计算得结果。` },
-    { n: 35, q: R`计算 $\iint_D e^xxy\,dxdy$，$D$ 是以 $y=\sqrt x$、$y=\frac1{\sqrt x}$ 及 $y$ 轴为边界的无界区域`, a: R`$\frac12$`, sol: R`化为累次积分 $\int_0^1xe^xdx\int_{1/\sqrt x}^{\sqrt x}y\,dy$，计算得 $\frac12$。` },
-    { n: 36, q: R`计算 $\int_{\frac\pi4}^{\frac{3\pi}4}d\theta\int_0^{2\sin\theta}[\sin\theta+\cos\theta\sqrt{1+\rho^2\sin^2\theta}]\rho^2d\rho$`, a: R`$\frac43+\frac\pi2$`, sol: R`分项计算，第一项极坐标积分，第二项换元，得 $\frac43+\frac\pi2$。` },
-    { n: 37, q: R`计算 $\int_{-1}^1dx\int_{|x|}^{1+\sqrt{1-x^2}}(x^3+1)\sqrt{x^2+y^2}dy$`, a: R`$\frac{20\sqrt2}9$`, sol: R`由对称性 $x^3$ 项为 $0$，再极坐标化计算 $\sqrt{x^2+y^2}$ 的积分得结果。` },
-    { n: 38, q: R`设 $f(t)=\int_0^tdx\int_x^ty^2e^{-y^2}dy$，试证对一切 $t\in(-\infty,+\infty)$ 有 $0\leqslant f(t)<\frac12$`, a: R`证明见解答`, sol: R`交换积分次序化为一元变上限定积分 $f(t)=\int_0^t y^3e^{-y^2}dy\ (t>0)$，由 $0\leqslant f(t)<\frac12\int_0^{+\infty}2ye^{-y^2}dy=\frac12$ 得证。` },
-    { n: 39, q: R`设 $D=\{0\leqslant x\leqslant2,0\leqslant y\leqslant2\}$。1) 计算 $b=\iint_D|xy-1|d\sigma$；2) 设 $f$ 在 $D$ 上连续，$\iint_Df\,d\sigma=0,\iint_Dxyf\,d\sigma=1$，证明存在 $(\xi,\eta)\in D$ 使 $|f(\xi,\eta)|\geqslant\frac1b$`, a: R`1) $b=\frac32+2\ln2$`, sol: R`1) 按 $xy\leqslant1$ 与 $>1$ 分域积分得 $b=\frac32+2\ln2$。2) 反证法：若 $|f|<\frac1b$，则 $1=\iint xyf=\iint(xy-1)f\leqslant\frac1b\iint|xy-1|=\frac bb=1$，矛盾（取等条件导出 $|f|\geqslant\frac1b$）。` },
-    { n: 40, q: R`设 $f(x),g(x)$ 在 $[0,1]$ 上连续且同时单调增，证明 $\int_0^1f(x)g(x)dx\geqslant\left(\int_0^1f\,dx\right)\left(\int_0^1g\,dx\right)$`, a: R`证明见解答`, sol: R`设 $D=\{0\leqslant x,y\leqslant1\}$，则左减右 $=\iint_Df(x)g(x)d\sigma-\iint_Df(x)g(y)d\sigma=\frac12\iint_D[f(x)-f(y)][g(x)-g(y)]d\sigma\geqslant0$（同单调增），原题得证。` }
+    { n: 1, q: R`(1) 设函数 $f(x,y)$ 连续，则 $\int_1^2\mathrm{d}x\int_x^2f(x,y)\mathrm{d}y+\int_1^2\mathrm{d}y\int_y^{4-y}f(x,y)\mathrm{d}x=(\quad)$
+(A) $\int_1^2\mathrm{d}x\int_1^{4-x}f(x,y)\mathrm{d}y.$
+(B) $\int_1^2\mathrm{d}x\int_x^2f(x,y)\mathrm{d}y.$
+(C) $\int_1^2\mathrm{d}y\int_1^{4-y}f(x,y)\mathrm{d}x.$
+(D) $\int_1^2\mathrm{d}y\int_y^2f(x,y)\mathrm{d}x.$
+(2) 设函数 $f(x,y)$ 连续，则二次积分 $\int_{\frac{\pi}{2}}^{\pi}\mathrm{d}x\int_{\sin x}^{1}f(x,y)\mathrm{d}y$ 等于 $(\quad)$
+(A) $\int_0^1\mathrm{d}y\int_{\pi+\arcsin y}^{\pi}f(x,y)\mathrm{d}x.$
+(B) $\int_0^1\mathrm{d}y\int_{\pi-\arcsin y}^{\pi}f(x,y)\mathrm{d}x.$
+(C) $\int_0^1\mathrm{d}y\int_{\frac{\pi}{2}}^{\pi+\arcsin y}f(x,y)\mathrm{d}x.$
+(D) $\int_0^1\mathrm{d}y\int_{\frac{\pi}{2}}^{\pi-\arcsin y}f(x,y)\mathrm{d}x.$`, a: R`(1)(C) (2)(B)`, sol: R`原书答案 (1)(C) (2)(B)。` },
+    { n: 2, q: R`(1) 累次积分 $\int_{\frac{\pi}{4}}^{\frac{\pi}{2}}\mathrm{d}\theta\int_0^{2\sin\theta}f(\rho\cos\theta,\rho\sin\theta)\rho\,\mathrm{d}\rho$ 等于 $(\quad)$
+(A) $\int_0^2\mathrm{d}y\int_0^{\sqrt{2y-y^2}}f(x,y)\mathrm{d}x.$
+(B) $\int_0^2\mathrm{d}y\int_y^{\sqrt{2y-y^2}}f(x,y)\mathrm{d}x.$
+(C) $\int_0^1\mathrm{d}x\int_x^2f(x,y)\mathrm{d}y.$
+(D) $\int_0^1\mathrm{d}x\int_x^{1+\sqrt{1-x^2}}f(x,y)\mathrm{d}y.$
+(2) 累次积分 $\int_0^{\frac{\pi}{4}}\mathrm{d}\theta\int_0^{2\cos\theta}f(\rho\cos\theta,\rho\sin\theta)\rho\,\mathrm{d}\rho$ 等于 $(\quad)$
+(A) $\int_0^1\mathrm{d}y\int_y^{\sqrt{2y-y^2}}f(x,y)\mathrm{d}x.$
+(B) $\int_0^1\mathrm{d}y\int_y^{1-\sqrt{1-y^2}}f(x,y)\mathrm{d}x.$
+(C) $\int_0^1\mathrm{d}x\int_0^xf(x,y)\mathrm{d}y+\int_1^2\mathrm{d}x\int_0^{\sqrt{1-x^2}}f(x,y)\mathrm{d}y.$
+(D) $\int_0^{\sqrt{2}}\mathrm{d}\rho\int_0^{\frac{\pi}{4}}f(\rho\cos\theta,\rho\sin\theta)\rho\,\mathrm{d}\theta+\int_{\sqrt{2}}^{2}\mathrm{d}\rho\int_0^{\arccos\frac{2}{\rho}}f(\rho\cos\theta,\rho\sin\theta)\rho\,\mathrm{d}\theta.$`, a: R`(1)(D) (2)(D)`, sol: R`原书答案 (1)(D) (2)(D)。` },
+    { n: 3, q: R`设 $f(x,y)$ 为连续函数，则 $\int_0^{\frac{\pi}{4}}\mathrm{d}\theta\int_0^1f(\rho\cos\theta,\rho\sin\theta)\rho\,\mathrm{d}\rho$ 等于 $(\quad)$
+(A) $\int_0^{\frac{\sqrt{2}}{2}}\mathrm{d}x\int_x^{\sqrt{1-x^2}}f(x,y)\mathrm{d}y.$
+(B) $\int_0^{\frac{\sqrt{2}}{2}}\mathrm{d}x\int_0^{\sqrt{1-x^2}}f(x,y)\mathrm{d}y.$
+(C) $\int_0^{\frac{\sqrt{2}}{2}}\mathrm{d}y\int_y^{\sqrt{1-y^2}}f(x,y)\mathrm{d}x.$
+(D) $\int_0^{\frac{\sqrt{2}}{2}}\mathrm{d}y\int_0^{\sqrt{1-y^2}}f(x,y)\mathrm{d}x.$`, a: R`(C)`, sol: R`原书答案 (C)。` },
+    { n: 4, q: R`设 $f(x,y)$ 是连续函数，则 $\int_0^1\mathrm{d}y\int_{-\sqrt{1-y^2}}^{1-y}f(x,y)\mathrm{d}x=(\quad)$
+(A) $\int_0^1\mathrm{d}x\int_0^{1-x}f(x,y)\mathrm{d}y+\int_{-1}^0\mathrm{d}x\int_0^{\sqrt{1-x^2}}f(x,y)\mathrm{d}y.$
+(B) $\int_0^1\mathrm{d}x\int_0^{1-x}f(x,y)\mathrm{d}y+\int_{-1}^0\mathrm{d}x\int_{-\sqrt{1-x^2}}^{0}f(x,y)\mathrm{d}y.$
+(C) $\int_0^{\frac{\pi}{2}}\mathrm{d}\theta\int_0^{\frac{1}{\cos\theta+\sin\theta}}f(\rho\cos\theta,\rho\sin\theta)\mathrm{d}\rho+\int_{\frac{\pi}{2}}^{\pi}\mathrm{d}\theta\int_0^1f(\rho\cos\theta,\rho\sin\theta)\mathrm{d}\rho.$
+(D) $\int_0^{\frac{\pi}{2}}\mathrm{d}\theta\int_0^{\frac{1}{\cos\theta+\sin\theta}}f(\rho\cos\theta,\rho\sin\theta)\rho\,\mathrm{d}\rho+\int_{\frac{\pi}{2}}^{\pi}\mathrm{d}\theta\int_0^1f(\rho\cos\theta,\rho\sin\theta)\rho\,\mathrm{d}\rho.$`, a: R`(D)`, sol: R`原书答案 (D)。` },
+    { n: 5, q: R`设区域 $D$ 由曲线 $y=\sin x,x=\pm\frac{\pi}{2},y=1$ 围成，则 $\iint_D(xy^5-1)\mathrm{d}x\mathrm{d}y=(\quad)$
+(A) $\pi.$ (B) $2.$ (C) $-2.$ (D) $-\pi.$`, a: R`(D)`, sol: R`原书答案 (D)。` },
+    { n: 6, q: R`设 $f(x,y)$ 连续，且 $f(x,y)=xy+\iint_Df(x,y)\mathrm{d}x\mathrm{d}y$，其中 $D$ 由 $y=0,y=x^2,x=1$ 所围成，则 $f(x,y)$ 等于 $(\quad)$
+(A) $xy.$ (B) $2xy.$ (C) $xy+\frac{1}{8}.$ (D) $xy+1.$`, a: R`(C)`, sol: R`原书答案 (C)。` },
+    { n: 7, q: R`设 $0<a<1$，区域 $D$ 由 $x$ 轴，$y$ 轴，直线 $x+y=a$ 及 $x+y=1$ 所围成，
+$$I=\iint_D\sin^2(x+y)\mathrm{d}\sigma,J=\iint_D\ln^3(x+y)\mathrm{d}\sigma,K=\iint_D(x+y)\mathrm{d}\sigma,$$ 则 $(\quad)$
+(A) $I<K<J.$ (B) $K<J<I.$ (C) $I<J<K.$ (D) $J<I<K.$`, a: R`(D)`, sol: R`原书答案 (D)。` },
+    { n: 8, q: R`设 $I=\iint_{|x|+|y|\leqslant1}(x^2+y^2)\mathrm{d}\sigma,J=\iint_{x^2+y^2\leqslant1}(x^4-y^4)\mathrm{d}\sigma,K=\iint_{x^2+y^2\leqslant1}(x^3-y^2)\mathrm{d}\sigma$，则 $(\quad)$
+(A) $I<J<K.$ (B) $I<K<J.$ (C) $J<I<K.$ (D) $K<J<I.$`, a: R`(D)`, sol: R`原书答案 (D)。` },
+    { n: 9, q: R`设 $I_1=\iint_D\frac{x+y}{4}\mathrm{d}\sigma,I_2=\iint_D\sqrt{\frac{x+y}{4}}\mathrm{d}\sigma,I_3=\iint_D\sqrt[3]{\frac{x+y}{4}}\mathrm{d}\sigma.$ 其中 $D:(x-1)^2+(y-1)^2\leqslant2.$ 则 $(\quad)$
+(A) $I_1<I_2<I_3.$ (B) $I_2<I_3<I_1.$ (C) $I_1<I_3<I_2.$ (D) $I_3<I_2<I_1.$`, a: R`(A)`, sol: R`原书答案 (A)。` },
+    { n: 10, q: R`如右图正方形 $\{(x,y)\mid|x|\leqslant1,|y|\leqslant1\}$ 被其对角线划分为四个区域 $D_k(k=1,2,3,4),I_k=\iint_{D_k}y\cos x\,\mathrm{d}x\mathrm{d}y$ 则 $\max\limits_{1\leqslant k\leqslant4}\{I_k\}=(\quad)$
+(A) $I_1.$ (B) $I_2.$ (C) $I_3.$ (D) $I_4.$
+（右图：以原点 $O$ 为中心、边长为 2 的正方形，顶点在坐标轴上；两条对角线将其分为四个区域，上方为 $D_1$，左方为 $D_2$，下方为 $D_3$，右方为 $D_4$；$x$ 轴负、正方向分别标注 $-1$、$1$。）`, a: R`(A)`, sol: R`原书答案 (A)。` },
+    { n: 11, q: R`设 $D_k$ 是圆域 $D=\{(x,y)\mid x^2+y^2\leqslant1\}$ 在第 $k$ 象限的部分，记 $I_k=\iint_{D_k}(y-x)\mathrm{d}x\mathrm{d}y(k=1,2,3,4)$，则 $(\quad)$
+(A) $I_1>0.$ (B) $I_2>0.$ (C) $I_3>0.$ (D) $I_4>0.$`, a: R`(B)`, sol: R`原书答案 (B)。` },
+    { n: 12, q: R`已知 $\lim\limits_{t\to0^+}\frac{\int_0^t\mathrm{d}x\int_x^te^{-y^2}\mathrm{d}y}{t^\alpha}=\beta\neq0$，则 $(\quad)$
+(A) $\alpha=1,\beta=\frac{1}{2}.$ (B) $\alpha=2,\beta=\frac{1}{2}.$ (C) $\alpha=2,\beta=-\frac{1}{2}.$ (D) $\alpha=3,\beta=-\frac{1}{2}.$`, a: R`(C)`, sol: R`原书答案 (C)。` },
+    { n: 13, q: R`交换积分次序 $\int_0^4\mathrm{d}x\int_{\sqrt{4x-x^2}}^{2\sqrt{x}}f(x,y)\mathrm{d}y=\underline{\qquad}.$`, a: R`$\int_0^2\mathrm{d}y\int_{\frac{y^2}{4}}^{2-\sqrt{4-y^2}}f(x,y)\mathrm{d}x+\int_0^2\mathrm{d}y\int_{2+\sqrt{4-y^2}}^{4}f(x,y)\mathrm{d}x+\int_2^4\mathrm{d}y\int_{\frac{y^2}{4}}^{4}f(x,y)\mathrm{d}x.$`, sol: R`原书答案如上。` },
+    { n: 14, q: R`交换积分次序 $\int_0^2\mathrm{d}x\int_x^{\sqrt{2x-x^2}}f(x,y)\mathrm{d}y=\underline{\qquad}.$`, a: R`$\int_0^1\mathrm{d}y\int_{1-\sqrt{1-y^2}}^{y}f(x,y)\mathrm{d}x-\int_0^1\mathrm{d}y\int_{1+\sqrt{1-y^2}}^{2}f(x,y)\mathrm{d}x-\int_1^2\mathrm{d}y\int_y^2f(x,y)\mathrm{d}x.$`, sol: R`原书答案如上。` },
+    { n: 15, q: R`积分 $\int_0^1\mathrm{d}x\int_{x^2}^1\frac{xy}{\sqrt{1+y^3}}\mathrm{d}y=\underline{\qquad}.$`, a: R`$\frac{1}{3}(\sqrt{2}-1).$`, sol: R`原书答案 $\frac{1}{3}(\sqrt{2}-1)$。` },
+    { n: 16, q: R`积分 $\int_0^1\mathrm{d}y\int_{\frac{y}{2}}^{y}\cos x^2\,\mathrm{d}x+\int_1^2\mathrm{d}y\int_{\frac{y}{2}}^{1}\cos x^2\,\mathrm{d}x=\underline{\qquad}.$`, a: R`$\frac{1}{2}\sin1.$`, sol: R`原书答案 $\frac{1}{2}\sin1$。` },
+    { n: 17, q: R`$\int_0^1\mathrm{d}y\int_y^1\sqrt{x^2-y^2}\,\mathrm{d}x=\underline{\qquad}.$`, a: R`$\frac{\pi}{12}.$`, sol: R`原书答案 $\frac{\pi}{12}$。` },
+    { n: 18, q: R`$\iint_{x^2+y^2\leqslant1}[(x+1)^2+2y^2]\mathrm{d}x\mathrm{d}y=\underline{\qquad}.$`, a: R`$\frac{7}{4}\pi.$`, sol: R`原书答案 $\frac{7}{4}\pi$。` },
+    { n: 19, q: R`设 $D=\{(x,y)\mid0\leqslant x\leqslant1,0\leqslant y\leqslant1\}$，则 $\iint_D\frac{\mathrm{d}x\mathrm{d}y}{\sqrt{x^2+y^2}}=\underline{\qquad}.$`, a: R`$2\ln(1+\sqrt{2}).$`, sol: R`原书答案 $2\ln(1+\sqrt{2})$。` },
+    { n: 20, q: R`积分 $I=\int_0^{\frac{\pi}{2}}\mathrm{d}\theta\int_0^{2\cos\theta}[(\rho\cos\theta-1)^3+\rho\sin\theta]\rho\,\mathrm{d}\rho=\underline{\qquad}.$`, a: R`$\frac{2}{3}.$`, sol: R`原书答案 $\frac{2}{3}$。` },
+    { n: 21, q: R`极限 $\lim\limits_{t\to0^+}\frac{1}{\sin^2t}\int_0^t\mathrm{d}x\int_x^te^{-(x-y)^2}\mathrm{d}y=\underline{\qquad}.$`, a: R`$\frac{1}{2}.$`, sol: R`原书答案 $\frac{1}{2}$。` },
+    { n: 22, q: R`设 $f(t)=\int_0^t\mathrm{d}x\int_x^{\sqrt{t}}\frac{\sin y}{y}\mathrm{d}y$，则函数 $f(t)$ 在区间 $[0,\pi]$ 上的最大值为 $\underline{\qquad}.$`, a: R`$f_{\max}(1)=1-\sin1.$`, sol: R`原书答案 $f_{\max}(1)=1-\sin1$。` },
+    { n: 23, q: R`求极限 $\lim\limits_{n\to\infty}\frac{1}{n}\left[\int_{\frac{1}{n}}^1e^{-y^2}\mathrm{d}y+\int_{\frac{2}{n}}^1e^{-y^2}\mathrm{d}y+\cdots+\int_{\frac{n-1}{n}}^1e^{-y^2}\mathrm{d}y\right].$`, a: R`$\frac{1}{2}\left(\frac{1}{e}-1\right).$`, sol: R`原书答案 $\frac{1}{2}\left(\frac{1}{e}-1\right)$。` },
+    { n: 24, q: R`求极限 $\lim\limits_{t\to0^+}\frac{1}{t^6}\int_0^t\mathrm{d}x\int_x^t\sin(xy)^2\,\mathrm{d}y.$`, a: R`$\frac{1}{18}.$`, sol: R`原书答案 $\frac{1}{18}$。` },
+    { n: 25, q: R`计算 $\int_{\frac{1}{4}}^{\frac{1}{2}}\mathrm{d}y\int_{\frac{1}{2}}^{\sqrt{y}}e^{\frac{y}{x}}\mathrm{d}x+\int_{\frac{1}{2}}^{1}\mathrm{d}y\int_y^{\sqrt{y}}e^{\frac{y}{x}}\mathrm{d}x.$`, a: R`$\frac{3}{8}e-\frac{1}{2}\sqrt{e}.$`, sol: R`原书答案 $\frac{3}{8}e-\frac{1}{2}\sqrt{e}$。` },
+    { n: 26, q: R`计算二重积分 $\iint_D|x^2+y^2-1|\,\mathrm{d}\sigma$，其中 $D=\{(x,y)\mid0\leqslant x\leqslant1,0\leqslant y\leqslant1\}.$`, a: R`$\frac{\pi}{4}-\frac{1}{3}.$`, sol: R`原书答案 $\frac{\pi}{4}-\frac{1}{3}$。` },
+    { n: 27, q: R`计算二重积分 $\iint_D\max\{xy,1\}\mathrm{d}x\mathrm{d}y$，其中 $D=\{(x,y)\mid0\leqslant x\leqslant2,0\leqslant y\leqslant2\}.$`, a: R`$\frac{19}{4}+\ln2.$`, sol: R`原书答案 $\frac{19}{4}+\ln2$。` },
+    { n: 28, q: R`设 $D=\{(x,y)\mid x^2+y^2\leqslant\sqrt{2},x\geqslant0,y\geqslant0\}$，$[1+x^2+y^2]$ 表示不超过 $1+x^2+y^2$ 的最大整数，计算二重积分 $\iint_Dxy[1+x^2+y^2]\mathrm{d}x\mathrm{d}y.$`, a: R`$\frac{3}{8}.$`, sol: R`原书答案 $\frac{3}{8}$。` },
+    { n: 29, q: R`计算二重积分 $\iint_D(x-y)\mathrm{d}x\mathrm{d}y$，其中 $D=\{(x,y)\mid(x-1)^2+(y-1)^2\leqslant2,y\geqslant x\}.$`, a: R`$-\frac{8}{3}.$`, sol: R`原书答案 $-\frac{8}{3}$。` },
+    { n: 30, q: R`计算二重积分 $I=\iint_D\rho^2\sin\theta\sqrt{1-\rho^2\cos2\theta}\,\mathrm{d}\rho\mathrm{d}\theta$，其中
+$$D=\left\{(\rho,\theta)\mid0\leqslant\rho\leqslant\sec\theta,0\leqslant\theta\leqslant\frac{\pi}{4}\right\}.$$`, a: R`$\frac{1}{3}-\frac{\pi}{16}.$`, sol: R`原书答案 $\frac{1}{3}-\frac{\pi}{16}$。` },
+    { n: 31, q: R`计算二重积分 $\iint_D\frac{\sqrt{x^2+y^2}}{\sqrt{4a^2-x^2-y^2}}\mathrm{d}\sigma$，其中 $D$ 是由曲线 $y=-a+\sqrt{a^2-x^2}(a>0)$ 和直线 $y=-x$ 围成的区域。`, a: R`$a^2\left(\frac{\pi^2}{16}-\frac{1}{2}\right).$`, sol: R`原书答案 $a^2\left(\frac{\pi^2}{16}-\frac{1}{2}\right)$。` },
+    { n: 32, q: R`计算二重积分 $\iint_D(x+y)^3\mathrm{d}x\mathrm{d}y$，其中 $D$ 由曲线 $x=\sqrt{1+y^2}$ 与直线 $x+\sqrt{2}y=0$ 及 $x-\sqrt{2}y=0$ 围成。`, a: R`$\frac{14}{15}.$`, sol: R`原书答案 $\frac{14}{15}$。` },
+    { n: 33, q: R`计算 $\iint_D(x+y^2)\mathrm{d}x\mathrm{d}y$，其中 $D=\{(x,y)\mid x^2+y^2\leqslant2x+2y\}.$`, a: R`$5\pi.$`, sol: R`原书答案 $5\pi$。` },
+    { n: 34, q: R`求 $\iint_D(\sqrt{x^2+y^2}+y)\mathrm{d}\sigma$，其中 $D$ 是由圆 $x^2+y^2=4$ 和 $(x+1)^2+y^2=1$ 所围成的平面区域（如右图）。`, a: R`$\frac{16}{9}(3\pi-2).$`, sol: R`原书答案 $\frac{16}{9}(3\pi-2)$。` },
+    { n: 35, q: R`计算二重积分 $\iint_De^xy\,\mathrm{d}x\mathrm{d}y$，其中 $D$ 是以曲线 $y=\sqrt{x}$，$y=\frac{1}{\sqrt{x}}$ 及 $y$ 轴为边界的无界区域。`, a: R`$\frac{1}{2}.$`, sol: R`原书答案 $\frac{1}{2}$。` },
+    { n: 36, q: R`计算积分 $\int_{\frac{\pi}{4}}^{\frac{3\pi}{4}}\mathrm{d}\theta\int_0^{2\sin\theta}[\sin\theta+\cos\theta\sqrt{1+\rho^2\sin^2\theta}]\rho^2\,\mathrm{d}\rho.$`, a: R`$\frac{4}{3}+\frac{\pi}{2}.$`, sol: R`原书答案 $\frac{4}{3}+\frac{\pi}{2}$。` },
+    { n: 37, q: R`计算积分 $\int_{-1}^1\mathrm{d}x\int_{|x|}^{1+\sqrt{1-x^2}}(x^3+1)\sqrt{x^2+y^2}\,\mathrm{d}y.$`, a: R`$\frac{20\sqrt{2}}{9}.$`, sol: R`原书答案 $\frac{20\sqrt{2}}{9}$。` },
+    { n: 38, q: R`设 $f(t)=\int_0^t\mathrm{d}x\int_x^ty^2e^{-y^2}\mathrm{d}y$，试证对一切的 $t\in(-\infty,+\infty)$，有 $0\leqslant f(t)<\frac{1}{2}.$`, a: R`提示：交换积分次序化为一元变上限定积分。`, sol: R`原书提示：交换积分次序化为一元变上限定积分。` },
+    { n: 39, q: R`设 $D=\{(x,y)\mid0\leqslant x\leqslant2,0\leqslant y\leqslant2\}.$
+1）计算 $b=\iint_D|xy-1|\,\mathrm{d}\sigma$；
+2）设 $f(x,y)$ 在 $D$ 上连续，且 $\iint_Df(x,y)\mathrm{d}\sigma=0,\iint_Dxyf(x,y)\mathrm{d}\sigma=1.$
+证明：存在 $(\xi,\eta)\in D$ 使 $|f(\xi,\eta)|\geqslant\frac{1}{b}.$`, a: R`1) $b=\frac{3}{2}+2\ln2.$ 2) 反证法。`, sol: R`原书答案：1) $b=\frac{3}{2}+2\ln2$；2) 反证法。` },
+    { n: 40, q: R`设 $f(x),g(x)$ 在 $[0,1]$ 上连续，且同时单调增，证明：
+$$\int_0^1f(x)g(x)\mathrm{d}x\geqslant\left(\int_0^1f(x)\mathrm{d}x\right)\left(\int_0^1g(x)\mathrm{d}x\right)$$`, a: R`提示：设 $D=\{(x,y)\mid0\leqslant x\leqslant1,0\leqslant y\leqslant1\}$，$\int_0^1f(x)g(x)\mathrm{d}x-\left(\int_0^1f(x)\mathrm{d}x\right)\left(\int_0^1g(x)\mathrm{d}x\right)=\iint_Df(x)g(x)\mathrm{d}\sigma-\iint_Df(x)g(y)\mathrm{d}\sigma.$`, sol: R`原书提示如上。` }
   ];
 })();

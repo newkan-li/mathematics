@@ -151,7 +151,7 @@
       L.problems.forEach(function (p) {
         var c = parseChoice(p);
         html += '<div class="prob" id="' + L.id + "-p" + p.n + '">' +
-          '<div class="prob-q"><span class="pn">' + p.n + ".</span> " + A.esc(c ? c.stem : p.q) + "</div>";
+          '<div class="prob-q"><span class="pn">' + p.n + ".</span> " + A.esc(c ? c.stem : p.q).replace(/\n/g, "<br>") + "</div>";
         if (c) {
           html += '<div class="qopts">';
           c.options.forEach(function (o, j) {
