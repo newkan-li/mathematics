@@ -125,7 +125,59 @@ $$\overline A=\begin{pmatrix}2&-2&1&-1&1&1\\1&2&-1&1&-2&1\\4&-10&5&-5&7&1\\2&-14
 【分析】非齐次线性方程组 $Ax=b$ 无解的充分必要条件是 $r(A)\neq r(\overline A)$。当 $a=-1$ 时 $r(A)=r(\overline A)=4$，方程组必有唯一解，(A) 不正确（注意此时第 4 个方程是 $-3x_4=0$，不要与 $0x_4=3$ 相混淆）。当 $a=1$ 时仍有 $r(A)=r(\overline A)=4$，(B) 不正确。当 $a=2$ 时 $\overline A\to\begin{pmatrix}1&0&3&2&-1\\&-1&2&6&1\\&&2&&-2\\&&&-3&3\end{pmatrix}\to\begin{pmatrix}1&0&3&2&-1\\&-1&2&6&1\\&&1&&-1\\&&&&0\end{pmatrix}$，$r(A)=r(\overline A)<4$，方程组有无穷多解，(C) 不正确。当 $a=3$ 时 $\overline A\to\begin{pmatrix}1&0&3&2&-1\\&2&6&&2\\&1&3&&-2\\&&-3&&4\end{pmatrix}$，可观察出二、三两个方程矛盾，方程组无解，故应选 (D)。
 
 【例4.15】下列命题中，正确的命题是 (A) $n$ 元方程组 $Ax=b$ 有唯一解 $\Leftrightarrow|A|\neq0$ (B) 若 $Ax=0$ 只有零解，那么 $Ax=b$ 有唯一解 (C) 若 $Ax=0$ 有非零解，则 $Ax=b$ 有无穷多解 (D) 若 $Ax=b$ 有两个不同的解，那么 $Ax=0$ 有无穷多解
-【分析】(A) $n$ 元方程组只表明有 $n$ 个未知数，方程个数不一定是 $n$，$A$ 不一定是 $n$ 阶矩阵，行列式不存在。(B) $Ax=0$ 只有零解 $\Leftrightarrow r(A)=n$；$Ax=b$ 有唯一解 $\Leftrightarrow r(A)=r(\overline A)=n$，而 $r(A)=n\nRightarrow r(\overline A)=n$，故 (B) 不正确。(C) $Ax=0$ 有非零解 $\Leftrightarrow r(A)<n$；$Ax=b$ 有无穷多解 $\Leftrightarrow r(A)=r(\overline A)<n$，也不正确。(D) 若 $Ax=b$ 有两个不同的解，则其差为 $Ax=0$ 的非零解，$Ax=0$ 有无穷多解，正确。故应选 (D)。` }
+【分析】(A) $n$ 元方程组只表明有 $n$ 个未知数，方程个数不一定是 $n$，$A$ 不一定是 $n$ 阶矩阵，行列式不存在。(B) $Ax=0$ 只有零解 $\Leftrightarrow r(A)=n$；$Ax=b$ 有唯一解 $\Leftrightarrow r(A)=r(\overline A)=n$，而 $r(A)=n\nRightarrow r(\overline A)=n$，故 (B) 不正确。(C) $Ax=0$ 有非零解 $\Leftrightarrow r(A)<n$；$Ax=b$ 有无穷多解 $\Leftrightarrow r(A)=r(\overline A)<n$，也不正确。(D) 若 $Ax=b$ 有两个不同的解，则其差为 $Ax=0$ 的非零解，$Ax=0$ 有无穷多解，正确。故应选 (D)。` },
+      { p: 109, md: R`(C) 当 $r(A)<n$ 时 $\Leftrightarrow r(A)=r(\overline A)<n$，故 (C) 不正确。例如 $\begin{cases}x_1+x_2=0\\2x_1+2x_2=0\end{cases}$ 与 $\begin{cases}x_1+x_2=1\\2x_1+2x_2=3\end{cases}$，虽 $Ax=0$ 有非零解，但 $Ax=b$ 可以无解。(D) 若 $\alpha_1,\alpha_2$ 是 $Ax=b$ 的两个不同的解，则 $\alpha_1-\alpha_2$ 是 $Ax=0$ 的非零解，从而 $Ax=0$ 有无穷多解，(D) 正确。故应选 (D)。
+
+【例4.16】设 $A$ 是 $m\times n$ 矩阵，非齐次线性方程组 $Ax=b$ 有解的充分条件是 (A) 秩 $r(A)=m$ (B) $A$ 的行向量组线性相关 (C) 秩 $r(A)=n$ (D) $A$ 的列向量组线性相关
+【分析】$Ax=b$ 有解的充分必要条件是 $r(A)=r(\overline A)$。由于 $\overline A=[A,b]$ 是 $m\times(n+1)$ 矩阵，$r(A)\leqslant r(\overline A)\leqslant m$。如果 $r(A)=m$，则必有 $r(A)=r(\overline A)=m$，所以方程组有解。但当 $r(A)=r(\overline A)<m$ 时方程组仍有解，故 (A) 是充分条件。而 (B)、(C)、(D) 均不能保证 $r(A)=r(\overline A)$。
+
+【例4.17】线性方程组 $Ax=b$ 的系数矩阵是 $4\times5$ 矩阵，且 $A$ 的行向量组线性无关，则错误命题是 (A) 齐次方程组 $A^Tx=0$ 只有零解 (B) 齐次方程组 $A^TAx=0$ 必有非零解 (C) $\forall b$，方程组 $Ax=b$ 必有无穷多解 (D) $\forall b$，方程组 $A^Tx=b$ 必有唯一解
+【分析】由 $A$ 的行向量组线性无关得 $r(A)=4$。(A) $A^T$ 是 $5\times4$ 矩阵，$r(A^T)=r(A)=4$，齐次方程组只有零解，正确。(B) $A^TA$ 是 5 阶矩阵，$r(A^TA)\leqslant r(A)=4<5$，故 $A^TAx=0$ 必有非零解，正确。(C) $A$ 是 $4\times5$ 矩阵，行向量组线性无关，其延伸组必线性无关，故 $r(A)=r(A,b)=4<5$，即 $Ax=b$ 必有无穷多解，正确。(D) $A^T$ 的列向量只是 4 个线性无关的 5 维向量，不能表示任一个 5 维向量，故 $A^Tx=b$ 有可能无解，(D) 不正确。故应选 (D)。
+
+【例4.18】（2001,3）设 $A$ 是 $n$ 阶矩阵，$\alpha$ 是 $n$ 维列向量，若秩 $r\begin{pmatrix}A&\alpha\\\alpha^T&0\end{pmatrix}=r(A)$，则线性方程组 (A) $Ax=\alpha$ 必有无穷多解 (B) $Ax=\alpha$ 必有唯一解 (C) $\begin{pmatrix}A&\alpha\\\alpha^T&0\end{pmatrix}\begin{pmatrix}x\\y\end{pmatrix}=0$ 仅有零解` },
+      { p: 110, md: R`(D) $\begin{pmatrix}A&\alpha\\\alpha^T&0\end{pmatrix}\begin{pmatrix}x\\y\end{pmatrix}=0$ 必有非零解
+【分析】对于齐次方程组 $Ax=0$，(1) 只有零解与 (2) 必有非零解，两者必居其一且仅居其一，因此 (C) 与 (D) 中必有一个正确。$A$ 是 $n$ 阶矩阵，$\begin{pmatrix}A&\alpha\\\alpha^T&0\end{pmatrix}$ 是 $n+1$ 阶矩阵，由于 $r\begin{pmatrix}A&\alpha\\\alpha^T&0\end{pmatrix}=r(A)\leqslant n<n+1$，故应选 (D)。
+
+【例4.19】设 $A$ 是秩为 2 的 $4\times5$ 矩阵，已知非齐次线性方程组 $Ax=b$ 有解，则解集中线性无关的解向量个数为 (A) 2 (B) 3 (C) 4 (D) 5
+【分析】由秩 $r(A)=2$ 知 $Ax=0$ 的基础解系有 $n-r(A)=5-2=3$ 个解向量，设 $\alpha$ 是 $Ax=b$ 的某个解，$\eta_1,\eta_2,\eta_3$ 是 $Ax=0$ 的基础解系。那么 $\alpha,\alpha+\eta_1,\alpha+\eta_2,\alpha+\eta_3$ 是 $Ax=b$ 的 4 个线性无关的解，且 $Ax=b$ 的任一个解均可以由它们线性表出。这是因为：若 $k\alpha+k_1(\alpha+\eta_1)+k_2(\alpha+\eta_2)+k_3(\alpha+\eta_3)=0$ (1)，用 $A$ 左乘 (1) 式，并把 $A\alpha=b\neq0,A\eta_i=0$ 代入，可得 $(k+k_1+k_2+k_3)b=0$，于是 $k+k_1+k_2+k_3=0$ (2)。由 (1) 又有 $(k+k_1+k_2+k_3)\alpha+k_1\eta_1+k_2\eta_2+k_3\eta_3=0$，把 (2) 代入得 $k_1\eta_1+k_2\eta_2+k_3\eta_3=0$，因为 $\eta_1,\eta_2,\eta_3$ 线性无关，故 $k_1=k_2=k_3=0$。再代入 (2) 式，可知 $k=k_1=k_2=k_3=0$，即它们线性无关。若 $\gamma$ 是 $Ax=b$ 的任一解，则 $\gamma-\alpha$ 是 $Ax=0$ 的解，可由 $\eta_1,\eta_2,\eta_3$ 线性表出，设 $\gamma-\alpha=k_1\eta_1+k_2\eta_2+k_3\eta_3$，那么 $\gamma=(1-k_1-k_2-k_3)\alpha+k_1(\alpha+\eta_1)+k_2(\alpha+\eta_2)+k_3(\alpha+\eta_3)$，即 $\gamma$ 必可由它们线性表出。
+【评注】当方程组 $Ax=b$ 有解时，解向量的极大线性无关组有 $n-r(A)+1$ 个向量。
+
+【例4.20】4 元方程组 $Ax=b$ 中，系数矩阵的秩 $r(A)=3$，$X_1,X_2,X_3$ 是方程` },
+      { p: 111, md: R`组的三个解，若 $X_1=(1,1,1,1)^T$，$X_2+X_3=(2,3,4,5)^T$，则方程组通解为______。
+【分析】由于 $n-r(A)=4-3=1$，故通解形式为 $\alpha+k\eta$。因为 $X_1$ 是 $Ax=b$ 的解，故 $\alpha$ 可取为 $X_1$。由 $A(X_2+X_3)=2b,A(2X_1)=2b$ 知 $A(X_2+X_3-2X_1)=0$，即 $(0,1,2,3)^T$ 是 $Ax=0$ 的解，所以方程组的通解为 $(1,1,1,1)^T+k(0,1,2,3)^T$。
+
+【例4.21】已知 $\xi_1=(-9,1,2,11)^T,\xi_2=(1,-5,13,0)^T,\xi_3=(-7,-9,24,11)^T$ 是方程组 $\begin{cases}a_1x_1+7x_2+a_3x_3+x_4=d_1\\3x_1+b_2x_2+2x_3+2x_4=d_2\\9x_1+4x_2+x_3+7x_4=2\end{cases}$ 的解，则方程组的通解是______。
+【分析】只有知道秩 $r(A)$，算出 $n-r(A)$ 就知解的结构。因为系数矩阵 $A$ 中有 2 阶子式不为零，故 $r(A)\geqslant2$；又因 $\xi_1-\xi_2=(-10,6,-11,11)^T,\xi_1-\xi_3=(-2,10,-22,0)^T$ 是 $Ax=0$ 的线性无关的解，而有 $n-r(A)\geqslant2$，即 $r(A)\leqslant2$。从而 $r(A)=2$。所以方程组的通解为 $\begin{pmatrix}-9\\1\\2\\11\end{pmatrix}+k_1\begin{pmatrix}-10\\6\\-11\\11\end{pmatrix}+k_2\begin{pmatrix}1\\-5\\13\\0\end{pmatrix}$。
+【评注】本题亦可利用解的概念先求出参数，然后再解方程组，但计算繁琐。
+
+【例4.22】已知方程组 $\begin{cases}a_{11}x_1+a_{12}x_2+\cdots+a_{1n}x_n=b_1\\a_{21}x_1+a_{22}x_2+\cdots+a_{2n}x_n=b_2\\\cdots\\a_{m1}x_1+a_{m2}x_2+\cdots+a_{mn}x_n=b_m\end{cases}$ (Ⅰ)` },
+      { p: 112, md: R`与 $\begin{cases}a_{11}x_1+a_{21}x_2+\cdots+a_{m1}x_m=0\\a_{12}x_1+a_{22}x_2+\cdots+a_{m2}x_m=0\\\cdots\\a_{1n}x_1+a_{2n}x_2+\cdots+a_{mn}x_m=0\\b_1x_1+b_2x_2+\cdots+b_mx_m=1\end{cases}$ (Ⅱ)，证明方程组 (Ⅰ) 有解的充分必要条件是方程组 (Ⅱ) 无解。
+【证】方程组 (Ⅰ) 有解 $\Leftrightarrow r(A_1)=r(\overline A_1)$，方程组 (Ⅱ) 无解 $\Leftrightarrow r(A_2)\neq r(\overline A_2)$。必要性：若 $r(A_1)=r(\overline A_1)$，由于 $A_2=\overline A_1^T$，故 $r(A_2)=r(\overline A_1^T)=r(\overline A_1)=r(A_1)$；又 $r(\overline A_2)=r(A_2)+1=r(A_1)+1$，于是 $r(A_2)\neq r(\overline A_2)$，故方程组 (Ⅱ) 无解。充分性：若方程组 (Ⅱ) 无解，则 $r(\overline A_2)=r(A_2)+1$，由必要性知 $r(A_2)=r(\overline A_1)$，于是 $r(\overline A_1)+1=r(A_1)+1$，所以 $r(A_1)=r(\overline A_1)$，即方程组 (Ⅰ) 有解。` },
+      { p: 113, md: R`### 公共解、同解
+【例4.23】（2003,1）设有齐次线性方程组 $Ax=0$ 和 $Bx=0$，其中 $A,B$ 均为 $m\times n$ 矩阵，现有 4 个命题：(1) 若 $Ax=0$ 的解均是 $Bx=0$ 的解，则秩 $r(A)\geqslant r(B)$；(2) 若秩 $r(A)\geqslant r(B)$，则 $Ax=0$ 的解均是 $Bx=0$ 的解；(3) 若 $Ax=0$ 与 $Bx=0$ 同解，则秩 $r(A)=r(B)$；(4) 若秩 $r(A)=r(B)$，则 $Ax=0$ 与 $Bx=0$ 同解。以上命题中正确的是 (A)(1)(2) (B)(1)(3) (C)(2)(4) (D)(3)(4)
+【分析】显然命题 (4) 错误，可排除 (C),(D)。(A) 与 (B) 均含命题 (1)，所以命题 (1) 必然正确，那么命题 (2) 和 (3) 哪一个正确？因为命题 (1) 正确，若 $Bx=0$ 的解均是 $Ax=0$ 的解，则必有 $r(B)\geqslant r(A)$ 正确。那么当 $Ax=0$ 与 $Bx=0$ 同解时，必有 $r(A)\geqslant r(B)\geqslant r(A)$，即 $r(A)=r(B)$，可见命题 (3) 正确，所以应选 (B)。
+【评注】命题 (1) 可直接证明：设 $\alpha_1,\cdots,\alpha_t$ 是 $Ax=0$ 的基础解系，$\beta_1,\cdots,\beta_s$ 是 $Bx=0$ 的基础解系。因为 $Ax=0$ 的解均是 $Bx=0$ 的解，所以 $\alpha_1,\cdots,\alpha_t$ 必可由 $\beta_1,\cdots,\beta_s$ 线性表出，又 $\alpha_1,\cdots,\alpha_t$ 线性无关，故 $t\leqslant s$，即 $t=n-r(A)\leqslant n-r(B)=s$，从而 $r(A)\geqslant r(B)$。
+
+【例4.24】设有两个 4 元齐次线性方程组 (Ⅰ) $\begin{cases}x_1+x_2=0\\x_2-x_4=0\end{cases}$，(Ⅱ) $\begin{cases}x_1-x_2+x_3=0\\x_2-x_3+x_4=0\end{cases}$。(1) 求 (Ⅰ) 的基础解系；(2) 试问 (Ⅰ) 和 (Ⅱ) 是否有非零公共解？若有，则求出所有的非零公共解。
+【解】因为 $r(A)=2$，$n-r(A)=2$，给自由变量 $x_3,x_4$ 赋值得基础解系 $\xi_1=(0,0,1,0)^T,\xi_2=(-1,1,0,1)^T$。` },
+      { p: 114, md: R`关于公共解：1°. 把 (Ⅰ)(Ⅱ) 联立起来直接求解，即 $A=\begin{pmatrix}1&1&0&0\\0&1&0&-1\\1&-1&1&0\\0&1&-1&1\end{pmatrix}\to\begin{pmatrix}1&1&0&0\\0&1&0&-1\\0&-2&1&0\\0&0&-1&2\end{pmatrix}\to\begin{pmatrix}1&1&0&0\\0&1&0&-1\\0&0&1&-2\\0&0&0&0\end{pmatrix}$。由于 $n-r(A)=1$，基础解系是 $(-1,1,2,1)^T$，从而公共解：$k(-1,1,2,1)^T$。
+2°. 通过 (Ⅰ) 与 (Ⅱ) 各自的通解寻找公共解。先求 (Ⅱ) 的基础解系 $\eta_1=(0,1,1,0)^T,\eta_2=(-1,-1,0,1)^T$，令 $k_1\xi_1+k_2\xi_2=l_1\eta_1+l_2\eta_2$，即 $(-k_2,k_2,k_1,k_2)^T=(-l_2,l_1-l_2,l_1,l_2)^T$，比较分量得 $k_1=l_1=2k_2=2l_2$，所以公共解是 $k_2(-1,1,2,1)^T$。
+3°. 把 (Ⅰ) 的通解代入 (Ⅱ) 中求公共解：$k_1\xi_1+k_2\xi_2=(-k_2,k_2,k_1,k_2)^T$ 满足 (Ⅱ) 的方程，故 $\begin{cases}-k_2-k_2+k_1=0\\k_2-k_1+k_2=0\end{cases}$，解出 $k_1=2k_2$。
+
+【例4.25】（2007,1,2,3,4）设线性方程组 $\begin{cases}x_1+2x_2+x_3=0\\x_1+x_2+ax_3=0\\x_1+4x_2+a^2x_3=0\end{cases}$ (1) 与方程 $x_1+2x_2+x_3=a-1$ (2) 有公共解，求 $a$ 的值及所有公共解。
+【解】把两个方程联立，对增广矩阵加减消元有 $\overline A=\left(\begin{array}{ccc|c}1&1&1&0\\1&2&a&0\\1&4&a^2&0\\1&2&1&a-1\end{array}\right)\to\left(\begin{array}{ccc|c}1&1&1&0\\0&1&a-1&0\\0&3&a^2-1&0\\0&1&0&a-1\end{array}\right)\to\left(\begin{array}{ccc|c}1&1&1&0\\0&1&a-1&0\\0&0&(a-1)(a-2)&0\\0&0&1-a&a-1\end{array}\right)$。当 $a\neq1$ 且 $a\neq2$ 时方程组无解，从而没有公共解。当 $a=1$ 时 $\overline A\to\left(\begin{array}{ccc|c}1&1&1&0\\0&1&0&0\\0&0&0&0\\0&0&0&0\end{array}\right)$，通解是 $k(1,0,-1)^T$。` },
+      { p: 115, md: R`即 (1) 与 (2) 的公共解是 $k(1,0,-1)^T$。当 $a=2$ 时 $\overline A\to\left(\begin{array}{ccc|c}1&1&1&0\\0&1&1&0\\0&0&-1&1\\0&0&0&0\end{array}\right)$，方程组有唯一解 $(0,1,-1)^T$，即公共解是 $(0,1,-1)^T$。
+
+【例4.26】设 $A$ 与 $B$ 均是 $n$ 阶矩阵，且秩 $r(A)+r(B)<n$，证明方程组 $Ax=0$ 与 $Bx=0$ 有非零公共解。
+【证】构造齐次线性方程组 $\begin{cases}Ax=0\\Bx=0\end{cases}$ (1)。设 $\alpha_{i1},\cdots,\alpha_{ir}$ 与 $\beta_{j1},\cdots,\beta_{jt}$ 分别是 $A$ 与 $B$ 行向量组的极大线性无关组，那么矩阵 $\begin{pmatrix}A\\B\end{pmatrix}$ 的行向量组可由 $\alpha_{i1},\cdots,\alpha_{ir},\beta_{j1},\cdots,\beta_{jt}$ 线性表出。从而 $r\begin{pmatrix}A\\B\end{pmatrix}\leqslant r(\alpha_{i1},\cdots,\alpha_{ir},\beta_{j1},\cdots,\beta_{jt})\leqslant r+t=r(A)+r(B)<n$，所以方程组 (1) 有非零解，即 $Ax=0$ 与 $Bx=0$ 有非零公共解。
+
+【例4.27】（2005,3,4）已知齐次方程组 (Ⅰ) $\begin{cases}x_1+2x_2+3x_3=0\\2x_1+3x_2+5x_3=0\\x_1+x_2+ax_3=0\end{cases}$ 和 (Ⅱ) $\begin{cases}x_1+bx_2+cx_3=0\\2x_1+b^2x_2+(c+1)x_3=0\end{cases}$ 同解，求 $a,b,c$ 的值。
+【解】因为方程组 (Ⅱ) 中方程的个数小于未知量的个数，故 (Ⅱ) 必有无穷多解，那么由 (Ⅰ) 与 (Ⅱ) 同解知 (Ⅰ) 必有无穷多解。于是 $|A|=\begin{vmatrix}1&2&3\\2&3&5\\1&1&a\end{vmatrix}=2-a=0$，从而 $a=2$。此时 $A=\begin{pmatrix}1&2&3\\2&3&5\\1&1&2\end{pmatrix}\to\begin{pmatrix}1&0&1\\0&1&1\\0&0&0\end{pmatrix}$，故 $k(-1,-1,1)^T$ 是 (Ⅰ) 的通解。把 $x_1=-k,x_2=-k,x_3=k$ 代入 (Ⅱ)，有 $\begin{cases}(-1-b+c)k=0\\(-2-b^2+c+1)k=0\end{cases}$，那么 $b^2-b=0$，可得 $b=1,c=2$ 或 $b=0,c=1$。` },
+      { p: 116, md: R`当 $b=1,c=2$，对方程组 (Ⅱ) 的系数矩阵 $B$ 作初等行变换，有 $B=\begin{pmatrix}1&1&2\\2&1&3\end{pmatrix}\to\begin{pmatrix}1&0&1\\0&1&1\end{pmatrix}$，故 (Ⅰ) 与 (Ⅱ) 同解。当 $b=0,c=1$ 时 $B=\begin{pmatrix}1&0&1\\2&0&2\end{pmatrix}\to\begin{pmatrix}1&0&1\\0&0&0\end{pmatrix}$，故 (Ⅰ) 与 (Ⅱ) 不同解。综上所述，当 $a=2,b=1,c=2$ 时，(Ⅰ) 与 (Ⅱ) 同解。
+
+【例4.28】设 $A$ 是 $m\times n$ 阶矩阵，证明齐次线性方程组 (Ⅰ) $A^TAx=0$ 与 (Ⅱ) $Ax=0$ 同解。
+【证】如果 $\alpha$ 是 (Ⅱ) 的解，则 $A\alpha=0$，显然 $A^TA\alpha=0$，即 $\alpha$ 是 (Ⅰ) 的解，故 (Ⅱ) 的解全是 (Ⅰ) 的解。若 $\alpha$ 是 (Ⅰ) 的解，即 $A^TA\alpha=0$，那么 $\alpha^TA^TA\alpha=0$ 即 $(A\alpha)^T(A\alpha)=0$，即 $\|A\alpha\|^2=0$，故 $A\alpha=0$，所以 $\alpha$ 必是 (Ⅱ) 的解。即 (Ⅰ) 的解全是 (Ⅱ) 的解，从而 (Ⅰ) 与 (Ⅱ) 同解。
+【评注】若 $\alpha=(a_1,\cdots,a_n)^T$，则 $\alpha^T\alpha=a_1^2+\cdots+a_n^2$，那么 $\alpha^T\alpha=0\Leftrightarrow a_i=0\Leftrightarrow\alpha=0$。因为 (Ⅰ) 与 (Ⅱ) 同解，它们的基础解系所含向量个数相同，即有 $n-r(A^TA)=n-r(A)$，故 $r(A^TA)=r(A)$。` }
     ],
     quiz: [
       { q: R`非齐次线性方程组 $Ax=b$ 有解的充要条件是`, options: [R`$r(A)=r(\overline A)$`, R`$r(A)=n$`, R`$|A|\neq0$`, R`$b=0$`], answer: 0, explain: R`有解判定定理。` },
