@@ -9,108 +9,152 @@ window.LESSONS = window.LESSONS || {};
     pages: [148, 159],
     img: "assets/img/gaoshu",
     content: [
-      { p: 148, md: R`（例6续）当 $\varphi(0,0)=0$ 时，$\lim\limits_{\substack{\Delta x\to0\\\Delta y\to0}}\dfrac{[f(\Delta x,\Delta y)-f(0,0)]-[f'_x(0,0)\Delta x+f'_y(0,0)\Delta y]}{\rho}=\lim\limits_{\substack{\Delta x\to0\\\Delta y\to0}}\dfrac{|\Delta x-\Delta y|}{\sqrt{(\Delta x)^2+(\Delta y)^2}}\varphi(\Delta x,\Delta y)=0$（因前者有界、后者为无穷小），故 $f$ 在 $(0,0)$ 可微。
+      { p: 148, md: R`2）当 $\varphi(0,0)=0$ 时，
+$$\lim_{\substack{\Delta x\to0\\\Delta y\to0}}\dfrac{[f(\Delta x,\Delta y)-f(0,0)]-[f'_x(0,0)\Delta x+f'_y(0,0)\Delta y]}{\rho}=\lim_{\substack{\Delta x\to0\\\Delta y\to0}}\dfrac{|\Delta x-\Delta y|}{\sqrt{(\Delta x)^2+(\Delta y)^2}}\varphi(\Delta x,\Delta y)=0.$$
+这是由于 $\dfrac{|\Delta x-\Delta y|}{\sqrt{(\Delta x)^2+(\Delta y)^2}}\leqslant\dfrac{|\Delta x|}{\sqrt{(\Delta x)^2+(\Delta y)^2}}+\dfrac{|\Delta y|}{\sqrt{(\Delta x)^2+(\Delta y)^2}}\leqslant2$，即为有界变量，而 $\lim\limits_{\substack{\Delta x\to0\\\Delta y\to0}}\varphi(\Delta x,\Delta y)=\varphi(0,0)=0$ 为无穷小量。故 $f(x,y)$ 在 $(0,0)$ 点处可微。
 
-【例7】设 $f'_x(x_0,y_0)$ 存在，$f'_y(x,y)$ 在 $(x_0,y_0)$ 连续，证明 $f(x,y)$ 在 $(x_0,y_0)$ 可微。
+【例7】设 $f'_x(x_0,y_0)$ 存在，$f'_y(x,y)$ 在点 $(x_0,y_0)$ 处连续，证明 $f(x,y)$ 在点 $(x_0,y_0)$ 处可微。
+【分析】由微分定义知，只要证明 $\Delta z=f'_x(x_0,y_0)\Delta x+f'_y(x_0,y_0)\Delta y+o(\rho)$。
+【证】$\Delta z=f(x_0+\Delta x,y_0+\Delta y)-f(x_0,y_0)=f(x_0+\Delta x,y_0+\Delta y)-f(x_0+\Delta x,y_0)+f(x_0+\Delta x,y_0)-f(x_0,y_0)$，由拉格朗日中值定理得 $f(x_0+\Delta x,y_0+\Delta y)-f(x_0+\Delta x,y_0)=f'_y(x_0+\Delta x,y_0+\theta\Delta y)\Delta y$，由 $f'_x(x_0,y_0)$ 存在可知 $f(x_0+\Delta x,y_0)-f(x_0,y_0)=f'_x(x_0,y_0)\Delta x+\alpha_2\Delta x$，则 $\Delta z=f'_y(x_0+\Delta x,y_0+\theta\Delta y)\Delta y+f'_x(x_0,y_0)\Delta x+\alpha_2\Delta x$。又由 $f'_y(x,y)$ 在点 $(x_0,y_0)$ 处连续可知 $\lim\limits_{\substack{\Delta x\to0\\\Delta y\to0}}f'_y(x_0+\Delta x,y_0+\theta\Delta y)=f'_y(x_0,y_0)$，即有 $f'_y(x_0+\Delta x,y_0+\theta\Delta y)=f'_y(x_0,y_0)+\alpha_1$，从而有 $\Delta z=f'_y(x_0,y_0)\Delta y+\alpha_1\Delta y+f'_x(x_0,y_0)\Delta x+\alpha_2\Delta x$。又 $\left|\dfrac{\alpha_1\Delta y+\alpha_2\Delta x}{\sqrt{(\Delta x)^2+(\Delta y)^2}}\right|\leqslant\dfrac{|\alpha_1||\Delta y|+|\alpha_2||\Delta x|}{\sqrt{(\Delta x)^2+(\Delta y)^2}}\leqslant|\alpha_1|+|\alpha_2|\to0$。即 $\alpha_1\Delta y+\alpha_2\Delta x=o(\rho)$，故 $f(x,y)$ 在点 $(x_0,y_0)$ 处可微。
 
-【证】$\Delta z=f(x_0+\Delta x,y_0+\Delta y)-f(x_0+\Delta x,y_0)+f(x_0+\Delta x,y_0)-f(x_0,y_0)$。由拉格朗日中值定理及 $f'_x(x_0,y_0)$ 存在、$f'_y$ 连续，得 $\Delta z=f'_x(x_0,y_0)\Delta x+f'_y(x_0,y_0)\Delta y+\alpha_1\Delta y+\alpha_2\Delta x$，其中 $\alpha_1,\alpha_2\to0$。因 $\left|\dfrac{\alpha_1\Delta y+\alpha_2\Delta x}{\rho}\right|\leqslant|\alpha_1|+|\alpha_2|\to0$，故 $\alpha_1\Delta y+\alpha_2\Delta x=o(\rho)$，即 $f$ 在 $(x_0,y_0)$ 可微。
-
-### 一、考试内容要点精讲
-**1. 复合函数求导法** 设 $u=u(x,y),v=v(x,y)$ 可导，$z=f(u,v)$ 有连续一阶偏导数，则
-$$\frac{\partial z}{\partial x}=\frac{\partial f}{\partial u}\frac{\partial u}{\partial x}+\frac{\partial f}{\partial v}\frac{\partial v}{\partial x},\qquad \frac{\partial z}{\partial y}=\frac{\partial f}{\partial u}\frac{\partial u}{\partial y}+\frac{\partial f}{\partial v}\frac{\partial v}{\partial y}.$$` },
-      { p: 149, md: R`**2. 全微分形式不变性** 设 $z=f(u,v),u=u(x,y),v=v(x,y)$ 都有连续一阶偏导数，则 $dz=\dfrac{\partial z}{\partial x}dx+\dfrac{\partial z}{\partial y}dy=\dfrac{\partial z}{\partial u}du+\dfrac{\partial z}{\partial v}dv$。
+## 一、考试内容要点精讲
+### 1. 复合函数求导法
+设 $u=u(x,y),v=v(x,y)$ 可导，$z=f(u,v)$ 在相应点有连续一阶偏导数，则
+$$\dfrac{\partial z}{\partial x}=\dfrac{\partial f}{\partial u}\dfrac{\partial u}{\partial x}+\dfrac{\partial f}{\partial v}\dfrac{\partial v}{\partial x},$$` },
+      { p: 149, md: R`$$\dfrac{\partial z}{\partial y}=\dfrac{\partial f}{\partial u}\dfrac{\partial u}{\partial y}+\dfrac{\partial f}{\partial v}\dfrac{\partial v}{\partial y}.$$
 ![复合函数 $z\to u,v\to x,y$ 的结构图](assets/img/figs/gaoshu/gs05-p149-1.jpg)
 
-**3. 隐函数求导法**
-1) 由一个方程确定：设 $F(x,y,z)$ 有连续一阶偏导数，$F'_z\neq0$，$z=z(x,y)$ 由 $F(x,y,z)=0$ 确定。方法：i) 公式 $\dfrac{\partial z}{\partial x}=-\dfrac{F'_x}{F'_z},\dfrac{\partial z}{\partial y}=-\dfrac{F'_y}{F'_z}$；ii) 等式两边求导；iii) 利用微分形式不变性 $F'_xdx+F'_ydy+F'_zdz=0$。
-2) 由方程组确定（仅数一）：$\begin{cases}F(x,y,u,v)=0\\G(x,y,u,v)=0\end{cases}$，用等式两边求导或微分形式不变性。
+### 2. 全微分形式不变性
+设 $z=f(u,v),u=u(x,y),v=v(x,y)$ 都有连续一阶偏导数，则 $dz=\dfrac{\partial z}{\partial x}dx+\dfrac{\partial z}{\partial y}dy$，$dz=\dfrac{\partial z}{\partial u}du+\dfrac{\partial z}{\partial v}dv$。
 
-### 二、常考题型的方法与技巧
+### 3. 隐函数求导法
+1) 由一个方程所确定的隐函数：设 $F(x,y,z)$ 有连续一阶偏导数，$F'_z\neq0$，$z=z(x,y)$ 由 $F(x,y,z)=0$ 所确定。方法：i) 公式 $\dfrac{\partial z}{\partial x}=-\dfrac{F'_x}{F'_z}$，$\dfrac{\partial z}{\partial y}=-\dfrac{F'_y}{F'_z}$；ii) 等式两边求导 $F'_x+F'_z\dfrac{\partial z}{\partial x}=0$，$F'_y+F'_z\dfrac{\partial z}{\partial y}=0$；iii) 利用微分形式不变性 $F'_xdx+F'_ydy+F'_zdz=0$。
+2) 由方程组所确定的隐函数（仅数一要求）：设 $u=u(x,y),v=v(x,y)$ 由 $\begin{cases}F(x,y,u,v)=0\\G(x,y,u,v)=0\end{cases}$ 所确定。方法：(1) 等式两边求导 $\begin{cases}F'_x+F'_u\dfrac{\partial u}{\partial x}+F'_v\dfrac{\partial v}{\partial x}=0\\G'_x+G'_u\dfrac{\partial u}{\partial x}+G'_v\dfrac{\partial v}{\partial x}=0\end{cases}$；(2) 利用微分形式不变性 $\begin{cases}F'_xdx+F'_ydy+F'_udu+F'_vdv=0\\G'_xdx+G'_ydy+G'_udu+G'_vdv=0\end{cases}$。
+
+## 二、常考题型的方法与技巧
 ### 题型一　求一点处的偏导数与全微分
-【例1】设 $f(x,y)=\begin{cases}\dfrac{\sqrt{|x|}}{x^2+y^2}\sin(x^2+y^2),&(x,y)\neq(0,0)\\0,&(x,y)=(0,0)\end{cases}$，求 $f'_x(0,0),f'_y(0,0)$。
-【解】$\lim\limits_{\Delta x\to0}\dfrac{f(\Delta x,0)-f(0,0)}{\Delta x}=\lim\limits_{\Delta x\to0}\dfrac{\sqrt{|\Delta x|}}{\Delta x}=\infty$，故 $f'_x(0,0)$ 不存在；$f'_y(0,0)=\lim\limits_{\Delta y\to0}\dfrac{0-0}{\Delta y}=0$。
-【注】分段函数在分界点处的偏导数一般用定义。` },
-      { p: 150, md: R`【例2】设 $f(x,y)=\dfrac{2x+3y}{1+xy\sqrt{x^2+y^2}}$，求 $f'_x(0,0),f'_y(0,0)$。
-【解】$f'_x(0,0)=\dfrac{d}{dx}f(x,0)|_{x=0}=2$，$f'_y(0,0)=\dfrac{d}{dy}f(0,y)|_{y=0}=3$。
-【注】求具体点处偏导数可用先代后求。
+【例1】设 $f(x,y)=\begin{cases}\dfrac{\sqrt{|x|}}{x^2+y^2}\sin(x^2+y^2),&(x,y)\neq(0,0)\\0,&(x,y)=(0,0)\end{cases}$，求 $f'_x(0,0)$ 和 $f'_y(0,0)$。
+【解】由于 $\lim\limits_{\Delta x\to0}\dfrac{f(\Delta x,0)-f(0,0)}{\Delta x}=\lim\limits_{\Delta x\to0}\dfrac{\dfrac{\sqrt{|\Delta x|}}{(\Delta x)^2}\sin(\Delta x)^2}{\Delta x}=\lim\limits_{\Delta x\to0}\dfrac{\sqrt{|\Delta x|}}{\Delta x}=\infty$，则 $f'_x(0,0)$ 不存在。而 $f'_y(0,0)=\lim\limits_{\Delta y\to0}\dfrac{f(0,\Delta y)-f(0,0)}{\Delta y}=\lim\limits_{\Delta y\to0}\dfrac{0-0}{\Delta y}=0$。
+【注】求分段函数在分界点处的偏导数一般都是用定义。` },
+      { p: 150, md: R`【例2】设 $f(x,y)=\dfrac{2x+3y}{1+xy\sqrt{x^2+y^2}}$，求 $f'_x(0,0)$ 和 $f'_y(0,0)$。
+【解】$f'_x(0,0)=\left.\dfrac{d}{dx}f(x,0)\right|_{x=0}=\left.\dfrac{d}{dx}(2x)\right|_{x=0}=2$，$f'_y(0,0)=\left.\dfrac{d}{dy}f(0,y)\right|_{y=0}=\left.\dfrac{d}{dy}(3y)\right|_{y=0}=3$。
+【注】求具体点处偏导数可用先代后求的方法往往比较简单。
 
 【例3】设 $z=\ln(1+xy^2)$，则 $\left.\dfrac{\partial^2z}{\partial x\partial y}\right|_{(0,1)}=$______。
-【解】$\dfrac{\partial z}{\partial x}=\dfrac{y^2}{1+xy^2}$，$\left.\dfrac{\partial^2z}{\partial x\partial y}\right|_{(0,1)}=\dfrac{d}{dy}(y^2)|_{y=1}=2$。
+【解】$\dfrac{\partial z}{\partial x}=\dfrac{y^2}{1+xy^2}$，$\left.\dfrac{\partial^2z}{\partial x\partial y}\right|_{(0,1)}=\left.\dfrac{d}{dy}\left(\dfrac{\partial z(0,y)}{\partial x}\right)\right|_{y=1}=\left.\dfrac{d}{dy}(y^2)\right|_{y=1}=2$。
+【注】求具体点处高阶偏导数也可用先代后求的方法。
 
 【例4】设 $f(x,y,z)=\sqrt{\dfrac xy}$，则 $df(1,1,1)=$______。
-【解】$f'_x(1,1,1)=1$，$f'_y(1,1,1)=-1$，$f'_z(1,1,1)=0$，故 $df(1,1,1)=dx-dy$。
+【解】$f'_x(1,1,1)=\left.\dfrac{d}{dx}f(x,1,1)\right|_{x=1}=\left.\dfrac{d}{dx}(x)\right|_{x=1}=1$，$f'_y(1,1,1)=\left.\dfrac{d}{dy}f(1,y,1)\right|_{y=1}=\left.\dfrac{d}{dy}\left(\dfrac1y\right)\right|_{y=1}=\left.-\dfrac{1}{y^2}\right|_{y=1}=-1$，$f'_z(1,1,1)=\dfrac{d}{dz}f(1,1,z)=\left.\dfrac{d}{dz}(1)\right|_{z=1}=0$，故 $df(1,1,1)=dx-dy$。
 
 ### 题型二　求已给出具体表达式函数的偏导数与全微分
-【例1】设 $z=(x^2+y^2)e^{-\arctan\frac yx}$，求 $\dfrac{\partial z}{\partial x},\dfrac{\partial z}{\partial y},dz$。
-【解】$\dfrac{\partial z}{\partial x}=(2x+y)e^{-\arctan\frac yx}$，$\dfrac{\partial z}{\partial y}=(2y-x)e^{-\arctan\frac yx}$，$dz=(2x+y)e^{-\arctan\frac yx}dx+(2y-x)e^{-\arctan\frac yx}dy$。
-【例2】设 $z=(1+x^2+y^2)^{xy}$，求 $\dfrac{\partial z}{\partial x},\dfrac{\partial z}{\partial y}$。
-【解】令 $u=1+x^2+y^2,v=xy$，则 $\dfrac{\partial z}{\partial x}=vu^{v-1}2x+u^v\ln u\cdot y=(1+x^2+y^2)^{xy}\left[\dfrac{2x^2y}{1+x^2+y^2}+y\ln(1+x^2+y^2)\right]$，同理 $\dfrac{\partial z}{\partial y}=(1+x^2+y^2)^{xy}\left[x\ln(1+x^2+y^2)+\dfrac{2xy^2}{1+x^2+y^2}\right]$。` },
-      { p: 151, md: R`【例3】若 $z=f(x,y)$ 满足 $\dfrac{\partial^2z}{\partial y^2}=2$，且 $f(x,1)=x+2$，$f'_y(x,1)=x+1$，则 $f(x,y)=$ (A) $y^2+(x-1)y-2$ (B) $y^2+(x+1)y+2$ (C) $y^2+(x-1)y+2$ (D) $y^2+(x+1)y-2$
-【解】$\dfrac{\partial z}{\partial y}=2y+\varphi(x)$，由 $f'_y(x,1)=x+1$ 得 $\varphi(x)=x-1$，$z=y^2+y(x-1)+\psi(x)$，由 $f(x,1)=x+2$ 得 $\psi(x)=2$，故 $z=y^2+y(x-1)+2$。选 (C)。
+【例1】设 $z=(x^2+y^2)e^{-\arctan\frac xy}$，求 $\dfrac{\partial z}{\partial x},\dfrac{\partial z}{\partial y}$ 及 $dz$。
+【解】$\dfrac{\partial z}{\partial x}=(2x+y)e^{-\arctan\frac xy}$，$\dfrac{\partial z}{\partial y}=(2y-x)e^{-\arctan\frac xy}$，$dz=(2x+y)e^{-\arctan\frac xy}dx+(2y-x)e^{-\arctan\frac xy}dy$。
 
-【例4】已知 $\dfrac{\partial^2z}{\partial x\partial y}=1$，当 $x=0$ 时 $z=\sin y$；当 $y=0$ 时 $z=\sin x$，则 $z(x,y)=$______。
-【解】$\dfrac{\partial z}{\partial x}=y+\varphi(x)$，$z=xy+g(x)+\psi(y)$。由 $x=0$ 时 $z=\sin y$、$y=0$ 时 $z=\sin x$ 得 $g(x)=\sin x,\psi(y)=\sin y$（差常数相消），故 $z=xy+\sin x+\sin y$。` },
-      { p: 152, md: R`【例5】已知 $(axy^3-y^2\cos x)dx+(1+by\sin x+3x^2y^2)dy$ 是某一函数的全微分，则 $a,b$ 分别为 (A) $-2,2$ (B) $2,-2$ (C) $-3,3$ (D) $3,-3$
-【解】设 $P=axy^3-y^2\cos x$，$Q=1+by\sin x+3x^2y^2$，由 $\dfrac{\partial P}{\partial y}=\dfrac{\partial Q}{\partial x}$ 得 $3ay^2-2y\cos x=by\cos x+6xy^2$，故 $3a=6,b=-2$，即 $a=2,b=-2$。选 (B)。
-【注】$Pdx+Qdy$ 为全微分 $\Rightarrow\dfrac{\partial P}{\partial y}=\dfrac{\partial Q}{\partial x}$。
+【例2】设 $z=(1+x^2+y^2)^{xy}$，求 $\dfrac{\partial z}{\partial x}$ 及 $\dfrac{\partial z}{\partial y}$。
+【解1】由原题设可知 $z=e^{xy\ln(1+x^2+y^2)}$，两端对 $x,y$ 分别求偏导。
+【解2】由原题设知 $\ln z=xy\ln(1+x^2+y^2)$，两端对 $x,y$ 分别求偏导。
+【解3】令 $u=1+x^2+y^2,v=xy$，则函数可看作 $z=u^v$，由复合函数求导法可知
+$$\dfrac{\partial z}{\partial x}=\dfrac{\partial z}{\partial u}\dfrac{\partial u}{\partial x}+\dfrac{\partial z}{\partial v}\dfrac{\partial v}{\partial x}=vu^{v-1}\cdot2x+u^v\ln u\cdot y=(1+x^2+y^2)^{xy}\left[\dfrac{2x^2y}{1+x^2+y^2}+y\ln(1+x^2+y^2)\right].$$
+同理可得 $\dfrac{\partial z}{\partial y}=(1+x^2+y^2)^{xy}\left[x\ln(1+x^2+y^2)+\dfrac{2xy^2}{1+x^2+y^2}\right]$。` },
+      { p: 151, md: R`【注】解法3也可用于一元幂指函数，如 $y=(1+x^2)^{\sin x}$，可令 $u=1+x^2,v=\sin x$。
 
-【例6】设 $f(x)$ 有连续一阶导数，且 $(xy-yf(x))dx+(f(x)+y^2)dy=du(x,y)$，求 $f(x)$ 及 $u(x,y)$，$f(0)=-1$。
-【解】由 $\dfrac{\partial P}{\partial y}=\dfrac{\partial Q}{\partial x}$ 得 $x-f(x)=f'(x)$，即 $f'+f=x$，$f=(x-1)+Ce^{-x}$。由 $f(0)=-1$ 得 $C=0$，$f(x)=x-1$，$du=ydx+[(x-1)+y^2]dy$。` },
-      { p: 153, md: R`（例6续）方法1 偏积分：$\dfrac{\partial u}{\partial x}=y\Rightarrow u=xy+\varphi(y)$，$\dfrac{\partial u}{\partial y}=x+\varphi'(y)=x-1+y^2\Rightarrow\varphi'(y)=-1+y^2$，$\varphi(y)=-y+\dfrac13y^3+C$，故 $u=xy-y+\dfrac13y^3+C$。
-方法2 凑微分：$du=(ydx+xdy)+(y^2-1)dy=d\left(xy+\dfrac13y^3-y\right)$，故 $u=xy-y+\dfrac13y^3+C$。
+【例3】若函数 $z=f(x,y)$ 满足 $\dfrac{\partial^2z}{\partial y^2}=2$，且 $f(x,1)=x+2$，又 $f'_y(x,1)=x+1$，则 $f(x,y)$ 等于 (A) $y^2+(x-1)y-2$ (B) $y^2+(x+1)y+2$ (C) $y^2+(x-1)y+2$ (D) $y^2+(x+1)y-2$
+【解1】容易验证，只有 (C) 选项中的函数同时满足题设中的三个条件，故应选 (C)。
+【解2】由 $\dfrac{\partial^2z}{\partial y^2}=2$ 知 $\dfrac{\partial z}{\partial y}=\int2dy=2y+\varphi(x)$。由题设条件 $f'_y(x,1)=1+x$ 知 $1+x=2+\varphi(x)\Rightarrow\varphi(x)=x-1\Rightarrow\dfrac{\partial z}{\partial y}=2y+x-1$。于是 $z=\int(2y+x-1)dy=y^2+y(x-1)+\psi(x)$。由 $f(x,1)=x+2$ 知 $x+2=1+(x-1)+\psi(x)$，从而 $\psi(x)=2$。则 $z=y^2+y(x-1)+2$。故应选 (C)。
+【注】解法1只适用于选择题，解法2是一般方法。
+
+【例4】已知 $\dfrac{\partial^2z}{\partial x\partial y}=1$，且当 $x=0$ 时 $z=\sin y$；当 $y=0$ 时 $z=\sin x$，则 $z(x,y)=$______。
+【解1】由 $\dfrac{\partial^2z}{\partial x\partial y}=1$ 知 $\dfrac{\partial z}{\partial x}=\int1dy=y+\varphi(x)$。于是 $z=\int[y+\varphi(x)]dx=xy+\int\varphi(x)dx+\psi(y)=xy+g(x)+\psi(y)$，其中 $g(x)=\int\varphi(x)dx$。由 $x=0$ 时 $z=\sin y$ 知 $\sin y=g(0)+\psi(y)$ ①，由 $y=0$ 时 $z=\sin x$ 知 $\sin x=g(x)+\psi(0)$，从而有 $z=xy+\sin x+\sin y-g(0)-\psi(0)$。在①式中令 $x=0$ 得 $g(0)+\psi(0)=0$，故 $z(x,y)=xy+\sin x+\sin y$。
+【解2】由 $\dfrac{\partial^2z}{\partial x\partial y}=1$ 知 $\dfrac{\partial z}{\partial x}=\int1dy=y+\varphi(x)$。又当 $y=0$ 时 $z=\sin x$，则 $z(x,0)=\sin x$，$z'_x(x,0)=\cos x$，从而有 $\varphi(x)=\cos x$，$\dfrac{\partial z}{\partial x}=y+\cos x$，即 $z=\int[y+\cos x]dx=xy+\sin x+\psi(y)$。由 $x=0$ 时 $z=\sin y$ 知 $\psi(y)=\sin y$。故 $z(x,y)=xy+\sin x+\sin y$。` },
+      { p: 152, md: R`【例5】已知 $(axy^3-y^2\cos x)dx+(1+by\sin x+3x^2y^2)dy$ 是某一函数的全微分，则 $a,b$ 取值分别为 (A) $-2$ 和 $2$ (B) $2$ 和 $-2$ (C) $-3$ 和 $3$ (D) $3$ 和 $-3$
+【解】由题设可知，存在可微函数 $f(x,y)$，使 $df(x,y)=(axy^3-y^2\cos x)dx+(1+by\sin x+3x^2y^2)dy$，则 $\dfrac{\partial f}{\partial x}=axy^3-y^2\cos x$，$\dfrac{\partial f}{\partial y}=1+by\sin x+3x^2y^2$，从而有 $\dfrac{\partial^2f}{\partial x\partial y}=3axy^2-2y\cos x$，$\dfrac{\partial^2f}{\partial y\partial x}=by\cos x+6xy^2$。由于 $\dfrac{\partial^2f}{\partial x\partial y}$ 和 $\dfrac{\partial^2f}{\partial y\partial x}$ 都连续，从而有 $\dfrac{\partial^2f}{\partial x\partial y}=\dfrac{\partial^2f}{\partial y\partial x}$，即 $3axy^2-2y\cos x=by\cos x+6xy^2$。则 $\begin{cases}3a=6\\b=-2\end{cases}$，即 $\begin{cases}a=2\\b=-2\end{cases}$。故应选 (B)。
+【注】由本题求解中可看出，若 $P(x,y),Q(x,y)$ 有连续一阶偏导数，且 $P(x,y)dx+Q(x,y)dy$ 是某一函数全微分，则 $\dfrac{\partial P}{\partial y}=\dfrac{\partial Q}{\partial x}$。此结论以后可直接用，本题直接用该结论更简单。
+
+【例6】设 $f(x)$ 有连续一阶导数，且有 $(xy-yf(x))dx+(f(x)+y^2)dy=du(x,y)$，求 $f(x)$ 及 $u(x,y)$，其中 $f(0)=-1$。
+【解】由题设知 $x-f(x)=f'(x)$，即 $f'(x)+f(x)=x$，$f(x)=(x-1)+Ce^{-x}$。由 $f(0)=-1$ 知 $C=0$，$f(x)=x-1$，从而 $du(x,y)=ydx+[(x-1)+y^2]dy$。
+**方法1（偏积分）** 由上式可知 $\dfrac{\partial u}{\partial x}=y$，$\dfrac{\partial u}{\partial y}=x-1+y^2$。等式 $\dfrac{\partial u}{\partial x}=y$ 两端对 $x$ 偏积分得 $u=\int ydx=xy+\varphi(y)$，该式两端对 $y$ 求偏导得 $\dfrac{\partial u}{\partial y}=x+\varphi'(y)$，又 $\dfrac{\partial u}{\partial y}=x-1+y^2$，则 $\varphi'(y)=-1+y^2$，从而 $\varphi(y)=\int(-1+y^2)dy=-y+\dfrac13y^3+C$，` },
+      { p: 153, md: R`$$u(x,y)=xy-y+\dfrac13y^3+C.$$
+**方法2（凑微分）** $du(x,y)=ydx+[(x-1)+y^2]dy=(ydx+xdy)+(y^2-1)dy=d(xy)+d\left(\dfrac13y^3-y\right)=d\left(xy+\dfrac13y^3-y\right)$，则 $u(x,y)=xy-y+\dfrac13y^3+C$。
 
 ### 题型三　含有抽象函数的复合函数偏导数与全微分
-【例1】设 $f(u,v)$ 由 $f[xg(y),y]=x+g(y)$ 确定，$g$ 可微且 $g\neq0$，则 $\dfrac{\partial^2f}{\partial u\partial v}=$______。
-【解】令 $xg(y)=u,y=v$，则 $x=\dfrac{u}{g(v)}$，$f(u,v)=\dfrac{u}{g(v)}+g(v)$，$\dfrac{\partial f}{\partial u}=\dfrac{1}{g(v)}$，$\dfrac{\partial^2f}{\partial u\partial v}=-\dfrac{g'(v)}{[g(v)]^2}$。
-【例2】设 $u=\varphi(x+y)+\varphi(x-y)+\displaystyle\int_{x-y}^{x+y}\psi(t)dt$，则 (A) $u_{xx}=-u_{yy}$ (B) $u_{xx}=u_{yy}$ (C) $u_{xy}=u_{yy}$ (D) $u_{xy}=-u_{xx}$
-【解】$u_x=\varphi'(x+y)+\varphi'(x-y)+\psi(x+y)-\psi(x-y)$，$u_y=\varphi'(x+y)-\varphi'(x-y)+\psi(x+y)+\psi(x-y)$，$u_{xx}=u_{yy}=\varphi''(x+y)+\varphi''(x-y)+\psi'(x+y)-\psi'(x-y)$。选 (B)。
-【例3】设 $z=f(xy,x^2+y^2)$，求 $\dfrac{\partial z}{\partial x},\dfrac{\partial^2z}{\partial x\partial y}$，$f$ 有二阶连续偏导数。` },
-      { p: 154, md: R`（例3续）$\dfrac{\partial z}{\partial x}=yf'_1+2xf'_2$，$\dfrac{\partial^2z}{\partial x\partial y}=f'_1+y[xf''_{11}+2yf''_{12}]+2x[xf''_{21}+2yf''_{22}]=f'_1+xy[f''_{11}+4f''_{22}]+2(x^2+y^2)f''_{12}$。
+【例1】设函数 $f(u,v)$ 由关系式 $f[xg(y),y]=x+g(y)$ 所确定，其中函数 $g(y)$ 可微，且 $g(y)\neq0$，则 $\dfrac{\partial^2f}{\partial u\partial v}=$______。
+【解】令 $xg(y)=u$，$y=v$，则 $x=\dfrac{u}{g(y)}=\dfrac{u}{g(v)}$。于是 $f(u,v)=\dfrac{u}{g(v)}+g(v)\Rightarrow\dfrac{\partial f}{\partial u}=\dfrac{1}{g(v)}$，$\dfrac{\partial^2f}{\partial u\partial v}=-\dfrac{g'(v)}{[g(v)]^2}$。
 
-【例4】设 $f$ 可微，$f(0,0)=0$，$f'_x(0,0)=a$，$f'_y(0,0)=b$，$g(t)=f[t,f(t,t^2)]$，求 $g'(0)$。
-【解】$g'(t)=f'_1+f'_2[f'_1(t,t^2)+f'_2(t,t^2)\cdot2t]$，$g'(0)=a+b(a+0)=a(1+b)$。
+【例2】设函数 $u(x,y)=\varphi(x+y)+\varphi(x-y)+\int_{x-y}^{x+y}\psi(t)dt$，其中 $\varphi$ 具有二阶导数，$\psi$ 具有一阶导数，则必有 (A) $\dfrac{\partial^2u}{\partial x^2}=-\dfrac{\partial^2u}{\partial y^2}$ (B) $\dfrac{\partial^2u}{\partial x^2}=\dfrac{\partial^2u}{\partial y^2}$ (C) $\dfrac{\partial^2u}{\partial x\partial y}=\dfrac{\partial^2u}{\partial y^2}$ (D) $\dfrac{\partial^2u}{\partial x\partial y}=-\dfrac{\partial^2u}{\partial x^2}$
+【解1】（直接法）$\dfrac{\partial u}{\partial x}=\varphi'(x+y)+\varphi'(x-y)+\psi(x+y)-\psi(x-y)$，$\dfrac{\partial u}{\partial y}=\varphi'(x+y)-\varphi'(x-y)+\psi(x+y)+\psi(x-y)$，进一步有 $\dfrac{\partial^2u}{\partial x^2}=\varphi''(x+y)+\varphi''(x-y)+\psi'(x+y)-\psi'(x-y)$，$\dfrac{\partial^2u}{\partial y^2}=\varphi''(x+y)+\varphi''(x-y)+\psi'(x+y)-\psi'(x-y)$。从而有 $\dfrac{\partial^2u}{\partial x^2}=\dfrac{\partial^2u}{\partial y^2}$。故应选 (B)。
+【解2】（排除法）令 $\varphi(x)=x^2,\psi(x)=0$，则 $u(x,y)=(x+y)^2+(x-y)^2=2x^2+2y^2$，$\dfrac{\partial^2u}{\partial x^2}=4,\dfrac{\partial^2u}{\partial y^2}=4,\dfrac{\partial^2z}{\partial x\partial y}=0$。显然 (A)、(C)、(D) 均不正确，故应选 (B)。
 
-【例5】设 $u=f(x,y,z)$，$y=\varphi(x,t)$，$t=\psi(x,z)$，$f,\varphi,\psi$ 可微，求 $\dfrac{\partial u}{\partial x},\dfrac{\partial u}{\partial z}$。
+【例3】设 $z=f(xy,x^2+y^2)$，求 $\dfrac{\partial z}{\partial x},\dfrac{\partial^2z}{\partial x\partial y}$，其中 $f(u,v)$ 有二阶连续偏导数。` },
+      { p: 154, md: R`【解】$\dfrac{\partial z}{\partial x}=yf'_1+2xf'_2$，
+$$\dfrac{\partial^2z}{\partial x\partial y}=f'_1+y\left[xf''_{11}+2yf''_{12}\right]+2x\left[f''_{21}x+f''_{22}\cdot2y\right]=f'_1+xy\left[f''_{11}+4f''_{22}\right]+2(x^2+y^2)f''_{12}.$$
+
+【例4】设 $f(x,y)$ 可微，又 $f(0,0)=0,f'_x(0,0)=a,f'_y(0,0)=b$ 且 $g(t)=f[t,f(t,t^2)]$，求 $g'(0)$。
+【解】$g'(t)=f'_1[t,f(t,t^2)]+f'_2[t,f(t,t^2)]\cdot\left[f'_1(t,t^2)+f'_2(t,t^2)\cdot2t\right]$，$g'(0)=a+b\left[a+0\times b\right]=a(1+b)$。
+
+【例5】设 $u=f(x,y,z),y=\varphi(x,t),t=\psi(x,z)$，其中 $f,\varphi,\psi$ 可微，求 $\dfrac{\partial u}{\partial x},\dfrac{\partial u}{\partial z}$。
 【解】$\dfrac{\partial u}{\partial x}=\dfrac{\partial f}{\partial x}+\dfrac{\partial f}{\partial y}\left[\dfrac{\partial\varphi}{\partial x}+\dfrac{\partial\varphi}{\partial t}\dfrac{\partial\psi}{\partial x}\right]$，$\dfrac{\partial u}{\partial z}=\dfrac{\partial f}{\partial y}\dfrac{\partial\varphi}{\partial t}\dfrac{\partial\psi}{\partial z}+\dfrac{\partial f}{\partial z}$。
 
-【例6】设 $f(u,v)$ 有二阶连续偏导数，$f_{uu}+f_{vv}=1$，$g(x,y)=f\left[xy,\dfrac12(x^2-y^2)\right]$，求 $g_{xx}+g_{yy}$。
-【解】$g_x=yf_u+xf_v$，$g_{xx}=y(yf_{uu}+xf_{uv})+x(yf_{vu}+xf_{vv})+f_v$；$g_y=xf_u-yf_v$，$g_{yy}=x(xf_{uu}-yf_{uv})-y(xf_{vu}-yf_{vv})-f_v$。故 $g_{xx}+g_{yy}=(x^2+y^2)(f_{uu}+f_{vv})=x^2+y^2$。
+【例6】设 $f(u,v)$ 具有二阶连续偏导数，且满足 $\dfrac{\partial^2f}{\partial u^2}+\dfrac{\partial^2f}{\partial v^2}=1$，又 $g(x,y)=f\left[xy,\dfrac12(x^2-y^2)\right]$，求 $\dfrac{\partial^2g}{\partial x^2}+\dfrac{\partial^2g}{\partial y^2}$。
+【解】令 $xy=u,\dfrac12(x^2-y^2)=v$，则 $\dfrac{\partial g}{\partial x}=\dfrac{\partial f}{\partial u}y+\dfrac{\partial f}{\partial v}x$，
+$$\dfrac{\partial^2g}{\partial x^2}=y\left[\dfrac{\partial^2f}{\partial u^2}y+\dfrac{\partial^2f}{\partial u\partial v}x\right]+x\left[\dfrac{\partial^2f}{\partial v\partial u}y+\dfrac{\partial^2f}{\partial v^2}x\right]+\dfrac{\partial f}{\partial v};$$
+$$\dfrac{\partial g}{\partial y}=\dfrac{\partial f}{\partial u}x-\dfrac{\partial f}{\partial v}y,\quad\dfrac{\partial^2g}{\partial y^2}=x\left[\dfrac{\partial^2f}{\partial u^2}x-\dfrac{\partial^2f}{\partial u\partial v}y\right]-y\left[\dfrac{\partial^2f}{\partial v\partial u}x-\dfrac{\partial^2f}{\partial v^2}y\right]-\dfrac{\partial f}{\partial v}.$$
+故 $\dfrac{\partial^2g}{\partial x^2}+\dfrac{\partial^2g}{\partial y^2}=(x^2+y^2)\left[\dfrac{\partial^2f}{\partial u^2}+\dfrac{\partial^2f}{\partial v^2}\right]=x^2+y^2$。
 
-【例7】设 $u=f(x,y)$ 有二阶连续偏导数，且 $4u_{xx}+12u_{xy}+5u_{yy}=0$，确定 $a,b$ 使 $\xi=x+ay,\eta=x+by$ 下简化为 $u_{\xi\eta}=0$。
-![例7 $u\to\xi,\eta\to x,y$ 的结构图](assets/img/figs/gaoshu/gs05-p154-1.jpg)` },
-      { p: 155, md: R`![$u\to x,y\to\xi,\eta$ 的结构图](assets/img/figs/gaoshu/gs05-p155-1.jpg)
-【解】$u_x=u_\xi+u_\eta$，$u_{xx}=u_{\xi\xi}+2u_{\xi\eta}+u_{\eta\eta}$，$u_y=au_\xi+bu_\eta$，$u_{yy}=a^2u_{\xi\xi}+2abu_{\xi\eta}+b^2u_{\eta\eta}$，$u_{xy}=au_{\xi\xi}+(a+b)u_{\xi\eta}+bu_{\eta\eta}$。代入得 $(5a^2+12a+4)u_{\xi\xi}+[10ab+12(a+b)+8]u_{\xi\eta}+(5b^2+12b+4)u_{\eta\eta}=0$。由 $5a^2+12a+4=0,5b^2+12b+4=0$ 且 $10ab+12(a+b)+8\neq0$ 得 $a=-2,b=-\dfrac25$ 或 $a=-\dfrac25,b=-2$。
+【例7】设函数 $u=f(x,y)$ 具有二阶连续偏导数，且满足 $4\dfrac{\partial^2u}{\partial x^2}+12\dfrac{\partial^2u}{\partial x\partial y}+5\dfrac{\partial^2u}{\partial y^2}=0$。确定 $a,b$ 的值，使等式在变换 $\xi=x+ay,\eta=x+by$ 下简化为 $\dfrac{\partial^2u}{\partial\xi\partial\eta}=0$。
+【解1】$\dfrac{\partial u}{\partial x}=\dfrac{\partial u}{\partial\xi}+\dfrac{\partial u}{\partial\eta}$，$\dfrac{\partial^2u}{\partial x^2}=\dfrac{\partial^2u}{\partial\xi^2}+2\dfrac{\partial^2u}{\partial\xi\partial\eta}+\dfrac{\partial^2u}{\partial\eta^2}$，$\dfrac{\partial u}{\partial y}=a\dfrac{\partial u}{\partial\xi}+b\dfrac{\partial u}{\partial\eta}$，` },
+      { p: 155, md: R`$$\dfrac{\partial^2u}{\partial y^2}=a^2\dfrac{\partial^2u}{\partial\xi^2}+2ab\dfrac{\partial^2u}{\partial\xi\partial\eta}+b^2\dfrac{\partial^2u}{\partial\eta^2},\quad\dfrac{\partial^2u}{\partial x\partial y}=a\dfrac{\partial^2u}{\partial\xi^2}+(a+b)\dfrac{\partial^2u}{\partial\xi\partial\eta}+b\dfrac{\partial^2u}{\partial\eta^2}.$$
+将以上三个二阶偏导数代入等式 $4\dfrac{\partial^2u}{\partial x^2}+12\dfrac{\partial^2u}{\partial x\partial y}+5\dfrac{\partial^2u}{\partial y^2}=0$ 得
+$$(5a^2+12a+4)\dfrac{\partial^2u}{\partial\xi^2}+[10ab+12(a+b)+8]\dfrac{\partial^2u}{\partial\xi\partial\eta}+(5b^2+12b+4)\dfrac{\partial^2u}{\partial\eta^2}=0.$$
+由题设知 $\begin{cases}5a^2+12a+4=0\\5b^2+12b+4=0\end{cases}$，但 $10ab+12(a+b)+8\neq0$，解得 $\begin{cases}a=-2\\b=-\dfrac25\end{cases}$ 或 $\begin{cases}a=-\dfrac25\\b=-2\end{cases}$。
+【解2】由 $\xi=x+ay,\eta=x+by$ 解得 $\begin{cases}x=\dfrac{a\eta-b\xi}{a-b}\\[6pt]y=\dfrac{\xi-\eta}{a-b}\end{cases}$，$\dfrac{\partial u}{\partial\xi}=\dfrac{-b}{a-b}\dfrac{\partial u}{\partial x}+\dfrac{1}{a-b}\dfrac{\partial u}{\partial y}$，
+$$\dfrac{\partial^2u}{\partial\xi\partial\eta}=\dfrac{-b}{a-b}\dfrac{\partial^2u}{\partial x^2}\cdot\dfrac{a}{a-b}+\dfrac{-b}{a-b}\dfrac{\partial^2u}{\partial x\partial y}\cdot\dfrac{-1}{a-b}+\dfrac{1}{a-b}\dfrac{\partial^2u}{\partial y\partial x}\cdot\dfrac{a}{a-b}+\dfrac{1}{a-b}\dfrac{\partial^2u}{\partial y^2}\cdot\dfrac{-1}{a-b}$$
+$$=\dfrac{-ab}{(a-b)^2}\dfrac{\partial^2u}{\partial x^2}+\dfrac{a+b}{(a-b)^2}\dfrac{\partial^2u}{\partial x\partial y}+\dfrac{-1}{(a-b)^2}\dfrac{\partial^2u}{\partial y^2}.$$
+欲使 $\dfrac{\partial^2u}{\partial\xi\partial\eta}=0$，即 $-ab\dfrac{\partial^2u}{\partial x^2}+(a+b)\dfrac{\partial^2u}{\partial x\partial y}-\dfrac{\partial^2u}{\partial y^2}=0$，与已知关系式比较得 $\dfrac{-ab}{4}=\dfrac{a+b}{12}=\dfrac{-1}{5}$，由此解得 $\begin{cases}a=-2\\b=-\dfrac25\end{cases}$ 或 $\begin{cases}a=-\dfrac25\\b=-2\end{cases}$。
 
-【例8】设 $f(u)$ 有二阶连续导数，$z=f(e^x\sin y)$ 满足 $z_{xx}+z_{yy}=ze^{2x}$，求 $f(u)$。
-【解】令 $u=e^x\sin y$，$z_x=f'(u)e^x\sin y$，$z_{xx}=f''(u)e^{2x}\sin^2y+f'(u)e^x\sin y$，$z_y=f'(u)e^x\cos y$，$z_{yy}=f''(u)e^{2x}\cos^2y-f'(u)e^x\sin y$，代入得 $f''(u)=f(u)$，即 $f''-f=0$，故 $f(u)=C_1e^u+C_2e^{-u}$。` },
-      { p: 156, md: R`【例9】设 $(r,\theta)$ 为极坐标，$u=u(r,\theta)$ 有二阶连续偏导数，$\dfrac{\partial u}{\partial\theta}\equiv0$，且 $u_{xx}+u_{yy}=0$，求 $u$。
-【解】由 $\dfrac{\partial u}{\partial\theta}\equiv0$ 知 $u=\varphi(r)$，$r=\sqrt{x^2+y^2}$。$\dfrac{\partial u}{\partial x}=\varphi'(r)\dfrac xr$，$\dfrac{\partial^2u}{\partial x^2}=\varphi''(r)\dfrac{x^2}{r^2}+\varphi'(r)\left(\dfrac1r-\dfrac{x^2}{r^3}\right)$，由对称性 $\dfrac{\partial^2u}{\partial y^2}=\varphi''(r)\dfrac{y^2}{r^2}+\varphi'(r)\left(\dfrac1r-\dfrac{y^2}{r^3}\right)$，故 $u_{xx}+u_{yy}=\varphi''(r)+\dfrac{\varphi'(r)}r=0$，即 $[r\varphi'(r)]'=0$，$r\varphi'(r)=C_1$，$\varphi(r)=C_1\ln r+C_2$，故 $u=C_1\ln r+C_2$。
+【例8】设 $f(u)$ 具有二阶连续导数，而 $z=f(e^x\sin y)$ 满足方程 $\dfrac{\partial^2z}{\partial x^2}+\dfrac{\partial^2z}{\partial y^2}=ze^{2x}$，求 $f(u)$。
+【解】令 $u=e^x\sin y$，则 $\dfrac{\partial z}{\partial x}=f'(u)e^x\sin y$，$\dfrac{\partial^2z}{\partial x^2}=f''(u)e^{2x}\sin^2y+f'(u)e^x\sin y$；$\dfrac{\partial z}{\partial y}=f'(u)e^x\cos y$，$\dfrac{\partial^2z}{\partial y^2}=f''(u)e^{2x}\cos^2y-f'(u)e^x\sin y$。` },
+      { p: 156, md: R`将 $\dfrac{\partial^2z}{\partial x^2}$ 和 $\dfrac{\partial^2z}{\partial y^2}$ 代入等式 $\dfrac{\partial^2z}{\partial x^2}+\dfrac{\partial^2z}{\partial y^2}=ze^{2x}$ 得 $f''(u)=f(u)$，即 $f''(u)-f(u)=0$。这是一个二阶线性常系数齐次微分方程，特征方程为 $r^2-1=0,r=\pm1$，则 $f(u)=C_1e^u+C_2e^{-u}$。
 
-【例10】若对任意 $t>0$ 有 $f(tx,ty)=t^nf(x,y)$，称 $f$ 为 $n$ 次齐次函数。试证：若 $f$ 可微，则 $f$ 为 $n$ 次齐次函数 $\Leftrightarrow x\dfrac{\partial f}{\partial x}+y\dfrac{\partial f}{\partial y}=nf(x,y)$。
-【证】必要性：$f(tx,ty)=t^nf(x,y)$ 对 $t$ 求导并令 $t=1$ 得 $xf'_1+yf'_2=nf$。
-充分性：令 $F(t)=f(tx,ty)$，则 $tF'(t)=txf'_1+tyf'_2=nf(tx,ty)=nF(t)$，$\dfrac{dF}{F}=\dfrac nt dt$，$F(t)=Ct^n$；由 $F(1)=f(x,y)$ 得 $C=f(x,y)$，故 $F(t)=t^nf(x,y)$。` },
+【例9】设 $(r,\theta)$ 为极坐标，$u=u(r,\theta)$ 具有二阶连续偏导数，并满足 $\dfrac{\partial u}{\partial\theta}\equiv0$，且 $\dfrac{\partial^2u}{\partial x^2}+\dfrac{\partial^2u}{\partial y^2}=0$，求 $u(r,\theta)$。
+【解】由 $\dfrac{\partial u}{\partial\theta}\equiv0$ 知 $u$ 仅为 $r$ 的函数，令 $u=\varphi(r)$，其中 $r=\sqrt{x^2+y^2}$，则 $\dfrac{\partial u}{\partial x}=\varphi'(r)\dfrac{x}{\sqrt{x^2+y^2}}=\varphi'(r)\dfrac xr$，
+$$\dfrac{\partial^2u}{\partial x^2}=\varphi''(r)\dfrac{x^2}{r^2}+\varphi'(r)\dfrac{r-\frac{x^2}{r}}{r^2}=\varphi''(r)\dfrac{x^2}{r^2}+\varphi'(r)\left(\dfrac1r-\dfrac{x^2}{r^3}\right).$$
+由对称性知 $\dfrac{\partial^2u}{\partial y^2}=\varphi''(r)\dfrac{y^2}{r^2}+\varphi'(r)\left(\dfrac1r-\dfrac{y^2}{r^3}\right)$，则 $\dfrac{\partial^2u}{\partial x^2}+\dfrac{\partial^2u}{\partial y^2}=\varphi''(r)+\varphi'(r)\dfrac1r$。从而得 $\varphi''(r)+\varphi'(r)\dfrac1r=0$，即 $r\varphi''(r)+\varphi'(r)=0$，从而 $[r\varphi'(r)]'=0$。则 $r\varphi'(r)=C_1,\varphi(r)=C_1\ln r+C_2$。故 $u=C_1\ln r+C_2$。
+
+【例10】若对任意 $t>0$ 有 $f(tx,ty)=t^nf(x,y)$，则称函数 $f(x,y)$ 是 $n$ 次齐次函数，试证：若 $f(x,y)$ 可微，则 $f(x,y)$ 是 $n$ 次齐次函数 $\Leftrightarrow x\dfrac{\partial f}{\partial x}+y\dfrac{\partial f}{\partial y}=nf(x,y)$。
+【证】必要性：由于 $f(x,y)$ 为 $n$ 次齐次函数，则对任意 $t>0$，有 $f(tx,ty)=t^nf(x,y)$，该式两端对 $t$ 求导得 $xf'_1(tx,ty)+yf'_2(tx,ty)=nt^{n-1}f(x,y)$。令 $t=1$ 得 $xf'_1(x,y)+yf'_2(x,y)=nf(x,y)$，即 $x\dfrac{\partial f}{\partial x}+y\dfrac{\partial f}{\partial y}=nf(x,y)$。充分性：令 $F(t)=f(tx,ty)\ (t>0)$，则 $\dfrac{dF}{dt}=xf'_1(tx,ty)+yf'_2(tx,ty)$，两边乘以 $t$ 得 $t\dfrac{dF}{dt}=txf'_1(tx,ty)+tyf'_2(tx,ty)=nf(tx,ty)=nF(t)$。于是 $\dfrac{dF}{F}=\dfrac nt dt$，解得 $F(t)=Ct^n$。令 $t=1$ 得 $F(1)=C$，而由 $F(t)=f(tx,ty)$ 知 $F(1)=f(x,y)$，则 $C=f(x,y)$。于是 $F(t)=t^nf(x,y)$，即 $f(tx,ty)=t^nf(x,y)$。` },
       { p: 157, md: R`### 题型四　隐函数的偏导数与全微分
-【例1】设 $z=z(x,y)$ 由 $z+e^z=xy$ 确定，求 $\dfrac{\partial z}{\partial x},\dfrac{\partial z}{\partial y}$。
-【解1】公式：$\dfrac{\partial z}{\partial x}=-\dfrac{F'_x}{F'_z}=\dfrac{y}{1+e^z}$，$\dfrac{\partial z}{\partial y}=\dfrac{x}{1+e^z}$。
-【解2】两端对 $x,y$ 求偏导：$(1+e^z)z_x=y,(1+e^z)z_y=x$。
-【解3】两端求微分：$dz+e^zdz=ydx+xdy$，$dz=\dfrac{y}{1+e^z}dx+\dfrac{x}{1+e^z}dy$。
+【例1】设 $z=z(x,y)$ 是由方程 $z+e^z=xy$ 所确定，求 $\dfrac{\partial z}{\partial x}$ 和 $\dfrac{\partial z}{\partial y}$。
+【解1】由 $z+e^z=xy$ 知，$z+e^z-xy=0$。由隐函数求导公式可得 $\dfrac{\partial z}{\partial x}=-\dfrac{F'_x}{F'_z}=-\dfrac{-y}{1+e^z}=\dfrac{y}{1+e^z}$，$\dfrac{\partial z}{\partial y}=-\dfrac{F'_y}{F'_z}=-\dfrac{-x}{1+e^z}=\dfrac{x}{1+e^z}$。
+【解2】等式 $z+e^z=xy$ 两端分别对 $x,y$ 求偏导得 $(1+e^z)\dfrac{\partial z}{\partial x}=y$，$(1+e^z)\dfrac{\partial z}{\partial y}=x$。由以上两式解得 $\dfrac{\partial z}{\partial x}=\dfrac{y}{1+e^z},\dfrac{\partial z}{\partial y}=\dfrac{x}{1+e^z}$。
+【解3】等式 $z+e^z=xy$ 两端求微分得 $dz+e^zdz=ydx+xdy$，则 $dz=\dfrac{y}{1+e^z}dx+\dfrac{x}{1+e^z}dy$，从而有 $\dfrac{\partial z}{\partial x}=\dfrac{y}{1+e^z},\dfrac{\partial z}{\partial y}=\dfrac{x}{1+e^z}$。
 
-【例2】设 $F\left(\dfrac xz,\dfrac zy\right)=0$ 确定 $z=z(x,y)$，求 $\dfrac{\partial z}{\partial x},\dfrac{\partial z}{\partial y}$。
-【解】$\dfrac{\partial z}{\partial x}=\dfrac{yzF'_1}{xyF'_1-z^2F'_2}$，$\dfrac{\partial z}{\partial y}=\dfrac{-z^3F'_2}{y(xyF'_1-z^2F'_2)}$。
+【例2】设方程 $F\left(\dfrac xz,\dfrac zy\right)=0$ 可确定函数 $z=z(x,y)$，求 $\dfrac{\partial z}{\partial x}$ 和 $\dfrac{\partial z}{\partial y}$。
+【解】由隐函数求导公式得 $\dfrac{\partial z}{\partial x}=-\dfrac{\frac1zF'_1}{-\frac{x}{z^2}F'_1+\frac1yF'_2}=\dfrac{yzF'_1}{xyF'_1-z^2F'_2}$，$\dfrac{\partial z}{\partial y}=-\dfrac{-\frac{z}{y^2}F'_2}{-\frac{x}{z^2}F'_1+\frac1yF'_2}=\dfrac{-z^3F'_2}{y(xyF'_1-z^2F'_2)}$。
 
-【例3】设 $u=f(x,y,z)$ 有连续一阶偏导数，$z=z(x,y)$ 由 $xe^x-ye^y=ze^z$ 确定，求 $du$。` },
-      { p: 158, md: R`【解1】$\dfrac{\partial z}{\partial x}=\dfrac{1+x}{1+z}e^{x-z}$，$\dfrac{\partial z}{\partial y}=-\dfrac{1+y}{1+z}e^{y-z}$，故 $du=\left(\dfrac{\partial f}{\partial x}+\dfrac{\partial f}{\partial z}\dfrac{1+x}{1+z}e^{x-z}\right)dx+\left(\dfrac{\partial f}{\partial y}-\dfrac{\partial f}{\partial z}\dfrac{1+y}{1+z}e^{y-z}\right)dy$。
-【解2】$du=f_xdx+f_ydy+f_zdz$；对 $xe^x-ye^y=ze^z$ 求微分得 $(e^x+xe^x)dx-(e^y+ye^y)dy=(e^z+ze^z)dz$，解得 $dz=\dfrac{1+x}{1+z}e^{x-z}dx-\dfrac{1+y}{1+z}e^{y-z}dy$，代入即得。
+【例3】设 $u=f(x,y,z)$ 有连续一阶偏导数，$z=z(x,y)$ 由方程 $xe^x-ye^y=ze^z$ 所确定，求 $du$。
+【解1】由题设知 $\dfrac{\partial u}{\partial x}=\dfrac{\partial f}{\partial x}+\dfrac{\partial f}{\partial z}\dfrac{\partial z}{\partial x}$。等式 $xe^x-ye^y=ze^z$ 两端对 $x$ 求导得 $e^x+xe^x=(e^z+ze^z)\dfrac{\partial z}{\partial x}$，由此可得 $\dfrac{\partial z}{\partial x}=\dfrac{e^x(1+x)}{e^z(1+z)}=\dfrac{1+x}{1+z}e^{x-z}$。则 $\dfrac{\partial u}{\partial x}=\dfrac{\partial f}{\partial x}+\dfrac{\partial f}{\partial z}\dfrac{1+x}{1+z}e^{x-z}$。` },
+      { p: 158, md: R`同理可求得 $\dfrac{\partial u}{\partial y}=\dfrac{\partial f}{\partial y}-\dfrac{\partial f}{\partial z}\dfrac{1+y}{1+z}e^{y-z}$，故
+$$du=\left(\dfrac{\partial f}{\partial x}+\dfrac{\partial f}{\partial z}\dfrac{1+x}{1+z}e^{x-z}\right)dx+\left(\dfrac{\partial f}{\partial y}-\dfrac{\partial f}{\partial z}\dfrac{1+y}{1+z}e^{y-z}\right)dy.$$
+【解2】由 $u=f(x,y,z)$ 知，$du=\dfrac{\partial f}{\partial x}dx+\dfrac{\partial f}{\partial y}dy+\dfrac{\partial f}{\partial z}dz$。等式 $xe^x-ye^y=ze^z$ 两端求微分得 $(e^x+xe^x)dx-(e^y+ye^y)dy=(e^z+ze^z)dz$。解得 $dz=\dfrac{1+x}{1+z}e^{x-z}dx-\dfrac{1+y}{1+z}e^{y-z}dy$。将 $dz$ 代入 $du$ 得
+$$du=\left(\dfrac{\partial f}{\partial x}+\dfrac{\partial f}{\partial z}\dfrac{1+x}{1+z}e^{x-z}\right)dx+\left(\dfrac{\partial f}{\partial y}-\dfrac{\partial f}{\partial z}\dfrac{1+y}{1+z}e^{y-z}\right)dy.$$
 
-【例4】设 $u=f(x,y,z)$，$\varphi(x^2,e^y,z)=0$，$y=\sin x$ 确定 $u=u(x)$，求 $\dfrac{du}{dx}$。
-【解】$\dfrac{du}{dx}=f_x+f_y\cos x+f_z\dfrac{dz}{dx}$，$\varphi(x^2,e^y,z)=0$ 对 $x$ 求导得 $2x\varphi'_1+e^y\cos x\varphi'_2+\varphi'_3\dfrac{dz}{dx}=0$，故 $\dfrac{du}{dx}=f_x+f_y\cos x-\dfrac{f_z}{\varphi'_3}(2x\varphi'_1+\varphi'_2e^y\cos x)$。
+【例4】设 $u=f(x,y,z),\varphi(x^2,e^y,z)=0,y=\sin x$ 确定了函数 $u=u(x)$，其中 $f,\varphi$ 都有一阶连续偏导数，且 $\dfrac{\partial\varphi}{\partial z}\neq0$，求 $\dfrac{du}{dx}$。
+【解1】$\dfrac{du}{dx}=\dfrac{\partial f}{\partial x}+\dfrac{\partial f}{\partial y}\cos x+\dfrac{\partial f}{\partial z}\dfrac{dz}{dx}$。$\varphi(x^2,e^y,z)=0$ 两端对 $x$ 求导得 $\varphi'_12x+\varphi'_2e^y\cos x+\varphi'_3\dfrac{dz}{dx}=0$。解得 $\dfrac{dz}{dx}=-\dfrac{1}{\varphi'_3}(2x\varphi'_1+\varphi'_2e^y\cos x)$。代入得 $\dfrac{du}{dx}=\dfrac{\partial f}{\partial x}+\dfrac{\partial f}{\partial y}\cos x-\dfrac{\partial f/\partial z}{\varphi'_3}(2x\varphi'_1+\varphi'_2e^y\cos x)$。
+【解2】由 $u=f(x,y,z)$ 知 $du=\dfrac{\partial f}{\partial x}dx+\dfrac{\partial f}{\partial y}dy+\dfrac{\partial f}{\partial z}dz$ ①。等式 $\varphi(x^2,e^y,z)=0$ 两端求微分得 $\varphi'_12xdx+\varphi'_2e^ydy+\varphi'_3dz=0$ ②。由 $y=\sin x$ 知 $dy=\cos xdx$，代入 ② 式得 $dz=-\dfrac{1}{\varphi'_3}(\varphi'_12x+\varphi'_2e^y\cos x)dx$。将该式中的 $dz$ 和 $dy=\cos xdx$ 代入 ① 式得
+$$du=\left[\dfrac{\partial f}{\partial x}+\dfrac{\partial f}{\partial y}\cos x-\dfrac{\partial f/\partial z}{\varphi'_3}(2x\varphi'_1+\varphi'_2e^y\cos x)\right]dx.$$
+故 $\dfrac{du}{dx}=\dfrac{\partial f}{\partial x}+\dfrac{\partial f}{\partial y}\cos x-\dfrac{\partial f/\partial z}{\varphi'_3}(2x\varphi'_1+\varphi'_2e^y\cos x)$。
 
-【例5】设 $y=f(x,t)$，且 $F(x,y,t)=0$ 确定 $t=t(x,y)$，求 $\dfrac{dy}{dx}$。` },
-      { p: 159, md: R`【解1】由 $y=f(x,t(x,y))$ 对 $x$ 求导：$\dfrac{dy}{dx}=f_x+f_t\left(\dfrac{\partial t}{\partial x}+\dfrac{\partial t}{\partial y}\dfrac{dy}{dx}\right)$，而 $\dfrac{\partial t}{\partial x}=-\dfrac{F_x}{F_t},\dfrac{\partial t}{\partial y}=-\dfrac{F_y}{F_t}$，解得 $\dfrac{dy}{dx}=\dfrac{F_tf_x-F_xf_t}{F_t+F_yf_t}$。
-【解2】$dy=f_xdx+f_tdt$，$F_xdx+F_ydy+F_tdt=0$，解得 $dt=-\dfrac1{F_t}(F_xdx+F_ydy)$，代入整理得同式。
+【例5】设 $y=f(x,t)$，且方程 $F(x,y,t)=0$ 确定了函数 $t=t(x,y)$，求 $\dfrac{dy}{dx}$。
+【解1】将 $t=t(x,y)$ 代入 $y=f(x,t)$ 得 $y=f(x,t(x,y))$，这是一个` },
+      { p: 159, md: R`关于 $x,y$ 的二元方程，它可确定 $y$ 是 $x$ 的函数。等式 $y=f(x,t(x,y))$ 两端对 $x$ 求导得 $\dfrac{dy}{dx}=\dfrac{\partial f}{\partial x}+\dfrac{\partial f}{\partial t}\left(\dfrac{\partial t}{\partial x}+\dfrac{\partial t}{\partial y}\dfrac{dy}{dx}\right)$。而 $t=t(x,y)$ 由 $F(x,y,t)=0$ 所确定，则 $\dfrac{\partial t}{\partial x}=-\dfrac{\partial F/\partial x}{\partial F/\partial t}$，$\dfrac{\partial t}{\partial y}=-\dfrac{\partial F/\partial y}{\partial F/\partial t}$。于是
+$$\dfrac{dy}{dx}=\dfrac{\partial f}{\partial x}-\dfrac{\partial f}{\partial t}\left[\dfrac{\partial F/\partial x}{\partial F/\partial t}+\dfrac{\partial F/\partial y}{\partial F/\partial t}\dfrac{dy}{dx}\right]\Longrightarrow\dfrac{dy}{dx}=\dfrac{\frac{\partial F}{\partial t}\frac{\partial f}{\partial x}-\frac{\partial F}{\partial x}\frac{\partial f}{\partial t}}{\frac{\partial F}{\partial t}+\frac{\partial F}{\partial y}\frac{\partial f}{\partial t}}.$$
+【解2】由 $y=f(x,t)$ 知 $dy=\dfrac{\partial f}{\partial x}dx+\dfrac{\partial f}{\partial t}dt$。由 $F(x,y,t)=0$ 知 $\dfrac{\partial F}{\partial x}dx+\dfrac{\partial F}{\partial y}dy+\dfrac{\partial F}{\partial t}dt=0$。解得 $dt=-\dfrac{1}{\partial F/\partial t}\left(\dfrac{\partial F}{\partial x}dx+\dfrac{\partial F}{\partial y}dy\right)$。将 $dt$ 的表达式代入 $dy=\dfrac{\partial f}{\partial x}dx+\dfrac{\partial f}{\partial t}dt$ 并整理可得 $\dfrac{dy}{dx}=\dfrac{\frac{\partial F}{\partial t}\frac{\partial f}{\partial x}-\frac{\partial F}{\partial x}\frac{\partial f}{\partial t}}{\frac{\partial F}{\partial t}+\frac{\partial F}{\partial y}\frac{\partial f}{\partial t}}$。
 
-【例6】设 $f(x,y)$ 有二阶连续偏导数，$f'_y\neq0$，证明：$f(x,y)=C$ 为一条直线 $\Leftrightarrow f'^2_2f''_{11}-2f'_1f'_2f''_{12}+f'^2_1f''_{22}=0$。
-【证】$f(x,y)=C$ 确定 $y=y(x)$，为直线 $\Leftrightarrow y''=0$。$f'_1+f'_2y'=0\Rightarrow y'=-\dfrac{f'_1}{f'_2}$，$y''=-\dfrac{f'^2_2f''_{11}-2f'_1f'_2f''_{12}+f'^2_1f''_{22}}{f'^3_2}$，故结论成立。` }
+【例6】设 $f(x,y)$ 有二阶连续偏导数，且 $f'_y\neq0$，证明：对任意常数 $C$，$f(x,y)=C$ 为一条直线 $\Leftrightarrow f_2'^2f''_{11}-2f'_1f'_2f''_{12}+f_1'^2f''_{22}=0$。
+【证】由原题设条件知 $f(x,y)=C$ 可确定隐函数 $y=y(x)$，从而 $f(x,y)=C$ 为一条直线的充要条件是 $y=y(x)$ 是线性函数（即 $y=ax+b$），而 $y=y(x)$ 是线性函数的充要条件是 $y''=0$。等式 $f(x,y)=C$ 两端对 $x$ 求导得 $f'_1+f'_2\dfrac{dy}{dx}=0\Rightarrow\dfrac{dy}{dx}=-\dfrac{f'_1}{f'_2}$。从而有
+$$\dfrac{d^2y}{dx^2}=-\dfrac{d}{dx}\left(\dfrac{f'_1}{f'_2}\right)=-\dfrac{\left(f''_{11}+f''_{12}\frac{dy}{dx}\right)f'_2-\left(f''_{21}+f''_{22}\frac{dy}{dx}\right)f'_1}{f_2'^2}=-\dfrac{f_2'^2f''_{11}-2f'_1f'_2f''_{12}+f_1'^2f''_{22}}{f_2'^3}.$$
+必要性：若 $f(x,y)=C$ 是一条直线，则由 $f(x,y)=C$ 所确定的函数 $y=y(x)$ 应为线性函数，则 $\dfrac{d^2y}{dx^2}=0$，从而有 $f_2'^2f''_{11}-2f'_1f'_2f''_{12}+f_1'^2f''_{22}=0$。充分性：若 $f_2'^2f''_{11}-2f'_1f'_2f''_{12}+f_1'^2f''_{22}=0$，则 $\dfrac{d^2y}{dx^2}=0$，从而有 $y=ax+b$，即 $f(x,y)=C$ 所确定的隐函数 $y=y(x)$ 为线性函数。故 $f(x,y)=C$ 表示直线。` }
     ],
     quiz: [
       { q: R`复合函数 $z=f(u,v),u=u(x,y),v=v(x,y)$ 的 $\dfrac{\partial z}{\partial x}=$`, options: [R`$f_u u_x+f_v v_x$`, R`$f_u u_y+f_v v_y$`, R`$f_u+f_v$`, R`$f_x+f_y$`], answer: 0, explain: R`链式法则。` },
