@@ -6,7 +6,7 @@ window.LESSONS = window.LESSONS || {};
     ch: "第二章 矩阵",
     title: "矩阵",
     book: "《线性代数辅导讲义》",
-    pages: [35, 50],
+    pages: [35, 62],
     img: "assets/img/xiandai",
     content: [
       { p: 35, md: R`### 一、知识结构网络图
@@ -160,7 +160,86 @@ $$X^4=(A-2E)^{-1}B^4(A-2E)=\begin{pmatrix}0&0&\frac12\\0&1&0\\1&0&0\end{pmatrix}
 【例2.18】（2002,4）设 $A,B$ 为 $n$ 阶矩阵，$A^*,B^*$ 分别是 $A,B$ 对应的伴随矩阵，分块矩阵 $C=\begin{pmatrix}A&0\\0&B\end{pmatrix}$，则 $C$ 的伴随矩阵 $C^*=$ (A) $\begin{pmatrix}|A|A^*&0\\0&|B|B^*\end{pmatrix}$ (B) $\begin{pmatrix}|B|B^*&0\\0&|A|A^*\end{pmatrix}$ (C) $\begin{pmatrix}|A|B^*&0\\0&|B|A^*\end{pmatrix}$ (D) $\begin{pmatrix}|B|A^*&0\\0&|A|B^*\end{pmatrix}$
 【分析】可以类同例2.15 加强条件，由 $C$ 可逆知
 $$C^*=|C|C^{-1}=\begin{vmatrix}A&0\\0&B\end{vmatrix}\begin{pmatrix}A&0\\0&B\end{pmatrix}^{-1}=|A||B|\begin{pmatrix}A^{-1}&0\\0&B^{-1}\end{pmatrix}=\begin{pmatrix}|A||B|A^{-1}&0\\0&|A||B|B^{-1}\end{pmatrix},$$
-故应选 (D)。亦可利用伴随矩阵的重要关系式 $CC^*=|C|E=|A||B|E$。` }
+故应选 (D)。亦可利用伴随矩阵的重要关系式 $CC^*=|C|E=|A||B|E$。` },
+      { p: 51, md: R`利用观察法：$\begin{pmatrix}A&0\\0&B\end{pmatrix}\begin{pmatrix}?&\end{pmatrix}=\begin{pmatrix}|A||B|E&0\\0&|A||B|E\end{pmatrix}$，而选 (D)。
+
+【例2.19】设矩阵 $A,B$ 满足 $A^*BA=2BA-4E$，其中 $A=\begin{pmatrix}1&0&0\\0&1&0\\0&0&-2\end{pmatrix}$，$A^*$ 是 $A$ 的伴随矩阵，则 $|B|=$______。
+【分析】先化简矩阵方程，左乘 $A$ 右乘 $A^{-1}$ 有 $A(A^*BA)A^{-1}=A(2BA)A^{-1}-A(4E)A^{-1}$。根据 $AA^*=|A|E$，及本题中 $|A|=-2$，上式简化为 $AB+B=2E$，即 $(A+E)B=2E$。两边取行列式，得 $|A+E||B|=|2E|=8$，又 $|A+E|=-4$，故 $|B|=-2$。
+
+【例2.20】设 $A$ 是 $n$ 阶矩阵，$A^*$ 是 $A$ 的伴随矩阵，证明：
+$$r(A^*)=\begin{cases}n,&\text{若 }r(A)=n,\\1,&\text{若 }r(A)=n-1,\\0,&\text{若 }r(A)<n-1.\end{cases}$$
+【证】若秩 $r(A)=n$，则 $|A|\neq0$，由于 $|A^*|=|A|^{n-1}$，故 $|A^*|\neq0$，所以秩 $r(A^*)=n$。
+若秩 $r(A)<n-1$，则 $A$ 中所有 $n-1$ 阶子式均为 $0$，即行列式 $|A|$ 的所有代数余子式均为 $0$，即 $A^*=0$，故 $r(A^*)=0$。
+若秩 $r(A)=n-1$，则 $|A|=0$ 且 $A$ 中存在 $n-1$ 阶子式不为 $0$。那么，由 $|A|=0$ 有 $AA^*=|A|E=0$，从而 $r(A)+r(A^*)\leqslant n$，得 $r(A^*)\leqslant1$。又因 $A$ 中有 $n-1$ 阶子式非 $0$，知有 $A_{ij}\neq0$，即 $A^*\neq0$，得 $r(A^*)\geqslant1$，故 $r(A^*)=1$。
+
+【例2.21】设 $A$ 是 $n$ 阶可逆矩阵，若矩阵 $A$ 的特征值是 $\lambda$，则伴随矩阵 $A^*$ 的特征值是______。
+【分析】设矩阵 $A$ 属于特征值 $\lambda$ 的特征向量是 $\alpha$，即 $A\alpha=\lambda\alpha,\alpha\neq0$。那么 $A^*A\alpha=\lambda A^*\alpha$。由 $A^*A=|A|E$，故有 $\lambda A^*\alpha=|A|\alpha$。因为 $|A|\neq0,\alpha\neq0$，上式右端非 $0$，从而 $\lambda\neq0$，于是有 $A^*\alpha=\dfrac{|A|}{\lambda}\alpha,\alpha\neq0$，即伴随矩阵 $A^*$ 的特征值是 $\dfrac{|A|}{\lambda}$。` },
+      { p: 52, md: R`【例2.22】已知 $|A|=\begin{vmatrix}0&1&0&0\\0&0&\frac12&0\\0&0&0&\frac13\\\frac14&0&0&0\end{vmatrix}$，那么行列式 $|A|$ 所有元素的代数余子式之和为______。
+【分析】由于 $A^*=(A_{ij})$，只要能求出 $A$ 的伴随矩阵，就可求出 $\sum A_{ij}$。因为 $A^*=|A|A^{-1}$，而 $|A|=\dfrac14\cdot(-1)^{4+1}\cdot\dfrac1{3!}=-\dfrac1{4!}$。又由分块求逆，有 $\begin{pmatrix}0&1&0&0\\0&0&\frac12&0\\0&0&0&\frac13\\\frac14&0&0&0\end{pmatrix}^{-1}=\begin{pmatrix}0&0&0&4\\1&0&0&0\\0&2&0&0\\0&0&3&0\end{pmatrix}$，从而 $A^*=-\dfrac1{4!}\begin{pmatrix}0&0&0&4\\1&0&0&0\\0&2&0&0\\0&0&3&0\end{pmatrix}$，故 $\sum A_{ij}=-\dfrac1{4!}(1+2+3+4)=-\dfrac5{12}$。
+
+#### 可逆矩阵
+【例2.23】若 $A=\begin{pmatrix}2&2&3\\1&-1&0\\-1&2&1\end{pmatrix}$，则 $A^{-1}=$______。
+【分析】(用伴随矩阵) 因为 $A_{11}=\begin{vmatrix}-1&0\\2&1\end{vmatrix}=-1$，$A_{12}=-\begin{vmatrix}1&0\\-1&1\end{vmatrix}=-1$，$A_{13}=\begin{vmatrix}1&-1\\-1&2\end{vmatrix}=1$，$A_{21}=-\begin{vmatrix}2&3\\2&1\end{vmatrix}=4$，$A_{22}=\begin{vmatrix}2&3\\-1&1\end{vmatrix}=5$，$A_{23}=-\begin{vmatrix}2&2\\-1&2\end{vmatrix}=-6$，` },
+      { p: 53, md: R`$A_{31}=\begin{vmatrix}2&3\\-1&0\end{vmatrix}=3$，$A_{32}=-\begin{vmatrix}2&3\\1&0\end{vmatrix}=3$，$A_{33}=\begin{vmatrix}2&2\\1&-1\end{vmatrix}=-4$。
+又 $|A|=\begin{vmatrix}2&2&3\\1&-1&0\\-1&2&1\end{vmatrix}=\begin{vmatrix}4&2&3\\0&-1&0\\1&2&1\end{vmatrix}=-1$，故 $A^{-1}=\dfrac{A^*}{|A|}=-\begin{pmatrix}-1&4&3\\-1&5&3\\1&-6&-4\end{pmatrix}=\begin{pmatrix}1&-4&-3\\1&-5&-3\\-1&6&4\end{pmatrix}$。
+(用初等行变换) $[A\vdots E]=\begin{pmatrix}2&2&3&1&0&0\\1&-1&0&0&1&0\\-1&2&1&0&0&1\end{pmatrix}\to\begin{pmatrix}1&-1&0&0&1&0\\-1&2&1&0&0&1\\2&2&3&1&0&0\end{pmatrix}\to\begin{pmatrix}1&-1&0&0&1&0\\0&1&1&0&1&1\\0&4&3&1&-2&0\end{pmatrix}\to\begin{pmatrix}1&-1&0&0&1&0\\0&1&1&0&1&1\\0&0&-1&1&-6&-4\end{pmatrix}\to\begin{pmatrix}1&0&0&1&-4&-3\\0&1&0&1&-5&-3\\0&0&-1&1&-6&-4\end{pmatrix}\to\begin{pmatrix}1&0&0&1&-4&-3\\0&1&0&1&-5&-3\\0&0&1&-1&6&4\end{pmatrix}$，故 $A^{-1}=\begin{pmatrix}1&-4&-3\\1&-5&-3\\-1&6&4\end{pmatrix}$。
+【评注】(1) 求代数余子式 $A_{ij}=(-1)^{i+j}M_{ij}$ 时，不要忘记正负号，组装伴随矩阵 $A^*=\begin{pmatrix}A_{11}&A_{21}&A_{31}\\A_{12}&A_{22}&A_{32}\\A_{13}&A_{23}&A_{33}\end{pmatrix}$ 时，不要排错位置。(2) 用初等行变换求 $A^{-1}$ 的常规步骤：$(A\ \ E)\xrightarrow{\text{由上往下}}\begin{pmatrix}\nabla\end{pmatrix}\xrightarrow{\text{由下往上}}\begin{pmatrix}\nabla\end{pmatrix}\xrightarrow[\times]{\text{某行乘}k}(E\ \ A^{-1})$。
+
+【例2.24】若 $A$ 是 $n$ 阶矩阵，满足 $A^2+3A-2E=0$，则 $(A+E)^{-1}=$______。
+【分析】因为 $(A+E)(A+2E)-4E=A^2+3A-2E=0$，有 $(A+E)(A+2E)=4E$，$(A+E)\cdot\dfrac14(A+2E)=E$，故 $(A+E)^{-1}=\dfrac14(A+2E)$。` },
+      { p: 54, md: R`【例2.25】已知 $A$ 是 $n$ 阶矩阵，满足 $A^3=2E$，$B=A^2+2A+E$，则 $B^{-1}=$______。
+【分析】因为 $B=A^2+2A+E=(A+E)^2$，由 $A^3=2E$ 有 $A^3+E=3E\Rightarrow(A+E)(A^2-A+E)=3E\Rightarrow(A+E)^{-1}=\dfrac13(A^2-A+E)$。那么 $B^{-1}=[(A+E)^2]^{-1}=[(A+E)^{-1}]^2=\dfrac19(A^2-A+E)^2$。
+
+【例2.26】（2000,2）设 $A=\begin{pmatrix}1&0&0&0\\-2&3&0&0\\0&-4&5&0\\0&0&-6&7\end{pmatrix}$，$E$ 为 4 阶单位矩阵，且 $B=(E+A)^{-1}(E-A)$，则 $(E+B)^{-1}=$______。
+【分析】对于 $(A+B)^{-1}$ 没有运算法则，通常用单位矩阵恒等变形的技巧化为乘积的形式。
+$(E+B)^{-1}=[E+(E+A)^{-1}(E-A)]^{-1}=[(E+A)^{-1}(E+A)+(E+A)^{-1}(E-A)]^{-1}=[(E+A)^{-1}(E+A+E-A)]^{-1}=[2(E+A)^{-1}]^{-1}=\dfrac12(E+A)=\begin{pmatrix}1&0&0&0\\-1&2&0&0\\0&-2&3&0\\0&0&-3&4\end{pmatrix}$。
+本题是考生失误较多的一个考题，难度是 0.29，这里涉及的思路方法应很好体会。
+
+【例2.27】已知 $A,B$ 均为 $n$ 阶矩阵，且 $A$ 与 $E-AB$ 都是可逆矩阵，证明 $E-BA$ 可逆。
+【证】$|E-BA|=|A^{-1}A-BA|=|(A^{-1}-B)A|=|A^{-1}-B||A|=|A||A^{-1}-B|=|A(A^{-1}-B)|=|E-AB|\neq0$，故 $E-BA$ 可逆。
+
+#### 初等变换
+【例2.28】已知 $A=\begin{pmatrix}a_{11}&a_{12}&a_{13}\\a_{21}&a_{22}&a_{23}\\a_{31}&a_{32}&a_{33}\end{pmatrix}$，$B=\begin{pmatrix}a_{13}&-a_{11}+a_{12}&a_{11}\\a_{23}&-a_{21}+a_{22}&a_{21}\\a_{33}&-a_{31}+a_{32}&a_{31}\end{pmatrix}$，` },
+      { p: 55, md: R`$P_1=\begin{pmatrix}0&0&1\\0&1&0\\1&0&0\end{pmatrix}$，$P_2=\begin{pmatrix}1&1&0\\0&1&0\\0&0&1\end{pmatrix}$，$P_3=\begin{pmatrix}1&-1&0\\0&1&0\\0&0&1\end{pmatrix}$，其中 $A$ 可逆，那么 $B^{-1}=$ (A) $A^{-1}P_1P_2$ (B) $P_1P_2A^{-1}$ (C) $P_1P_3A^{-1}$ (D) $P_3P_1A^{-1}$
+【分析】把矩阵 $A$ 的第 1 列的 $-1$ 倍加至第 2 列，再 1、3 两列对调即得到矩阵 $B$。故 $B=AP_3P_1$，那么 $B^{-1}=(AP_3P_1)^{-1}=P_1^{-1}P_3^{-1}A^{-1}=P_1P_2A^{-1}$，所以应选 (B)。
+注意，若先 1、3 两列对调，再把第 3 列的 $-1$ 倍加至第 2 列亦得到矩阵 $B$，用初等矩阵描述即 $B=A\begin{pmatrix}0&0&1\\0&1&0\\1&0&0\end{pmatrix}\begin{pmatrix}1&0&0\\0&1&0\\0&-1&1\end{pmatrix}$，那么 $B^{-1}=\begin{pmatrix}1&0&0\\0&1&0\\0&1&1\end{pmatrix}\begin{pmatrix}0&0&1\\0&1&0\\1&0&0\end{pmatrix}A^{-1}=\begin{pmatrix}0&0&1\\0&1&0\\1&1&0\end{pmatrix}A^{-1}$，这与 $B^{-1}=P_1P_2A^{-1}$ 是一样的。
+
+【例2.29】（2004,$\frac12$）设 $A$ 是 3 阶方阵，将 $A$ 的第 1 列与第 2 列交换得 $B$，再把 $B$ 的第 2 列加到第 3 列得 $C$，则满足 $AQ=C$ 的可逆矩阵 $Q$ 为 (A) $\begin{pmatrix}0&1&0\\1&0&0\\1&0&1\end{pmatrix}$ (B) $\begin{pmatrix}0&1&0\\1&0&1\\0&0&1\end{pmatrix}$ (C) $\begin{pmatrix}0&1&0\\1&0&0\\0&1&1\end{pmatrix}$ (D) $\begin{pmatrix}0&1&1\\1&0&0\\0&0&1\end{pmatrix}$
+【分析】按题意，用初等矩阵描述，有 $A\begin{pmatrix}0&1&0\\1&0&0\\0&0&1\end{pmatrix}=B$，$B\begin{pmatrix}1&0&0\\0&1&1\\0&0&1\end{pmatrix}=C$。那么 $A\begin{pmatrix}0&1&0\\1&0&0\\0&0&1\end{pmatrix}\begin{pmatrix}1&0&0\\0&1&1\\0&0&1\end{pmatrix}=C$，从而 $Q=\begin{pmatrix}0&1&0\\1&0&0\\0&0&1\end{pmatrix}\begin{pmatrix}1&0&0\\0&1&1\\0&0&1\end{pmatrix}=\begin{pmatrix}0&1&1\\1&0&0\\0&0&1\end{pmatrix}$，所以应选 (D)。` },
+      { p: 56, md: R`【例2.30】（2005,$\frac12$）设 $A$ 为 $n\ (n\geqslant2)$ 阶可逆矩阵，交换 $A$ 的第一行与第二行得到矩阵 $B$，$A^*$ 与 $B^*$ 分别为 $A$ 和 $B$ 的伴随矩阵，则 (A) 交换 $A^*$ 的第一列与第二列，得 $B^*$ (B) 交换 $A^*$ 的第一行与第二行，得 $B^*$ (C) 交换 $A^*$ 的第一列与第二列，得 $-B^*$ (D) 交换 $A^*$ 的第一行与第二行，得 $-B^*$
+【答案】(C)
+【分析】按题意，有 $E_{12}A=B$，于是 $A^{-1}E_{12}^{-1}=B^{-1}$。因为 $E_{12}^{-1}=E_{12}$，$A^{-1}=\dfrac{A^*}{|A|}$，从而 $\dfrac{A^*}{|A|}E_{12}=\dfrac{B^*}{|B|}$。又因矩阵 $A$ 的两行互换得到 $B$，而知 $|A|=-|B|$。于是 $A^*E_{12}=-B^*$，即 $A^*$ 的一、二两列互换得到 $-B^*$。所以应选 (C)。
+【评注】本题考查初等矩阵的两个定理，一是左乘右乘，一是初等矩阵的逆矩阵公式。如果对 $n$ 阶初等矩阵的符号不习惯，不妨把 $A$ 想成是 3 阶矩阵，那么 $\begin{pmatrix}0&1&0\\1&0&0\\0&0&1\end{pmatrix}A=B\Rightarrow A^{-1}\begin{pmatrix}0&1&0\\1&0&0\\0&0&1\end{pmatrix}^{-1}=B^{-1}$，即 $A^{-1}\begin{pmatrix}0&1&0\\1&0&0\\0&0&1\end{pmatrix}=B^{-1}$，即 $\dfrac{A^*}{|A|}\begin{pmatrix}0&1&0\\1&0&0\\0&0&1\end{pmatrix}=\dfrac{B^*}{|B|}$，即 $A^*\begin{pmatrix}0&1&0\\1&0&0\\0&0&1\end{pmatrix}=-B^*$，而知应选 (C)。
+
+【例2.31】$\begin{pmatrix}1&0&0\\0&1&0\\0&2&1\end{pmatrix}^{2000}\begin{pmatrix}1&2&3\\2&3&4\\3&4&5\end{pmatrix}\begin{pmatrix}0&0&1\\0&1&0\\1&0&0\end{pmatrix}^{2001}=$______。
+【分析】因为 $\begin{pmatrix}1&2&3\\2&3&4\\3&4&5\end{pmatrix}\begin{pmatrix}0&0&1\\0&1&0\\1&0&0\end{pmatrix}=\begin{pmatrix}3&2&1\\4&3&2\\5&4&3\end{pmatrix}$，$\begin{pmatrix}1&2&3\\2&3&4\\3&4&5\end{pmatrix}\begin{pmatrix}0&0&1\\0&1&0\\1&0&0\end{pmatrix}^2=\begin{pmatrix}1&2&3\\2&3&4\\3&4&5\end{pmatrix}$，` },
+      { p: 57, md: R`所以 $\begin{pmatrix}1&2&3\\2&3&4\\3&4&5\end{pmatrix}\begin{pmatrix}0&0&1\\0&1&0\\1&0&0\end{pmatrix}^{2001}=\begin{pmatrix}3&2&1\\4&3&2\\5&4&3\end{pmatrix}$。又因 $\begin{pmatrix}1&0&0\\0&1&0\\0&2&1\end{pmatrix}\begin{pmatrix}3&2&1\\4&3&2\\5&4&3\end{pmatrix}=\begin{pmatrix}1&0&0\\0&1&0\\0&2&1\end{pmatrix}\begin{pmatrix}\alpha_1\\\alpha_2\\\alpha_3\end{pmatrix}=\begin{pmatrix}\alpha_1\\\alpha_2\\\alpha_3+2\alpha_2\end{pmatrix}$，$\begin{pmatrix}1&0&0\\0&1&0\\0&2&1\end{pmatrix}^2\begin{pmatrix}3&2&1\\4&3&2\\5&4&3\end{pmatrix}=\begin{pmatrix}1&0&0\\0&1&0\\0&2&1\end{pmatrix}\begin{pmatrix}\alpha_1\\\alpha_2\\\alpha_3+2\alpha_2\end{pmatrix}=\begin{pmatrix}\alpha_1\\\alpha_2\\\alpha_3+2\alpha_2+2\alpha_2\end{pmatrix}$。故 $\begin{pmatrix}1&0&0\\0&1&0\\0&2&1\end{pmatrix}^{2000}\begin{pmatrix}\alpha_1\\\alpha_2\\\alpha_3\end{pmatrix}=\begin{pmatrix}\alpha_1\\\alpha_2\\\alpha_3+2000(2\alpha_2)\end{pmatrix}=\begin{pmatrix}3&2&1\\4&3&2\\16005&12004&8003\end{pmatrix}$。
+
+【例2.32】（2004,$\frac34$）设 $n$ 阶矩阵 $A$ 与 $B$ 等价，则必有 (A) 当 $|A|=a\ (a\neq0)$ 时，$|B|=a$ (B) 当 $|A|=a\ (a\neq0)$ 时，$|B|=-a$ (C) 当 $|A|\neq0$ 时，$|B|=0$ (D) 当 $|A|=0$ 时，$|B|=0$
+【分析】按定义 2.10，所谓矩阵 $A$ 与 $B$ 等价，即 $A$ 经初等变换可得到矩阵 $B$。而 $A$ 与 $B$ 等价的充分必要条件是 $A$ 与 $B$ 有相同的秩。经过初等变换行列式的值不一定相等，也不一定是相反数，例如把矩阵 $A$ 的第一行乘以 5 得到矩阵 $B$，那么矩阵 $A$ 与 $B$ 等价，而 $|A|=a$ 时，$|B|=5a$。可见 (A) 与 (B) 均不正确。若 $|A|\neq0$，说明秩 $r(A)=n$，而 $|B|=0$，说明秩 $r(B)<n$，因此 (C) 不正确。当 $|A|=0$ 时，$r(A)<n$，由 $A$ 与 $B$ 等价，知秩 $r(B)=r(A)<n$，因而 $|B|=0$，即 (D) 正确。
+
+#### 矩阵方程
+【例2.33】已知 $X=XA+B$，其中 $A=\begin{pmatrix}1&1\\1&1\end{pmatrix},B=\begin{pmatrix}1&2\\3&4\end{pmatrix}$，则 $X=$______。
+【分析】由 $X=XA+B$ 得 $X(E-A)=B$，因为 $E-A=\begin{pmatrix}0&-1\\-1&0\end{pmatrix}$ 可逆，有 $X=B(E-A)^{-1}$，` },
+      { p: 58, md: R`$=\begin{pmatrix}1&2\\3&4\end{pmatrix}\begin{pmatrix}0&-1\\-1&0\end{pmatrix}^{-1}=-\begin{pmatrix}1&2\\3&4\end{pmatrix}\begin{pmatrix}0&1\\1&0\end{pmatrix}=-\begin{pmatrix}2&1\\4&3\end{pmatrix}$。
+【评注】对于矩阵方程，经恒等变形之后有三种可能的形式：$AX=B;XA=B;AXC=B$。如果矩阵 $A,C$ 是可逆的，则依次有 $X=A^{-1}B;X=BA^{-1};X=A^{-1}BC^{-1}$，然后经计算就可求出 $X$。因为矩阵乘法没有交换律，所以在恒等变形时，运算法则一定要正确。例如，在本题中，不要把 $X=XA+B$ 错误地变形为 $(A-E)X=B$，而得到 $X=(A-E)^{-1}B=-\begin{pmatrix}0&1\\1&0\end{pmatrix}\begin{pmatrix}1&2\\3&4\end{pmatrix}=-\begin{pmatrix}3&4\\1&2\end{pmatrix}$，这是一个特别要防止的错误。
+
+【例2.34】已知 $A,B$ 均 3 阶矩阵，矩阵 $X$ 满足 $AXA-BXB=BXA-AXB+E$，其中 $E$ 是 3 阶单位矩阵，则 $X=$ (A) $(A^2-B^2)^{-1}$ (B) $(A-B)^{-1}(A+B)^{-1}$ (C) $(A+B)^{-1}(A-B)^{-1}$ (D) 条件不足，不能确定
+【分析】据已知，有 $AXA-BXA+AXB-BXB=E$，即 $(A-B)XA+(A-B)XB=E$，即 $(A-B)X(A+B)=E$。上式右端是单位矩阵，说明矩阵 $A-B,A+B$ 均可逆，那么左乘 $(A-B)^{-1}$，右乘 $(A+B)^{-1}$，即知 $X=(A-B)^{-1}(A+B)^{-1}$，故应选 (B)。
+
+【例2.35】（2000,1）设矩阵 $A$ 的伴随矩阵 $A^*=\begin{pmatrix}1&0&0&0\\0&1&0&0\\1&0&1&0\\0&-3&0&8\end{pmatrix}$，且 $ABA^{-1}=BA^{-1}+3E$，其中 $E$ 为 4 阶单位矩阵，求矩阵 $B$。
+【解法一】由 $|A^*|=|A|^{n-1}$，有 $|A|^3=8$，得 $|A|=2$。用 $A$ 右乘矩阵方程的两端，得 $AB-B=3A$ (1)。因为 $A^*A=AA^*=|A|E$，用 $A^*$ 左乘上式的两端，并将 $|A|=2$ 代入，得 $(2E-A^*)B=6E$，于是 $2E-A^*$ 是可逆矩阵，从而` },
+      { p: 59, md: R`$B=6(2E-A^*)^{-1}=6\begin{pmatrix}1&0&0&0\\0&1&0&0\\-1&0&1&0\\0&3&0&-6\end{pmatrix}^{-1}=6\begin{pmatrix}1&0&0&0\\0&1&0&0\\1&0&1&0\\0&\frac12&0&-\frac16\end{pmatrix}=\begin{pmatrix}6&0&0&0\\0&6&0&0\\6&0&6&0\\0&3&0&-1\end{pmatrix}$。
+【解法二】同前，由 (1) 式有 $B=3(A-E)^{-1}A$。因为 $AA^*=|A|E$ 有 $A=|A|(A^*)^{-1}$，得 $A=2(A^*)^{-1}=2\begin{pmatrix}1&0&0&0\\0&1&0&0\\1&0&1&0\\0&-3&0&8\end{pmatrix}^{-1}=\begin{pmatrix}2&0&0&0\\0&2&0&0\\-2&0&2&0\\0&\frac34&0&\frac14\end{pmatrix}$。于是 $(A-E)^{-1}=\begin{pmatrix}1&0&0&0\\0&1&0&0\\-2&0&1&0\\0&\frac34&0&-\frac34\end{pmatrix}^{-1}=\begin{pmatrix}1&0&0&0\\0&1&0&0\\2&0&1&0\\0&1&0&-\frac43\end{pmatrix}$。因此 $B=3\begin{pmatrix}1&0&0&0\\0&1&0&0\\2&0&1&0\\0&1&0&-\frac43\end{pmatrix}\begin{pmatrix}2&0&0&0\\0&2&0&0\\-2&0&2&0\\0&\frac34&0&\frac14\end{pmatrix}=\begin{pmatrix}6&0&0&0\\0&6&0&0\\6&0&6&0\\0&3&0&-1\end{pmatrix}$。
+
+【例2.36】已知 $AX=B$，其中 $A=\begin{pmatrix}1&3&3\\2&6&9\\-1&-3&3\end{pmatrix},B=\begin{pmatrix}2&-1&1\\7&4&-1\\4&13&-7\end{pmatrix}$，求矩阵 $X$。
+【分析】如 $A$ 可逆，则 $X=A^{-1}B$，现在的 $A$ 是不可逆的，可转换为解非齐次线性方程组。
+【解】设 $X=\begin{pmatrix}x_1&y_1&z_1\\x_2&y_2&z_2\\x_3&y_3&z_3\end{pmatrix}$，` },
+      { p: 60, md: R`则 $\begin{pmatrix}1&3&3\\2&6&9\\-1&-3&3\end{pmatrix}\begin{pmatrix}x_1&y_1&z_1\\x_2&y_2&z_2\\x_3&y_3&z_3\end{pmatrix}=\begin{pmatrix}2&-1&1\\7&4&-1\\4&13&-7\end{pmatrix}$，即
+$$\begin{cases}x_1+3x_2+3x_3=2\\2x_1+6x_2+9x_3=7\\-x_1-3x_2+3x_3=4\end{cases}\quad\begin{cases}y_1+3y_2+3y_3=-1\\2y_1+6y_2+9y_3=4\\-y_1-3y_2+3y_3=13\end{cases}\quad\begin{cases}z_1+3z_2+3z_3=1\\2z_1+6z_2+9z_3=-1\\-z_1-3z_2+3z_3=-7\end{cases}$$
+这三个方程组的系数矩阵完全一样，区别仅在常数项，为简洁这三个方程组的高斯消元可同时进行，即
+$$\begin{pmatrix}1&3&3&2&-1&1\\2&6&9&7&4&-1\\-1&-3&3&4&13&-7\end{pmatrix}\to\begin{pmatrix}1&3&3&2&-1&1\\0&0&3&3&6&-3\\0&0&6&6&12&-6\end{pmatrix}\to\begin{pmatrix}1&3&3&2&-1&1\\0&0&3&3&6&-3\\0&0&0&0&0&0\end{pmatrix}.$$
+从 $\begin{cases}x_1+3x_2+3x_3=2\\3x_3=3\end{cases}$ 解出 $\begin{cases}x_1=-3t-1,\\x_2=t,\\x_3=1.\end{cases}$ 类似地 $\begin{cases}y_1=-3u-7,\\y_2=u,\\y_3=2.\end{cases}$ $\begin{cases}z_1=-3v+4,\\z_2=v,\\z_3=-1.\end{cases}$ 从而 $X=\begin{pmatrix}-3t-1&-3u-7&-3v+4\\t&u&v\\1&2&-1\end{pmatrix},\forall t,u,v$。` }
     ],
     quiz: [
       { q: R`设 $A,B$ 为 $n$ 阶矩阵，则 $|AB|=$`, options: [R`$|A||B|$`, R`$|A|+|B|$`, R`$|A|^n|B|$`, R`$|B||A|^{-1}$`], answer: 0, explain: R`行列式乘法公式。` },
