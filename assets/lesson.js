@@ -20,7 +20,16 @@
     return { stem: stem, options: opts, answer: m[1].charCodeAt(0) - 65 };
   }
   function renderMarkdown(md) {
-    var lines = String(md).replace(/\r/g, "").split("\n");
+    var lines = String(md).replace(/\r/g, "").split("\n").map(function (ln) {
+      if (/^\s*【(分析|解|证|评注|说明|证明|答案|注|解法|证法)/.test(ln)) return ln;
+      var reOpt = /(?<![A-Za-z0-9_$])[（(]\s*([A-D])\s*[）)]/g, m, seen = {}, ok = true;
+      while ((m = reOpt.exec(ln))) {
+        seen[m[1]] = 1;
+        if (/[、，。；：,;]/.test(ln.charAt(m.index + m[0].length))) ok = false;
+      }
+      if (!ok || Object.keys(seen).length < 4) return ln;
+      return ln.replace(/(?<![A-Za-z0-9_$])\s*([（(]\s*[A-D]\s*[）)])/g, "\n$1").split("\n").map(function (x) { return x.trim(); }).filter(function (x) { return x; }).join("\n");
+    }).join("\n").split("\n");
     var html = [], para = [], list = null, listType = "ul", listStart = 1, quote = [], math = null, ex = null;
     function ih(text) { return inline(A.esc(text)); }
     function closeEx() {
@@ -108,7 +117,7 @@
         list.push(ul[1]);
         continue;
       }
-      if (para.length && /^【(例|分析|解|证|评注|说明|答案|证明|解法|证法|注)/.test(t)) fp();
+      if (para.length && /^【(例|分析|解|证|评注|说明|答案|证明|解法|证法|注)|^[（(]\s*[A-D]\s*[）)]/.test(t)) fp();
       fl(); fq(); para.push(t);
     }
     fa(); closeEx();
