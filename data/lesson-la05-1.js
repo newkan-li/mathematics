@@ -128,7 +128,87 @@ $$|\lambda E-A|=\begin{vmatrix}\lambda-17&2&2\\2&\lambda-14&4\\2&4&\lambda-14\en
 
 #### 求相似对角化时的可逆矩阵 $P$
 【例5.18】已知 $A=\begin{pmatrix}-4&-10&0\\1&3&0\\3&6&1\end{pmatrix}$，判断 $A$ 能否对角化？若能对角化，求可逆矩阵 $P$ 化 $A$ 为相似标准形。
-【解】先求特征值。$|\lambda E-A|=\begin{vmatrix}\lambda+4&10&0\\-1&\lambda-3&0\\-3&-6&\lambda-1\end{vmatrix}=(\lambda-1)\begin{vmatrix}\lambda+4&10\\-1&\lambda-3\end{vmatrix}=(\lambda-1)^2(\lambda+2)$，得到 $A$ 的特征值 $\lambda_1=\lambda_2=1,\lambda_3=-2$。再求特征向量：对 $\lambda_1=1$，$(E-A)x=0$ 即 $\begin{pmatrix}5&10&0\\-1&-2&0\\-3&-6&0\end{pmatrix}\to\begin{pmatrix}1&2&0\\0&0&0\\0&0&0\end{pmatrix}$，基础解系 $\alpha_1=(-2,1,0)^T,\alpha_2=(0,0,1)^T$。对 $\lambda_2=-2$，$(-2E-A)x=0$ 即 $\begin{pmatrix}2&10&0\\-1&-5&0\\-3&-6&-3\end{pmatrix}\to\begin{pmatrix}1&5&0\\1&2&1\\0&0&0\end{pmatrix}$，基础解系 $\alpha_3=(-5,1,3)^T$。因为 $\lambda_1$ 有两个线性无关的特征向量，所以 $A$ 能对角化。令 $P=\begin{pmatrix}-2&0&-5\\1&0&1\\0&1&3\end{pmatrix}$，则 $P^{-1}AP=\begin{pmatrix}1&&\\&1&\\&&-2\end{pmatrix}$。` }
+【解】先求特征值。$|\lambda E-A|=\begin{vmatrix}\lambda+4&10&0\\-1&\lambda-3&0\\-3&-6&\lambda-1\end{vmatrix}=(\lambda-1)\begin{vmatrix}\lambda+4&10\\-1&\lambda-3\end{vmatrix}=(\lambda-1)^2(\lambda+2)$，得到 $A$ 的特征值 $\lambda_1=\lambda_2=1,\lambda_3=-2$。再求特征向量：对 $\lambda_1=1$，$(E-A)x=0$ 即 $\begin{pmatrix}5&10&0\\-1&-2&0\\-3&-6&0\end{pmatrix}\to\begin{pmatrix}1&2&0\\0&0&0\\0&0&0\end{pmatrix}$，基础解系 $\alpha_1=(-2,1,0)^T,\alpha_2=(0,0,1)^T$。对 $\lambda_2=-2$，$(-2E-A)x=0$ 即 $\begin{pmatrix}2&10&0\\-1&-5&0\\-3&-6&-3\end{pmatrix}\to\begin{pmatrix}1&5&0\\1&2&1\\0&0&0\end{pmatrix}$，基础解系 $\alpha_3=(-5,1,3)^T$。因为 $\lambda_1$ 有两个线性无关的特征向量，所以 $A$ 能对角化。令 $P=\begin{pmatrix}-2&0&-5\\1&0&1\\0&1&3\end{pmatrix}$，则 $P^{-1}AP=\begin{pmatrix}1&&\\&1&\\&&-2\end{pmatrix}$。` },
+      { p: 136, md: R`则 $P^{-1}AP=\Lambda=\begin{pmatrix}1&&\\&1&\\&&-2\end{pmatrix}$。
+【评注】求 $A$ 相似标准形的方法（对可对角化的矩阵）：(1) 求 $A$ 的特征值 $\lambda_1,\cdots,\lambda_s$，设 $\lambda_i$ 是 $n_i$ 重根；(2) 对每个 $\lambda_i$ 求 $(\lambda_iE-A)x=0$ 的基础解系 $X_{i1},\cdots,X_{in_i}$；(3) 令 $P=(X_{11},\cdots,X_{1n_1},\cdots,X_{s1},\cdots,X_{sn_s})$，则 $P^{-1}AP=\operatorname{diag}(\lambda_1,\cdots,\lambda_1,\cdots,\lambda_s,\cdots,\lambda_s)$，其中有 $n_i$ 个 $\lambda_i$。
+
+【例5.19】（2004,3）设 $n$ 阶矩阵 $A=\begin{pmatrix}1&b&\cdots&b\\b&1&\cdots&b\\\vdots&\vdots&&\vdots\\b&b&\cdots&1\end{pmatrix}$。(Ⅰ) 求 $A$ 的特征值和特征向量；(Ⅱ) 求可逆矩阵 $P$，使得 $P^{-1}AP$ 为对角矩阵。
+【解】(Ⅰ) 由于 $A=B+(1-b)E$，其中 $B$ 为元素全为 $b$ 的矩阵。(1) 若 $b\neq0$，则由 $r(B)=1$，有 $|\lambda E-B|=\lambda^n-nb\lambda^{n-1}$，知 $B$ 的特征值是 $nb,0,\cdots,0$（$n-1$ 个 $0$）。从而 $A$ 的特征值 $\lambda_1=1+(n-1)b,\lambda_2=\cdots=\lambda_n=1-b$。对于 $B$，当 $\lambda=0$ 时，$0E-B=\begin{pmatrix}-b&-b&\cdots&-b\\\vdots&&&\vdots\\-b&-b&\cdots&-b\end{pmatrix}\to\begin{pmatrix}1&1&\cdots&1\\0&0&\cdots&0\\\vdots&\vdots&&\vdots\\0&0&\cdots&0\end{pmatrix}$，基础解系 $\eta_1=(1,-1,0,\cdots,0)^T,\eta_2=(1,0,-1,\cdots,0)^T,\cdots,\eta_{n-1}=(1,0,0,\cdots,-1)^T$，它们是 $A$ 属于 $\lambda=1-b$ 的特征向量，全部特征向量为 $k_1\eta_1+\cdots+k_{n-1}\eta_{n-1}$（不全为 $0$）。` },
+      { p: 137, md: R`对于 $B$，由于 $B^2=nbB$，有 $B(\gamma_1,\cdots,\gamma_n)=nb(\gamma_1,\cdots,\gamma_n)$，知 $\gamma_1$ 是 $B$ 属于 $\lambda=nb$ 的特征向量。所以 $A$ 属于 $\lambda=1+(n-1)b$ 的特征向量是 $k(1,1,\cdots,1)^T$（$k$ 为非零常数）。(2) 若 $b=0$，则 $A=E$，特征值 $\lambda_1=\cdots=\lambda_n=1$，任意非零列向量均为特征向量。
+(Ⅱ) 当 $b\neq0$ 时，$A$ 有 $n$ 个线性无关的特征向量，令 $P=\begin{pmatrix}1&1&\cdots&1&1\\-1&0&\cdots&0&1\\0&-1&\cdots&0&1\\\vdots&\vdots&&\vdots&\vdots\\0&0&\cdots&-1&1\end{pmatrix}$，则 $P^{-1}AP=\operatorname{diag}(1-b,\cdots,1-b,1+(n-1)b)$。当 $b=0$ 时，$A=E$，对任意可逆矩阵 $P$，均有 $P^{-1}AP=E$。
+【评注】若能观察出 $A=B+kE$ 且 $r(B)=1$，则 $A$ 的特征值、特征向量问题用 $B$ 的特征值、特征向量中转是简便的。
+
+【例5.20】（2005,4）设 $A$ 为 3 阶矩阵，$\alpha_1,\alpha_2,\alpha_3$ 是线性无关的 3 维列向量，且满足 $A\alpha_1=\alpha_1+\alpha_2+\alpha_3,A\alpha_2=2\alpha_2+\alpha_3,A\alpha_3=2\alpha_2+3\alpha_3$。(1) 求矩阵 $B$ 使得 $A(\alpha_1,\alpha_2,\alpha_3)=(\alpha_1,\alpha_2,\alpha_3)B$；(2) 求矩阵 $A$ 的特征值；(3) 求可逆矩阵 $P$，使得 $P^{-1}AP$ 为对角矩阵。
+【解】(1) $A(\alpha_1,\alpha_2,\alpha_3)=(\alpha_1+\alpha_2+\alpha_3,2\alpha_2+\alpha_3,2\alpha_2+3\alpha_3)=(\alpha_1,\alpha_2,\alpha_3)\begin{pmatrix}1&0&0\\1&2&2\\1&1&3\end{pmatrix}$，所以 $B=\begin{pmatrix}1&0&0\\1&2&2\\1&1&3\end{pmatrix}$。
+(2) 因为 $\alpha_1,\alpha_2,\alpha_3$ 线性无关，$P_1=(\alpha_1,\alpha_2,\alpha_3)$ 可逆，所以 $P_1^{-1}AP_1=B$ 即 $A\sim B$。由 $|\lambda E-B|=\begin{vmatrix}\lambda-1&0&0\\-1&\lambda-2&-2\\-1&-1&\lambda-3\end{vmatrix}=(\lambda-1)^2(\lambda-4)$，知 $B$ 的特征值是 $1,1,4$，从而 $A$ 的特征值是 $1,1,4$。
+(3) 对 $B$，由 $(E-B)x=0$ 得 $\beta_1=(-1,1,0)^T,\beta_2=(-2,0,1)^T$；由 $(4E-B)x=0$ 得 $\beta_3=(0,1,1)^T$。令 $P_2=(\beta_1,\beta_2,\beta_3)$，则 $P_2^{-1}BP_2=\operatorname{diag}(1,1,4)$。` },
+      { p: 139, md: R`于是 $P_2^{-1}P_1^{-1}AP_1P_2=\operatorname{diag}(1,1,4)$。故当 $P=P_1P_2=(\alpha_1,\alpha_2,\alpha_3)\begin{pmatrix}-1&-2&0\\1&0&1\\0&1&1\end{pmatrix}=(-\alpha_1+\alpha_2,-2\alpha_1+\alpha_3,\alpha_2+\alpha_3)$ 时 $P^{-1}AP=\Lambda$。
+
+#### 用相似求 $A^n$
+【例5.21】已知 $A=\begin{pmatrix}1&1\\2&2\end{pmatrix}$，求 $A^n$。
+【解】由特征方程 $|\lambda E-A|=\begin{vmatrix}\lambda-1&-1\\-2&\lambda-2\end{vmatrix}=\lambda^2-3\lambda=0$，得特征值 $\lambda_1=3,\lambda_2=0$。$A$ 有两个不同特征值，可对角化。当 $\lambda_1=3$ 时，$(3E-A)x=0$ 得 $\alpha_1=\begin{pmatrix}1\\2\end{pmatrix}$；当 $\lambda_2=0$ 时，$(0E-A)x=0$ 得 $\alpha_2=\begin{pmatrix}1\\-1\end{pmatrix}$。令 $P=\begin{pmatrix}1&1\\2&-1\end{pmatrix}$，则 $A=P\Lambda P^{-1}$，$A^n=P\Lambda^nP^{-1}=\begin{pmatrix}1&1\\2&-1\end{pmatrix}\begin{pmatrix}3^n&\\&0\end{pmatrix}\dfrac13\begin{pmatrix}1&1\\2&-1\end{pmatrix}=\begin{pmatrix}3^{n-1}&3^{n-1}\\2\cdot3^{n-1}&2\cdot3^{n-1}\end{pmatrix}$。
+【说明】本题 $r(A)=1$，由 $A=\begin{pmatrix}1\\2\end{pmatrix}(1\ \ 1)$ 知 $A^2=3A$，递推地 $A^n=3^{n-1}A$，更简捷。
+
+【例5.22】设 $A=\begin{pmatrix}3&4\\-1&-1\end{pmatrix},P=\begin{pmatrix}2&3\\-1&-1\end{pmatrix},B=P^{-1}AP$，求 $A^{100}$。` },
+      { p: 140, md: R`【分析】因为 $A$ 与 $B$ 相似，有 $B^{100}=P^{-1}A^{100}P$，从而可利用 $B^{100}$ 间接求出 $A^{100}$。
+【解】$B=P^{-1}AP=\begin{pmatrix}-1&-3\\1&2\end{pmatrix}\begin{pmatrix}3&4\\-1&-1\end{pmatrix}\begin{pmatrix}2&3\\-1&-1\end{pmatrix}=\begin{pmatrix}1&1\\0&1\end{pmatrix}$。因为 $B=\begin{pmatrix}1&1\\0&1\end{pmatrix}=E+C$，故 $B^{100}=(E+C)^{100}=E+100C=\begin{pmatrix}1&100\\0&1\end{pmatrix}$。那么 $A^{100}=PB^{100}P^{-1}=\begin{pmatrix}2&3\\-1&-1\end{pmatrix}\begin{pmatrix}1&100\\0&1\end{pmatrix}\begin{pmatrix}-1&-3\\1&2\end{pmatrix}=\begin{pmatrix}201&400\\-100&-199\end{pmatrix}$。
+
+【例5.23】设 $\begin{cases}x_n=x_{n-1}+2y_{n-1}\\y_n=4x_{n-1}+3y_{n-1}\end{cases}$，且 $x_0=2,y_0=1$，求 $x_{100}$。
+【分析】将方程组表示成矩阵形式，推出 $[x_n,y_n]^T$ 与 $[x_0,y_0]^T$ 的关系式，是 $A^n$ 的一个应用。
+【解】由 $\begin{bmatrix}x_n\\y_n\end{bmatrix}=\begin{pmatrix}1&2\\4&3\end{pmatrix}^n\begin{bmatrix}x_0\\y_0\end{bmatrix}$，问题归纳到计算方阵的 $n$ 次幂。设 $A=\begin{pmatrix}1&2\\4&3\end{pmatrix}$，由 $|\lambda E-A|=\begin{vmatrix}\lambda-1&-2\\-4&\lambda-3\end{vmatrix}=\lambda^2-4\lambda-5=(\lambda-5)(\lambda+1)$，得 $\lambda_1=5,\lambda_2=-1$。当 $\lambda_1=5$ 时，$(5E-A)x=0$ 得 $\xi_1=[1,2]^T$；当 $\lambda_2=-1$ 时，$(-E-A)x=0$ 得 $\xi_2=[1,-1]^T$。` },
+      { p: 141, md: R`故有可逆矩阵 $P=(\xi_1\ \xi_2)=\begin{pmatrix}1&1\\2&-1\end{pmatrix}$，使得 $A=P\Lambda P^{-1}$，其中 $\Lambda=\begin{pmatrix}5&\\&-1\end{pmatrix},P^{-1}=\dfrac13\begin{pmatrix}1&1\\2&-1\end{pmatrix}$。那么 $\begin{bmatrix}x_{100}\\y_{100}\end{bmatrix}=A^{100}\begin{bmatrix}x_0\\y_0\end{bmatrix}=P\Lambda^{100}P^{-1}\begin{bmatrix}x_0\\y_0\end{bmatrix}=\begin{pmatrix}1&1\\2&-1\end{pmatrix}\begin{pmatrix}5^{100}&0\\0&1\end{pmatrix}\dfrac13\begin{pmatrix}3\\3\end{pmatrix}=\begin{pmatrix}5^{100}+1\\2\cdot5^{100}-1\end{pmatrix}$，得 $x_{100}=5^{100}+1$。
+
+#### 求参数的问题
+【例5.24】若 $\alpha=(3,-1,a)^T$ 是矩阵 $A=\begin{pmatrix}-1&0&2\\1&2&-1\\1&3&a\end{pmatrix}$ 的特征向量，则 $a=$______。
+【分析】按定义 $A\alpha=\lambda\alpha$，即 $\begin{cases}-3+2a=3\lambda\\1-a=-\lambda\\a^2=a\lambda\end{cases}$，解出 $a=0$。
+
+【例5.25】已知 $\begin{pmatrix}2&-2&0\\-2&1&-2\\0&-2&x\end{pmatrix}\sim\begin{pmatrix}1&0&0\\0&y&0\\0&0&-2\end{pmatrix}$，则 $y=$______。
+【分析】由 $A\sim B$ 有 $2+1+x=1+y+(-2)$ (1)；由 $1$ 是 $A$ 的特征值即 $|E-A|=\begin{vmatrix}-1&2&0\\2&0&2\\0&2&1-x\end{vmatrix}=4x=0$ (2)，可见 $y=4$。` },
+      { p: 142, md: R`【例5.26】（2000,4）设矩阵 $A=\begin{pmatrix}1&-1&1\\x&4&y\\-3&-3&5\end{pmatrix}$，已知 $A$ 有 3 个线性无关的特征向量，$\lambda=2$ 是 $A$ 的二重特征值，试求可逆矩阵 $P$，使得 $P^{-1}AP$ 为对角形矩阵。
+【解】因为 $A$ 有 3 个线性无关的特征向量，而 $\lambda=2$ 是二重特征值，故 $\lambda=2$ 必有 2 个线性无关的特征向量，因此 $(2E-A)x=0$ 的基础解系由 2 个解向量构成，故 $r(2E-A)=1$。由 $2E-A=\begin{pmatrix}1&1&-1\\-x&-2&-y\\3&3&-3\end{pmatrix}\to\begin{pmatrix}1&1&-1\\2-x&0&-y-2\\0&0&0\end{pmatrix}$ 知 $x=2,y=-2$。对 $A=\begin{pmatrix}1&-1&1\\2&4&-2\\-3&-3&5\end{pmatrix}$，由 $|\lambda E-A|=\begin{vmatrix}\lambda-1&1&-1\\-2&\lambda-4&2\\3&3&\lambda-5\end{vmatrix}=(\lambda-2)^2(\lambda-6)$，得特征值 $\lambda_1=\lambda_2=2,\lambda_3=6$。对 $\lambda=2$，$(2E-A)x=0$ 即 $\begin{pmatrix}1&1&-1\\-2&-2&2\\3&3&-3\end{pmatrix}\to\begin{pmatrix}1&1&-1\\0&0&0\\0&0&0\end{pmatrix}$，得 $\alpha_1=(-1,1,0)^T,\alpha_2=(1,0,1)^T$。对 $\lambda=6$，$(6E-A)x=0$ 得 $\alpha_3=(1,-2,3)^T$。令 $P=\begin{pmatrix}-1&1&1\\1&0&-2\\0&1&3\end{pmatrix}$，有 $P^{-1}AP=\operatorname{diag}(2,2,6)$。` },
+      { p: 143, md: R`【评注】当已知条件与特征值相关联时，可以由 (1) 特征值、特征向量定义；(2) 相似的必要条件；(3) 相似对角化的理论等方面去思考求参数。
+
+#### 反求矩阵 $A$
+【例5.27】（1995,4）设三阶矩阵 $A$ 满足 $A\alpha_i=i\alpha_i\ (i=1,2,3)$，其中 $\alpha_1=(1,2,2)^T,\alpha_2=(2,-2,1)^T,\alpha_3=(-2,-1,2)^T$，试求矩阵 $A$。
+【解】由 $A\alpha_1=\alpha_1,A\alpha_2=2\alpha_2,A\alpha_3=3\alpha_3$，知 $\alpha_1,\alpha_2,\alpha_3$ 线性无关。有 $A(\alpha_1,\alpha_2,\alpha_3)=(\alpha_1,2\alpha_2,3\alpha_3)$，故 $A=(\alpha_1\ 2\alpha_2\ 3\alpha_3)(\alpha_1\ \alpha_2\ \alpha_3)^{-1}=\begin{pmatrix}1&4&-6\\2&-4&-3\\2&2&6\end{pmatrix}\cdot\dfrac19\begin{pmatrix}1&2&2\\2&-2&1\\-2&-1&2\end{pmatrix}=\dfrac13\begin{pmatrix}7&0&-2\\0&5&-2\\-2&-2&6\end{pmatrix}$。
+
+【例5.28】已知方程组 $\begin{cases}x_1+2x_2+x_3=3\\2x_1+(a+4)x_2-5x_3=6\\-x_1-2x_2+ax_3=-3\end{cases}$ 有无穷多解，矩阵 $A$ 的特征值是 $1,-1,0$，对应特征向量依次是 $\alpha_1=(1,2a,-1)^T,\alpha_2=(a-2,-1,a+1)^T,\alpha_3=(a,a+3,a+2)^T$，求矩阵 $A$ 及 $A^{100}$。
+【解】对增广矩阵作初等行变换 $\begin{pmatrix}1&2&1&3\\2&a+4&-5&6\\-1&-2&a&-3\end{pmatrix}\to\begin{pmatrix}1&2&1&3\\0&a&-7&0\\0&0&a+1&0\end{pmatrix}$，当 $a=-1$ 或 $a=0$ 时均有无穷多解。若 $a=-1$，$\alpha_1,\alpha_2,\alpha_3$ 线性相关，不合题意。` },
+      { p: 144, md: R`当 $a=0$ 时，$\alpha_1=(1,0,-1)^T,\alpha_2=(-2,-1,1)^T,\alpha_3=(0,3,2)^T$ 线性无关。按定义 $A(\alpha_1,\alpha_2,\alpha_3)=(\alpha_1,-\alpha_2,\mathbf0)$，那么 $A=(\alpha_1,-\alpha_2,\mathbf0)(\alpha_1,\alpha_2,\alpha_3)^{-1}=\begin{pmatrix}1&2&0\\0&1&0\\-1&-1&0\end{pmatrix}\begin{pmatrix}1&-2&0\\0&-1&3\\-1&1&2\end{pmatrix}^{-1}=\begin{pmatrix}-11&8&-12\\-3&2&-3\\8&-6&9\end{pmatrix}$。因为 $A$ 有 3 个不同特征值，故 $A\sim\Lambda=\operatorname{diag}(1,-1,0)$，有 $P^{-1}AP=\Lambda$，$P=(\alpha_1,\alpha_2,\alpha_3)$。于是 $A^{100}=P\Lambda^{100}P^{-1}=\begin{pmatrix}1&-2&0\\0&-1&3\\-1&1&2\end{pmatrix}\begin{pmatrix}1&&\\&1&\\&&0\end{pmatrix}\begin{pmatrix}-5&4&-6\\-3&2&-3\\-1&1&-1\end{pmatrix}=\begin{pmatrix}1&0&0\\3&-2&3\\2&-2&3\end{pmatrix}$。
+
+#### 实对称矩阵
+【例5.29】设 $A$ 是 3 阶实对称矩阵，秩 $r(A)=2$，若 $A^2=A$，则 $A$ 的特征值是______。
+【分析】设 $\lambda$ 是 $A$ 的任一特征值，由 $A^2=A$ 得 $(\lambda^2-\lambda)\alpha=0,\alpha\neq0$，故特征值是 $1$ 或 $0$。因为 $A$ 是实对称矩阵，$A\sim\Lambda$，由 $r(A)=r(\Lambda)$ 知 $\Lambda=\operatorname{diag}(1,1,0)$，所以 $A$ 的特征值是 $1,1,0$。` },
+      { p: 145, md: R`【例5.30】设 $A=\begin{pmatrix}3&-2&-4\\-2&6&-2\\-4&-2&3\end{pmatrix}$，求正交矩阵 $P$ 使 $P^{-1}AP=\Lambda$。
+【解】由 $|\lambda E-A|=\begin{vmatrix}\lambda-3&2&4\\2&\lambda-6&2\\4&2&\lambda-3\end{vmatrix}=\begin{vmatrix}\lambda-7&0&0\\2&\lambda-6&4\\4&2&\lambda+1\end{vmatrix}=(\lambda-7)(\lambda^2-5\lambda-14)$，得特征值 $\lambda_1=\lambda_2=7,\lambda_3=-2$。对 $\lambda=7$，$(7E-A)x=0$ 即 $\begin{pmatrix}4&2&4\\2&1&2\\4&2&4\end{pmatrix}\to\begin{pmatrix}2&1&2\\0&0&0\\0&0&0\end{pmatrix}$，得 $\alpha_1=(-1,2,0)^T,\alpha_2=(-1,0,1)^T$。对 $\lambda=-2$，$(-2E-A)x=0$ 得 $\alpha_3=(2,1,2)^T$。由于 $\alpha_1,\alpha_2$ 不正交，故 Schmidt 正交化：$\beta_1=\alpha_1=\begin{pmatrix}-1\\2\\0\end{pmatrix}$，$\beta_2=\alpha_2-\dfrac{(\alpha_2,\beta_1)}{(\beta_1,\beta_1)}\beta_1=\begin{pmatrix}-1\\0\\1\end{pmatrix}-\dfrac15\begin{pmatrix}-1\\2\\0\end{pmatrix}=\dfrac15\begin{pmatrix}-4\\-2\\5\end{pmatrix}$。单位化得 $\dfrac{1}{\sqrt5}\begin{pmatrix}-1\\2\\0\end{pmatrix},\dfrac{1}{3\sqrt5}\begin{pmatrix}-4\\-2\\5\end{pmatrix}$，再对 $\alpha_3$ 单位化得 $\dfrac13\begin{pmatrix}2\\1\\2\end{pmatrix}$。令` },
+      { p: 146, md: R`$$P=\begin{pmatrix}-\dfrac{1}{\sqrt5}&-\dfrac{4}{3\sqrt5}&\dfrac23\\\dfrac{2}{\sqrt5}&-\dfrac{2}{3\sqrt5}&\dfrac13\\0&\dfrac{\sqrt5}{3}&\dfrac23\end{pmatrix},$$
+则有 $P^{-1}AP=\Lambda=\operatorname{diag}(7,7,-2)$。
+【评注】用正交矩阵把实对称矩阵 $A$ 化为对角矩阵的步骤：(1) 求特征值；(2) 求特征向量；(3) 单位化（特征值有重根时可能还要 Schmidt 正交化）；(4) 构造正交矩阵 $P$，得 $P^{-1}AP=\Lambda$（$P$ 与 $\Lambda$ 次序要协调一致）。
+
+【例5.31】（2001,3,4）设矩阵 $A=\begin{pmatrix}1&1&a\\1&a&1\\a&1&1\end{pmatrix},\beta=\begin{pmatrix}1\\1\\-2\end{pmatrix}$，已知线性方程组 $Ax=\beta$ 有解但不唯一。试求 (1) $a$ 的值；(2) 正交矩阵 $Q$，使 $Q^TAQ$ 为对角矩阵。
+【分析】方程组有无穷多解，由 $r(A)=r(\overline A)<3$ 求 $a$。
+【解】对增广矩阵作初等行变换，有 $\overline A=\begin{pmatrix}1&1&a&1\\1&a&1&1\\a&1&1&-2\end{pmatrix}\to\begin{pmatrix}1&1&a&1\\0&a-1&1-a&0\\0&1-a&1-a^2&-a-2\end{pmatrix}\to\begin{pmatrix}1&1&a&1\\0&a-1&1-a&0\\0&0&(a-1)(a+2)&a+2\end{pmatrix}$，由有无穷多解得 $a=-2$。由特征多项式 $|\lambda E-A|=\begin{vmatrix}\lambda-1&-1&2\\-1&\lambda+2&-1\\2&-1&\lambda-1\end{vmatrix}$` },
+      { p: 147, md: R`$$=\begin{vmatrix}\lambda-3&0&0\\-1&\lambda+2&-2\\2&-1&\lambda+1\end{vmatrix}=(\lambda-3)(\lambda^2+3\lambda),$$
+得 $A$ 的特征值是 $3,-3,0$。对 $\lambda=3$，$(3E-A)x=0$ 得 $\alpha_1=(-1,0,1)^T$；对 $\lambda=-3$，$(-3E-A)x=0$ 得 $\alpha_2=(1,-2,1)^T$；对 $\lambda=0$，$(0E-A)x=0$ 得 $\alpha_3=(1,1,1)^T$。实对称矩阵不同特征值的特征向量已正交，只需单位化得 $\dfrac{1}{\sqrt2}\begin{pmatrix}-1\\0\\1\end{pmatrix},\dfrac{1}{\sqrt6}\begin{pmatrix}1\\-2\\1\end{pmatrix},\dfrac{1}{\sqrt3}\begin{pmatrix}1\\1\\1\end{pmatrix}$。令 $Q=\begin{pmatrix}-\dfrac{1}{\sqrt2}&\dfrac{1}{\sqrt6}&\dfrac{1}{\sqrt3}\\0&-\dfrac{2}{\sqrt6}&\dfrac{1}{\sqrt3}\\\dfrac{1}{\sqrt2}&\dfrac{1}{\sqrt6}&\dfrac{1}{\sqrt3}\end{pmatrix}$，得 $Q^TAQ=Q^{-1}AQ=\operatorname{diag}(3,-3,0)$。
+
+【例5.32】已知 $A$ 是 3 阶实对称矩阵，特征值是 $3,-6,0$，$\lambda=3$ 的特征向量是 $\alpha_1=(1,a,1)^T$，$\lambda=-6$ 的特征向量是 $\alpha_2=(a,a+1,1)^T$，求矩阵 $A$。
+【解】因为 $A$ 是实对称矩阵，不同特征值的特征向量相互正交，故 $\alpha_1^T\alpha_2=a+a(a+1)+1=0$，所以 $a=-1$。` },
+      { p: 148, md: R`设 $\lambda=0$ 的特征向量 $\alpha_3=(x_1,x_2,x_3)^T$，则 $\begin{cases}\alpha_3^T\alpha_1=x_1-x_2+x_3=0\\\alpha_3^T\alpha_2=-x_1+x_3=0\end{cases}$，解出 $\alpha_3=(1,2,1)^T$。由 $A(\alpha_1,\alpha_2,\alpha_3)=(3\alpha_1,-6\alpha_2,\mathbf0)$，得 $A=(3\alpha_1,-6\alpha_2,\mathbf0)(\alpha_1,\alpha_2,\alpha_3)^{-1}=\begin{pmatrix}3&6&0\\-3&0&0\\3&-6&0\end{pmatrix}\begin{pmatrix}1&-1&1\\-1&0&2\\1&1&1\end{pmatrix}^{-1}=\begin{pmatrix}-2&-1&4\\-1&1&-1\\4&-1&-2\end{pmatrix}$。
+
+【例5.33】（2007,1,2,3,4）设 3 阶对称矩阵 $A$ 的特征值 $\lambda_1=1,\lambda_2=2,\lambda_3=-2$，$\alpha_1=(1,-1,1)^T$ 是 $A$ 属于 $\lambda_1$ 的一个特征向量，记 $B=A^5-4A^3+E$。(Ⅰ) 验证 $\alpha_1$ 是 $B$ 的特征向量，并求 $B$ 的全部特征值与特征向量；(Ⅱ) 求矩阵 $B$。
+【解】(Ⅰ) $B\alpha_1=(A^5-4A^3+E)\alpha_1=(\lambda_1^5-4\lambda_1^3+1)\alpha_1=-2\alpha_1$，所以 $\alpha_1$ 是 $B$ 属于特征值 $\mu_1=-2$ 的特征向量。又 $B\alpha_2=(\lambda_2^5-4\lambda_2^3+1)\alpha_2=\alpha_2$，$B\alpha_3=\alpha_3$，所以 $\mu_2=\mu_3=1$ 是 $B$ 的二重特征值。因为 $A$ 是对称矩阵知 $B$ 是对称矩阵，属于 $\mu=1$ 的特征向量与 $\alpha_1$ 正交，即 $x_1-x_2+x_3=0$，得 $\alpha_2=(1,1,0)^T,\alpha_3=(0,1,1)^T$。综上，$B$ 的特征值 $-2,1,1$；属于 $-2$ 的特征向量 $k_1(1,-1,1)^T\ (k_1\neq0)$；属于 $1$ 的特征向量 $k_2(1,1,0)^T+k_3(0,1,1)^T$（不全为 $0$）。
+(Ⅱ) 由 $B(\alpha_1,\alpha_2,\alpha_3)=(-2\alpha_1,\alpha_2,\alpha_3)$，$B=(-2\alpha_1,\alpha_2,\alpha_3)(\alpha_1,\alpha_2,\alpha_3)^{-1}=\begin{pmatrix}-2&1&0\\2&1&1\\-2&0&1\end{pmatrix}\begin{pmatrix}1&1&0\\-1&1&1\\1&0&1\end{pmatrix}^{-1}=\begin{pmatrix}0&1&-1\\1&0&1\\-1&1&0\end{pmatrix}$。` },
+      { p: 149, md: R`【例5.34】$n$ 阶矩阵 $A=\begin{pmatrix}a&1&1&\cdots&1\\1&a&1&\cdots&1\\1&1&a&\cdots&1\\\vdots&\vdots&\vdots&&\vdots\\1&1&1&\cdots&a\end{pmatrix}$，求秩 $r(A)$。
+【解】因为 $A=(a-1)E+B$，其中 $B$ 为元素全为 1 的矩阵，$r(B)=1$，$|\lambda E-B|=\lambda^n-n\lambda^{n-1}$，得 $B$ 的特征值是 $n,0,\cdots,0$，因此 $A$ 的特征值是 $n+a-1,a-1,\cdots,a-1$。又 $A$ 是实对称矩阵，故 $A\sim\Lambda=\operatorname{diag}(n+a-1,a-1,\cdots,a-1)$，那么 $r(A)=\begin{cases}n,&\text{若 }a\neq1\text{ 且 }a\neq1-n\\n-1,&\text{若 }a=1-n\\1,&\text{若 }a=1\end{cases}$。
+【评注】也可由 $|A|=(a+n-1)(a-1)^{n-1}$ 再分三种情况分析判断。本题的解法是特殊情况下的特殊解法。
+
+【例5.35】设 $A$ 是实对称矩阵，$\lambda_1$ 与 $\lambda_2$ 是 $A$ 不同的特征值，$\alpha_1,\alpha_2$ 分别是属于 $\lambda_1$ 与 $\lambda_2$ 的特征向量，证明 $\alpha_1$ 与 $\alpha_2$ 正交。
+【证】据已知 $A^T=A,A\alpha_1=\lambda_1\alpha_1,A\alpha_2=\lambda_2\alpha_2,\lambda_1\neq\lambda_2$，` },
+      { p: 150, md: R`那么 $\lambda_2\alpha_1^T\alpha_2=\alpha_1^TA\alpha_2=\alpha_1^TA^T\alpha_2=(A\alpha_1)^T\alpha_2=(\lambda_1\alpha_1)^T\alpha_2=\lambda_1\alpha_1^T\alpha_2$，所以 $(\lambda_2-\lambda_1)\alpha_1^T\alpha_2=0$，又 $\lambda_1\neq\lambda_2$，故 $\alpha_1^T\alpha_2=0$，即 $\alpha_1$ 与 $\alpha_2$ 正交。
+
+【例5.36】设 $A$ 是实对称矩阵，证明 $A$ 的特征值必是实数。
+【证】设 $\lambda$ 是 $A$ 的特征值，$\alpha$ 是属于 $\lambda$ 的特征向量，即 $A\alpha=\lambda\alpha,\alpha\neq0$。两边取共轭，有 $\overline{A\alpha}=\bar\lambda\bar\alpha$，从而 $\bar A\bar\alpha=\bar\lambda\bar\alpha$。因为 $A$ 是实矩阵，$\bar A=A$，故 $A\bar\alpha=\bar\lambda\bar\alpha$。用 $\alpha^T$ 左乘两端得 $\alpha^TA\bar\alpha=\bar\lambda\alpha^T\bar\alpha$。因为 $A$ 实对称 $A^T=A$，有 $\alpha^TA\bar\alpha=\alpha^TA^T\bar\alpha=(A\alpha)^T\bar\alpha=(\lambda\alpha)^T\bar\alpha=\lambda\alpha^T\bar\alpha$。于是 $(\bar\lambda-\lambda)\alpha^T\bar\alpha=0$，因为 $\alpha\neq0$，故 $\alpha^T\bar\alpha>0$，所以 $\bar\lambda=\lambda$，即 $\lambda$ 是实数。
+【评注】对于实对称矩阵的特征值问题，要把握好定理 5.9—5.11，利用隐含的信息来处理问题。` }
     ],
     quiz: [
       { q: R`设 $A\alpha=\lambda\alpha,\alpha\neq0$，则 $\lambda$ 称为`, options: [R`$A$ 的特征值`, R`$A$ 的特征向量`, R`$A$ 的秩`, R`$A$ 的迹`], answer: 0, explain: R`特征值定义。` },
