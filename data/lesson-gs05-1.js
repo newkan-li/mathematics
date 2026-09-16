@@ -9,84 +9,91 @@ window.LESSONS = window.LESSONS || {};
     pages: [142, 147],
     img: "assets/img/gaoshu",
     content: [
-      { p: 142, md: R`### 一、考试内容要点精讲
-#### （一）重极限
-**定义** 设 $f(x,y)$ 在区域 $D$ 上有定义，$P_0(x_0,y_0)$ 为 $D$ 的聚点。若 $\forall\varepsilon>0$，$\exists\delta>0$，当 $P(x,y)\in D$ 且 $0<\sqrt{(x-x_0)^2+(y-y_0)^2}<\delta$ 时，$|f(x,y)-A|<\varepsilon$，则称 $A$ 为 $f(x,y)$ 当 $(x,y)\to(x_0,y_0)$ 时的极限，记为 $\lim\limits_{(x,y)\to(x_0,y_0)}f(x,y)=A$。
+      { p: 142, md: R`## 一、考试内容要点精讲
+### （一）重极限
+**定义** 设函数 $f(x,y)$ 在区域 $D$ 上有定义，点 $P_0(x_0,y_0)\in D$ 为 $D$ 的聚点，如果 $\forall\varepsilon>0$，存在 $\delta>0$，当 $P(x,y)\in D$，且 $0<\sqrt{(x-x_0)^2+(y-y_0)^2}<\delta$ 时，都有 $|f(x)-A|<\varepsilon$ 成立，则称常数 $A$ 为函数 $f(x,y)$ 当 $(x,y)\to(x_0,y_0)$ 时的极限，记为
+$$\lim_{(x,y)\to(x_0,y_0)}f(x,y)=A\quad\text{或}\quad\lim_{\substack{x\to x_0\\y\to y_0}}f(x,y)=A\quad\text{或}\quad\lim_{P\to P_0}f(P)=A.$$
+【注】1) 这里的极限要求点 $(x,y)$ 在 $D$ 内以任意方式趋近于点 $(x_0,y_0)$ 时，函数 $f(x,y)$ 都趋近于同一确定的常数 $A$，否则该极限就不存在。
+2) 一元函数极限中的下述性质对多元函数仍成立：① 局部有界性；② 保号性；③ 有理运算；④ 极限与无穷小的关系；⑤ 夹逼性。
 
-【注】1) 要求点 $(x,y)$ 以任意方式趋近于 $(x_0,y_0)$ 时 $f$ 都趋近于同一常数 $A$，否则极限不存在。2) 一元函数极限的性质（局部有界性、保号性、有理运算、极限与无穷小关系、夹逼性）对多元函数仍成立。
+【例1】求下列极限：1) $\lim\limits_{\substack{x\to0\\y\to0}}\dfrac{x^2y}{x^2+y^2}$；2) $\lim\limits_{\substack{x\to0\\y\to0}}\dfrac{x^2+y^2}{|x|+|y|}$；3) $\lim\limits_{\substack{x\to0\\y\to0}}\dfrac{xy^2\sin(xy)}{x^2+y^4}$。
+【解】1) 由于 $0\leqslant\left|\dfrac{x^2y}{x^2+y^2}\right|\leqslant|y|$，而 $\lim\limits_{\substack{x\to0\\y\to0}}|y|=0$，由夹逼原理知 $\lim\limits_{\substack{x\to0\\y\to0}}\dfrac{x^2y}{x^2+y^2}=0$。
+2) 由于 $0\leqslant\dfrac{x^2+y^2}{|x|+|y|}=\dfrac{x^2}{|x|+|y|}+\dfrac{y^2}{|x|+|y|}\leqslant\dfrac{x^2}{|x|}+\dfrac{y^2}{|y|}=|x|+|y|$，而 $\lim\limits_{\substack{x\to0\\y\to0}}(|x|+|y|)=0$，由夹逼原理知 $\lim\limits_{\substack{x\to0\\y\to0}}\dfrac{x^2+y^2}{|x|+|y|}=0$。
+3) 方法1：由于 $\left|\dfrac{xy^2}{x^2+y^4}\right|\leqslant\dfrac12$，即为有界量，而 $\lim\limits_{x\to0}\sin xy=0$，即为无穷小量，则原式 $=0$。` },
+      { p: 143, md: R`方法2：由于 $0\leqslant\left|\dfrac{xy^2\sin xy}{x^2+y^4}\right|\leqslant\dfrac12|\sin xy|$，而 $\lim\limits_{\substack{x\to0\\y\to0}}\dfrac12|\sin xy|=0$，由夹逼原理知 $\lim\limits_{\substack{x\to0\\y\to0}}\dfrac{xy^2\sin xy}{x^2+y^4}=0$。
+【注】求重极限常用方法：1. 利用极限性质（四则运算法则，夹逼原理）；2. 消去分母中极限为零的因子（有理化，等价无穷小代换）；3. 利用无穷小量与有界变量之积为无穷小量。
 
-【例1】求下列极限：1) $\lim\limits_{(x,y)\to(0,0)}\dfrac{x^2y}{x^2+y^2}$；2) $\lim\limits_{(x,y)\to(0,0)}\dfrac{x^2+y^2}{|x|+|y|}$；3) $\lim\limits_{(x,y)\to(0,0)}\dfrac{xy^2\sin(xy)}{x^2+y^4}$。
+【例2】证明下列重极限不存在：1) $\lim\limits_{\substack{x\to0\\y\to0}}\dfrac{xy}{x^2+y^2}$；2) $\lim\limits_{\substack{x\to0\\y\to0}}\dfrac{xy^2}{x^2+y^4}$。
+【证】1) 取直线 $y=kx$，让点 $(x,y)$ 沿直线 $y=kx$ 趋于 $(0,0)$ 点，此时有 $\lim\limits_{\substack{y=kx\\x\to0}}\dfrac{xy}{x^2+y^2}=\lim\limits_{x\to0}\dfrac{kx^2}{x^2+k^2x^2}=\dfrac{k}{1+k^2}$。则重极限 $\lim\limits_{\substack{x\to0\\y\to0}}\dfrac{xy}{x^2+y^2}$ 不存在。
+【注】本题中的方法是证明重极限不存在的常用方法。
+2) 取直线 $y=kx$，则 $\lim\limits_{\substack{y=kx\\x\to0}}\dfrac{xy^2}{x^2+y^4}=\lim\limits_{x\to0}\dfrac{k^2x^3}{x^2+k^4x^4}=\lim\limits_{x\to0}\dfrac{k^2x}{1+k^4x^2}=0$。这说明沿任何一条过原点的直线 $y=kx$（不包括 $y$ 轴）趋于 $(0,0)$ 点时，极限存在且都为零，并且若沿 $y$ 轴趋于 $(0,0)$ 点极限也为零，事实上 $\lim\limits_{\substack{x=0\\y\to0}}\dfrac{xy^2}{x^2+y^4}=0$。这能否说明重极限 $\lim\limits_{\substack{x\to0\\y\to0}}\dfrac{xy^2}{x^2+y^4}$ 存在且为零呢？不能！事实上若沿过原点的抛物线 $x=y^2$ 趋于 $(0,0)$ 点时，就有 $\lim\limits_{\substack{x=y^2\\y\to0}}\dfrac{xy^2}{x^2+y^4}=\lim\limits_{y\to0}\dfrac{y^4}{y^4+y^4}=\dfrac12$。故极限 $\lim\limits_{\substack{x\to0\\y\to0}}\dfrac{xy^2}{x^2+y^4}$ 不存在。
+【注】证明重极限不存在常用方法：沿两种不同路径极限不同（通常可取过点 $(x_0,y_0)$ 的直线）。
 
-【解】1) $0\leqslant\left|\dfrac{x^2y}{x^2+y^2}\right|\leqslant|y|$，由夹逼原理得 $0$。
-2) $0\leqslant\dfrac{x^2+y^2}{|x|+|y|}\leqslant|x|+|y|$，由夹逼原理得 $0$。
-3) 因 $\left|\dfrac{xy^2}{x^2+y^4}\right|\leqslant\dfrac12$ 有界，$\sin(xy)\to0$，故原式 $=0$。` },
-      { p: 143, md: R`（例1方法2）$0\leqslant\left|\dfrac{xy^2\sin xy}{x^2+y^4}\right|\leqslant\dfrac12|\sin xy|\to0$，由夹逼原理得 $0$。
+### （二）连续
+1) 定义：若 $\lim\limits_{\substack{x\to x_0\\y\to y_0}}f(x,y)=f(x_0,y_0)$，则称 $f(x,y)$ 在点 $(x_0,y_0)$ 处连续。
+2) 性质：① 连续函数的和、差、积、商（分母不为零）及复合仍连续；② 基本初等函数在其定义域内连续；初等函数在其定义区域内连续；` },
+      { p: 144, md: R`③ 有界闭区域上连续函数的性质：a. 有界性：若 $f(x,y)$ 在有界闭区域 $D$ 上连续，则 $f(x,y)$ 在 $D$ 上有界；b. 最值性：若 $f(x,y)$ 在有界闭区域 $D$ 上连续，则 $f(x,y)$ 在 $D$ 上必有最大值和最小值；c. 介值性：若 $f(x,y)$ 在有界闭区域 $D$ 上连续，则 $f(x,y)$ 在 $D$ 上可取到介于最小值与最大值之间的任何值。
 
-【注】求重极限常用方法：1. 利用极限性质（四则运算、夹逼）；2. 消去分母中极限为零的因子（有理化、等价无穷小代换）；3. 利用无穷小量与有界变量之积为无穷小。
+【例3】判断函数 $f(x,y)=\begin{cases}\dfrac{xy}{\sqrt{x^2+y^2}},&(x,y)\neq(0,0)\\a,&(x,y)=(0,0)\end{cases}$ 的连续性。
+【解】因为 $0\leqslant\left|\dfrac{xy}{\sqrt{x^2+y^2}}\right|\leqslant|y|$，则 $\lim\limits_{\substack{x\to0\\y\to0}}\dfrac{xy}{\sqrt{x^2+y^2}}=0$。若 $a=0$，则 $f(x,y)$ 处处连续；若 $a\neq0$，则 $f(x,y)$ 除点 $(0,0)$ 外处处连续。
 
-【例2】证明下列重极限不存在：1) $\lim\limits_{(x,y)\to(0,0)}\dfrac{xy}{x^2+y^2}$；2) $\lim\limits_{(x,y)\to(0,0)}\dfrac{xy^2}{x^2+y^4}$。
+### （三）偏导数
+1. 定义：$f'_x(x_0,y_0)=\lim\limits_{\Delta x\to0}\dfrac{f(x_0+\Delta x,y_0)-f(x_0,y_0)}{\Delta x}=\left.\dfrac{d}{dx}f(x,y_0)\right|_{x=x_0}$，$f'_y(x_0,y_0)=\lim\limits_{\Delta y\to0}\dfrac{f(x_0,y_0+\Delta y)-f(x_0,y_0)}{\Delta y}=\left.\dfrac{d}{dy}f(x_0,y)\right|_{y=y_0}$。
+【注】$f'_x(x_0,y_0)$ 就是一元函数 $f(x,y_0)$ 在 $x_0$ 处的导数；$f'_y(x_0,y_0)$ 就是一元函数 $f(x_0,y)$ 在 $y_0$ 处的导数。
 
-【证】1) 取直线 $y=kx$，$\lim\limits_{y=kx,x\to0}\dfrac{xy}{x^2+y^2}=\dfrac{k}{1+k^2}$，与 $k$ 有关，故极限不存在。
-2) 沿 $y=kx$ 及 $y$ 轴极限均为 $0$，但沿抛物线 $x=y^2$ 时 $\lim\limits_{y\to0}\dfrac{y^4}{y^4+y^4}=\dfrac12$，故极限不存在。
+【例4】设 $f(x,y)=x+2y+(y-1)\arcsin\dfrac{x}{1+xy}$，求 $f'_x(0,1)$ 和 $f'_y(0,1)$。
+【解】$f'_x(0,1)=\left.\dfrac{d}{dx}f(x,1)\right|_{x=0}=\left.\dfrac{d}{dx}(x+2)\right|_{x=0}=1$，$f'_y(0,1)=\left.\dfrac{d}{dy}f(0,y)\right|_{y=1}=\left.\dfrac{d}{dy}(2y)\right|_{y=1}=2$。
 
-【注】证明重极限不存在常用方法：沿两种不同路径极限不同（通常取过 $(x_0,y_0)$ 的直线）。
+2. 几何意义：$f'_x(x_0,y_0)$ 表示曲线 $z=f(x,y_0)$ 在点 $(x_0,y_0,f(x_0,y_0))$ 处的切线对 $x$ 轴的斜率；$f'_y(x_0,y_0)$ 表示曲线 $z=f(x_0,y)$ 在点 $(x_0,y_0,f(x_0,y_0))$ 处的切线对 $y$ 轴的斜率。
 
-#### （二）连续
-1) 定义：若 $\lim\limits_{(x,y)\to(x_0,y_0)}f(x,y)=f(x_0,y_0)$，则称 $f$ 在 $(x_0,y_0)$ 处连续。
-2) 性质：① 和差积商（分母不为零）及复合仍连续；② 基本初等函数在其定义域内连续，初等函数在其定义区域内连续；` },
-      { p: 144, md: R`③ 有界闭区域上连续函数的性质：a. 有界性；b. 最值性；c. 介值性。
+3. 高阶偏导数：设 $z=f(x,y)$，则
+$$\dfrac{\partial^2z}{\partial x^2}=f''_{xx}(x,y)=\dfrac{\partial}{\partial x}\left(\dfrac{\partial z}{\partial x}\right),\quad\dfrac{\partial^2z}{\partial x\partial y}=f''_{xy}(x,y)=\dfrac{\partial}{\partial y}\left(\dfrac{\partial z}{\partial x}\right),$$
+$$\dfrac{\partial^2z}{\partial y\partial x}=f''_{yx}(x,y)=\dfrac{\partial}{\partial x}\left(\dfrac{\partial z}{\partial y}\right),\quad\dfrac{\partial^2z}{\partial y^2}=f''_{yy}(x,y)=\dfrac{\partial}{\partial y}\left(\dfrac{\partial z}{\partial y}\right).$$
+**定理** 如果函数 $z=f(x,y)$ 的两个二阶混合偏导数 $f''_{xy}(x,y)$ 及 $f''_{yx}(x,y)$ 在区域 $D$ 内连续，则在区域 $D$ 内恒有 $f''_{xy}(x,y)=f''_{yx}(x,y)$。
 
-【例3】判断 $f(x,y)=\begin{cases}\dfrac{xy}{\sqrt{x^2+y^2}},&(x,y)\neq(0,0)\\a,&(x,y)=(0,0)\end{cases}$ 的连续性。
+### （四）全微分
+1. 定义：若 $\Delta z=f(x_0+\Delta x,y_0+\Delta y)-f(x_0,y_0)=A\Delta x+B\Delta y+o(\rho)$，则称函数 $z=$` },
+      { p: 145, md: R`$f(x,y)$ 在点 $(x_0,y_0)$ 可微，$A\Delta x+B\Delta y$ 称为函数 $z=f(x,y)$ 在点 $(x_0,y_0)$ 的全微分，记为 $dz=A\Delta x+B\Delta y$。
+2. 可微性判定：① 必要条件：$f'_x(x_0,y_0)$ 与 $f'_y(x_0,y_0)$ 都存在；② 充分条件：$f'_x(x,y)$ 和 $f'_y(x,y)$ 在 $(x_0,y_0)$ 连续；③ 用定义判定：a. $f'_x(x_0,y_0)$ 与 $f'_y(x_0,y_0)$ 是否都存在？b. $\lim\limits_{\substack{\Delta x\to0\\\Delta y\to0}}\dfrac{[f(x_0+\Delta x,y_0+\Delta y)-f(x_0,y_0)]-[f'_x(x_0,y_0)\Delta x+f'_y(x_0,y_0)\Delta y]}{\sqrt{(\Delta x)^2+(\Delta y)^2}}$ 是否为零？
+3. 计算：若 $f(x,y)$ 可微，则 $dz=\dfrac{\partial f}{\partial x}dx+\dfrac{\partial f}{\partial y}dy$。
 
-【解】因 $0\leqslant\left|\dfrac{xy}{\sqrt{x^2+y^2}}\right|\leqslant|y|$，故 $\lim\limits_{(x,y)\to(0,0)}\dfrac{xy}{\sqrt{x^2+y^2}}=0$。若 $a=0$ 则处处连续；若 $a\neq0$ 则除 $(0,0)$ 外处处连续。
+### （五）连续、可导、可微的关系
+![一元函数与多元函数中连续、可导（一阶偏导数存在）、可微的关系](assets/img/figs/gaoshu/gs05-p145-1.jpg)
+多元函数：可微 $\Rightarrow$ 连续，可微 $\Rightarrow$ 一阶偏导数存在，一阶偏导数连续 $\Rightarrow$ 可微；连续与偏导数存在之间无必然联系。
 
-#### （三）偏导数
-1. 定义：$f'_x(x_0,y_0)=\lim\limits_{\Delta x\to0}\dfrac{f(x_0+\Delta x,y_0)-f(x_0,y_0)}{\Delta x}$，$f'_y$ 类似。
-【注】$f'_x(x_0,y_0)$ 即一元函数 $f(x,y_0)$ 在 $x_0$ 处的导数。
-
-【例4】设 $f(x,y)=x+2y+(y-1)\arcsin\dfrac{x}{1+xy}$，求 $f'_x(0,1),f'_y(0,1)$。
-【解】$f'_x(0,1)=\dfrac{d}{dx}f(x,1)\big|_{x=0}=1$，$f'_y(0,1)=\dfrac{d}{dy}f(0,y)\big|_{y=1}=2$。
-
-2. 几何意义：$f'_x(x_0,y_0)$ 表示曲线 $z=f(x,y_0)$ 在该点切线对 $x$ 轴的斜率；$f'_y$ 类似。
-3. 高阶偏导数：$\dfrac{\partial^2z}{\partial x^2}=f''_{xx}$，$\dfrac{\partial^2z}{\partial x\partial y}=f''_{xy}$，$\dfrac{\partial^2z}{\partial y\partial x}=f''_{yx}$，$\dfrac{\partial^2z}{\partial y^2}=f''_{yy}$。
-**定理** 若 $f''_{xy},f''_{yx}$ 在区域 $D$ 内连续，则 $f''_{xy}=f''_{yx}$。
-
-#### （四）全微分
-1. 定义：若 $\Delta z=A\Delta x+B\Delta y+o(\rho)$，则称 $z=$` },
-      { p: 145, md: R`$f(x,y)$ 在点 $(x_0,y_0)$ 可微，$A\Delta x+B\Delta y$ 称为全微分，$dz=A\Delta x+B\Delta y$。
-2. 可微性判定：① 必要条件：$f'_x,f'_y$ 都存在；② 充分条件：$f'_x,f'_y$ 在 $(x_0,y_0)$ 连续；③ 用定义判定：a. $f'_x,f'_y$ 是否都存在？b. $\lim\limits_{\substack{\Delta x\to0\\\Delta y\to0}}\dfrac{[f(x_0+\Delta x,y_0+\Delta y)-f(x_0,y_0)]-[f'_x\Delta x+f'_y\Delta y]}{\sqrt{(\Delta x)^2+(\Delta y)^2}}$ 是否为零？
-3. 计算：若可微，$dz=\dfrac{\partial f}{\partial x}dx+\dfrac{\partial f}{\partial y}dy$。
-
-#### （五）连续、可导、可微的关系
-一元函数：可导 $\Leftrightarrow$ 可微 $\Rightarrow$ 连续；可导 $\Rightarrow$ 连续。
-多元函数：可微 $\Rightarrow$ 连续、可微 $\Rightarrow$ 一阶偏导数存在；一阶偏导数连续 $\Rightarrow$ 可微；连续与偏导数存在之间无必然联系。
-![一元函数中连续、可导、可微的关系](assets/img/figs/gaoshu/gs05-p145-1.jpg)
-![多元函数中连续、偏导数存在、可微的关系](assets/img/figs/gaoshu/gs05-p145-2.jpg)
-
-### 二、常考题型的方法与技巧
+## 二、常考题型的方法与技巧
 ### 题型一　讨论连续性、可导性、可微性
-【例1】设 $f(x,y)=\begin{cases}\dfrac{x^2y}{x^2+y^2},&(x,y)\neq(0,0)\\0,&(x,y)=(0,0)\end{cases}$，则 $f$ 在 $(0,0)$ 点 (A) 不连续 (B) 连续但偏导数不存在 (C) 偏导数存在但不可微 (D) 可微
+【例1】设 $f(x,y)=\begin{cases}\dfrac{x^2y}{x^2+y^2},&(x,y)\neq(0,0)\\0,&(x,y)=(0,0)\end{cases}$，则 $f(x,y)$ 在 $(0,0)$ 点 (A) 不连续 (B) 连续但偏导数不存在 (C) 偏导数存在但不可微 (D) 可微
+【解】由于 $\lim\limits_{\substack{x\to0\\y\to0}}f(x,y)=\lim\limits_{\substack{x\to0\\y\to0}}\dfrac{x^2y}{x^2+y^2}=0=f(0,0)$，则 $f(x,y)$ 在 $(0,0)$ 连续，故 (A) 不正确。由偏导数定义知
+$$f'_x(0,0)=\lim_{\Delta x\to0}\dfrac{f(\Delta x,0)-f(0,0)}{\Delta x}=\lim_{\Delta x\to0}\dfrac{0-0}{\Delta x}=0,\quad f'_y(0,0)=\lim_{\Delta y\to0}\dfrac{f(0,\Delta y)-f(0,0)}{\Delta y}=\lim_{\Delta y\to0}\dfrac{0-0}{\Delta y}=0,$$
+但
+$$\lim_{\substack{\Delta x\to0\\\Delta y\to0}}\dfrac{[f(\Delta x,\Delta y)-f(0,0)]-[f'_x(0,0)\Delta x+f'_y(0,0)\Delta y]}{\rho}=\lim_{\substack{\Delta x\to0\\\Delta y\to0}}\dfrac{\Delta y(\Delta x)^2}{[(\Delta x)^2+(\Delta y)^2]^{\frac32}}$$
+不存在，因为 $\lim\limits_{\substack{\Delta x\to0^+\\\Delta y=k\Delta x}}\dfrac{\Delta y(\Delta x)^2}{[(\Delta x)^2+(\Delta y)^2]^{\frac32}}=\lim\limits_{\Delta x\to0^+}\dfrac{k(\Delta x)^3}{[(\Delta x)^2+k^2(\Delta x)^2]^{\frac32}}=\dfrac{k}{(1+k^2)^{\frac32}}$ 与 $k$ 有关。` },
+      { p: 146, md: R`故 $f(x,y)$ 在 $(0,0)$ 点不可微，应选 (C)。
 
-【解】$\lim\limits_{(x,y)\to(0,0)}f=0=f(0,0)$，连续，(A) 错；$f'_x(0,0)=f'_y(0,0)=0$；但 $\lim\limits_{\substack{\Delta x\to0\\\Delta y\to0}}\dfrac{\Delta y(\Delta x)^2}{[(\Delta x)^2+(\Delta y)^2]^{3/2}}$ 不存在（沿 $\Delta y=k\Delta x$ 为 $\dfrac{k}{(1+k^2)^{3/2}}$）。故不可微，选 (C)。` },
-      { p: 146, md: R`【例2】考虑二元函数四条性质：① 连续；② 两个偏导数连续；③ 可微；④ 两个偏导数都存在。则 (A) ③⇒①⇒④ (B) ③⇒②⇒① (C) ③⇒④⇒① (D) ②⇒③⇒①
-
+【例2】考虑二元函数下面四条性质：① $f(x,y)$ 在点 $(x_0,y_0)$ 处连续；② $f(x,y)$ 在点 $(x_0,y_0)$ 处两个偏导数连续；③ $f(x,y)$ 在点 $(x_0,y_0)$ 处可微；④ $f(x,y)$ 在点 $(x_0,y_0)$ 处两个偏导数都存在。则 (A) ③⇒①⇒④ (B) ③⇒②⇒① (C) ③⇒④⇒① (D) ②⇒③⇒①
 【解】选 (D)。
 
-【例3】二元函数 $f(x,y)$ 在 $(0,0)$ 处可微的一个充分条件是 (A) $\lim\limits_{(x,y)\to(0,0)}[f(x,y)-f(0,0)]=0$ (B) $\lim\limits_{x\to0}\dfrac{f(x,0)-f(0,0)}{x}=0$ 且 $\lim\limits_{y\to0}\dfrac{f(0,y)-f(0,0)}{y}=0$ (C) $\lim\limits_{(x,y)\to(0,0)}\dfrac{f(x,y)-f(0,0)}{\sqrt{x^2+y^2}}=0$ (D) $\lim\limits_{x\to0}[f'_x(x,0)-f'_x(0,0)]=0$ 且 $\lim\limits_{y\to0}[f'_y(0,y)-f'_y(0,0)]=0$
-
-【解】连续、偏导数存在均非可微充分条件，(A)(B) 错；(D) 反例 $f=\begin{cases}0,&xy\neq0\\1,&xy=0\end{cases}$，$f'_x(x,0)=f'_y(0,y)=0$ 满足 (D) 但 $f$ 在 $(0,0)$ 不连续、不可微。(C) 由 $\lim\dfrac{f(x,y)-f(0,0)}{\sqrt{x^2+y^2}}=0$ 得 $f'_x(0,0)=f'_y(0,0)=0$ 且 $\Delta z=o(\rho)$，故可微。选 (C)。` },
-      { p: 147, md: R`【例4】如果函数 $f(x,y)$ 在 $(0,0)$ 处连续，那么下列命题正确的是 (A) 若 $\lim\dfrac{f(x,y)}{|x|+|y|}$ 存在，则 $f$ 在 $(0,0)$ 可微 (B) 若 $\lim\dfrac{f(x,y)}{x^2+y^2}$ 存在，则 $f$ 在 $(0,0)$ 可微 (C) 若 $f$ 在 $(0,0)$ 可微，则 $\lim\dfrac{f(x,y)}{|x|+|y|}$ 存在 (D) 若 $f$ 在 $(0,0)$ 可微，则 $\lim\dfrac{f(x,y)}{x^2+y^2}$ 存在
-
-【解1】由 $\lim\dfrac{f(x,y)}{x^2+y^2}$ 存在及 $f$ 在 $(0,0)$ 连续得 $f(0,0)=0$，且 $\lim\dfrac{f(x,y)-f(0,0)}{\sqrt{x^2+y^2}}=\lim\sqrt{x^2+y^2}\cdot\dfrac{f(x,y)}{x^2+y^2}=0$，即 $\Delta z=o(\rho)$，可微。选 (B)。
-【解2】令 $f=|x|+|y|$，(A) 错；令 $f=1$，$f$ 可微但 (C)(D) 的极限不存在。选 (B)。
+【例3】二元函数 $f(x,y)$ 在点 $(0,0)$ 处可微的一个充分条件是 (A) $\lim\limits_{\substack{x\to0\\y\to0}}[f(x,y)-f(0,0)]=0$ (B) $\lim\limits_{x\to0}\dfrac{f(x,0)-f(0,0)}{x}=0$ 且 $\lim\limits_{y\to0}\dfrac{f(0,y)-f(0,0)}{y}=0$ (C) $\lim\limits_{\substack{x\to0\\y\to0}}\dfrac{f(x,y)-f(0,0)}{\sqrt{x^2+y^2}}=0$ (D) $\lim\limits_{x\to0}[f'_x(x,0)-f'_x(0,0)]=0$ 且 $\lim\limits_{y\to0}[f'_y(0,y)-f'_y(0,0)]=0$
+【解1】（排除法）因为连续和偏导数存在都不是可微的充分条件，则 (A)、(B) 都不正确；(D) 也不正确，例如对函数 $f(x,y)=\begin{cases}0,&xy\neq0\\1,&xy=0\end{cases}$，$f(x,0)=1$，$f(0,y)=1$，则 $f'_x(x,0)=0$，$f'_y(0,y)=0$，从而 $\lim\limits_{x\to0}[f'_x(x,0)-f'_x(0,0)]=0$，$\lim\limits_{y\to0}[f'_y(0,y)-f'_y(0,0)]=0$。但 $f(x,y)$ 在 $(0,0)$ 点不可微，因为 $f(x,y)$ 在 $(0,0)$ 点不连续。故应选 (C)。
+【解2】（直接法）由 $\lim\limits_{\substack{x\to0\\y\to0}}\dfrac{f(x,y)-f(0,0)}{\sqrt{x^2+y^2}}=0$ 知 $\lim\limits_{x\to0}\dfrac{f(x,0)-f(0,0)}{\sqrt{x^2}}=\lim\limits_{x\to0}\dfrac{f(x,0)-f(0,0)}{|x|}=0$，则 $f'_x(0,0)=\lim\limits_{x\to0}\dfrac{f(x,0)-f(0,0)}{x}=\lim\limits_{x\to0}\dfrac{f(x,0)-f(0,0)}{|x|}\cdot\dfrac{|x|}{x}=0$。同理 $f'_y(0,0)=0$。
+$$\lim_{\substack{x\to0\\y\to0}}\dfrac{f(x,y)-f(0,0)-[f'_x(0,0)x+f'_y(0,0)y]}{\sqrt{x^2+y^2}}=\lim_{\substack{x\to0\\y\to0}}\dfrac{f(x,y)-f(0,0)}{\sqrt{x^2+y^2}}=0,$$
+则 $f(x,y)$ 在 $(0,0)$ 点处可微，故应选 (C)。
+【解3】（直接法）由 $\lim\limits_{\substack{x\to0\\y\to0}}\dfrac{f(x,y)-f(0,0)}{\sqrt{x^2+y^2}}=0$ 知 $\Delta z=f(x,y)-f(0,0)=o(\rho)$，即 $\Delta z=f(x,y)-f(0,0)=Ax+By+o(\rho)$，这里 $A=B=0$，由微分的定义知 $f(x,y)$ 在 $(0,0)$ 点可微。
+【注】本题 (D) 选项中的 $\lim\limits_{x\to0}[f'_x(x,0)-f'_x(0,0)]=0$，即 $\lim\limits_{x\to0}f'_x(x,0)=f'_x(0,0)$。由此不能得出一阶偏导数 $f'_x(x,y)$ 在 $(0,0)$ 点连续，即得不出 $\lim\limits_{\substack{x\to0\\y\to0}}f'_x(x,y)=f'_x(0,0)$。` },
+      { p: 147, md: R`【例4】如果函数 $f(x,y)$ 在 $(0,0)$ 处连续，那么下列命题正确的是 (A) 若极限 $\lim\limits_{\substack{x\to0\\y\to0}}\dfrac{f(x,y)}{|x|+|y|}$ 存在，则 $f(x,y)$ 在 $(0,0)$ 处可微 (B) 若极限 $\lim\limits_{\substack{x\to0\\y\to0}}\dfrac{f(x,y)}{x^2+y^2}$ 存在，则 $f(x,y)$ 在 $(0,0)$ 处可微 (C) 若 $f(x,y)$ 在 $(0,0)$ 处可微，则极限 $\lim\limits_{\substack{x\to0\\y\to0}}\dfrac{f(x,y)}{|x|+|y|}$ 存在 (D) 若 $f(x,y)$ 在 $(0,0)$ 处可微，则极限 $\lim\limits_{\substack{x\to0\\y\to0}}\dfrac{f(x,y)}{x^2+y^2}$ 存在
+【解1】（直接法）由极限 $\lim\limits_{\substack{x\to0\\y\to0}}\dfrac{f(x,y)}{x^2+y^2}$ 存在及函数 $f(x,y)$ 在 $(0,0)$ 处连续得 $f(0,0)=0$，且 $\lim\limits_{\substack{x\to0\\y\to0}}\dfrac{f(x,y)-f(0,0)}{\sqrt{x^2+y^2}}=\lim\limits_{\substack{x\to0\\y\to0}}\sqrt{x^2+y^2}\cdot\dfrac{f(x,y)}{x^2+y^2}=0$，即 $\Delta z=f(x,y)-f(0,0)=o(\rho)$，则由微分定义知 $f(x,y)$ 在 $(0,0)$ 处可微，故应选 (B)。
+【解2】（排除法）令 $f(x,y)=|x|+|y|$，显然 $f'_x(0,0)$ 及 $f'_y(0,0)$ 都不存在，则 $f(x,y)$ 在 $(0,0)$ 处不可微，(A) 不正确。令 $f(x,y)=1$，显然 $f(x,y)$ 在 $(0,0)$ 处可微，但 (C) 和 (D) 选项中的极限都不存在，则 (C) 和 (D) 都不正确，故应选 (B)。
 
 【例5】设连续函数 $z=f(x,y)$ 满足 $\lim\limits_{\substack{x\to0\\y\to1}}\dfrac{f(x,y)-2x+y-2}{\sqrt{x^2+(y-1)^2}}=0$，则 $dz|_{(0,1)}=$______。
+【解】由 $\lim\limits_{\substack{x\to0\\y\to1}}\dfrac{f(x,y)-2x+y-2}{\sqrt{x^2+(y-1)^2}}=0$ 得 $f(0,1)=1$，且
+$$\lim_{\substack{x\to0\\y\to1}}\dfrac{[f(x,y)-f(0,1)]-[2x-(y-1)]}{\sqrt{x^2+(y-1)^2}}=0,$$
+即 $\Delta z=f(x,y)-f(0,1)=2x-(y-1)+o(\rho)$，则 $dz|_{(0,1)}=2dx-dy$。
 
-【解】由极限式得 $f(0,1)=1$，且 $[f(x,y)-f(0,1)]-[2x-(y-1)]=o(\rho)$，故 $dz|_{(0,1)}=2dx-dy$。
-
-【例6】设 $f(x,y)=|x-y|\varphi(x,y)$，$\varphi$ 在 $(0,0)$ 邻域内连续。1) $\varphi$ 满足什么条件时 $f'_x(0,0),f'_y(0,0)$ 都存在；2) 在上述条件下 $f$ 在 $(0,0)$ 是否可微。
-
-【解】1) $\lim\limits_{\Delta x\to0}\dfrac{|\Delta x|\varphi(\Delta x,0)}{\Delta x}=\begin{cases}\varphi(0,0),&\Delta x\to0^+\\-\varphi(0,0),&\Delta x\to0^-\end{cases}$，故当 $\varphi(0,0)=0$ 时 $f'_x(0,0)=f'_y(0,0)=0$。` }
+【例6】设 $f(x,y)=|x-y|\varphi(x,y)$，其中 $\varphi(x,y)$ 在点 $(0,0)$ 的邻域内连续，问：1) $\varphi(x,y)$ 应满足什么条件才能使 $f'_x(0,0)$ 和 $f'_y(0,0)$ 都存在；2) 在上述条件下 $f(x,y)$ 在 $(0,0)$ 点是否可微。
+【解】1) 由于
+$$\lim_{\Delta x\to0}\dfrac{f(\Delta x,0)-f(0,0)}{\Delta x}=\lim_{\Delta x\to0}\dfrac{|\Delta x|\varphi(\Delta x,0)}{\Delta x}=\begin{cases}\varphi(0,0),&\text{当 }\Delta x\to0^+\\-\varphi(0,0),&\text{当 }\Delta x\to0^-\end{cases}$$
+由此可知，当 $\varphi(0,0)=0$ 时，$f'_x(0,0)$ 和 $f'_y(0,0)$ 都存在，且为零。` }
     ],
     quiz: [
       { q: R`重极限 $\lim\limits_{(x,y)\to(x_0,y_0)}f(x,y)$ 存在的含义是`, options: [R`点以任意方式趋近时 $f$ 都趋近同一常数`, R`沿直线趋近时极限存在`, R`沿坐标轴趋近时极限存在`, R`$f$ 在该点连续`], answer: 0, explain: R`要求任意路径极限相同。` },
