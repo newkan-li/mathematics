@@ -346,6 +346,75 @@
     draw();
   }
 
+  /* ---------- 880 题 ---------- */
+  function renderQ880() {
+    var host = document.getElementById("q880view"); if (!host) return;
+    var Q = window.Q880 || { books: [] };
+    var bookTabs = document.getElementById("q880books");
+    var tabs = document.getElementById("q880tabs");
+    var info = document.getElementById("q880info");
+    var marks = jget("q880", {});
+    var bi = 0, si = 0, page = Q.books[0] && Q.books[0].sections[0] ? Q.books[0].sections[0].a : 1;
+    var hm = /b=(\d+)/.exec(location.hash || "");
+    if (hm) { var b0 = parseInt(hm[1], 10); if (Q.books[b0]) bi = b0; }
+    var hp = /p=(\d+)/.exec(location.hash || "");
+    if (hp) {
+      var p0 = parseInt(hp[1], 10);
+      Q.books[bi].sections.forEach(function (S, i) { if (p0 >= S.a && p0 <= S.b) { si = i; page = p0; } });
+    }
+    function B() { return Q.books[bi]; }
+    function clampSec() { var S = B().sections[si]; if (page < S.a) page = S.a; if (page > S.b) page = S.b; }
+    function drawBooks() {
+      if (!bookTabs) return;
+      bookTabs.innerHTML = "";
+      Q.books.forEach(function (bk, i) {
+        var b = el("button", "navbtn", bk.name);
+        if (i === bi) b.style.borderColor = "var(--acc)";
+        b.onclick = function () { bi = i; si = 0; page = Q.books[i].sections[0].a; clampSec(); draw(); };
+        bookTabs.appendChild(b);
+      });
+    }
+    function drawTabs() {
+      tabs.innerHTML = "";
+      B().sections.forEach(function (S, i) {
+        var b = el("button", "navbtn", S.name);
+        if (i === si) b.style.borderColor = "var(--acc)";
+        b.onclick = function () { si = i; page = S.a; clampSec(); draw(); };
+        tabs.appendChild(b);
+      });
+    }
+    function draw() {
+      clampSec();
+      try { history.replaceState(null, "", "#b=" + bi + "&p=" + page); } catch (e) { }
+      drawBooks(); drawTabs();
+      var S = B().sections[si];
+      host.innerHTML = '<figure><img src="' + B().img + '/p-' + String(page).padStart(3, "0") + '.jpg" alt="p' + page + '"><figcaption>' + B().name + ' · ' + S.name + ' · 第 ' + page + ' 页</figcaption></figure>';
+      var mk = document.getElementById("q880mark");
+      var st = marks[page] || {};
+      mk.innerHTML = "";
+      [["ok", "✓ 做对", "on"], ["no", "✗ 做错", "conf"]].forEach(function (o) {
+        var b = document.createElement("button");
+        b.textContent = o[1];
+        if (st[o[0]]) b.className = "on";
+        b.onclick = function () {
+          var m = jget("q880", {}); var c = m[page] || {}; c[o[0]] = !c[o[0]];
+          m[page] = c; jset("q880", m); marks = m; draw();
+        };
+        mk.appendChild(b);
+      });
+      var nOk = 0, nNo = 0;
+      Object.keys(marks).forEach(function (k) { if (marks[k].ok) nOk++; if (marks[k].no) nNo++; });
+      if (info) info.textContent = "已做对 " + nOk + " 页 · 做错 " + nNo + " 页";
+    }
+    var prev = document.getElementById("q880prev"), next = document.getElementById("q880next"),
+      jump = document.getElementById("q880jump"), go = document.getElementById("q880go");
+    if (prev) prev.onclick = function () { page--; draw(); };
+    if (next) next.onclick = function () { page++; draw(); };
+    if (go) go.onclick = function () { var v = parseInt(jump.value, 10); if (v) { page = v; draw(); } };
+    if (jump) jump.onkeydown = function (e) { if (e.key === "Enter" && go) go.click(); };
+    draw();
+  }
+
   window.MathApp = { srsRate: srsRate, srsForget: srsForget, srsDue: srsDue, srsLabel: srsLabel, jget: jget, jset: jset, esc: esc, el: el, marks: marks };
 
   window.addEventListener("DOMContentLoaded", function () {
@@ -358,5 +427,6 @@
     else if (page === "wrong") renderWrong();
     else if (page === "review") renderReview();
     else if (page === "q660") renderQ660();
+    else if (page === "q880") renderQ880();
   });
 })();
