@@ -145,7 +145,7 @@
       var figs = FIG[L.id.split("_")[0]] || {};
       L.content.forEach(function (pg) {
         var md = String(pg.md).replace(/（图：[^）]*二维码[^）]*）/g, "").replace(/（图：本页[^）]*二维码[^）]*）/g, "");
-        html += '<div class="pg" id="' + L.id + "-p" + pg.p + '">' + renderMarkdown(md);
+        html += '<div class="pg" id="' + L.id + "-pg" + pg.p + '">' + renderMarkdown(md);
         var fs = figs[String(pg.p)];
         if (fs) fs.forEach(function (src, i) {
           html += '<figure class="fig"><img loading="lazy" src="' + src + '" alt="第' + pg.p + '页原图' + (i + 1) + '"><figcaption>第 ' + pg.p + ' 页 · 原书插图' + (fs.length > 1 ? " " + (i + 1) : "") + '</figcaption></figure>';
@@ -258,7 +258,7 @@
       if (el) el.textContent = "已答 " + ans + "/" + L.problems.length + " · 正确 " + ok;
     }
     L.problems.forEach(function (p) {
-      var box = root.querySelector("#" + L.id + "-p" + p.n);
+      var box = root.querySelector(".prob#" + L.id + "-p" + p.n);
       if (!box) return;
       var key = keyOf(p.n), st = store[key];
       var solBox = box.querySelector("[data-sol]");
