@@ -164,7 +164,7 @@
       });
     }
     if (L.problems) {
-      html += '<h3 class="lh">练习题精选（含详细解答）</h3>';
+      html += '<h3 class="lh">' + A.esc(L.probTitle || "练习题精选（含详细解答）") + "</h3>";
       html += '<p class="sub">选择题直接点选项判分；解答/证明题点「显示答案与解答」后自评对错，均计入统计。</p>';
       html += '<div class="navrow"><span class="chip" data-probstat></span><button class="navbtn" data-probreset>重做本节练习</button></div>';
       L.problems.forEach(function (p) {
@@ -174,7 +174,7 @@
         if (c) {
           html += '<div class="qopts">';
           c.options.forEach(function (o, j) {
-            html += '<button class="qopt" data-opt="' + j + '">' + A.esc(o) + "</button>";
+            html += '<button class="qopt" data-opt="' + j + '">' + String.fromCharCode(65 + j) + ". " + A.esc(o) + "</button>";
           });
           html += "</div>";
         } else {
@@ -211,7 +211,7 @@
         var opts = A.el("div", "qopts");
         q.options.forEach(function (o, j) {
           var b = document.createElement("button");
-          b.className = "qopt"; b.innerHTML = A.esc(o);
+          b.className = "qopt"; b.innerHTML = String.fromCharCode(65 + j) + ". " + A.esc(o);
           if (st.pick != null) {
             b.classList.add("locked");
             if (j === q.answer) b.classList.add("right");
@@ -321,12 +321,15 @@
     ids.forEach(function (k) {
       var L = window.LESSONS[k];
       html += '<section class="sec" id="' + k + '"><h2>' + A.esc(L.title) +
-        ' <span class="bsub">讲义第 ' + L.pages[0] + "–" + L.pages[1] + " 页</span></h2>" +
-        '<div class="lessonbody">' + lessonHtml(L) + "</div>" +
-        '<div class="quizwrap"><h3 class="lh">✍️ 本节自测</h3>' +
-        '<div class="navrow"><span class="chip" data-score="' + k + '"></span>' +
-        '<button class="navbtn" data-reset="' + k + '">重做本节</button></div>' +
-        '<div data-quiz="' + k + '"></div></div></section>';
+        (L.pages ? ' <span class="bsub">讲义第 ' + L.pages[0] + "–" + L.pages[1] + " 页</span>" : "") + "</h2>" +
+        '<div class="lessonbody">' + lessonHtml(L) + "</div>";
+      if (L.quiz) {
+        html += '<div class="quizwrap"><h3 class="lh">✍️ 本节自测</h3>' +
+          '<div class="navrow"><span class="chip" data-score="' + k + '"></span>' +
+          '<button class="navbtn" data-reset="' + k + '">重做本节</button></div>' +
+          '<div data-quiz="' + k + '"></div></div>';
+      }
+      html += "</section>";
     });
     chapterHost.innerHTML = html;
     ids.forEach(function (k) {
@@ -343,7 +346,7 @@
       ids.forEach(function (k) {
         var L = window.LESSONS[k];
         toc += '<div class="toc-sec"><a class="toc-l1" href="#' + k + '">' + A.esc(L.title) +
-          ' <span class="toc-pg">p' + L.pages[0] + "–" + L.pages[1] + "</span></a>";
+          (L.pages ? ' <span class="toc-pg">p' + L.pages[0] + "–" + L.pages[1] + "</span>" : "") + "</a>";
         var sec = chapterHost.querySelector("#" + k);
         var body = sec ? sec.querySelector(".lessonbody") : null;
         var hs = body ? body.querySelectorAll("h3.lh, h4.lh2, h5.lh3") : [];
