@@ -1,6 +1,5 @@
 (function () {
   var A = window.MathApp || {};
-
   /* ---------- 原书裁图（按章·页） ---------- */
   var FIG = {
     gs01: {20: ["assets/img/figs/gaoshu/gs01-p20-1.jpg"], 31: ["assets/img/figs/gaoshu/gs01-p31-1.jpg"]},
@@ -167,9 +166,9 @@
       html += '<h3 class="lh">' + A.esc(L.probTitle || "练习题精选（含详细解答）") + "</h3>";
       html += '<p class="sub">选择题直接点选项判分；解答/证明题点「显示答案与解答」后自评对错，均计入统计。</p>';
       html += '<div class="navrow"><span class="chip" data-probstat></span><button class="navbtn" data-probreset>重做本节练习</button></div>';
-      L.problems.forEach(function (p) {
+      L.problems.forEach(function (p, i) {
         var c = parseChoice(p);
-        html += '<div class="prob" id="' + L.id + "-p" + p.n + '">' +
+        html += '<div class="prob" id="' + L.id + "-p" + i + '">' +
           '<div class="prob-q"><span class="pn">' + p.n + ".</span> " + A.esc(c ? c.stem : p.q).replace(/\n/g, "<br>") + "</div>";
         if (c) {
           html += '<div class="qopts">';
@@ -257,8 +256,8 @@
       var el = root.querySelector("[data-probstat]");
       if (el) el.textContent = "已答 " + ans + "/" + L.problems.length + " · 正确 " + ok;
     }
-    L.problems.forEach(function (p) {
-      var box = root.querySelector(".prob#" + L.id + "-p" + p.n);
+    L.problems.forEach(function (p, i) {
+      var box = root.querySelector(".prob#" + L.id + "-p" + i);
       if (!box) return;
       var key = keyOf(p.n), st = store[key];
       var solBox = box.querySelector("[data-sol]");
