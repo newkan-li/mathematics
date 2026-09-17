@@ -2,39 +2,84 @@ window.LESSONS = window.LESSONS || {};
 (function () {
   var R = String.raw;
   window.LESSONS["la01_s0"].problems = [
-    { n: 1, q: R`（填空题）设 $A=\begin{pmatrix}1&2&-1\\0&3&5\\2&4&2\end{pmatrix}$，$A^*$ 是 $A$ 的伴随矩阵，则 $\left|\frac{1}{2}A^*\right|=$______。`, a: R`$18$`, sol: R`【提示】不必去求伴随矩阵 $A^*$，根据 $|kA|=k^n|A|$，$|A^*|=|A|^{n-1}$，有
-$$\left|\frac{1}{2}A^*\right|=\left(\frac{1}{2}\right)^3|A^*|=\frac{1}{8}|A|^2$$
-由 $|A|=\begin{vmatrix}1&2&-1\\0&3&5\\2&4&2\end{vmatrix}=12$，得 $\frac{1}{8}\times144=18$。` },
-    { n: 2, q: R`（填空题）$\begin{vmatrix}1-a&a&0&0\\-1&1-a&a&0\\0&-1&1-a&a\\0&0&-1&1-a\end{vmatrix}=$______。`, a: R`$1-a+a^2-a^3+a^4$`, sol: R`【提示】把各列均加至第 1 列，然后按第 1 列展开，可建立递推关系，即
-$$D_4=\begin{vmatrix}1-a&a&0&0\\-1&1-a&a&0\\0&-1&1-a&a\\0&0&-1&1-a\end{vmatrix}=\begin{vmatrix}1&a&0&0\\0&1-a&a&0\\0&-1&1-a&a\\-a&0&-1&1-a\end{vmatrix}=D_3+(-a)\cdot(-1)^{4+1}a^3=D_3+a^4$$
-那么 $D_3=D_2+(-a)(-1)^{3+1}a^2=D_2-a^3$，$D_2=D_1+(-a)(-1)^{2+1}a=1-a+a^2$，三个式子相加可得 $D_4$。` },
-    { n: 3, q: R`（填空题）$\begin{vmatrix}1&2&3&\cdots&n\\-1&0&3&\cdots&n\\-1&-2&0&\cdots&n\\\vdots&\vdots&\vdots&&\vdots\\-1&-2&-3&\cdots&0\end{vmatrix}=$______。`, a: R`$n!$`, sol: R`【提示】把第一行分别加至其它各行。` },
-    { n: 4, q: R`（填空题）$\begin{vmatrix}1&2&3&\cdots&n-1&n\\-1&1&0&\cdots&0&0\\0&-1&1&\cdots&0&0\\\vdots&\vdots&\vdots&&\vdots&\vdots\\0&0&0&\cdots&-1&1\end{vmatrix}=$______。`, a: R`$\frac{1}{2}n(n+1)$`, sol: R`【提示】把每列均加至第 1 列。` },
-    { n: 5, q: R`（填空题）$\begin{vmatrix}a&0&0&\cdots&0&b\\b&a&0&\cdots&0&0\\0&b&a&\cdots&0&0\\\vdots&\vdots&\vdots&&\vdots&\vdots\\0&0&0&\cdots&b&a\end{vmatrix}=$______。`, a: R`$a^n+(-1)^{n+1}b^n$`, sol: R`【提示】本题已有大量的 0，可立即用展开公式来计算，建议按第 1 行展开，比按第 1 列展开要简洁。` },
-    { n: 6, q: R`（填空题）$\begin{vmatrix}a_1+b&a_2&a_3&\cdots&a_n\\a_1&a_2+b&a_3&\cdots&a_n\\a_1&a_2&a_3+b&\cdots&a_n\\\vdots&\vdots&\vdots&&\vdots\\a_1&a_2&a_3&\cdots&a_n+b\end{vmatrix}=$______。`, a: R`$b^{n-1}(\sum a_i+b)$`, sol: R`【提示】把各列均加至第 1 列，提取公因式 $b+\sum a_j$ 然后把第 1 行的 $-1$ 倍分别加至其余各行，可得上三角行列式。` },
+    { n: 1, q: R`（填空题）设 $A=\begin{pmatrix}1&2&-1\\0&3&5\\2&4&2\end{pmatrix}$，$A^*$ 是 $A$ 的伴随矩阵，则 $\left|\frac{1}{2}A^*\right|=$______。`, a: R`$18$`, sol: R`【思路】不必求出 $A^*$，用公式 $|kA|=k^n|A|$ 与 $|A^*|=|A|^{n-1}$ 整体计算。
+【详解】先求 $|A|$：
+$$|A|=1(6-20)-2(0-10)+(-1)(0-6)=-14+20+6=12.$$
+对 3 阶矩阵，$|A^*|=|A|^{n-1}=|A|^2=144$。故
+$$\left|\frac12A^*\right|=\left(\frac12\right)^3|A^*|=\frac18\times144=18.$$
+【易错点】$|kA|=k^n|A|$（提 $k$ 要按阶数 $n$ 次），而 $|A^*|=|A|^{n-1}$；两处指数不同，切勿混淆。` },
+    { n: 2, q: R`（填空题）$\begin{vmatrix}1-a&a&0&0\\-1&1-a&a&0\\0&-1&1-a&a\\0&0&-1&1-a\end{vmatrix}=$______。`, a: R`$1-a+a^2-a^3+a^4$`, sol: R`【思路】这是三对角行列式，把各列加到第 1 列后可建立递推关系 $D_n=D_{n-1}+a^n$。
+【详解】各列加到第 1 列，第 1 列变为 $(1,0,0,-a)^T$，再按第 1 列展开：
+$$D_4=\begin{vmatrix}1&a&0&0\\0&1-a&a&0\\0&-1&1-a&a\\-a&0&-1&1-a\end{vmatrix}=D_3+(-a)(-1)^{4+1}a^3=D_3+a^4,$$
+其中 $D_3$ 是左上角 3 阶同类行列式。同理 $D_3=D_2-a^3$，$D_2=\begin{vmatrix}1-a&a\\-1&1-a\end{vmatrix}=1-a+a^2$。
+故 $D_4=D_2-a^3+a^4=1-a+a^2-a^3+a^4$。
+【易错点】展开时第 4 行第 1 列的代数余子式符号是 $(-1)^{4+1}$；递推关系为 $D_n=D_{n-1}+a^n$。` },
+    { n: 3, q: R`（填空题）$\begin{vmatrix}1&2&3&\cdots&n\\-1&0&3&\cdots&n\\-1&-2&0&\cdots&n\\\vdots&\vdots&\vdots&&\vdots\\-1&-2&-3&\cdots&0\end{vmatrix}=$______。`, a: R`$n!$`, sol: R`【思路】把第 1 行加到其余各行，使对角线以下元素化为 0。
+【详解】第 $k$ 行（$k\ge2$）第 $j$ 列的元素：$j<k$ 时为 $-j$，$j=k$ 时为 0，$j>k$ 时为 $j$。加上第 1 行后，$j<k$ 处 $j+(-j)=0$，$j=k$ 处为 $k$。
+故化为上三角行列式，主对角线为 $1,2,\ldots,n$，即 $D=1\cdot2\cdots n=n!$。
+【易错点】关键是「加第 1 行」恰好消去对角线以下元素；主对角线元素为 $1,2,\ldots,n$。` },
+    { n: 4, q: R`（填空题）$\begin{vmatrix}1&2&3&\cdots&n-1&n\\-1&1&0&\cdots&0&0\\0&-1&1&\cdots&0&0\\\vdots&\vdots&\vdots&&\vdots&\vdots\\0&0&0&\cdots&-1&1\end{vmatrix}=$______。`, a: R`$\frac{1}{2}n(n+1)$`, sol: R`【思路】把各列加到第 1 列，使第 1 列只剩第 1 行非零，再展开。
+【详解】第 1 行元素之和为 $1+2+\cdots+n=\frac{n(n+1)}{2}$；其余各行除对角线上下的 $-1,1$ 外全为 0，列和恰为 0。
+故第 1 列化为 $\left(\frac{n(n+1)}{2},0,\ldots,0\right)^T$，按第 1 列展开，余子式为下三角且对角线全为 1，其值为 1。
+所以 $D=\frac{n(n+1)}{2}$。
+【易错点】「列和」对第 2 行是 $-1+1=0$，对第 $k$ 行是 $-1+1=0$；展开后余子式为 1。` },
+    { n: 5, q: R`（填空题）$\begin{vmatrix}a&0&0&\cdots&0&b\\b&a&0&\cdots&0&0\\0&b&a&\cdots&0&0\\\vdots&\vdots&\vdots&&\vdots&\vdots\\0&0&0&\cdots&b&a\end{vmatrix}=$______。`, a: R`$a^n+(-1)^{n+1}b^n$`, sol: R`【思路】0 很多，直接按第 1 行展开（只有两个非零元）。
+【详解】按第 1 行展开：$a$ 位于 $(1,1)$，$b$ 位于 $(1,n)$。
+$(1,1)$ 的余子式是下三角，值为 $a^{n-1}$；$(1,n)$ 的余子式是上三角（对角线为 $b$），值为 $b^{n-1}$，符号 $(-1)^{1+n}$。
+故 $D=a\cdot a^{n-1}+b(-1)^{1+n}b^{n-1}=a^n+(-1)^{n+1}b^n$。
+【易错点】符号 $(-1)^{1+n}=(-1)^{n+1}$；两个余子式分别是下三角与上三角。` },
+    { n: 6, q: R`（填空题）$\begin{vmatrix}a_1+b&a_2&a_3&\cdots&a_n\\a_1&a_2+b&a_3&\cdots&a_n\\a_1&a_2&a_3+b&\cdots&a_n\\\vdots&\vdots&\vdots&&\vdots\\a_1&a_2&a_3&\cdots&a_n+b\end{vmatrix}=$______。`, a: R`$b^{n-1}(\sum a_i+b)$`, sol: R`【思路】各行元素结构相同（都是 $a_1,\ldots,a_n$，仅对角线多 $b$），把各列加到第 1 列提公因式。
+【详解】各列加到第 1 列后，每行第 1 列都变成 $\sum a_i+b$，提出后得
+$$D=\left(\sum_{i=1}^na_i+b\right)\begin{vmatrix}1&a_2&\cdots&a_n\\1&a_2+b&\cdots&a_n\\\vdots&\vdots&&\vdots\\1&a_2&\cdots&a_n+b\end{vmatrix}.$$
+再把第 1 行的 $-1$ 倍加到其余各行，得下三角行列式，主对角线为 $1,b,b,\ldots,b$（$n-1$ 个 $b$），其值为 $b^{n-1}$。
+故 $D=b^{n-1}\left(\sum a_i+b\right)$。
+【易错点】第 1 列的公因式是 $\sum a_i+b$（含 $b$）；化下三角后除首元 $1$ 外有 $n-1$ 个 $b$。` },
     { n: 7, q: R`（选择题）$\alpha,\beta,\gamma_1,\gamma_2,\gamma_3$ 均为 4 维列向量，已知 $|A|=|\alpha\ \gamma_1\ \gamma_2\ \gamma_3|=5$，$|B|=|\beta\ \gamma_1\ \gamma_2\ \gamma_3|=-1$，则 $|A+B|=$
-(A) 4　(B) 6　(C) 32　(D) 48`, a: R`(C)`, sol: R`【提示】
-$$|A+B|=|\alpha+\beta\ 2\gamma_1\ 2\gamma_2\ 2\gamma_3|=8|\alpha+\beta\ \gamma_1\ \gamma_2\ \gamma_3|=8(|\alpha\ \gamma_1\ \gamma_2\ \gamma_3|+|\beta\ \gamma_1\ \gamma_2\ \gamma_3|)=8(5-1)=32$$
-故应选 (C)。` },
+(A) 4　(B) 6　(C) 32　(D) 48`, a: R`(C)`, sol: R`【思路】$A+B$ 的每一列是对应列相加，用行列式的列线性性质。
+【详解】$A+B=(\alpha+\beta\ 2\gamma_1\ 2\gamma_2\ 2\gamma_3)$。每列的公因子 2 提出（3 列共 $2^3$）：
+$$|A+B|=8|\alpha+\beta\ \gamma_1\ \gamma_2\ \gamma_3|=8\left(|\alpha\ \gamma_1\ \gamma_2\ \gamma_3|+|\beta\ \gamma_1\ \gamma_2\ \gamma_3|\right)=8(5-1)=32.$$
+选 (C)。
+【易错点】$\gamma_1,\gamma_2,\gamma_3$ 三列都乘了 2，故提 $2^3=8$；行列式对一列可加，故拆成两个行列式。` },
     { n: 8, q: R`（选择题）设 $A$ 是 $m\times n$ 矩阵，$B$ 是 $n\times m$ 矩阵，则
 (A) 当 $m>n$，必有行列式 $|AB|\neq0$
 (B) 当 $m>n$，必有行列式 $|AB|=0$
 (C) 当 $n>m$，必有行列式 $|AB|\neq0$
-(D) 当 $n>m$，必有行列式 $|AB|=0$`, a: R`(B)`, sol: R`【提示】因为 $AB$ 是 $m$ 阶矩阵，行列式 $|AB|=0$ 的充分必要条件是秩 $r(AB)<m$。由于 $r(AB)\leqslant r(B)\leqslant\min(m,n)$，可见当 $m>n$ 时，必有 $r(AB)\leqslant r(B)\leqslant n<m$，故应选 (B)。或者，由于方程组 $Bx=0$ 的解必是方程组 $ABx=0$ 的解，而 $Bx=0$ 是 $n$ 个方程 $m$ 个未知数的齐次线性方程组，因此当 $m>n$ 时，方程组 $Bx=0$ 必有非零解，从而 $ABx=0$ 有非零解，那么行列式 $|AB|=0$。` },
+(D) 当 $n>m$，必有行列式 $|AB|=0$`, a: R`(B)`, sol: R`【思路】$AB$ 是 $m$ 阶方阵，$|AB|=0\iff r(AB)<m$；用秩不等式 $r(AB)\le\min(m,n)$。
+【详解】$AB$ 为 $m\times m$ 矩阵，$r(AB)\le r(B)\le\min(m,n)$。
+当 $m>n$ 时，$r(AB)\le n<m$，故 $AB$ 不满秩，$|AB|=0$。选 (B)。
+【易错点】$AB$ 是 $m$ 阶方阵（不是 $n$ 阶）；(C)(D) 中 $n>m$ 时 $|AB|$ 可能非零。` },
     { n: 9, q: R`（选择题）设 $A$ 为 $n$ 阶矩阵，则行列式 $|A|=0$ 的必要条件是
 (A) $A$ 的两行元素对应成比例
 (B) $A$ 中必有一行为其余各行的线性组合
 (C) $A$ 中有一列元素全为 $0$
-(D) $A$ 中任一列均为其余各列的线性组合`, a: R`(B)`, sol: R`【提示】(A)、(C) 均是 $|A|=0$ 的充分条件并不必要，只要有一行（列）是其余各行（列）的线性组合就可保证 $|A|=0$，且这是必要条件。故应选 (B)。` },
-    { n: 10, q: R`求 $x$ 的值：$\begin{vmatrix}x-1&1&2\\1&x-5&0\\2&0&x-5\end{vmatrix}=0$。`, a: R`$x=5,6,0$`, sol: R`【提示】把第 2 行的 $-2$ 倍加至第 3 行，可出 $x-5$ 的公因式，即
-$$\begin{vmatrix}x-1&1&2\\1&x-5&0\\2&0&x-5\end{vmatrix}=\begin{vmatrix}x-1&1&2\\1&x-5&0\\0&-2(x-5)&x-5\end{vmatrix}=(x-5)\begin{vmatrix}x-1&1&2\\1&x-5&0\\0&-2&1\end{vmatrix}=(x-5)\begin{vmatrix}x-1&5&2\\1&x-5&0\\0&0&1\end{vmatrix}=(x-5)(x^2-6x)$$` },
-    { n: 11, q: R`求 $x$ 的值：$\begin{vmatrix}1&1&1&1\\2&x&3&1\\3&3&x&6\\4&4&6&x\end{vmatrix}=0$。`, a: R`$x=1,2,6$`, sol: R`【提示】把第 1 行的 $-3$ 倍、$-4$ 倍分别加至第 3 行与第 4 行，可用拉普拉斯展开式，即
-$$\begin{vmatrix}1&1&1&1\\2&x&3&1\\3&3&x&6\\4&4&6&x\end{vmatrix}=\begin{vmatrix}1&1&1&1\\2&x&3&1\\0&0&x-3&3\\0&0&2&x-4\end{vmatrix}=\begin{vmatrix}1&1\\2&x\end{vmatrix}\begin{vmatrix}x-3&3\\2&x-4\end{vmatrix}=0$$` },
-    { n: 12, q: R`已知 $A$ 是 $n$ 阶矩阵，满足 $A^2=E$，$A\neq E$，证明 $|A+E|=0$。`, a: R`证明 $|A+E|=0$。`, sol: R`由 $A^2=E$ 得 $(A+E)(A-E)=0$。因为 $A\neq E$，故齐次方程组 $(A+E)x=0$ 有非零解。从而 $|A+E|=0$。
-【评注】请参看例 1.24 的各种证明方法。` },
-    { n: 13, q: R`已知 $a,b,c$ 不全为零，证明齐次方程组 $\begin{cases}ax_2+bx_3+cx_4=0\\ax_1+x_2=0\\bx_1+x_3=0\\cx_1+x_4=0\end{cases}$ 只有零解。`, a: R`证明方程组只有零解。`, sol: R`由于系数行列式
-$$\begin{vmatrix}0&a&b&c\\a&1&0&0\\b&0&1&0\\c&0&0&1\end{vmatrix}=\begin{vmatrix}-a^2-b^2-c^2&0&0&0\\a&1&0&0\\b&0&1&0\\c&0&0&1\end{vmatrix}=-(a^2+b^2+c^2)\neq0$$
-故只有零解。
-【评注】请参看例 1.10 爪型行列式的计算。` }
+(D) $A$ 中任一列均为其余各列的线性组合`, a: R`(B)`, sol: R`【思路】$|A|=0\iff$ 行（列）向量组线性相关 $\iff$ 某一行是其余行的线性组合。
+【详解】$|A|=0$ 等价于行向量组线性相关，即存在一行可由其余各行线性表出，(B) 正确（且是充要的）。
+(A) 两行成比例只是相关的一种特殊情形，非必要；(C) 某列全为 0 是充分非必要；(D) 「任一列」要求过强。选 (B)。
+【易错点】「线性相关」只保证「至少有一行」可由其余行线性表出，不是「任意一行」。` },
+    { n: 10, q: R`求 $x$ 的值：$\begin{vmatrix}x-1&1&2\\1&x-5&0\\2&0&x-5\end{vmatrix}=0$。`, a: R`$x=5,6,0$`, sol: R`【思路】第 2、3 行都含 $x-5$，把第 2 行的 $-2$ 倍加到第 3 行提出公因式。
+【详解】$r_3-2r_2$：
+$$\begin{vmatrix}x-1&1&2\\1&x-5&0\\2&0&x-5\end{vmatrix}=\begin{vmatrix}x-1&1&2\\1&x-5&0\\0&-2(x-5)&x-5\end{vmatrix}=(x-5)\begin{vmatrix}x-1&1&2\\1&x-5&0\\0&-2&1\end{vmatrix}.$$
+再 $c_2+2c_3$：$=(x-5)\begin{vmatrix}x-1&5&2\\1&x-5&0\\0&0&1\end{vmatrix}=(x-5)\begin{vmatrix}x-1&5\\1&x-5\end{vmatrix}=(x-5)(x^2-6x)$。
+令 $=0$ 得 $x=5,6,0$。
+【易错点】第 3 行提出公因式 $x-5$；最后行列式 $(x-1)(x-5)-5=x^2-6x$。` },
+    { n: 11, q: R`求 $x$ 的值：$\begin{vmatrix}1&1&1&1\\2&x&3&1\\3&3&x&6\\4&4&6&x\end{vmatrix}=0$。`, a: R`$x=1,2,6$`, sol: R`【思路】第 3、4 行与第 1 行成比例，作行变换后用拉普拉斯（分块）展开。
+【详解】$r_3-3r_1$、$r_4-4r_1$：
+$$\begin{vmatrix}1&1&1&1\\2&x&3&1\\3&3&x&6\\4&4&6&x\end{vmatrix}=\begin{vmatrix}1&1&1&1\\2&x&3&1\\0&0&x-3&3\\0&0&2&x-4\end{vmatrix}.$$
+按前两列与后两行分块（拉普拉斯展开）：
+$$=\begin{vmatrix}1&1\\2&x\end{vmatrix}\cdot\begin{vmatrix}x-3&3\\2&x-4\end{vmatrix}=(x-2)\left[(x-3)(x-4)-6\right]=(x-2)(x^2-7x+6).$$
+令 $=0$ 得 $x=1,2,6$。
+【易错点】拉普拉斯展开的符号由子块行列位置决定，本题为 $+$；$(x-3)(x-4)-6=x^2-7x+6$。` },
+    { n: 12, q: R`已知 $A$ 是 $n$ 阶矩阵，满足 $A^2=E$，$A\neq E$，证明 $|A+E|=0$。`, a: R`证明 $|A+E|=0$。`, sol: R`【思路】由 $A^2=E$ 因式分解得 $(A+E)(A-E)=0$，再用「$A\neq E$ 给出非零解」。
+【详解】由 $A^2=E$ 得 $(A+E)(A-E)=A^2-E=0$。
+因 $A\neq E$，矩阵 $A-E$ 不是零矩阵，故存在非零列向量 $x$ 使 $(A-E)x\neq0$。取 $y=(A-E)x\neq0$，则 $(A+E)y=(A+E)(A-E)x=0$，即齐次方程组 $(A+E)y=0$ 有非零解。
+由克拉默法则（或「方阵不可逆 ⟺ 有非零解」），$|A+E|=0$。
+【易错点】$A\neq E$ 是必要的：若 $A=E$ 则 $|A+E|=|2E|\neq0$；关键是把 $A-E$ 的某一非零列作为 $(A+E)x=0$ 的非零解。` },
+    { n: 13, q: R`已知 $a,b,c$ 不全为零，证明齐次方程组 $\begin{cases}ax_2+bx_3+cx_4=0\\ax_1+x_2=0\\bx_1+x_3=0\\cx_1+x_4=0\end{cases}$ 只有零解。`, a: R`证明方程组只有零解。`, sol: R`【思路】证系数行列式非零。
+【详解】系数行列式
+$$D=\begin{vmatrix}0&a&b&c\\a&1&0&0\\b&0&1&0\\c&0&0&1\end{vmatrix}.$$
+将第 2 行的 $-a$ 倍、第 3 行的 $-b$ 倍、第 4 行的 $-c$ 倍加到第 1 行：第 1 行变为 $(-a^2-b^2-c^2,0,0,0)$，故
+$$D=\begin{vmatrix}-(a^2+b^2+c^2)&0&0&0\\a&1&0&0\\b&0&1&0\\c&0&0&1\end{vmatrix}=-(a^2+b^2+c^2).$$
+因 $a,b,c$ 不全为零，$a^2+b^2+c^2>0$，故 $D\neq0$，方程组只有零解。
+【易错点】用「第 1 行减去其余行的倍数」把第 1 行化为爪型；$a,b,c$ 不全为零保证 $D\neq0$。` }
   ];
 })();
