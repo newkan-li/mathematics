@@ -1,0 +1,37 @@
+window.LESSONS = window.LESSONS || {};
+(function () {
+  var R = String.raw;
+  window.LESSONS["q880_s15"] = {
+    id: "q880_s15",
+    ch: "880题 · 高数 · 第三章 一元函数积分学及其应用",
+    title: "基础题·填空题",
+    probTitle: "第三章 基础题 · 填空题（含原书解析）",
+    book: "李林《精讲精练 880 题（数学二）》2026",
+    problems: [
+      { n: "(1)", q: R`设 $F(x)$ 是 $f(x)$ 的一个原函数，$F\left(\frac\pi4\right)=0$，当 $\frac\pi4<x<\frac\pi2$ 时，$F(x)>0$，$F(x)f(x)=\frac{\ln(\tan x)}{\sin x\cos x}$，则 $f(x)=\underline{\qquad}$。`, a: R`$\frac1{\sin x\cos x}$`, sol: R`【解】由 $F'(x)=f(x)$ 得 $2F(x)F'(x)=\frac{2\ln(\tan x)}{\sin x\cos x}$，两边积分得 $F^2(x)=\int\frac{2\ln(\tan x)}{\sin x\cos x}dx=[\ln(\tan x)]^2+C$。由 $F\left(\frac\pi4\right)=0$ 得 $C=0$，又 $F(x)>0$，故 $F(x)=\ln(\tan x)$，$f(x)=F'(x)=\frac1{\sin x\cos x}$。` },
+      { n: "(2)", q: R`设对任意 $x$，有 $f(x+4)=f(x)$，且 $f'(x)=1+|x|,x\in[-2,2],f(0)=1$，则 $f(9)=\underline{\qquad}$。`, a: R`$\frac52$`, sol: R`【解】由 $f(x+4)=f(x)$ 得 $f(9)=f(1)$。$f'(x)=1+|x|=\begin{cases}1-x,&-2<x<0,\\1+x,&0\leqslant x<2,\end{cases}$ 积分并由 $f$ 在 $x=0$ 可导（连续）得 $C_1=C_2=1$，故 $f(1)=\frac12+1+1=\frac52$。` },
+      { n: "(3)", q: R`设 $f(x)=\int_0^x\sin(x-t)^2dt$，则 $f'(x)=\underline{\qquad}$。`, a: R`$\sin x^2$`, sol: R`【解】$\int_0^x\sin(x-t)^2dt\xlongequal{x-t=u}\int_0^x\sin u^2du$，故 $f'(x)=\sin x^2$。` },
+      { n: "(4)", q: R`设 $F(x)=\int_0^xtf(x^2-t^2)dt$，$f(x)$ 是连续函数，则 $F'(x)=\underline{\qquad}$。`, a: R`$xf(x^2)$`, sol: R`【解】$\int_0^xtf(x^2-t^2)dt=-\frac12\int_0^xf(x^2-t^2)d(x^2-t^2)\xlongequal{x^2-t^2=u}\frac12\int_0^{x^2}f(u)du$，故 $F'(x)=\frac12\cdot2x f(x^2)=xf(x^2)$。` },
+      { n: "(5)", q: R`设 $F(x)=\int_0^xtf(x^2-t^2)dt$，$f(x)$ 在 $x=0$ 某邻域内可导，且 $f(0)=0,f'(0)=1$，则 $\lim\limits_{x\to0}\frac{F(x)}{x^4}=\underline{\qquad}$。`, a: R`$\frac14$`, sol: R`【解】由 (4) 得 $F'(x)=xf(x^2)$，故
+$$\lim_{x\to0}\frac{F(x)}{x^4}=\lim_{x\to0}\frac{xf(x^2)}{4x^3}=\frac14\lim_{x\to0}\frac{f(x^2)-f(0)}{x^2}=\frac14f'(0)=\frac14.$$` },
+      { n: "(6)", q: R`设 $f(x)$ 在 $[0,+\infty)$ 上可导，$f(0)=0$，$y=f(x)$ 的反函数为 $g(x)$，若 $\int_x^{x+f(x)}g(t-x)dt=x^2\ln(1+x)$，则 $f(1)=\underline{\qquad}$。`, a: R`$3\ln2-1$`, sol: R`【解】$\int_x^{x+f(x)}g(t-x)dt\xlongequal{t-x=u}\int_0^{f(x)}g(u)du=x^2\ln(1+x)$，两边求导得 $g[f(x)]f'(x)=2x\ln(1+x)+\frac{x^2}{1+x}$，由 $g(f(x))=x$ 得 $xf'(x)=2x\ln(1+x)+\frac{x^2}{1+x}$，故 $f'(x)=2\ln(1+x)+\frac x{1+x}$。积分并由 $f(0)=0$ 得 $f(x)=2x\ln(1+x)-x+\ln(1+x)$，故 $f(1)=3\ln2-1$。` },
+      { n: "(7)", q: R`设 $\alpha(x)=\int_0^{5x}\frac{\sin t}tdt$，$\beta(x)=\int_0^{\sin x}(1+t)^{\frac1t}dt$，则 $\lim\limits_{x\to0}\frac{\alpha(x)}{\beta(x)}=\underline{\qquad}$。`, a: R`$\frac5e$`, sol: R`【解】$\lim\limits_{x\to0}\frac{\alpha(x)}{\beta(x)}=\lim\limits_{x\to0}\frac{5\cdot\frac{\sin5x}{5x}}{\cos x\cdot(1+\sin x)^{\frac1{\sin x}}}=\frac5e$。` },
+      { n: "(8)", q: R`极限 $\lim\limits_{x\to0}\frac{\int_{\cos x}^1t\ln t\,dt}{x^4}=\underline{\qquad}$。`, a: R`$-\frac18$`, sol: R`【解】原式 $=\lim\limits_{x\to0}\frac{-\int_1^{\cos x}t\ln t\,dt}{x^4}=\lim\limits_{x\to0}\frac{-\cos x\ln(\cos x)(-\sin x)}{4x^3}=\frac14\lim\limits_{x\to0}\frac{\ln(\cos x)}{x^2}=-\frac18$。` },
+      { n: "(9)", q: R`极限 $\lim\limits_{x\to0}\frac{\int_0^x\left[\int_0^{u^2}\arctan(1+t)dt\right]du}{x(1-\cos x)}=\underline{\qquad}$。`, a: R`$\frac\pi6$`, sol: R`【解】原式 $=\lim\limits_{x\to0}\frac{\int_0^{x^2}\arctan(1+t)dt}{\frac32x^2}=\lim\limits_{x\to0}\frac{2x\arctan(1+x^2)}{3x}=\frac23\arctan1=\frac\pi6$。` },
+      { n: "(10)", q: R`极限 $\lim\limits_{x\to+\infty}\frac{\int_0^x|\sin t|dt}{x}=\underline{\qquad}$。`, a: R`$\frac2\pi$`, sol: R`【解】$|\sin t|$ 以 $\pi$ 为周期，$\int_0^\pi|\sin t|dt=2$。当 $n\pi\leqslant x\leqslant(n+1)\pi$ 时 $2n\leqslant\int_0^x|\sin t|dt\leqslant2(n+1)$，故 $\frac{2n}{(n+1)\pi}\leqslant\frac{\int_0^x|\sin t|dt}x\leqslant\frac{2(n+1)}{n\pi}$，由夹逼准则原式 $=\frac2\pi$。` },
+      { n: "(11)", q: R`函数 $y=\frac{x^2}{\sqrt{1-x^2}}$ 在 $\left[\frac12,\frac{\sqrt3}2\right]$ 上的平均值为 $\underline{\qquad}$。`, a: R`$\frac{(\sqrt3+1)\pi}{12}$`, sol: R`【解】$\int_{1/2}^{\sqrt3/2}\frac{x^2}{\sqrt{1-x^2}}dx\xlongequal{x=\sin t}\int_{\pi/6}^{\pi/3}\sin^2t\,dt=\frac12\int_{\pi/6}^{\pi/3}(1-\cos2t)dt=\frac\pi{12}$，故平均值 $=\frac{\pi/12}{\frac{\sqrt3}2-\frac12}=\frac{(\sqrt3+1)\pi}{12}$。` },
+      { n: "(12)", q: R`设 $f(x)=\int_0^{a-x}e^{t(2a-t)}dt\ (a>0),x\in[0,a]$，则曲线 $y=f(x)$ 与两坐标轴所围成图形的面积为 $\underline{\qquad}$。`, a: R`$\frac12(e^{a^2}-1)$`, sol: R`【解】$x\in[0,a]$ 时 $f(x)\geqslant0$，$f(a)=0$，$f(0)>0$。面积
+$$S=\int_0^af(x)dx=\int_0^a\left[\int_0^{a-x}e^{t(2a-t)}dt\right]dx=\int_0^a xe^{a^2-x^2}dx=\frac12(e^{a^2}-1).$$` },
+      { n: "(13)", q: R`曲线 $y=\frac{\sqrt x}{1+x^2}$ 绕 $x$ 轴旋转一周所得的旋转体，将它在 $x=0$ 与 $x=\xi(\xi>0)$ 之间部分的体积记为 $V(\xi)$，且 $V(a)=\frac12\lim\limits_{\xi\to+\infty}V(\xi)$，则 $a=\underline{\qquad}$。`, a: R`$1$`, sol: R`【解】$V(\xi)=\pi\int_0^\xi\frac{x}{(1+x^2)^2}dx=\frac\pi2\left(1-\frac1{1+\xi^2}\right)$，$\lim\limits_{\xi\to+\infty}V(\xi)=\frac\pi2$。由 $V(a)=\frac\pi4$ 得 $1-\frac1{1+a^2}=\frac12$，解得 $a=1$。` },
+      { n: "(14)", q: R`曲线 $r=a\sin^3\frac\theta3\ (a>0,0\leqslant\theta\leqslant3\pi)$ 的弧长 $s=\underline{\qquad}$。`, a: R`$\frac{3\pi a}2$`, sol: R`【解】$s=\int_0^{3\pi}\sqrt{r^2+r'^2}d\theta=a\int_0^{3\pi}\sin^2\frac\theta3d\theta\xlongequal{t=\theta/3}3a\int_0^\pi\sin^2t\,dt=\frac{3\pi a}2$。` },
+      { n: "(15)", q: R`曲线 $y=\int_{-\frac\pi2}^x\sqrt{\cos t}\,dt$ 的全长 $s=\underline{\qquad}$。`, a: R`$4$`, sol: R`【解】定义域为 $\left[-\frac\pi2,\frac\pi2\right]$，$s=\int_{-\pi/2}^{\pi/2}\sqrt{1+y'^2}dx=\int_{-\pi/2}^{\pi/2}\sqrt{1+\cos x}\,dx=\int_{-\pi/2}^{\pi/2}\sqrt2\cos\frac x2dx=4$。` },
+      { n: "(16)", q: R`由曲线 $y=\ln x$ 与两直线 $y=(e+1)-x$ 及 $y=0$ 所围平面图形的面积 $S=\underline{\qquad}$。`, a: R`$\frac32$`, sol: R`【解】$S=\int_1^e\ln x\,dx+\int_e^{e+1}(e+1-x)dx=\frac32$。` },
+      { n: "(17)", q: R`设 $D$ 是由曲线 $y=\sin x+1$ 与直线 $x=0,x=\pi,y=0$ 所围平面图形，则 $D$ 绕 $x$ 轴旋转一周所得旋转体的体积 $V=\underline{\qquad}$。`, a: R`$\frac32\pi^2+4\pi$`, sol: R`【解】$V=\int_0^\pi\pi(\sin x+1)^2dx=\pi\int_0^\pi\left(1+2\sin x+\frac{1-\cos2x}2\right)dx=\pi\left(\frac32x-2\cos x-\frac14\sin2x\right)\Big|_0^\pi=\frac32\pi^2+4\pi$。` },
+      { n: "(18)", q: R`设 $n$ 为正数，$\lim\limits_{x\to0}\left(\frac{n-x}{n+x}\right)^{\frac2x}=\int_{\frac1n}^{+\infty}xe^{-4x}dx$，则 $n=\underline{\qquad}$。`, a: R`$\frac4{15}$`, sol: R`【解】左边 $=e^{-\frac4n}$；右边 $=\frac1{4n}e^{-\frac4n}+\frac1{16}e^{-\frac4n}$。故 $\left(\frac1{4n}+\frac1{16}\right)e^{-\frac4n}=e^{-\frac4n}$，解得 $n=\frac4{15}$。` },
+      { n: "(19)", q: R`设在 $x$ 轴的区间 $[0,1]$ 上有一根长度为 1 的细棒，若其线密度 $\rho(x)=2x+1$，则该细棒的质心坐标 $\bar x=\underline{\qquad}$。`, a: R`$\frac7{12}$`, sol: R`【解】$\bar x=\frac{\int_0^1x\rho(x)dx}{\int_0^1\rho(x)dx}=\frac{\int_0^1x(2x+1)dx}{\int_0^1(2x+1)dx}=\frac7{12}$。` },
+      { n: "(20)", q: R`极限 $\lim\limits_{n\to\infty}\sum\limits_{k=1}^n\frac1n\ln\frac{n+2k}{3n-2k}=\underline{\qquad}$。`, a: R`$0$`, sol: R`【解】原式 $=\lim\limits_{n\to\infty}\frac12\sum\limits_{k=1}^n\frac2n\ln\frac{1+\frac{2k}n}{3-\frac{2k}n}=\frac12\int_0^2\ln\frac{1+x}{3-x}dx\xlongequal{x=1+t}\frac12\int_{-1}^1\ln\frac{2+t}{2-t}dt$，被积函数为奇函数，故原式 $=0$。` },
+      { n: "(21)", q: R`设质点以速度 $\sqrt t e^{-\sqrt t}(t\geqslant0)$ m/s 作直线运动，则质点从开始运动到停止运动经过的路程为 $\underline{\qquad}$ m，它在 $t=0$ 到 $t=4$ s 时间段内的平均速度为 $\underline{\qquad}$ m/s。`, a: R`$4$；$1-5e^{-2}$`, sol: R`【解】路程 $s=\int_0^{+\infty}\sqrt te^{-\sqrt t}dt\xlongequal{\sqrt t=u}\int_0^{+\infty}2u^2e^{-u}du=4$（m）。平均速度 $\bar v=\frac14\int_0^4\sqrt te^{-\sqrt t}dt=\frac14\cdot4(1-5e^{-2})=1-5e^{-2}$（m/s）。
+（注：$\int_0^4\sqrt te^{-\sqrt t}dt=4(1-5e^{-2})$。）` }
+    ]
+  };
+})();
