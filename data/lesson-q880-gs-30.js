@@ -1,0 +1,28 @@
+window.LESSONS = window.LESSONS || {};
+(function () {
+  var R = String.raw;
+  window.LESSONS["q880_s29"] = {
+    id: "q880_s29",
+    ch: "880题 · 高数 · 第四章 多元函数微分学及其应用",
+    title: "基础题·填空题",
+    probTitle: "第四章 基础题 · 填空题（含原书解析）",
+    book: "李林《精讲精练 880 题（数学二）》2026",
+    problems: [
+      { n: "(1)", q: R`$\lim\limits_{\substack{x\to3\\y\to0}}\frac{\ln(x+e^y)}{\sqrt{x^2+y^2}}=\underline{\qquad}$。`, a: R`$\frac23\ln2$`, sol: R`【解】函数在点 $(3,0)$ 处连续，故极限 $=\frac{\ln(3+e^0)}{\sqrt{3^2+0^2}}=\frac{\ln4}3=\frac23\ln2$。` },
+      { n: "(2)", q: R`$\lim\limits_{\substack{x\to\infty\\y\to\infty}}\frac{x+y}{x^2-xy+y^2}=\underline{\qquad}$。`, a: R`$0$`, sol: R`【解】由 $x^2+y^2\geqslant2|xy|$，$0\leqslant\left|\frac{x+y}{x^2-xy+y^2}\right|\leqslant\frac{|x|+|y|}{|xy|}=\frac1{|x|}+\frac1{|y|}\to0$，故原极限 $=0$。` },
+      { n: "(3)", q: R`$\lim\limits_{\substack{x\to\infty\\y\to0}}\left(1-\frac1{2x}\right)^{\frac{x^2}{x+y}}=\underline{\qquad}$。`, a: R`$e^{-\frac12}$`, sol: R`【解】原式 $=\lim\limits_{\substack{x\to\infty\\y\to0}}\left[\left(1-\frac1{2x}\right)^{-2x}\right]^{\frac x{x+y}\cdot(-\frac12)}=e^{-\frac12}$。` },
+      { n: "(4)", q: R`设 $z=(1+xy)^y$，则 $dz|_{(1,1)}=\underline{\qquad}$。`, a: R`$dx+(1+2\ln2)dy$`, sol: R`【解】$\frac{\partial z}{\partial x}=y(1+xy)^{y-1}\cdot y$，$\frac{\partial z}{\partial y}=(1+xy)^y\left[\ln(1+xy)+\frac{xy}{1+xy}\right]$，故 $\frac{\partial z}{\partial x}|_{(1,1)}=1$，$\frac{\partial z}{\partial y}|_{(1,1)}=1+2\ln2$，$dz|_{(1,1)}=dx+(1+2\ln2)dy$。` },
+      { n: "(5)", q: R`设函数 $f(x,y)$ 可微，且 $f(1,2)=2$，$f'_x(1,2)=3$，$f'_y(1,2)=4$，$F(x)=f[x,f(x,2x)]$，则 $F'(1)=\underline{\qquad}$。`, a: R`$47$`, sol: R`【解】$F'(x)=f'_1+f'_2(f'_1+2f'_2)$。由 $f[1,f(1,2)]=f(1,2)$ 及 $f'_1(1,2)=3,f'_2(1,2)=4$ 得 $F'(1)=3+4(3+8)=47$。` },
+      { n: "(6)", q: R`设 $z=z(x,y)$ 由方程 $x=ze^{y+z}$ 确定，则 $dz|_{(e,0)}=\underline{\qquad}$。`, a: R`$\frac1{2e}dx-\frac12dy$`, sol: R`【解】由 $x=e,y=0$ 知 $z=1$。令 $F=ze^{y+z}-x$，$\frac{\partial z}{\partial x}=-\frac{F'_x}{F'_z}=\frac1{e^{y+z}(1+z)}$，$\frac{\partial z}{\partial y}=-\frac{F'_y}{F'_z}=-\frac z{1+z}$，故 $dz|_{(e,0)}=\frac1{2e}dx-\frac12dy$。` },
+      { n: "(7)", q: R`设 $\begin{cases}y=f(x,t),\\F(x,y,t)=0,\end{cases}$ $f,F$ 有一阶连续偏导数，则 $\frac{dy}{dx}=\underline{\qquad}$。`, a: R`$\frac{f'_xF'_t-f'_tF'_x}{F'_t+f'_yF'_y}$`, sol: R`【解】确定 $y=y(x),t=t(x)$，两方程对 $x$ 求导 $\frac{dy}{dx}=f'_x+f'_t\frac{dt}{dx}$，$F'_x+F'_y\frac{dy}{dx}+F'_t\frac{dt}{dx}=0$，消去 $\frac{dt}{dx}$ 得 $\frac{dy}{dx}=\frac{f'_xF'_t-f'_tF'_x}{F'_t+f'_yF'_y}$。` },
+      { n: "(8)", q: R`设 $y=f(x,t)$，$t=t(x,y)$ 由方程 $G(x,y,t)=0$ 确定，$f,G$ 可微，则 $\frac{dy}{dx}=\underline{\qquad}$。`, a: R`$\frac{G'_yf'_x-G'_xf'_t}{G'_yf'_t+G'_t}$`, sol: R`【解】令 $F=f(x,t)-y=0$，由 $\begin{cases}F=0\\G=0\end{cases}$ 确定 $y=y(x),t=t(x)$，对 $x$ 求导解方程组得 $\frac{dy}{dx}=\frac{G'_yf'_x-G'_xf'_t}{G'_yf'_t+G'_t}$。` },
+      { n: "(9)", q: R`设 $z=f\left(\frac yx\right)+g(e^x,\sin y)$，$f$ 有二阶连续导数，$g$ 有二阶连续偏导数，则 $\frac{\partial^2z}{\partial x\partial y}=\underline{\qquad}$。`, a: R`$-\frac1{x^2}f'-\frac y{x^3}f''+e^xg''_{12}\cos y$`, sol: R`【解】$\frac{\partial z}{\partial x}=-\frac y{x^2}f'+e^xg'_1$，故 $\frac{\partial^2z}{\partial x\partial y}=-\frac1{x^2}f'-\frac y{x^3}f''+e^xg''_{12}\cos y$。` },
+      { n: "(10)", q: R`设 $f(u,v)$ 有二阶连续偏导数，$y=f(e^x,\cos x)$，则 $\frac{d^2y}{dx^2}|_{x=0}=\underline{\qquad}$。`, a: R`$f''_{11}(1,1)+f'_1(1,1)-f'_2(1,1)$`, sol: R`【解】$\frac{dy}{dx}=f'_1e^x-f'_2\sin x$，$\frac{d^2y}{dx^2}=(f''_{11}e^x-f''_{12}\sin x)e^x+f'_1e^x-(f''_{21}e^x-f''_{22}\sin x)\sin x-f'_2\cos x$，令 $x=0$ 得 $f''_{11}(1,1)+f'_1(1,1)-f'_2(1,1)$。` },
+      { n: "(11)", q: R`设 $z=z(x,y)$ 由方程 $e^{2yz}+x+y^2+z=\frac74$ 确定，则 $dz|_{(\frac12,\frac12)}=\underline{\qquad}$。`, a: R`$-\frac12(dx+dy)$`, sol: R`【解】两边对 $x,y$ 求偏导，当 $x=y=\frac12$ 时 $z=0$，代入解得 $\frac{\partial z}{\partial x}|_{(\frac12,\frac12)}=-\frac12$，$\frac{\partial z}{\partial y}|_{(\frac12,\frac12)}=-\frac12$，故 $dz=-\frac12(dx+dy)$。` },
+      { n: "(12)", q: R`设 $f(x,y)=\int_0^{xy}\frac{\sin t}{1+t^2}dt$，则 $\frac{\partial^2f}{\partial x^2}|_{(0,2)}=\underline{\qquad}$。`, a: R`$4$`, sol: R`【解】$\frac{\partial f}{\partial x}=\frac{y\sin(xy)}{1+(xy)^2}$，$\frac{\partial^2f}{\partial x^2}|_{(0,2)}=\left.\left(\frac{2\sin2x}{1+4x^2}\right)'\right|_{x=0}=\left.\frac{4(1+4x^2)\cos2x-16x\sin2x}{(1+4x^2)^2}\right|_{x=0}=4$。` },
+      { n: "(13)", q: R`设 $z(x,y)$ 的全微分 $dz=(x^2+2xy-y^2)dx+(x^2-2xy-y^2)dy$，则 $z(x,y)=\underline{\qquad}$。`, a: R`$\frac13x^3+x^2y-xy^2-\frac13y^3+C$`, sol: R`【解】由 $\frac{\partial z}{\partial x}=x^2+2xy-y^2$ 积分得 $z=\frac13x^3+x^2y-xy^2+\varphi(y)$；再由 $\frac{\partial z}{\partial y}=x^2-2xy+\varphi'(y)=x^2-2xy-y^2$ 得 $\varphi'(y)=-y^2$，$\varphi(y)=-\frac13y^3+C$，故 $z=\frac13x^3+x^2y-xy^2-\frac13y^3+C$。` },
+      { n: "(14)", q: R`设 $z=z(x,y)$ 由方程 $z+\ln z-\int_y^xe^{-t^2}dt=0$ 确定，则 $\frac{\partial^2z}{\partial x\partial y}=\underline{\qquad}$。`, a: R`$-\frac{ze^{-(x^2+y^2)}}{(1+z)^3}$`, sol: R`【解】两边求偏导得 $\frac{\partial z}{\partial x}=\frac{ze^{-x^2}}{1+z}$，$\frac{\partial z}{\partial y}=-\frac{ze^{-y^2}}{1+z}$，故 $\frac{\partial^2z}{\partial x\partial y}=\frac{e^{-x^2}}{(1+z)^2}\cdot\left(-\frac{ze^{-y^2}}{1+z}\right)=-\frac{ze^{-(x^2+y^2)}}{(1+z)^3}$。` },
+      { n: "(15)", q: R`设 $z=f\left(xy,\frac xy\right)+g\left(\frac yx\right)$，$f$ 具有二阶连续偏导数，$g$ 具有二阶连续导数，则 $\frac{\partial^2z}{\partial x\partial y}=\underline{\qquad}$。`, a: R`$f'_1-\frac1{y^2}f'_2+xyf''_{11}-\frac x{y^3}f''_{22}-\frac1{x^2}g'-\frac y{x^3}g''$`, sol: R`【解】$\frac{\partial z}{\partial x}=yf'_1+\frac1yf'_2-\frac y{x^2}g'$，再对 $y$ 求偏导整理得 $\frac{\partial^2z}{\partial x\partial y}=f'_1-\frac1{y^2}f'_2+xyf''_{11}-\frac x{y^3}f''_{22}-\frac1{x^2}g'-\frac y{x^3}g''$。` }
+    ]
+  };
+})();
