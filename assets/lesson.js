@@ -388,6 +388,51 @@
       }
       toc += "</div>";
       nav.innerHTML = toc;
+
+      // 滚动联动高亮当前节（及所属章/科目）
+      var links = {};
+      Array.prototype.forEach.call(nav.querySelectorAll("a.toc-l1"), function (a) {
+        var id = (a.getAttribute("href") || "").replace(/^#/, "");
+        if (id) links[id] = a;
+      });
+      var secs = ids.map(function (k) { return document.getElementById(k); });
+      var tops = null;
+      var measure = function () {
+        tops = secs.map(function (s) {
+          if (!s) return 1e9;
+          var r = s.getBoundingClientRect();
+          return r.top + (window.pageYOffset || document.documentElement.scrollTop || 0);
+        });
+      };
+      var raf = null;
+      var update = function () {
+        raf = null;
+        if (!tops) measure();
+        var y = (window.pageYOffset || document.documentElement.scrollTop || 0) + 130;
+        var cur = ids.length ? ids[0] : null;
+        for (var i = 0; i < secs.length; i++) { if (tops[i] <= y) cur = ids[i]; else break; }
+        for (var k in links) links[k].classList.toggle("active", k === cur);
+        Array.prototype.forEach.call(nav.querySelectorAll(".toc-chh,.toc-subj"), function (el) {
+          el.classList.remove("active");
+        });
+        if (cur && links[cur]) {
+          var ch = null, p = links[cur].parentNode;
+          while (p && p !== nav) { if (/(^|\s)toc-ch(\s|$)/.test(p.className || "")) { ch = p; break; } p = p.parentNode; }
+          if (ch) {
+            var h = ch.querySelector(".toc-chh"); if (h) h.classList.add("active");
+            var s = ch.previousElementSibling;
+            while (s && !/(^|\s)toc-subj(\s|$)/.test(s.className || "")) s = s.previousElementSibling;
+            if (s) s.classList.add("active");
+          }
+        }
+      };
+      var onScroll = function () { if (raf == null) raf = requestAnimationFrame(update); };
+      window.addEventListener("scroll", onScroll, { passive: true });
+      window.addEventListener("resize", function () { tops = null; onScroll(); });
+      update();
+      [600, 1600, 3200].forEach(function (t) {
+        setTimeout(function () { tops = null; onScroll(); }, t);
+      });
     }
     typeset([chapterHost]);
     return;

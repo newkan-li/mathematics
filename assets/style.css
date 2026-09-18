@@ -84,6 +84,9 @@ body[data-page="chapter"] .wrap{max-width:1200px}
 .toc-ch{margin:4px 0 8px}
 .toc-chh{font-weight:600;font-size:13px;color:var(--fg);margin:6px 0 2px;padding-left:2px}
 .toc-ch .toc-l1{padding-left:12px;font-weight:500;font-size:13px}
+.toc-l1.active{color:var(--acc);font-weight:700;background:var(--hl);border-radius:6px}
+.toc-chh.active{color:var(--acc)}
+.toc-subj.active{color:var(--acc)}
 @media(max-width:900px){.chapter-layout{grid-template-columns:1fr}.sidebar{position:static;max-height:none}}
 .quizwrap{margin-top:16px;border-top:1px dashed var(--line);padding-top:10px}
 .lessonbody p{margin:8px 0}
