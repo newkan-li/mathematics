@@ -449,18 +449,14 @@
         if (eb.top < nb.top + 10) nav.scrollTop += eb.top - nb.top - 10;
         else if (eb.bottom > nb.bottom - 10) nav.scrollTop += eb.bottom - nb.bottom + 10;
       };
-      var onScroll = function () { if (raf == null) raf = requestAnimationFrame(update); };
+      var onScroll = function () { update(); };
       window.addEventListener("scroll", onScroll, { passive: true });
-      document.addEventListener("scroll", onScroll, { passive: true, capture: true });
-      window.addEventListener("resize", function () { tops = null; onScroll(); });
+      window.addEventListener("resize", onScroll);
       window.addEventListener("hashchange", onScroll);
-      Array.prototype.forEach.call(nav.querySelectorAll("a"), function (a) {
-        a.addEventListener("click", function () { setTimeout(onScroll, 0); setTimeout(onScroll, 260); });
-      });
+      document.addEventListener("visibilitychange", onScroll);
       update();
-      [600, 1600, 3200].forEach(function (t) {
-        setTimeout(function () { tops = null; onScroll(); }, t);
-      });
+      [80, 400, 1000, 2000, 3500].forEach(function (t) { setTimeout(update, t); });
+      setInterval(function () { if (!document.hidden) update(); }, 900);
     }
     typeset([chapterHost]);
     return;
