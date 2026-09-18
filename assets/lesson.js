@@ -342,23 +342,50 @@
     var nav = document.getElementById("lnav");
     if (nav) {
       var toc = '<div class="toc"><div class="toc-h">📑 本章目录</div>';
-      ids.forEach(function (k) {
+      var first = window.LESSONS[ids[0]] || {};
+      var hier = /^[^ ·]+ · [^ ·]+ · /.test(first.ch || "");
+      var leaf = function (k) {
         var L = window.LESSONS[k];
-        toc += '<div class="toc-sec"><a class="toc-l1" href="#' + k + '">' + A.esc(L.title) +
-          (L.pages ? ' <span class="toc-pg">p' + L.pages[0] + "–" + L.pages[1] + "</span>" : "") + "</a>";
+        var s = '<a class="toc-l1" href="#' + k + '">' + A.esc(L.title) +
+          (L.pages ? ' <span class="toc-pg">p' + L.pages[0] + "–" + L.pages[1] + "</span>" : "") +
+          (L.problems ? ' <span class="toc-pg">' + L.problems.length + " 题</span>" : "") + "</a>";
         var sec = chapterHost.querySelector("#" + k);
         var body = sec ? sec.querySelector(".lessonbody") : null;
-        var hs = body ? body.querySelectorAll("h3.lh, h4.lh2, h5.lh3") : [];
+        var hs = (body && !L.problems) ? body.querySelectorAll("h3.lh, h4.lh2, h5.lh3") : [];
         if (hs.length) {
-          toc += '<div class="toc-l2s">';
+          s += '<div class="toc-l2s">';
           Array.prototype.forEach.call(hs, function (h, i) {
             var hid = k + "-h" + i; h.id = hid;
-            toc += '<a class="toc-l2" href="#' + hid + '">' + A.esc(h.textContent) + "</a>";
+            s += '<a class="toc-l2" href="#' + hid + '">' + A.esc(h.textContent) + "</a>";
           });
-          toc += "</div>";
+          s += "</div>";
         }
-        toc += "</div>";
-      });
+        return s;
+      };
+      if (hier) {
+        var subjs = [], sMap = {};
+        ids.forEach(function (k) {
+          var L = window.LESSONS[k];
+          var parts = (L.ch || "").split(" · ");
+          var sn = parts[1] || "", cn = parts[2] || "";
+          if (!sMap[sn]) { sMap[sn] = { name: sn, chs: [], cMap: {} }; subjs.push(sMap[sn]); }
+          var sj = sMap[sn];
+          if (!sj.cMap[cn]) { sj.cMap[cn] = { name: cn, secs: [] }; sj.chs.push(sj.cMap[cn]); }
+          sj.cMap[cn].secs.push(k);
+        });
+        subjs.forEach(function (sj) {
+          toc += '<div class="toc-subj">' + A.esc(sj.name) + "</div>";
+          sj.chs.forEach(function (ch) {
+            toc += '<div class="toc-ch"><div class="toc-chh">' + A.esc(ch.name) + "</div>";
+            ch.secs.forEach(function (k) { toc += leaf(k); });
+            toc += "</div>";
+          });
+        });
+      } else {
+        ids.forEach(function (k) {
+          toc += '<div class="toc-sec">' + leaf(k) + "</div>";
+        });
+      }
       toc += "</div>";
       nav.innerHTML = toc;
     }
