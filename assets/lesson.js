@@ -351,14 +351,15 @@
           (L.problems ? ' <span class="toc-pg">' + L.problems.length + " 题</span>" : "") + "</a>";
         var sec = chapterHost.querySelector("#" + k);
         var body = sec ? sec.querySelector(".lessonbody") : null;
-        var hs = (body && !L.problems) ? body.querySelectorAll("h3.lh, h4.lh2, h5.lh3") : [];
+        var hs = (body && (!L.problems || L.content)) ? body.querySelectorAll("h3.lh, h4.lh2, h5.lh3") : [];
         if (hs.length) {
-          s += '<div class="toc-l2s">';
+          var inner = "", ct = (L.ch || "").trim();
           Array.prototype.forEach.call(hs, function (h, i) {
+            if (((h.textContent || "").trim()) === ct) return;
             var hid = k + "-h" + i; h.id = hid;
-            s += '<a class="toc-l2" href="#' + hid + '">' + A.esc(h.textContent) + "</a>";
+            inner += '<a class="toc-l2" href="#' + hid + '">' + A.esc(h.textContent) + "</a>";
           });
-          s += "</div>";
+          if (inner) s += '<div class="toc-l2s">' + inner + "</div>";
         }
         return s;
       };
