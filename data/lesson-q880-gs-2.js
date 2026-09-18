@@ -112,7 +112,7 @@ C：数列无界，极限不存在。` },
 (A) $\int_0^x du\int_a^u tf(t)\,dt$
 (B) $\int_a^x du\int_0^u f(t)\,dt$
 (C) $\int_0^x du\int_a^u f(t)\,dt$
-(D) $\int_a^x du\int_0^u tf(t)\,dt`, a: R`(D)`, sol: R`【解】由 $f$ 为奇函数知 $tf(t)$ 为偶函数，故 $\int_0^u tf(t)\,dt$ 是关于 $u$ 的奇函数，则 $\int_{-a}^x\left[\int_0^u tf(t)\,dt\right]du$ 是关于 $x$ 的偶函数，选项 D 正确。
+(D) $\int_a^x du\int_0^u tf(t)\,dt$`, a: R`(D)`, sol: R`【解】由 $f$ 为奇函数知 $tf(t)$ 为偶函数，故 $\int_0^u tf(t)\,dt$ 是关于 $u$ 的奇函数，则 $\int_{-a}^x\left[\int_0^u tf(t)\,dt\right]du$ 是关于 $x$ 的偶函数，选项 D 正确。
 【注】结论：设 $f(x)$ 连续，$a\neq0$ 为常数，则当 $f(x)$ 是奇函数时 $\int_a^xf(t)\,dt$ 为偶函数；当 $f(x)$ 是偶函数时 $\int_a^xf(t)\,dt$ 不一定为奇函数。` },
       { n: "(16)", q: R`设 $f(x)=\lim\limits_{t\to+\infty}\frac{x+2^{tx}}{1+2^{tx}}$，则 $F(x)=\int_{-1}^xf(t)\,dt$ 在 $x=0$ 处（ ）。
 (A) 可导

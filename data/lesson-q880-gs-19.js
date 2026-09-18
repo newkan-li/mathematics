@@ -47,12 +47,12 @@ window.LESSONS = window.LESSONS || {};
 (A) $xf(1)>2\int_0^1F(x)dx$
 (B) $F(1)>2\int_0^1F(x)dx$
 (C) $F(x)<2\int_0^1F(x)dx$
-(D) $F(x)>2\int_0^1F(x)dx`, a: R`(C)`, sol: R`【解】$F'(x)=f(x)>0$，$F''(x)=f'(x)<0$，故 $F$ 单调增且上凸。弦 $OA$ 的方程为 $y=xF(1)$，且 $F(x)>xF(1)\ (x\in(0,1))$，故 $\int_0^1F(x)dx>\int_0^1xF(1)dx=\frac12F(1)$，即 $F(1)<2\int_0^1F(x)dx$，排除 B。又 $F(x)<F(1)<2\int_0^1F(x)dx$，选项 C 正确。` },
+(D) $F(x)>2\int_0^1F(x)dx$`, a: R`(C)`, sol: R`【解】$F'(x)=f(x)>0$，$F''(x)=f'(x)<0$，故 $F$ 单调增且上凸。弦 $OA$ 的方程为 $y=xF(1)$，且 $F(x)>xF(1)\ (x\in(0,1))$，故 $\int_0^1F(x)dx>\int_0^1xF(1)dx=\frac12F(1)$，即 $F(1)<2\int_0^1F(x)dx$，排除 B。又 $F(x)<F(1)<2\int_0^1F(x)dx$，选项 C 正确。` },
       { n: "(8)", q: R`设函数 $f(x)$ 在 $[0,a](a>0)$ 上有二阶连续导数，且 $f(0)=0$，$f''(x)>0$，则下列选项正确的是（ ）。
 (A) $3\int_0^axf(x)dx<2\int_0^aaf(x)dx$
 (B) $3\int_0^axf(x)dx>2\int_0^aaf(x)dx$
 (C) $2\int_0^axf(x)dx>3\int_0^aaf(x)dx$
-(D) $2\int_0^axf(x)dx<3\int_0^aaf(x)dx`, a: R`(B)`, sol: R`【解】令 $F(t)=\int_0^txf(x)dx-\frac23t\int_0^tf(x)dx$，则 $F'(t)=\frac13tf(t)-\frac23\int_0^tf(x)dx$，$F''(t)=\frac13t[f'(t)-f'(\xi)]>0\ (0<\xi<t)$，故 $F'>0$，$F(t)>0$，取 $t=a$ 得 $\int_0^axf(x)dx>\frac23a\int_0^af(x)dx$，即 $3\int_0^axf(x)dx>2a\int_0^af(x)dx$，选项 B 正确。` },
+(D) $2\int_0^axf(x)dx<3\int_0^aaf(x)dx$`, a: R`(B)`, sol: R`【解】令 $F(t)=\int_0^txf(x)dx-\frac23t\int_0^tf(x)dx$，则 $F'(t)=\frac13tf(t)-\frac23\int_0^tf(x)dx$，$F''(t)=\frac13t[f'(t)-f'(\xi)]>0\ (0<\xi<t)$，故 $F'>0$，$F(t)>0$，取 $t=a$ 得 $\int_0^axf(x)dx>\frac23a\int_0^af(x)dx$，即 $3\int_0^axf(x)dx>2a\int_0^af(x)dx$，选项 B 正确。` },
       { n: "(9)", q: R`设 $f(x)$ 二阶可导，则下列结论正确的是（ ）。
 ① 当 $f'(x)<0$ 时，$\int_{-\pi}^\pi f(x)\sin x\,dx<0$；② 当 $f'(x)<0$ 时，$\int_{-\pi}^\pi f(x)\sin x\,dx>0$；
 ③ 当 $f''(x)>0$ 时，$\int_{-\pi}^\pi f(x)\cos x\,dx>0$；④ 当 $f''(x)>0$ 时，$\int_{-\pi}^\pi f(x)\cos x\,dx<0$。
