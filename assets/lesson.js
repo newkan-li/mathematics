@@ -451,7 +451,12 @@
       };
       var onScroll = function () { if (raf == null) raf = requestAnimationFrame(update); };
       window.addEventListener("scroll", onScroll, { passive: true });
+      document.addEventListener("scroll", onScroll, { passive: true, capture: true });
       window.addEventListener("resize", function () { tops = null; onScroll(); });
+      window.addEventListener("hashchange", onScroll);
+      Array.prototype.forEach.call(nav.querySelectorAll("a"), function (a) {
+        a.addEventListener("click", function () { setTimeout(onScroll, 0); setTimeout(onScroll, 260); });
+      });
       update();
       [600, 1600, 3200].forEach(function (t) {
         setTimeout(function () { tops = null; onScroll(); }, t);
