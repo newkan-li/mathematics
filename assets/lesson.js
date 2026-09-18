@@ -397,18 +397,25 @@
         if (id) links[id] = a;
       });
       var secs = ids.map(function (k) { return document.getElementById(k); });
-      var tops = null;
+      var l2 = [];
+      Array.prototype.forEach.call(nav.querySelectorAll("a.toc-l2"), function (a) {
+        var id = (a.getAttribute("href") || "").replace(/^#/, "");
+        var el = id ? document.getElementById(id) : null;
+        if (el) l2.push({ a: a, el: el });
+      });
+      var tops = null, htops = null;
+      var absTop = function (el) {
+        var r = el.getBoundingClientRect();
+        return r.top + (window.pageYOffset || document.documentElement.scrollTop || 0);
+      };
       var measure = function () {
-        tops = secs.map(function (s) {
-          if (!s) return 1e9;
-          var r = s.getBoundingClientRect();
-          return r.top + (window.pageYOffset || document.documentElement.scrollTop || 0);
-        });
+        tops = secs.map(function (s) { return s ? absTop(s) : 1e9; });
+        htops = l2.map(function (o) { return absTop(o.el); });
       };
       var raf = null;
       var update = function () {
         raf = null;
-        if (!tops) measure();
+        measure();
         var y = (window.pageYOffset || document.documentElement.scrollTop || 0) + 130;
         var cur = ids.length ? ids[0] : null;
         for (var i = 0; i < secs.length; i++) { if (tops[i] <= y) cur = ids[i]; else break; }
@@ -426,6 +433,21 @@
             if (s) s.classList.add("active");
           }
         }
+        if (l2.length) {
+          var hc = -1;
+          for (var j = 0; j < l2.length; j++) { if (htops[j] <= y) hc = j; else break; }
+          l2.forEach(function (o, idx) { o.a.classList.toggle("active", idx === hc); });
+          if (hc >= 0) keepVisible(l2[hc].a);
+          else if (links[cur]) keepVisible(links[cur]);
+        } else if (links[cur]) {
+          keepVisible(links[cur]);
+        }
+      };
+      var keepVisible = function (el) {
+        if (!el || nav.scrollHeight <= nav.clientHeight) return;
+        var nb = nav.getBoundingClientRect(), eb = el.getBoundingClientRect();
+        if (eb.top < nb.top + 10) nav.scrollTop += eb.top - nb.top - 10;
+        else if (eb.bottom > nb.bottom - 10) nav.scrollTop += eb.bottom - nb.bottom + 10;
       };
       var onScroll = function () { if (raf == null) raf = requestAnimationFrame(update); };
       window.addEventListener("scroll", onScroll, { passive: true });
