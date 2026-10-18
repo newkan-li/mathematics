@@ -91,9 +91,20 @@
     return true;
   }
 
+  function ansHtml(q) {
+    return '<div class="zt-ans"><b>答案：</b>' + (q.answer ? esc(q.answer) : (q.options ? "" : "见解析")) +
+      '</div><div class="ansbox">' + md(q.sol) + "</div>";
+  }
+  function fillSol(card, q) {
+    var sol = card.querySelector(".zt-sol");
+    if (sol && !sol.dataset.filled) { sol.innerHTML = ansHtml(q); sol.dataset.filled = "1"; }
+  }
   function reveal(card, q) {
     var sol = card.querySelector(".zt-sol");
-    if (sol) { sol.hidden = false; typeset([sol]); }
+    if (!sol) return;
+    fillSol(card, q);
+    sol.hidden = false;
+    typeset([sol]);
   }
 
   function updateStat() { drawStat(); }
@@ -134,6 +145,7 @@
     var isCh = !!q.options;
     var div = document.createElement("div");
     div.className = "fitem zt-item";
+    div.setAttribute("data-n", q.n);
     var h = '<div class="zt-h"><span class="zt-no">' + q.n + "</span>" +
       '<span class="zt-type">' + esc(q.type || "") + "</span>" +
       (q.kp ? '<span class="zt-kp" title="' + esc(q.kp) + '">🏷 ' + esc(q.kp.length > 48 ? q.kp.slice(0, 48) + "…" : q.kp) + "</span>" : "") + "</div>";
@@ -147,7 +159,7 @@
     } else {
       h += '<div class="navrow"><button class="navbtn" data-show>显示答案与解析</button></div>';
     }
-    h += '<div class="zt-sol" hidden><div class="zt-ans"><b>答案：</b>' + (q.answer ? esc(q.answer) : (isCh ? "" : "见解析")) + '</div><div class="ansbox">' + md(q.sol) + "</div></div>";
+    h += '<div class="zt-sol" hidden></div>';
     if (!isCh) {
       h += '<div class="navrow zt-grade"><button class="navbtn" data-grade="ok">✓ 我做对了</button><button class="navbtn" data-grade="no">✗ 我做错了</button></div>';
     }
@@ -201,8 +213,16 @@
     printMode = mode || "";
     document.body.classList.remove("print-paper", "print-answer");
     if (printMode) document.body.classList.add("print-" + printMode);
-    if (printMode === "answer") {
-      Array.prototype.forEach.call(document.querySelectorAll(".zt-sol"), function (el) { el.hidden = false; });
+    if (printMode === "answer" && window.ZT && window.ZT[year]) {
+      var d = window.ZT[year];
+      Array.prototype.forEach.call(document.querySelectorAll(".zt-item"), function (cardEl) {
+        var n = cardEl.getAttribute("data-n");
+        var q = d.questions.filter(function (x) { return String(x.n) === n; })[0];
+        if (!q) return;
+        fillSol(cardEl, q);
+        var sol = cardEl.querySelector(".zt-sol");
+        if (sol) sol.hidden = false;
+      });
       typeset([listHost]);
     }
     if (doPrint) {
