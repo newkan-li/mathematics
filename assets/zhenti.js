@@ -147,8 +147,7 @@
     } else {
       h += '<div class="navrow"><button class="navbtn" data-show>显示答案与解析</button></div>';
     }
-    h += '<div class="zt-ans"><b>答案：</b>' + (q.answer ? esc(q.answer) : (isCh ? "" : "见解析")) + "</div>";
-    h += '<div class="zt-sol" hidden><div class="ansbox">' + md(q.sol) + "</div></div>";
+    h += '<div class="zt-sol" hidden><div class="zt-ans"><b>答案：</b>' + (q.answer ? esc(q.answer) : (isCh ? "" : "见解析")) + '</div><div class="ansbox">' + md(q.sol) + "</div></div>";
     if (!isCh) {
       h += '<div class="navrow zt-grade"><button class="navbtn" data-grade="ok">✓ 我做对了</button><button class="navbtn" data-grade="no">✗ 我做错了</button></div>';
     }
