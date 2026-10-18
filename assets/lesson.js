@@ -540,8 +540,10 @@
     var html = "";
     ids.forEach(function (k) {
       var L = window.LESSONS[k];
+      var si = k.split("_s")[1] | 0;
       html += '<section class="sec" id="' + k + '"><h2>' + A.esc(L.title) +
         (L.pages ? ' <span class="bsub">讲义第 ' + L.pages[0] + "–" + L.pages[1] + " 页</span>" : "") + "</h2>" +
+        (L.content ? '<div class="mark" data-ch="' + cid + '" data-sec="' + si + '"></div>' : "") +
         '<div class="lessonbody">' + lessonHtml(L) + "</div>";
       if (L.quiz) {
         html += '<div class="quizwrap"><h3 class="lh">✍️ 本节自测</h3>' +
