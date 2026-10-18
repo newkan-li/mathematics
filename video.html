@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#1f5c8b">
+<title>视频微课 · 武忠祥 / 李永乐 · 考研数学</title>
+<link rel="stylesheet" href="assets/style.css?v=20261020c">
+<script src="assets/theme.js?v=20261020c"></script>
+</head>
+<body data-page="video">
+<script src="auth.js"></script>
+<div class="wrap">
+<header class="top"><h1>🎬 视频微课</h1>
+<p>武忠祥 / 李永乐 · B 站公开视频索引 ｜ <a href="index.html">← 返回首页</a> ｜ <a href="zhenti.html">📄 数学二真题</a></p></header>
+<div class="help-note">视频来自 B 站公开内容，<b>版权归原作者</b>；本站仅做索引与站内嵌入播放。若视频失效，请点「B站原页」。建议先看微课，再回章节做题。</div>
+<div class="navrow">
+<input id="vsearch" type="search" placeholder="搜索微课，如：极限、行列式、二次型" style="flex:1;min-width:200px;padding:8px 12px;border:1px solid var(--line);border-radius:10px;background:var(--card);color:var(--fg)">
+<button class="navbtn" id="vreset">重置</button>
+</div>
+<div class="navrow" id="vteachers"></div>
+<div class="navrow" id="vchs"></div>
+<p class="sub" id="vcount"></p>
+<div class="video-grid" id="vlist"></div>
+<footer>视频微课索引 · 版权归原作者 · 仅供个人学习使用 ｜ 考研数学（二）自学网站</footer>
+</div>
+
+<div id="vmodal">
+<div class="vbox">
+<div class="vhd"><b id="vtitle"></b><button class="navbtn" id="vclose">关闭</button></div>
+<iframe id="vframe" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen scrolling="no" frameborder="0" src="about:blank"></iframe>
+<div class="vfoot"><a id="vlink" target="_blank" rel="noopener">在 B 站打开</a> ｜ 视频版权归原作者</div>
+</div>
+</div>
+
+<script src="data/videos.js?v=20261020a"></script>
+<script src="assets/videos.js?v=20261020a"></script>
+</body>
+</html>

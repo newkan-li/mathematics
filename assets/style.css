@@ -215,3 +215,22 @@ button.chip:hover{border-color:var(--acc)}
   .zt-fig img{max-width:80%!important}
   mjx-container{overflow:visible!important}
 }
+
+.video-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px}
+.video-card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:6px}
+.vc-top{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.vbadge{background:var(--acc);color:#fff;border-radius:12px;padding:1px 9px;font-size:12px;font-weight:600}
+.vdur{font-size:12px;color:var(--sub)}
+.vtitle{font-weight:600;font-size:14.5px;line-height:1.55}
+.vmeta{font-size:12px;color:var(--sub)}
+.vnote{font-size:12px;color:var(--warn);background:var(--hl);border:1px solid var(--line);border-radius:10px;padding:1px 8px;align-self:flex-start}
+.vacts{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;padding-top:4px}
+.vacts .navbtn{font-size:12.5px;padding:5px 10px}
+#vmodal{position:fixed;inset:0;z-index:9999;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,.66);padding:12px}
+#vmodal.on{display:flex}
+.vbox{background:var(--card);border-radius:12px;width:min(980px,100%);max-height:94vh;overflow:auto;padding:10px 12px;box-shadow:0 18px 50px rgba(0,0,0,.35)}
+.vhd{display:flex;justify-content:space-between;gap:10px;align-items:center;margin-bottom:8px}
+.vhd b{font-size:14.5px;line-height:1.4}
+#vframe{width:100%;aspect-ratio:16/9;height:auto;border:0;border-radius:8px;background:#000}
+.vfoot{margin-top:8px;font-size:12.5px}
+body.vmodal-open{overflow:hidden}

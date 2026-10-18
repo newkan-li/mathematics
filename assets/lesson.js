@@ -152,7 +152,7 @@
     setTimeout(function () { HW.attach(cv, key); }, 0);
     return box;
   }
-  var BAK_KEYS = ["srs", "prob", "quiz", "marks", "hw"];
+  var BAK_KEYS = ["srs", "prob", "quiz", "marks", "hw", "zt", "video_done"];
   function importTxt(txt) {
     var o = JSON.parse(txt), data = (o && o.data) ? o.data : o;
     BAK_KEYS.forEach(function (n) { if (data && typeof data[n] !== "undefined" && data[n] !== null) A.jset(n, data[n]); });
