@@ -10,6 +10,7 @@
   };
   window.addEventListener("DOMContentLoaded", function () {
     var host = document.createElement("div");
+    host.className = "theme-switch";
     host.style.cssText = "position:fixed;right:12px;bottom:12px;z-index:99;display:flex;gap:6px";
     [["light", "浅色"], ["sepia", "护眼"], ["dark", "深色"]].forEach(function (o) {
       var b = document.createElement("button");

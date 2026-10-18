@@ -22,7 +22,7 @@
   }
   function typeset(nodes) { if (window.MathJax && MathJax.typesetPromise) MathJax.typesetPromise(nodes); else setTimeout(function () { typeset(nodes); }, 300); }
 
-  var year = 2026, filter = "all", loading = {};
+  var year = 2026, filter = "all", loading = {}, printMode = "";
   var store = jget("zt", {});
   var tabsHost = document.getElementById("zt-years");
   var statHost = document.getElementById("zt-stat");
@@ -188,6 +188,8 @@
   function drawList() {
     var d = window.ZT && window.ZT[year];
     if (!d) { listHost.innerHTML = '<p class="empty">加载中…</p>'; return; }
+    var ph = document.getElementById("zt-print-head");
+    if (ph) ph.textContent = year + " 年数学二真题（数学二）";
     listHost.innerHTML = "";
     var arr = d.questions.filter(pass);
     if (!arr.length) { listHost.innerHTML = '<p class="empty">当前筛选下没有题目。</p>'; return; }
@@ -196,7 +198,24 @@
     drawStat();
   }
 
+  function setPrintMode(mode, doPrint) {
+    printMode = mode || "";
+    document.body.classList.remove("print-paper", "print-answer");
+    if (printMode) document.body.classList.add("print-" + printMode);
+    if (printMode === "answer") {
+      Array.prototype.forEach.call(document.querySelectorAll(".zt-sol"), function (el) { el.hidden = false; });
+      typeset([listHost]);
+    }
+    if (doPrint) {
+      if (window.MathJax && MathJax.typesetPromise) MathJax.typesetPromise([listHost]).then(function () { window.print(); });
+      else setTimeout(function () { window.print(); }, 800);
+    }
+  }
   function drawAll() { drawTabs(); drawFilters(); drawList(); }
+
+  document.getElementById("zt-print-paper").onclick = function () { setPrintMode("paper", true); };
+  document.getElementById("zt-print-answer").onclick = function () { setPrintMode("answer", true); };
+  window.addEventListener("afterprint", function () { document.body.classList.remove("print-paper", "print-answer"); });
 
   document.getElementById("zt-reset").onclick = function () {
     if (!window.ZT || !window.ZT[year]) return;
@@ -204,8 +223,16 @@
     store[year] = {}; save(); drawAll();
   };
 
+  var qp = new URLSearchParams(location.search);
+  var qy = parseInt(qp.get("year"), 10);
+  if (qy >= 2012 && qy <= 2026) year = qy;
+  var qm = qp.get("mode");
   ensureYear(year, function () {
     var h = parseInt((location.hash || "").replace("#", ""), 10);
-    if (h >= 2012 && h <= 2026) { year = h; ensureYear(year, drawAll); } else drawAll();
+    if (!qy && h >= 2012 && h <= 2026) year = h;
+    ensureYear(year, function () {
+      drawAll();
+      if (qm === "paper" || qm === "answer") setPrintMode(qm, false);
+    });
   });
 })();

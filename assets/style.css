@@ -192,3 +192,26 @@ button.chip:hover{border-color:var(--acc)}
 .zt-item .qopts{display:flex;flex-direction:column;gap:6px;margin:8px 0}
 .zt-grade .navbtn.on{border-color:var(--ok);color:var(--ok)}
 .zt-grade .navbtn.wrong{border-color:var(--no);color:var(--no)}
+
+@media print{
+  @page{margin:14mm}
+  html,body{background:#fff!important;color:#000!important}
+  body{font-size:11pt}
+  .wrap{max-width:none;padding:0}
+  header.top,.navrow,.help-note,#zt-years,#zt-filters,#zt-stat,#zt-reset,#zt-print-paper,#zt-print-answer,.zt-grade,[data-show],footer,.theme-switch,.hwfab,#gate{display:none!important}
+  .zt-print-head{display:block!important;text-align:center;font-size:16pt;font-weight:700;margin:0 0 10px}
+  .fitem{border:1px solid #bbb!important;box-shadow:none!important;margin:8px 0!important;padding:10px 12px!important;background:#fff!important;break-inside:avoid;page-break-inside:avoid}
+  body.print-answer .fitem{break-inside:auto;page-break-inside:auto}
+  .zt-no{background:#000!important;color:#fff!important}
+  .zt-type,.zt-kp{border-color:#999!important;color:#000!important;background:#fff!important}
+  .qopt{color:#000!important;background:#fff!important;border-color:#999!important}
+  .qopt.right,.qopt.wrong{border-color:#000!important;background:#fff!important;color:#000!important}
+  .zt-ans{color:#000!important}
+  .zt-sol{display:none!important}
+  body.print-paper .zt-ans,body.print-paper .zt-kp{display:none!important}
+  body.print-answer .zt-sol,body.print-answer .zt-sol[hidden]{display:block!important}
+  a{color:#000!important;text-decoration:none!important}
+  .zt-md{font-size:10.5pt;line-height:1.7}
+  .zt-fig img{max-width:80%!important}
+  mjx-container{overflow:visible!important}
+}
