@@ -177,3 +177,18 @@ button.chip:hover{border-color:var(--acc)}
 .help-table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:520px}
 .help-table th,.help-table td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
 .help-table th{background:var(--hl);color:var(--acc);font-weight:600}
+
+.navbtn.on{border-color:var(--acc);color:var(--acc);background:rgba(31,92,139,.08)}
+.zt-h{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:6px}
+.zt-no{background:var(--acc);color:#fff;border-radius:14px;padding:1px 9px;font-size:12.5px;font-weight:700}
+.zt-type{font-size:12px;color:var(--sub);border:1px solid var(--line);border-radius:12px;padding:1px 8px}
+.zt-kp{font-size:12px;color:var(--warn);background:var(--hl);border:1px solid var(--line);border-radius:12px;padding:1px 8px;max-width:100%}
+.zt-md{white-space:pre-wrap;line-height:1.9;font-size:14.5px}
+.zt-fig{margin:10px 0;text-align:center}
+.zt-fig img{max-width:100%;height:auto;border:1px solid var(--line);border-radius:8px}
+.zt-fig figcaption{font-size:12px;color:var(--sub);margin-top:4px}
+.zt-ans{margin-top:8px;font-size:14px;color:var(--acc)}
+.zt-sol{margin-top:8px}
+.zt-item .qopts{display:flex;flex-direction:column;gap:6px;margin:8px 0}
+.zt-grade .navbtn.on{border-color:var(--ok);color:var(--ok)}
+.zt-grade .navbtn.wrong{border-color:var(--no);color:var(--no)}
