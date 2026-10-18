@@ -251,7 +251,7 @@ B=-\dfrac{1}{3}
 \]
 
 \[
-\lim_{x\to 0}\frac{\sqrt[3]{\cos x-1+x^2}}{x^2\ln 2}
+\lim_{x\to 0}\frac{\sqrt[3]{\cos x}-1+x^2}{x^2\ln 2}
 =\lim_{x\to 0}\frac{\left[1-\frac{x^2}{6}+o(x^2)\right]-1+x^2}{x^2\ln 2}
 =\frac{5}{6\ln 2}.
 \]
