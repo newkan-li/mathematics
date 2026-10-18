@@ -659,14 +659,14 @@ x_n=\begin{cases}n,&n\text{为奇数}\\0,&n\text{为偶数}\end{cases},\quad y_n
 （1）当 \(x\to+\infty\) 时
 
 \[
-\ln^\alpha x\ll x^\beta\ll a^x,\text{其中 }a>0,\beta>0,a>1
+\ln^\alpha x\ll x^\beta\ll a^x,\text{其中 }\alpha>0,\beta>0,a>1
 \]
 
 **【注】**　这些结论可以用洛必达法则证明.
 
 （2）当 \(n\to\infty\) 时` },
       { p: 22, md: R`\[
-\ln^\alpha n\ll n^\beta\ll a^n\ll n!\ll n^n,\text{其中 }a>0,\beta>0,a>1
+\ln^\alpha n\ll n^\beta\ll a^n\ll n!\ll n^n,\text{其中 }\alpha>0,\beta>0,a>1
 \]
 
 **例28**　（2010，数三）设 \(f(x)=\ln^{10}x,g(x)=x,h(x)=e^{\frac{x}{10}}\)，则当 \(x\) 充分大时，有
@@ -678,7 +678,7 @@ x_n=\begin{cases}n,&n\text{为奇数}\\0,&n\text{为偶数}\end{cases},\quad y_n
 **【解】**　由于当 \(x\to+\infty\) 时
 
 \[
-\ln^\alpha x\ll x^\beta\ll a^x,\text{其中 }a>0,\beta>0,a>1
+\ln^\alpha x\ll x^\beta\ll a^x,\text{其中 }\alpha>0,\beta>0,a>1
 \]
 
 则当 \(x\) 充分大时，有 \(\ln^{10}x\ll x\ll e^{\frac{x}{10}}\)，即 \(f(x)<g(x)<h(x)\).
