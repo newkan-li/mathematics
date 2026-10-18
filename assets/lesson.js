@@ -575,7 +575,7 @@
           '<div class="vacts"><button class="navbtn" data-bvid="' + v.bvid + '" data-vtitle="' + A.esc(v.title) + '">▶ 播放</button>' +
           '<a class="navbtn" href="video.html?cid=' + v.cid + '">微课页</a></div></div>';
       }
-      var panel = '<details class="sec video-sec" id="chapter-videos"><summary>🎬 本章微课（' + vid.length + '）<span class="bsub">' + (cid.indexOf("jc") === 0 ? "按节整理 · 点击播放" : "对应武忠祥 / 李永乐视频") + '</span></summary>';
+      var panel = '<details class="sec video-sec" id="chapter-videos" open><summary>🎬 本章微课（' + vid.length + '）<span class="bsub">' + (cid.indexOf("jc") === 0 ? "按节整理 · 点击播放" : "对应武忠祥 / 李永乐视频") + '</span></summary>';
       if (cid.indexOf("jc") === 0) {
         keys.forEach(function (g) {
           var label = g < 0 ? "全章 · 综合" : (secTitle[g] || ("第 " + (g + 1) + " 节"));
@@ -708,14 +708,22 @@
           var hc = -1;
           for (var j = 0; j < l2.length; j++) { if (htops[j] <= y) hc = j; else break; }
           l2.forEach(function (o, idx) { o.a.classList.toggle("active", idx === hc); });
-          if (hc >= 0) keepVisible(l2[hc].a);
-          else if (links[cur]) keepVisible(links[cur]);
+          var activeEl = (hc >= 0) ? l2[hc].a : (links[cur] || null);
+          if (activeEl && activeEl !== lastActive) { lastActive = activeEl; keepVisible(activeEl); }
         } else if (links[cur]) {
-          keepVisible(links[cur]);
+          if (links[cur] !== lastActive) { lastActive = links[cur]; keepVisible(links[cur]); }
         }
       };
+      var navUserHold = false, lastActive = null;
+      var holdNav = function () { navUserHold = true; };
+      ["wheel", "touchstart", "pointerdown", "mousedown"].forEach(function (ev) {
+        nav.addEventListener(ev, holdNav, { passive: true });
+      });
+      nav.addEventListener("click", function (e) {
+        if (e.target && e.target.closest && e.target.closest("a")) navUserHold = false;
+      });
       var keepVisible = function (el) {
-        if (!el || nav.scrollHeight <= nav.clientHeight) return;
+        if (!el || navUserHold || nav.scrollHeight <= nav.clientHeight) return;
         var nb = nav.getBoundingClientRect(), eb = el.getBoundingClientRect();
         if (eb.top < nb.top + 10) nav.scrollTop += eb.top - nb.top - 10;
         else if (eb.bottom > nb.bottom - 10) nav.scrollTop += eb.bottom - nb.bottom + 10;
@@ -727,7 +735,7 @@
       document.addEventListener("visibilitychange", onScroll);
       update();
       [80, 400, 1000, 2000, 3500].forEach(function (t) { setTimeout(update, t); });
-      setInterval(function () { if (!document.hidden) update(); }, 900);
+      setInterval(function () { if (!document.hidden) update(); }, 1500);
     }
     typeset([chapterHost]);
     initHW(cid);
