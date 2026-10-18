@@ -112,11 +112,11 @@ mS \le \iint_D f(x,y)d\sigma \le MS
 
 **【注】** \(f(x,y)\) 连续，同时存在两个求积顺序不同的积分
 \[
-\int_c^d\left[\int_a^b f(x,y)dy\right]dx \quad\text{与}\quad \int_a^b\left[\int_c^d f(x,y)dx\right]dy
+\int_a^b\left[\int_c^d f(x,y)dy\right]dx \quad\text{与}\quad \int_c^d\left[\int_a^b f(x,y)dx\right]dy
 \]
 统称为累次积分（二次积分）. 为书写简便，将上面两积分记成
 \[
-\int_c^d dx\int_a^b f(x,y)dy \quad\text{与}\quad \int_a^b dy\int_c^d f(x,y)dx
+\int_a^b dx\int_c^d f(x,y)dy \quad\text{与}\quad \int_c^d dy\int_a^b f(x,y)dx
 \]
 在 \(f(x,y)\) 连续的假设下，累次积分与求积顺序无关.
 
