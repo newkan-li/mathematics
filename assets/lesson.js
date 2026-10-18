@@ -384,6 +384,7 @@
     if (L.problems) {
       html += '<h3 class="lh">' + A.esc(L.probTitle || "练习题精选（含详细解答）") + "</h3>";
       html += '<p class="sub">选择题直接点选项判分；解答/证明题点「显示答案与解答」后自评对错，均计入统计。卡住时可先展开「💡 思路提示」。</p>';
+      if (L.probNote) html += '<p class="sub prob-note">📌 ' + A.esc(L.probNote) + "</p>";
       html += '<div class="navrow"><span class="chip" data-probstat></span><button class="navbtn" data-probreset>重做本节练习</button></div>';
       L.problems.forEach(function (p, i) {
         var c = parseChoice(p);
