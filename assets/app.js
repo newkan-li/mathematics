@@ -44,12 +44,14 @@
     return { text: id, href: null };
   }
   function probLabel(key) {
-    var m = /^([a-z]+\d+)_s(\d+):(\d+)$/.exec(key);
+    var m = /^([a-z]+\d+)_s(\d+):(-?\d+)$/.exec(key);
     if (!m) return { text: key, href: null };
     var ch = (window.MANIFEST || []).filter(function (x) { return x.id === m[1]; })[0];
+    var si = parseInt(m[2], 10), n = parseInt(m[3], 10);
+    var sec = (si === 9) ? "零基础进阶题" : ("第 " + (si + 1) + " 节");
     return {
-      text: (ch ? ch.title : m[1]) + " · 第 " + (parseInt(m[2], 10) + 1) + " 节 · 练习第 " + m[3] + " 题",
-      href: m[1] + ".html#" + m[1] + "_s" + m[2] + "-p" + m[3]
+      text: (ch ? ch.title : m[1]) + " · " + sec + " · 第 " + n + " 题",
+      href: m[1] + ".html#" + m[1] + "_s" + si + "-p" + (n - 1)
     };
   }
   function lookupRec(key) {
@@ -62,7 +64,7 @@
     var p = /^([a-z]+\d+)_s(\d+):(\d+)$/.exec(key);
     if (p) {
       var Lp = (window.LESSONS || {})[p[1] + "_s" + p[2]];
-      var pr = Lp && Lp.problems && Lp.problems.filter(function (x) { return x.n === parseInt(p[3], 10); })[0];
+      var pr = Lp && Lp.problems && Lp.problems.filter(function (x) { return String(x.n) === p[3]; })[0];
       if (pr) return { q: pr.q, a: pr.a, sol: pr.sol };
     }
     return null;
