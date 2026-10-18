@@ -172,3 +172,8 @@ button.chip:hover{border-color:var(--acc)}
 .help-note{background:var(--hl);border-left:3px solid var(--acc);border-radius:8px;padding:8px 12px;margin:10px 0;font-size:14px}
 .help-steps{margin:8px 0;padding-left:22px}
 .help-steps li{margin:6px 0}
+
+.help-tablewrap{overflow-x:auto;margin:10px 0}
+.help-table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:520px}
+.help-table th,.help-table td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+.help-table th{background:var(--hl);color:var(--acc);font-weight:600}
