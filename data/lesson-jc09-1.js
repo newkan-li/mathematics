@@ -684,7 +684,7 @@ x_s
 
 ### 1. 向量组的秩
 
-**定义** 向量组 \(\boldsymbol{\alpha}_{i_1},\boldsymbol{\alpha}_{i_2},\cdots,\boldsymbol{\alpha}_{i_r}\ (1\leqslant i_1\leqslant i_2\leqslant\cdots\leqslant i_r\leqslant s)\) 是向量组 \(\boldsymbol{\alpha}_1,\boldsymbol{\alpha}_2,\cdots,\boldsymbol{\alpha}_s\) 的部分组，满足条件
+**定义** 向量组 \(\boldsymbol{\alpha}_{i_1},\boldsymbol{\alpha}_{i_2},\cdots,\boldsymbol{\alpha}_{i_r}\ (1\leqslant i_1<i_2<\cdots<i_r\leqslant s)\) 是向量组 \(\boldsymbol{\alpha}_1,\boldsymbol{\alpha}_2,\cdots,\boldsymbol{\alpha}_s\) 的部分组，满足条件
 
 （1）\(\boldsymbol{\alpha}_{i_1},\boldsymbol{\alpha}_{i_2},\cdots,\boldsymbol{\alpha}_{i_r}\) 线性无关；
 
