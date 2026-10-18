@@ -538,14 +538,22 @@
   var chapterHost = document.getElementById("chapter");
   if (chapterHost) {
     var cid = document.body.dataset.chapter || "gs01";
+    var VMAP = { gs01:"jc01", gs02:"jc02", gs03:"jc03", gs04:"jc06", gs05:"jc04", gs06:"jc05", la01:"jc07", la02:"jc08", la03:"jc09", la04:"jc10", la05:"jc11", la06:"jc12" };
+    var vcid = VMAP[cid] || cid;
     var ids = Object.keys(window.LESSONS || {}).filter(function (k) { return k.indexOf(cid + "_s") === 0; });
     ids.sort(function (a, b) { return (a.split("_s")[1] | 0) - (b.split("_s")[1] | 0); });
     var html = "";
+    var vid = (window.VIDEOS || []).filter(function (v) { return v.cid === vcid; });
+    var secTitle = {};
     ids.forEach(function (k) {
       var L = window.LESSONS[k];
       var si = k.split("_s")[1] | 0;
+      secTitle[si] = L.title;
+      var sv = vid.filter(function (v) { return v.sec === si || v.sec === -1; });
+      var secKey = vid.some(function (v) { return v.sec === si; }) ? si : -1;
+      var vlink = (cid.indexOf("jc") === 0 && L.content && sv.length) ? ' <a class="navbtn vsec-link" href="#vsec-' + cid + "-" + secKey + '">🎬 微课 ' + sv.length + "</a>" : "";
       html += '<section class="sec" id="' + k + '"><h2>' + A.esc(L.title) +
-        (L.pages ? ' <span class="bsub">讲义第 ' + L.pages[0] + "–" + L.pages[1] + " 页</span>" : "") + "</h2>" +
+        (L.pages ? ' <span class="bsub">讲义第 ' + L.pages[0] + "–" + L.pages[1] + " 页</span>" : "") + vlink + "</h2>" +
         (L.content ? '<div class="mark" data-ch="' + cid + '" data-sec="' + si + '"></div>' : "") +
         '<div class="lessonbody">' + lessonHtml(L) + "</div>";
       if (L.quiz) {
@@ -556,8 +564,44 @@
       }
       html += "</section>";
     });
+    if (vid.length) {
+      var groups = {};
+      vid.forEach(function (v) { var g = (v.sec == null ? 0 : v.sec); (groups[g] = groups[g] || []).push(v); });
+      var keys = Object.keys(groups).map(Number).sort(function (a, b) { return a - b; });
+      function vcard(v) {
+        return '<div class="video-card"><div class="vc-top"><span class="vbadge">' + A.esc(v.teacher) + '</span><span class="vdur">' + A.esc(v.dur) + '</span></div>' +
+          '<div class="vtitle">' + A.esc(v.title) + '</div>' +
+          '<div class="vmeta">' + A.esc(v.note || "") + " · " + A.esc(v.author) + '</div>' +
+          '<div class="vacts"><button class="navbtn" data-bvid="' + v.bvid + '" data-vtitle="' + A.esc(v.title) + '">▶ 播放</button>' +
+          '<a class="navbtn" href="video.html?cid=' + v.cid + '">微课页</a></div></div>';
+      }
+      var panel = '<details class="sec video-sec" id="chapter-videos"><summary>🎬 本章微课（' + vid.length + '）<span class="bsub">' + (cid.indexOf("jc") === 0 ? "按节整理 · 点击播放" : "对应武忠祥 / 李永乐视频") + '</span></summary>';
+      if (cid.indexOf("jc") === 0) {
+        keys.forEach(function (g) {
+          var label = g < 0 ? "全章 · 综合" : (secTitle[g] || ("第 " + (g + 1) + " 节"));
+          panel += '<div class="vsec-group" id="vsec-' + cid + "-" + g + '"><h3 class="lh2">' + A.esc(label) + '</h3><div class="video-grid">';
+          groups[g].forEach(function (v) { panel += vcard(v); });
+          panel += "</div></div>";
+        });
+      } else {
+        panel += '<div class="video-grid">';
+        vid.forEach(function (v) { panel += vcard(v); });
+        panel += "</div>";
+      }
+      panel += "</details>";
+      html = panel + html;
+    }
     html = '<p class="hint-swipe">📱 较宽公式可在公式区域左右滑动查看完整内容。</p>' + html;
     chapterHost.innerHTML = html;
+    Array.prototype.forEach.call(chapterHost.querySelectorAll("[data-bvid]"), function (b) {
+      b.onclick = function () {
+        if (window.openVideoModal) window.openVideoModal(b.getAttribute("data-bvid"), b.getAttribute("data-vtitle"));
+        else location.href = "video.html?cid=" + cid;
+      };
+    });
+    Array.prototype.forEach.call(chapterHost.querySelectorAll(".vsec-link"), function (a) {
+      a.onclick = function () { var d = document.getElementById("chapter-videos"); if (d) d.open = true; };
+    });
     ids.forEach(function (k) {
       var L = window.LESSONS[k];
       makeQuiz(L, chapterHost.querySelector('[data-quiz="' + k + '"]'),

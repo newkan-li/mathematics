@@ -198,6 +198,7 @@ button.chip:hover{border-color:var(--acc)}
   html,body{background:#fff!important;color:#000!important}
   body{font-size:11pt}
   .wrap{max-width:none;padding:0}
+  .video-sec,.vsec-link,#vmodal{display:none!important}
   header.top,.navrow,.help-note,#zt-years,#zt-filters,#zt-stat,#zt-reset,#zt-print-paper,#zt-print-answer,.zt-grade,[data-show],footer,.theme-switch,.hwfab,#gate{display:none!important}
   .zt-print-head{display:block!important;text-align:center;font-size:16pt;font-weight:700;margin:0 0 10px}
   .fitem{border:1px solid #bbb!important;box-shadow:none!important;margin:8px 0!important;padding:10px 12px!important;background:#fff!important;break-inside:avoid;page-break-inside:avoid}
@@ -234,3 +235,9 @@ button.chip:hover{border-color:var(--acc)}
 #vframe{width:100%;aspect-ratio:16/9;height:auto;border:0;border-radius:8px;background:#000}
 .vfoot{margin-top:8px;font-size:12.5px}
 body.vmodal-open{overflow:hidden}
+
+.video-sec summary{cursor:pointer;font-weight:700;font-size:15px;color:var(--acc)}
+.video-sec .video-grid{margin-top:10px}
+.vsec-group{margin:12px 0}
+.vsec-link{font-size:11.5px;padding:2px 8px;margin-left:6px;vertical-align:middle}
+.video-sec .video-card{padding:10px 12px}
