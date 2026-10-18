@@ -389,6 +389,7 @@
         var c = parseChoice(p);
         html += '<div class="prob" id="' + L.id + "-p" + i + '">' +
           '<div class="prob-q"><span class="pn">' + p.n + ".</span> " + A.esc(c ? c.stem : p.q).replace(/\n/g, "<br>") + "</div>";
+        if (p.kp) html += '<div class="prob-kp">🏷 考点：' + A.esc(p.kp) + "</div>";
         if (p.hint) html += '<details class="hint"><summary>💡 思路提示</summary><div class="hintbody">' + renderMarkdown(p.hint) + "</div></details>";
         if (c) {
           html += '<div class="qopts">';

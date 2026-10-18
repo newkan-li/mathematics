@@ -149,3 +149,5 @@ mjx-container[display="true"]::-webkit-scrollbar{height:4px}
 details.hint{margin:6px 0 4px}
 details.hint summary{cursor:pointer;color:var(--warn);font-weight:600;font-size:13px}
 .hintbody{background:var(--hl);border:1px solid var(--line);border-radius:8px;padding:8px 12px;margin-top:6px;font-size:13.5px;line-height:1.8}
+
+.prob-kp{font-size:12px;color:var(--sub);margin:4px 0 2px}
