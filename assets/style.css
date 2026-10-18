@@ -124,3 +124,24 @@ body[data-page="chapter"] .wrap{max-width:1200px}
 .qopt.right{border-color:var(--ok);background:rgba(31,157,85,.12);color:var(--ok)}
 .qopt.wrong{border-color:var(--no);background:rgba(214,69,69,.12);color:var(--no)}
 .qexp{margin-top:8px;font-size:13.5px;color:var(--sub);border-top:1px dashed var(--line);padding-top:8px}
+
+/* 长行内公式在窄屏内独立横向滚动，避免撑破页面 */
+mjx-container:not([display="true"]){max-width:100%;min-width:0 !important;overflow-x:auto;overflow-y:hidden;display:inline-block;vertical-align:middle;scrollbar-width:thin}
+mjx-container:not([display="true"])::-webkit-scrollbar{height:4px}
+@media(max-width:600px){
+  .wrap{padding-bottom:150px}
+  #hwScratch,#hwBackup{right:8px;padding:6px 10px;font-size:12px;opacity:.88}
+}
+
+mjx-container[display="true"]{max-width:100%;min-width:0 !important;overflow-x:auto;overflow-y:hidden;scrollbar-width:thin}
+mjx-container[display="true"]::-webkit-scrollbar{height:4px}
+
+@media(max-width:900px){html,body{overflow-x:hidden}}
+@media(max-width:600px){
+  #hwScratch,#hwBackup{right:10px;width:36px;height:36px;padding:0;border-radius:50%;font-size:0;display:flex;align-items:center;justify-content:center;opacity:.8}
+  #hwScratch::after{content:"✏️";font-size:18px}
+  #hwBackup::after{content:"💾";font-size:18px}
+}
+
+.hint-swipe{display:none;font-size:12.5px;color:var(--sub);margin:0 0 10px}
+@media(max-width:600px){.hint-swipe{display:block}}

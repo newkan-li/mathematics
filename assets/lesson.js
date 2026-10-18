@@ -553,6 +553,7 @@
       }
       html += "</section>";
     });
+    html = '<p class="hint-swipe">📱 较宽公式可在公式区域左右滑动查看完整内容。</p>' + html;
     chapterHost.innerHTML = html;
     ids.forEach(function (k) {
       var L = window.LESSONS[k];
