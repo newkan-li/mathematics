@@ -64,9 +64,9 @@ $$f(x)=\begin{cases}\frac{\sin x}{x},&x<0\\x^2+1,&x\ge0\end{cases}$$
 
 为分段函数，其定义域为 $(-\infty,+\infty)$.
 
-（2）函数 $f(x)=2+|1-x^2|$ 也是分段函数，可化为
+（2）函数 $f(x)=2-|1-x^2|$ 也是分段函数，可化为
 
-$$f(x)=2+|1-x^2|=\begin{cases}3-x^2,&x<-1\\1+x^2,&-1\le x\le1\\3-x^2,&x>1\end{cases}$$
+$$f(x)=2-|1-x^2|=\begin{cases}3-x^2,&x<-1\\1+x^2,&-1\le x\le1\\3-x^2,&x>1\end{cases}$$
 
 （3）函数 $f(x)=\max\{x,x^2\}$ 也是分段函数，可化为
 
