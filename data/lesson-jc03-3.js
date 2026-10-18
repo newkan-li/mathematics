@@ -278,7 +278,7 @@ f(x)=\begin{cases}
 \]
 而
 \[
-\lim _{b \rightarrow+\infty} b \mathrm{e}^{-b^{2}}=0
+\lim _{b \rightarrow \pm \infty} b \mathrm{e}^{-b^{2}}=0
 \]
 并且由于 \(\int_{0}^{+\infty} \mathrm{e}^{-x^{2}} \mathrm{d} x=\frac{\sqrt{\pi}}{2}\) (收敛), \(\int_{-\infty}^{+\infty} \mathrm{e}^{-x^{2}} \mathrm{d} x=2 \int_{0}^{+\infty} \mathrm{e}^{-x^{2}} \mathrm{d} x=\sqrt{\pi}\), 所以
 \[

@@ -9,7 +9,7 @@ window.LESSONS = window.LESSONS || {};
     pages: [126, 128],
     img: "assets/img/jichu",
     content: [
-      { p: 126, md: R`**【解】**　\[V=\pi\int_0^{2\pi}y^2\,\mathrm{d}x=\pi\int_0^{2\pi}y^2(t)x'(t)\,\mathrm{d}t=\pi\int_0^{2\pi}a^3(1-\cos t)^3\,\mathrm{d}t=5\pi^2a^3.\]
+      { p: 126, md: R`**【解】**　\[V=\pi\int_0^{2\pi a}y^2\,\mathrm{d}x=\pi\int_0^{2\pi}y^2(t)x'(t)\,\mathrm{d}t=\pi\int_0^{2\pi}a^3(1-\cos t)^3\,\mathrm{d}t=5\pi^2a^3.\]
 
 **例5**　求心形线 \(r=a(1+\cos\theta)(a>0,\theta\in[0,2\pi])\) 绕 \(x\) 轴旋转一周得到的旋转体表面积.
 
