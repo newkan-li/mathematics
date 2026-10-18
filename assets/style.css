@@ -154,3 +154,17 @@ details.hint summary{cursor:pointer;color:var(--warn);font-weight:600;font-size:
 
 .chip.on{border-color:var(--acc);color:var(--acc);background:rgba(31,92,139,.08)}
 .fitem .fnote a{color:var(--acc)}
+
+button.chip{color:var(--fg);font:inherit;cursor:pointer}
+button.chip:hover{border-color:var(--acc)}
+#kpsearch::placeholder{color:var(--sub);opacity:1}
+@media(max-width:600px){#kptags{max-height:42vh;overflow:auto}}
+
+#kpchs{flex-wrap:nowrap;overflow-x:auto;padding-bottom:4px}
+#kptags{border:1px dashed var(--line);border-radius:10px;padding:6px 8px}
+#kptags.expanded{max-height:40vh;overflow:auto}
+#kplist .fnote{color:var(--fg)}
+
+.kp-hint{display:none}
+#kpchs{-webkit-mask-image:linear-gradient(to right,#000 calc(100% - 26px),transparent);mask-image:linear-gradient(to right,#000 calc(100% - 26px),transparent)}
+@media(max-width:600px){.kp-hint{display:block;margin:-6px 0 8px}}

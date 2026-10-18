@@ -57,15 +57,30 @@
     });
   }
 
+  var expanded = false;
+  function tagBtn(t) {
+    return chip(t + " " + counts[t], state.tag === t, function () {
+      state.tag = state.tag === t ? "" : t;
+      drawTags(); drawList();
+    });
+  }
   function drawTags() {
     tagHost.innerHTML = "";
+    tagHost.classList.toggle("expanded", expanded);
     tagHost.appendChild(chip("全部考点", state.tag === "", function () { state.tag = ""; drawTags(); drawList(); }));
-    tagList.forEach(function (t) {
-      tagHost.appendChild(chip(t + " " + counts[t], state.tag === t, function () {
-        state.tag = state.tag === t ? "" : t;
-        drawTags(); drawList();
-      }));
-    });
+    var shown = tagList;
+    if (!expanded) {
+      shown = tagList.slice(0, 16);
+      if (state.tag && shown.indexOf(state.tag) < 0) shown = [state.tag].concat(shown);
+    }
+    shown.forEach(function (t) { tagHost.appendChild(tagBtn(t)); });
+    if (tagList.length > 16) {
+      if (expanded) {
+        tagHost.appendChild(chip("收起", false, function () { expanded = false; drawTags(); }));
+      } else {
+        tagHost.appendChild(chip("更多考点 +" + (tagList.length - 16), false, function () { expanded = true; drawTags(); }));
+      }
+    }
   }
 
   function match(it) {
@@ -93,7 +108,7 @@
   }
 
   search.oninput = function () { state.q = search.value.trim(); drawList(); };
-  reset.onclick = function () { state = { tag: "", ch: "", q: "" }; search.value = ""; drawChs(); drawTags(); drawList(); };
+  reset.onclick = function () { state = { tag: "", ch: "", q: "" }; expanded = false; search.value = ""; drawChs(); drawTags(); drawList(); };
 
   drawChs(); drawTags(); drawList();
 })();
