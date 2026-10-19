@@ -106,7 +106,7 @@
     return d;
   }
   var s = document.createElement("script");
-  s.src = "data/lesson-" + cid + "-adv.js?v=20261022a";
+  s.src = "data/lesson-" + cid + "-adv.js?v=20261022b";
   s.onload = function () {
     var L = window.LESSONS && window.LESSONS[cid + "_s9"];
     if (!L) { host.innerHTML = '<p class="empty">未找到该章练习。</p>'; return; }

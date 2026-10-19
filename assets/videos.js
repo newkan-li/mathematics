@@ -76,7 +76,7 @@
       var d = document.createElement("div");
       d.className = "video-card";
       d.innerHTML =
-        '<div class="vc-top"><span class="vbadge">' + esc(v.teacher) + '</span><span class="vdur">' + esc(v.dur) + "</span></div>" +
+        '<div class="vc-top"><span class="vbadge">' + esc(v.teacher) + '</span>' + (v.core ? '<span class="vcore">核心</span>' : "") + '<span class="vdur">' + esc(v.dur) + "</span></div>" +
         '<div class="vtitle">' + esc(v.title) + "</div>" +
         '<div class="vmeta">' + esc(v.ch) + " · " + esc(v.author) + "</div>" +
         '<div class="vnote">' + esc(v.note) + "</div>" +

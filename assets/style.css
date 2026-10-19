@@ -253,3 +253,5 @@ body.vmodal-open{overflow:hidden}
 .mock-total{font-size:22px;margin:6px 0}.mock-total b{color:var(--acc);font-size:30px}
 .mock-break{color:var(--sub);font-size:13.5px}
 .qopt.on{border-color:var(--acc);background:rgba(31,92,139,.08);color:var(--acc)}
+
+.vcore{background:var(--warn);color:#fff;border-radius:12px;padding:1px 8px;font-size:11.5px;font-weight:600}

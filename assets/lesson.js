@@ -569,7 +569,7 @@
       vid.forEach(function (v) { var g = (v.sec == null ? 0 : v.sec); (groups[g] = groups[g] || []).push(v); });
       var keys = Object.keys(groups).map(Number).sort(function (a, b) { return a - b; });
       function vcard(v) {
-        return '<div class="video-card"><div class="vc-top"><span class="vbadge">' + A.esc(v.teacher) + '</span><span class="vdur">' + A.esc(v.dur) + '</span></div>' +
+        return '<div class="video-card"><div class="vc-top"><span class="vbadge">' + A.esc(v.teacher) + '</span>' + (v.core ? '<span class="vcore">核心</span>' : "") + '<span class="vdur">' + A.esc(v.dur) + '</span></div>' +
           '<div class="vtitle">' + A.esc(v.title) + '</div>' +
           '<div class="vmeta">' + A.esc(v.note || "") + " · " + A.esc(v.author) + '</div>' +
           '<div class="vacts"><button class="navbtn" data-bvid="' + v.bvid + '" data-vtitle="' + A.esc(v.title) + '">▶ 播放</button>' +
