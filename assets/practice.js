@@ -19,7 +19,7 @@
   var qs = new URLSearchParams(location.search);
   var cid = qs.get("cid") || "jc01";
   var ex = (qs.get("ex") || "1").split(",").map(function (x) { return parseInt(x, 10); }).filter(function (x) { return x > 0; });
-  var host = document.getElementById("phost"), meta = document.getElementById("pmeta");
+  var host = document.getElementById("phost"), meta = document.getElementById("pmeta"), L = null;
   var store = jget("prob", {});
   function keyOf(n) { return cid + "_s9:" + n; }
   function save() { jset("prob", store); }
@@ -103,25 +103,44 @@
         if (!st.ok && no) no.classList.add("wrong");
       }
     }
+    if ((isCh && st.pick != null) || (!isCh && st.ok != null)) {
+      var rw = document.createElement("div"); rw.className = "navrow";
+      var rb = document.createElement("button"); rb.className = "navbtn"; rb.textContent = "🔄 重做本题";
+      rb.onclick = function () { delete store[keyOf(q.n)]; save(); renderAll(); };
+      rw.appendChild(rb); d.appendChild(rw);
+    }
     return d;
   }
-  var s = document.createElement("script");
-  s.src = "data/lesson-" + cid + "-adv.js?v=20261022b";
-  s.onload = function () {
-    var L = window.LESSONS && window.LESSONS[cid + "_s9"];
-    if (!L) { host.innerHTML = '<p class="empty">未找到该章练习。</p>'; return; }
-    document.title = L.ch + " · 配套练习";
-    meta.textContent = L.ch + " ｜ 共 " + ex.length + " 題 ｜ 做完自动进入错题本";
+
+  function renderAll() {
+    host.innerHTML = "";
+    if (!L) return;
     ex.forEach(function (n, i) {
       var q = L.problems.filter(function (p) { return +p.n === n; })[0];
       if (q) host.appendChild(card(q, i));
     });
-    document.getElementById("pfull").href = cid + ".html#" + cid + "_s9-p" + (ex[0] - 1);
     typeset([host]);
+  }
+
+  var s = document.createElement("script");
+  s.src = "data/lesson-" + cid + "-adv.js?v=20261022b";
+  s.onload = function () {
+    L = window.LESSONS && window.LESSONS[cid + "_s9"];
+    if (!L) { host.innerHTML = '<p class="empty">未找到该章练习。</p>'; return; }
+    document.title = L.ch + " · 配套练习";
+    meta.textContent = L.ch + " ｜ 共 " + ex.length + " 題 ｜ 做完自动进入错题本";
+    document.getElementById("pfull").href = cid + ".html#" + cid + "_s9-p" + (ex[0] - 1);
+    renderAll();
   };
   s.onerror = function () { host.innerHTML = '<p class="empty">练习数据加载失败。</p>'; };
   document.head.appendChild(s);
 
+  document.getElementById("predo").onclick = function () {
+    if (!ex.length) return;
+    if (!confirm("清空本页作答记录并重做？")) return;
+    ex.forEach(function (n) { delete store[keyOf(n)]; });
+    save(); renderAll();
+  };
   document.getElementById("pclose").onclick = function () {
     try { window.close(); } catch (e) { }
     setTimeout(function () { if (!window.closed) history.back(); }, 200);
