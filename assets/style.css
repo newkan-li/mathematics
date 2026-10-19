@@ -241,3 +241,15 @@ body.vmodal-open{overflow:hidden}
 .vsec-group{margin:12px 0}
 .vsec-link{font-size:11.5px;padding:2px 8px;margin-left:6px;vertical-align:middle}
 .video-sec .video-card{padding:10px 12px}
+
+.mock-bar{display:flex;gap:8px;align-items:center;flex-wrap:wrap;position:sticky;top:0;z-index:50;background:var(--bg);padding:8px 0;border-bottom:1px solid var(--line);margin-bottom:8px}
+#mk-timer{font-variant-numeric:tabular-nums;font-weight:700;color:var(--acc)}
+.mock-qh{display:flex;gap:8px;align-items:center;margin-bottom:6px}
+.mock-input{width:100%;box-sizing:border-box;padding:8px 10px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--fg);margin:6px 0}
+.mock-work{width:100%;box-sizing:border-box;min-height:90px;padding:8px 10px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--fg);margin:6px 0}
+.mock-sol{margin-top:8px}
+.mock-grade{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:6px}
+.mock-score{width:70px;padding:5px 8px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--fg)}
+.mock-total{font-size:22px;margin:6px 0}.mock-total b{color:var(--acc);font-size:30px}
+.mock-break{color:var(--sub);font-size:13.5px}
+.qopt.on{border-color:var(--acc);background:rgba(31,92,139,.08);color:var(--acc)}

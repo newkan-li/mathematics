@@ -83,6 +83,7 @@
         '<div class="vacts"><button class="navbtn" data-play>▶ 播放</button>' +
         '<a class="navbtn" href="https://www.bilibili.com/video/' + v.bvid + '/" target="_blank" rel="noopener">B站原页</a>' +
         '<a class="navbtn" href="' + v.cid + '.html">对应章节</a>' +
+        (v.ex && v.ex.length ? '<a class="navbtn" href="' + v.cid + '.html#' + v.cid + '_s9-p' + (v.ex[0] - 1) + '">📝 配套练习 ' + v.ex.length + '</a>' : '') +
         '<button class="navbtn" data-done>' + (done[v.id] ? "✓ 已看" : "标记已看") + "</button></div>";
       d.querySelector("[data-play]").onclick = function () { openModal(v); };
       var db = d.querySelector("[data-done]");

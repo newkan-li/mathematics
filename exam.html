@@ -6,21 +6,29 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" content="#1f5c8b">
-<title>模拟测验 · 考研数学</title>
-<link rel="stylesheet" href="assets/style.css?v=20261019e">
-<script src="assets/theme.js?v=202609241"></script>
+<title>模拟测验 · 数学二 · 考研数学</title>
+<link rel="stylesheet" href="assets/style.css?v=20261021f">
+<script src="assets/theme.js?v=20261021f"></script>
 <script>
 window.MathJax = { tex: {inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']]}, svg:{fontCache:'global'} };
 </script>
 <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
 </head>
-<body data-page="exam">
+<body data-page="mock">
 <script src="auth.js"></script>
 <div class="wrap">
-<header class="top"><h1>📝 模拟测验</h1><p>按章节抽题 · 计时 · 自动判分</p></header><div id="examctl"></div><div id="examhost"></div>
-<footer>考研数学（二）自学网站 · 讲义原页 + 精讲 · 仅供个人学习使用</footer>
+<header class="top"><h1>📝 数学二模拟测验</h1>
+<p>10 选择 + 6 填空 + 6 解答 ｜ 150 分 ｜ 180 分钟 ｜ 真题随机组卷 ｜ <a href="index.html">← 返回首页</a></p></header>
+<div class="help-note">选择题自动判分；填空/解答交卷后自评。计时从「开始新卷」起算，刷新页面会继续计时；交卷后可查看答案与解析。</div>
+<div class="mock-bar">
+<button class="navbtn" id="mk-new">开始新卷</button>
+<span class="chip" id="mk-timer">未开始</span>
+<button class="navbtn" id="mk-submit" disabled>交卷</button>
 </div>
-
-<script src="assets/app.js?v=20261018e"></script>
+<div id="mkhost"></div>
+<div id="mkreport"></div>
+<footer>模拟测验 · 题目来自近 15 年数学二真题 · 仅供个人学习使用 ｜ 考研数学（二）自学网站</footer>
+</div>
+<script src="assets/mock.js?v=20261021f"></script>
 </body>
 </html>
