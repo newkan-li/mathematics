@@ -23,6 +23,7 @@
 
   var host = document.getElementById("mkhost"), report = document.getElementById("mkreport");
   var timerEl = document.getElementById("mk-timer"), submitBtn = document.getElementById("mk-submit");
+  var pauseBtn = document.getElementById("mk-pause"), pauseOverlay = document.getElementById("mkpaused");
   var state = null, loading = 0;
 
   function save() { jset("mock", state); }
@@ -60,7 +61,7 @@
     if (pool.choice.length < 10 || pool.fill.length < 6 || pool.subj.length < 6) { alert("题库不完整，无法生成试卷。"); return; }
     shuffle(pool.choice); shuffle(pool.fill); shuffle(pool.subj);
     var picks = pool.choice.slice(0, 10).concat(pool.fill.slice(0, 6)).concat(pool.subj.slice(0, 6));
-    state = { paper: picks.map(function (it) { return { y: it.y, n: it.q.n }; }), startedAt: Date.now(), submitted: false, choice: {}, fill: {}, fillOk: {}, subj: {}, work: {} };
+    state = { paper: picks.map(function (it) { return { y: it.y, n: it.q.n }; }), startedAt: Date.now(), submitted: false, paused: false, pausedAt: 0, choice: {}, fill: {}, fillOk: {}, subj: {}, work: {} };
     save(); render();
   }
 
@@ -70,7 +71,7 @@
   }
 
   function submit(auto) {
-    if (!state || state.submitted) return;
+    if (!state || state.submitted || state.paused) return;
     if (!auto) {
       var blank = 0;
       for (var i = 0; i < 22; i++) {
@@ -82,6 +83,8 @@
       if (blank && !confirm("还有 " + blank + " 题未作答，确定交卷？")) return;
     }
     state.submitted = true;
+    state.paused = false;
+    state.pausedAt = 0;
     state.endedAt = Date.now();
     save(); render();
   }
@@ -152,7 +155,11 @@
     if (!state) {
       host.innerHTML = '<section class="sec"><h2>数学二模拟卷</h2><p>10 道选择（50 分）+ 6 道填空（30 分）+ 6 道解答（70 分），限时 <b>180 分钟</b>，满分 <b>150</b>。</p><p>题目从近 15 年数学二真题中随机抽取。选择题自动判分，填空/解答交卷后自评。</p><div class="navrow"><button class="navbtn" id="mk-start">开始新卷</button></div></section>';
       document.getElementById("mk-start").onclick = start;
-      timerEl.textContent = "未开始"; submitBtn.disabled = true; report.innerHTML = "";
+      timerEl.textContent = "未开始"; submitBtn.disabled = true;
+      if (pauseBtn) pauseBtn.disabled = true;
+      if (pauseOverlay) pauseOverlay.classList.remove("on");
+      document.body.classList.remove("mock-paused");
+      report.innerHTML = "";
       return;
     }
     var h = '<section class="sec mock-sec"><h2>一、选择题 <span class="bsub">每题 5 分，共 50 分</span></h2>';
@@ -165,9 +172,8 @@
     host.innerHTML = h;
     bind();
     typeset([host]);
-    submitBtn.disabled = state.submitted;
+    setPausedUI();
     renderReport();
-    updateTimer();
   }
 
   function bind() {
@@ -202,9 +208,30 @@
     });
   }
 
+  function setPausedUI() {
+    var on = !!(state && state.paused && !state.submitted);
+    if (pauseOverlay) pauseOverlay.classList.toggle("on", on);
+    document.body.classList.toggle("mock-paused", on);
+    if (pauseBtn) {
+      pauseBtn.textContent = on ? "▶ 继续" : "⏸ 暂停";
+      pauseBtn.disabled = !state || state.submitted;
+    }
+    if (submitBtn) submitBtn.disabled = !state || state.submitted || on;
+    updateTimer();
+  }
+  function pauseExam() {
+    if (!state || state.submitted || state.paused) return;
+    state.paused = true; state.pausedAt = Date.now(); save(); setPausedUI();
+  }
+  function resumeExam() {
+    if (!state || !state.paused) return;
+    state.startedAt += Date.now() - (state.pausedAt || Date.now());
+    state.paused = false; state.pausedAt = 0; save(); setPausedUI();
+  }
   function updateTimer() {
     if (!state) { timerEl.textContent = "未开始"; return; }
     if (state.submitted) { timerEl.textContent = "已交卷"; return; }
+    if (state.paused) { timerEl.textContent = "已暂停"; return; }
     var left = state.startedAt + DUR - Date.now();
     if (left <= 0) { timerEl.textContent = "00:00"; submit(true); return; }
     var m = Math.floor(left / 60000), s = Math.floor((left % 60000) / 1000);
@@ -213,6 +240,8 @@
 
   document.getElementById("mk-new").onclick = start;
   submitBtn.onclick = function () { submit(false); };
+  pauseBtn.onclick = function () { if (state && state.paused) resumeExam(); else pauseExam(); };
+  document.getElementById("mkresume").onclick = resumeExam;
   window.addEventListener("beforeunload", save);
   setInterval(function () { if (!document.hidden) updateTimer(); }, 1000);
 

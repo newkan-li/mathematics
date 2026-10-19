@@ -7,7 +7,7 @@
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" content="#1f5c8b">
 <title>模拟测验 · 数学二 · 考研数学</title>
-<link rel="stylesheet" href="assets/style.css?v=20261022b">
+<link rel="stylesheet" href="assets/style.css?v=20261022d">
 <script src="assets/theme.js?v=20261021f"></script>
 <script>
 window.MathJax = { tex: {inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']]}, svg:{fontCache:'global'} };
@@ -19,14 +19,16 @@ window.MathJax = { tex: {inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['
 <div class="wrap">
 <header class="top"><h1>📝 数学二模拟测验</h1>
 <p>10 选择 + 6 填空 + 6 解答 ｜ 150 分 ｜ 180 分钟 ｜ 真题随机组卷 ｜ <a href="index.html">← 返回首页</a></p></header>
-<div class="help-note">选择题自动判分；填空/解答交卷后自评。计时从「开始新卷」起算，刷新页面会继续计时；交卷后可查看答案与解析。</div>
+<div class="help-note">选择题自动判分；填空/解答交卷后自评。计时从「开始新卷」起算，刷新页面会继续计时；可随时「⏸ 暂停」，暂停时计时停止、题目模糊。交卷后可查看答案与解析。</div>
 <div class="mock-bar">
 <button class="navbtn" id="mk-new">开始新卷</button>
 <span class="chip" id="mk-timer">未开始</span>
+<button class="navbtn" id="mk-pause" disabled>⏸ 暂停</button>
 <button class="navbtn" id="mk-submit" disabled>交卷</button>
 </div>
 <div id="mkhost"></div>
 <div id="mkreport"></div>
+<div id="mkpaused"><div class="mkpausebox"><div class="mkpauseh">⏸ 已暂停</div><p>计时已停止，题目已模糊。继续后接着计时。</p><button class="navbtn" id="mkresume">▶ 继续考试</button></div></div>
 <footer>模拟测验 · 题目来自近 15 年数学二真题 · 仅供个人学习使用 ｜ 考研数学（二）自学网站</footer>
 </div>
 <script src="assets/mock.js?v=20261021f"></script>
