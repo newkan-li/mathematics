@@ -574,7 +574,7 @@
           '<div class="vmeta">' + A.esc(v.note || "") + " · " + A.esc(v.author) + '</div>' +
           '<div class="vacts"><button class="navbtn" data-bvid="' + v.bvid + '" data-vtitle="' + A.esc(v.title) + '">▶ 播放</button>' +
           '<a class="navbtn" href="video.html?cid=' + v.cid + '">微课页</a>' +
-          (v.ex && v.ex.length ? '<a class="navbtn" href="' + v.cid + '.html#' + v.cid + '_s9-p' + (v.ex[0] - 1) + '">📝 配套练习</a>' : '') + '</div></div>';
+          (v.ex && v.ex.length ? '<a class="navbtn" href="practice.html?cid=' + v.cid + '&ex=' + v.ex.join(",") + '" target="_blank" rel="noopener" data-practice="' + v.cid + '">📝 配套练习</a>' : '') + '</div></div>';
       }
       var panel = '<details class="sec video-sec" id="chapter-videos" open><summary>🎬 本章微课（' + vid.length + '）<span class="bsub">' + (cid.indexOf("jc") === 0 ? "按节整理 · 点击播放 · 配 2 道练习" : "对应武忠祥 / 李永乐视频") + '</span></summary>';
       if (cid.indexOf("jc") === 0) {
@@ -598,6 +598,12 @@
       b.onclick = function () {
         if (window.openVideoModal) window.openVideoModal(b.getAttribute("data-bvid"), b.getAttribute("data-vtitle"));
         else location.href = "video.html?cid=" + cid;
+      };
+    });
+    Array.prototype.forEach.call(chapterHost.querySelectorAll("a[data-practice]"), function (a) {
+      a.onclick = function (e) {
+        var w = window.open(a.href, "practice_" + a.getAttribute("data-practice"), "width=1000,height=900,resizable=yes,scrollbars=yes");
+        if (w) e.preventDefault();
       };
     });
     Array.prototype.forEach.call(chapterHost.querySelectorAll(".vsec-link"), function (a) {

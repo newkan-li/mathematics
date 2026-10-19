@@ -83,9 +83,14 @@
         '<div class="vacts"><button class="navbtn" data-play>▶ 播放</button>' +
         '<a class="navbtn" href="https://www.bilibili.com/video/' + v.bvid + '/" target="_blank" rel="noopener">B站原页</a>' +
         '<a class="navbtn" href="' + v.cid + '.html">对应章节</a>' +
-        (v.ex && v.ex.length ? '<a class="navbtn" href="' + v.cid + '.html#' + v.cid + '_s9-p' + (v.ex[0] - 1) + '">📝 配套练习 ' + v.ex.length + '</a>' : '') +
+        (v.ex && v.ex.length ? '<a class="navbtn" href="practice.html?cid=' + v.cid + '&ex=' + v.ex.join(",") + '" target="_blank" rel="noopener" data-practice="' + v.cid + '">📝 配套练习 ' + v.ex.length + '</a>' : '') +
         '<button class="navbtn" data-done>' + (done[v.id] ? "✓ 已看" : "标记已看") + "</button></div>";
       d.querySelector("[data-play]").onclick = function () { openModal(v); };
+      var px = d.querySelector("[data-practice]");
+      if (px) px.onclick = function (e) {
+        var w = window.open(px.href, "practice_" + v.cid, "width=1000,height=900,resizable=yes,scrollbars=yes");
+        if (w) e.preventDefault();
+      };
       var db = d.querySelector("[data-done]");
       if (done[v.id]) db.classList.add("on");
       db.onclick = function () {
